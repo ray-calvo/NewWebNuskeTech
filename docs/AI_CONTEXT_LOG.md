@@ -314,3 +314,58 @@
 ### Supuestos prohibidos
 - No asumir que esta extracción habilita rediseño o refactor de `FacilitiesGallery`.
 - No tocar `/`, `/contacto` ni `/servicios` como parte de esta fase.
+
+## Entrada 2026-03-23 20:15:00 -06:00
+
+### Tipo
+- Hardening
+
+### Resumen ejecutivo
+- Se agregaron guardrails minimos para evitar dos regresiones ya conocidas del repo.
+- El repo ahora puede validar automaticamente:
+  - reintroduccion de `@/src/...`
+  - enlaces internos rotos en fuentes publicas criticas
+- No se tocaron producto, rutas, UX ni configuracion global sensible mas alla de `package.json`.
+
+### Cambios o hallazgos
+- Nuevo script: `scripts/check-no-src-imports.mjs`
+- Nuevo script: `scripts/check-public-routes.mjs`
+- Nuevos comandos en `package.json`:
+  - `check:imports`
+  - `check:routes`
+  - `guardrails`
+- La verificacion de rutas usa como fuente de verdad los `page.*` reales bajo `src/app`.
+- La verificacion de enlaces criticos cubre:
+  - `src/components/shared/navbar.tsx`
+  - `src/components/shared/MobileMenu.tsx`
+  - `src/components/shared/footer.tsx`
+  - `src/features/marketing/components/Hero.tsx`
+
+### Riesgos
+- Mitigado: reintroduccion silenciosa de imports `@/src/...`.
+- Mitigado: regresion evidente de enlaces internos principales hacia rutas inexistentes.
+- Pendiente: la cobertura de rutas sigue siendo minima y deliberadamente no sustituye pruebas de integracion.
+
+### Decisiones tomadas
+- Se eligio una solucion sin dependencias nuevas y sin framework de testing pesado.
+- La integracion al flujo se hizo por scripts de `package.json`, no alterando UX ni comportamiento de runtime.
+- La fuente de verdad para existencia de rutas sigue siendo `src/app/**/page.*`.
+
+### Archivos tocados o auditados
+- `scripts/check-no-src-imports.mjs`
+- `scripts/check-public-routes.mjs`
+- `package.json`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_6_HARDENING_MINIMO.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_6_HARDENING_MINIMO.md`
+
+### Pendientes
+- Evaluar si la lista de archivos criticos de enlaces debe crecer con futuras expansiones del sitio.
+- Evaluar en una fase posterior smoke tests ligeros para formularios o rutas mas complejas.
+
+### Supuestos prohibidos
+- No asumir que `guardrails` reemplaza pruebas funcionales completas.
+- No asumir que cualquier enlace interno nuevo queda cubierto automaticamente si se agrega fuera de los archivos criticos auditados.
