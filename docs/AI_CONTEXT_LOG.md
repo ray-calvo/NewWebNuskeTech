@@ -175,3 +175,46 @@
 - No asumir que `app_legacy` y `legacy_root` ya pueden borrarse solo porque no están en el working tree.
 - No reintroducir `@/src/...`.
 - No recrear duplicados raíz fuera de `src`.
+
+## Entrada 2026-03-23 18:35:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se implementó la ruta pública `/contacto` dentro de `src/app/(marketing)`.
+- La página reutiliza `ContactPreview` y agrega solo un encabezado y CTAs mínimos para llamada y WhatsApp.
+- No se modificó la UI global, no se refactorizaron otras páginas y no se alteró la arquitectura fuera de esta ruta.
+
+### Cambios o hallazgos
+- Nuevo archivo: `src/app/(marketing)/contacto/page.tsx`
+- Metadata por página añadida de forma consistente con el patrón existente de `Metadata`.
+- Navbar, hero y menú móvil ya resuelven hacia una ruta implementada.
+
+### Riesgos
+- Mitigado: enlace roto visible a `/contacto`.
+- Mitigado: CTA principal del hero apuntando a una ruta inexistente.
+- Pendiente: la home sigue teniendo `ContactPreview`, por lo que existe repetición funcional intencional entre home y `/contacto`.
+
+### Decisiones tomadas
+- `/contacto` se implementó como ruta pública real.
+- Se reutilizó `ContactPreview` sin extraer nuevos componentes.
+- No se introdujeron formularios nuevos.
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/contacto/page.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_3_CONTACTO.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_3_CONTACTO.md`
+- `docs/CONTACT_ROUTE_DECISION_AUDIT.md`
+
+### Pendientes
+- Evaluar más adelante si conviene diferenciar más la home y `/contacto` para evitar solapamiento de contenido.
+- La ruta `/contacto` no introduce un formulario; si se necesita, deberá definirse en otra fase.
+
+### Supuestos prohibidos
+- No asumir que la existencia de `/contacto` autoriza refactors mayores de `ContactPreview`.
+- No tocar `/servicios` o `/tecnologia` como parte de esta fase.
