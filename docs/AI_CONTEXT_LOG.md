@@ -218,3 +218,51 @@
 ### Supuestos prohibidos
 - No asumir que la existencia de `/contacto` autoriza refactors mayores de `ContactPreview`.
 - No tocar `/servicios` o `/tecnologia` como parte de esta fase.
+
+## Entrada 2026-03-23 19:05:00 -06:00
+
+### Tipo
+- Refactor
+
+### Resumen ejecutivo
+- Se ejecutó una partición segura de `src/app/(marketing)/servicios/page.tsx`.
+- La página pasó de 387 líneas a 30 líneas manteniendo composición, orden visual, copy y CTA.
+- Se extrajeron bloques presentacionales a `src/features/marketing/components/services/`.
+
+### Cambios o hallazgos
+- Se extrajo el hero de la página.
+- Se extrajo la sección repetitiva por categoría y servicio.
+- Se extrajo la sección final de innovación digital.
+- `WellnessSelector` se mantuvo intacto porque ya era un componente autónomo existente y tocarlo agregaba riesgo innecesario.
+
+### Riesgos
+- Mitigado: sobrecarga arquitectónica del principal monolito activo.
+- Mitigado: dificultad de lectura y mantenimiento de `servicios/page.tsx`.
+- Pendiente: `WellnessSelector.tsx` sigue siendo un componente de alto peso.
+
+### Decisiones tomadas
+- Mantener en `page.tsx` solo composición y data wiring mínimo.
+- Crear subcarpeta `src/features/marketing/components/services/` para reflejar ownership específico.
+- No tocar otras rutas ni bloques fuera de `/servicios`.
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/servicios/page.tsx`
+- `src/features/marketing/components/services/types.ts`
+- `src/features/marketing/components/services/data.ts`
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+- `src/features/marketing/components/services/ServiceCategorySection.tsx`
+- `src/features/marketing/components/services/DigitalServicesSection.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_4_SERVICIOS_PARTICION_SEGURA.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_4_SERVICIOS_PARTICION_SEGURA.md`
+
+### Pendientes
+- Evaluar más adelante si `WellnessSelector.tsx` requiere su propia partición segura.
+- Mantener vigilancia sobre crecimiento futuro de `data.ts`.
+
+### Supuestos prohibidos
+- No asumir que esta partición autoriza refactors amplios de la feature marketing.
+- No mover `WellnessSelector` ni su lógica en esta misma fase.
