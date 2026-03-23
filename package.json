@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:imports": "node scripts/check-no-src-imports.mjs",
+    "check:routes": "node scripts/check-public-routes.mjs",
+    "guardrails": "npm run check:imports && npm run check:routes"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
