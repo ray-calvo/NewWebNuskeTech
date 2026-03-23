@@ -65,48 +65,38 @@ Comandos:
 - `npm run check:routes`
 - `npm run guardrails`
 
-## Legacy abierto
+## Legacy historico
 
 Estado confirmado:
 
-- `app_legacy` y `legacy_root` no existen fisicamente en el working tree actual.
-- Siguen versionados historicamente en Git y hoy aparecen como borrados pendientes.
-- No participan en la arquitectura activa ni en el build actual.
-- [tsconfig.json](/d:/Projects/newwebnusketech/tsconfig.json) todavia los menciona en `exclude`.
-
-Rastros historicos abiertos:
-
-- `app_legacy/favicon.ico`
-- `legacy_root/Footer.tsx`
-- `legacy_root/Header.tsx`
-- `legacy_root/layout.tsx`
-- `legacy_root/page.tsx`
+- `app_legacy` y `legacy_root` fueron cerrados formalmente en Git.
+- No existen fisicamente en el working tree actual.
+- Ya no participan en la arquitectura activa ni en el build.
+- [tsconfig.json](/d:/Projects/newwebnusketech/tsconfig.json) ya no conserva exclusiones legacy para esas rutas.
 
 Documento de referencia:
 
 - [LEGACY_CONFIG_CLOSURE_AUDIT.md](/d:/Projects/newwebnusketech/docs/LEGACY_CONFIG_CLOSURE_AUDIT.md)
+- [INTERVENCION_FASE_7_CIERRE_LEGACY.md](/d:/Projects/newwebnusketech/docs/INTERVENCION_FASE_7_CIERRE_LEGACY.md)
 
 ## Riesgos criticos restantes
 
 - No hay un riesgo funcional critico equivalente al antiguo `/contacto` roto.
-- El principal riesgo abierto es de gobernanza: cierre formal incompleto del legado historico en Git.
+- El principal riesgo abierto ya no es el legacy historico, sino la necesidad de sostener disciplina arquitectonica en futuras intervenciones.
 - La cobertura de guardrails es minima y no sustituye pruebas funcionales mas amplias.
 - Componentes pesados como [WellnessSelector.tsx](/d:/Projects/newwebnusketech/src/features/marketing/components/WellnessSelector.tsx) siguen siendo deuda controlada, no resuelta.
 
 ## Backlog recomendado
 
-1. Ejecutar una fase separada para cierre formal de `app_legacy` y `legacy_root`.
-2. Decidir si [tsconfig.json](/d:/Projects/newwebnusketech/tsconfig.json) debe limpiarse despues del cierre legacy.
-3. Evaluar hardening adicional si crece la navegacion publica.
-4. Evaluar smoke tests ligeros antes de introducir formularios o rutas mas complejas.
-5. Vigilar crecimiento de datasets y componentes pesados en marketing.
+1. Evaluar hardening adicional si crece la navegacion publica.
+2. Evaluar smoke tests ligeros antes de introducir formularios o rutas mas complejas.
+3. Vigilar crecimiento de datasets y componentes pesados en marketing.
+4. Revisar periodicamente si los guardrails minimos siguen cubriendo los puntos de falla mas probables.
 
 ## Reglas operativas minimas
 
 - `src/` es la unica fuente de verdad activa.
 - No reintroducir imports `@/src/...`.
 - No crear enlaces internos publicos sin ruta implementada.
-- No tocar `app_legacy` ni `legacy_root` fuera de una fase dedicada.
-- No mezclar limpieza legacy con cambios funcionales.
 - Ejecutar `npm run guardrails` antes de cerrar cambios estructurales o de navegacion.
 - Actualizar `docs/AI_CONTEXT_LOG.md` y el documento de intervencion correspondiente tras cada fase relevante.

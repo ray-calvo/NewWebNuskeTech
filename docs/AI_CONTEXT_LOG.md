@@ -369,3 +369,57 @@
 ### Supuestos prohibidos
 - No asumir que `guardrails` reemplaza pruebas funcionales completas.
 - No asumir que cualquier enlace interno nuevo queda cubierto automaticamente si se agrega fuera de los archivos criticos auditados.
+
+## Entrada 2026-03-23 21:05:00 -06:00
+
+### Tipo
+- Cierre
+
+### Resumen ejecutivo
+- Se cerro formalmente el legado historico `app_legacy` y `legacy_root` que seguia pendiente solo en Git.
+- El cierre no afecto producto activo, rutas, UX ni build.
+- Tambien se limpio [tsconfig.json](/d:/Projects/newwebnusketech/tsconfig.json) porque la exclusion legacy ya no aportaba valor despues del cierre.
+
+### Cambios o hallazgos
+- Se formalizaron en Git los borrados historicos:
+  - `app_legacy/favicon.ico`
+  - `legacy_root/Footer.tsx`
+  - `legacy_root/Header.tsx`
+  - `legacy_root/layout.tsx`
+  - `legacy_root/page.tsx`
+- `git ls-files app_legacy legacy_root` quedo sin resultados.
+- La unica referencia residual fuera de `docs/` era `tsconfig.json`, y fue removida.
+- `exclude` en `tsconfig.json` quedo reducido a `["node_modules"]`.
+
+### Riesgos
+- Mitigado: ambiguedad de estado por borrados legacy pendientes indefinidamente.
+- Mitigado: exclusions historicas sobrantes en TypeScript.
+- Pendiente: la disciplina arquitectonica futura sigue dependiendo de mantener guardrails y trazabilidad.
+
+### Decisiones tomadas
+- Se considero seguro cerrar el legacy porque ya no existia en disco, ya no tenia consumidores ni referencias activas fuera de `tsconfig.json`, y las validaciones completas pasaron.
+- Se limpio `tsconfig.json` en un commit separado para mantener trazabilidad atomica.
+
+### Archivos tocados o auditados
+- `app_legacy/favicon.ico`
+- `legacy_root/Footer.tsx`
+- `legacy_root/Header.tsx`
+- `legacy_root/layout.tsx`
+- `legacy_root/page.tsx`
+- `tsconfig.json`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/REPO_STATUS_SUMMARY.md`
+- `docs/INTERVENCION_FASE_7_CIERRE_LEGACY.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/REPO_STATUS_SUMMARY.md`
+- `docs/INTERVENCION_FASE_7_CIERRE_LEGACY.md`
+
+### Pendientes
+- Vigilar crecimiento de componentes pesados de marketing.
+- Evaluar, en otra fase, si conviene ampliar la cobertura de guardrails o sumar smoke tests ligeros.
+
+### Supuestos prohibidos
+- No asumir que el cierre legacy elimina la necesidad de auditoria previa para futuros cambios estructurales.
+- No usar la ausencia de legacy como excusa para reabrir cambios amplios en configuracion o arquitectura sin trazabilidad.
