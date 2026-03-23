@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" fill="none">
+  <rect width="480" height="480" rx="48" fill="#EAF1FF"/>
+  <circle cx="240" cy="240" r="144" fill="#8799DC" fill-opacity="0.2"/>
+  <circle cx="240" cy="212" r="98" fill="#F3C48B"/>
+  <ellipse cx="190" cy="160" rx="28" ry="42" fill="#D7A36B"/>
+  <ellipse cx="290" cy="160" rx="28" ry="42" fill="#D7A36B"/>
+  <circle cx="205" cy="210" r="11" fill="#1D3F68"/>
+  <circle cx="275" cy="210" r="11" fill="#1D3F68"/>
+  <ellipse cx="240" cy="250" rx="42" ry="30" fill="#FFF6F0"/>
+  <circle cx="240" cy="242" r="10" fill="#1D3F68"/>
+  <path d="M215 272C223 284 257 284 265 272" stroke="#1D3F68" stroke-width="10" stroke-linecap="round"/>
+  <text x="240" y="408" text-anchor="middle" fill="#1D3F68" font-family="Arial, sans-serif" font-size="28" font-weight="700">Luna</text>
+</svg>

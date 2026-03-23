@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none">
+  <rect width="800" height="1000" rx="48" fill="#F3F6FF"/>
+  <rect x="92" y="112" width="616" height="776" rx="40" fill="#EDF2FF"/>
+  <circle cx="400" cy="330" r="150" fill="#E8C5A7"/>
+  <rect x="236" y="476" width="328" height="258" rx="64" fill="#2B437E"/>
+  <path d="M274 824C300 732 340 686 400 686C460 686 500 732 526 824" fill="#A6B5FB"/>
+  <path d="M305 278C336 198 464 198 495 278" stroke="#243754" stroke-width="32" stroke-linecap="round"/>
+  <circle cx="346" cy="334" r="14" fill="#1D3F68"/>
+  <circle cx="454" cy="334" r="14" fill="#1D3F68"/>
+  <path d="M364 414C384 428 416 428 436 414" stroke="#1D3F68" stroke-width="12" stroke-linecap="round"/>
+  <path d="M420 564C520 560 560 610 574 700" stroke="white" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="582" cy="712" r="18" fill="white"/>
+  <text x="400" y="912" text-anchor="middle" fill="#1D3F68" font-family="Arial, sans-serif" font-size="34" font-weight="700">Endoscopía</text>
+</svg>

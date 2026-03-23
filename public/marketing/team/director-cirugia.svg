@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none">
+  <rect width="800" height="1000" rx="48" fill="#F8FAFC"/>
+  <rect x="92" y="112" width="616" height="776" rx="40" fill="#E9EFFA"/>
+  <circle cx="400" cy="330" r="150" fill="#F2D1B1"/>
+  <rect x="240" y="476" width="320" height="256" rx="64" fill="#1D3F68"/>
+  <path d="M278 744C316 686 484 686 522 744V824H278V744Z" fill="#8799DC"/>
+  <path d="M285 282C305 184 495 184 515 282" stroke="#253B59" stroke-width="34" stroke-linecap="round"/>
+  <circle cx="344" cy="334" r="14" fill="#1D3F68"/>
+  <circle cx="456" cy="334" r="14" fill="#1D3F68"/>
+  <path d="M360 416C380 436 420 436 440 416" stroke="#1D3F68" stroke-width="12" stroke-linecap="round"/>
+  <path d="M400 494L340 580H460L400 494Z" fill="white"/>
+  <text x="400" y="912" text-anchor="middle" fill="#1D3F68" font-family="Arial, sans-serif" font-size="34" font-weight="700">Director Médico</text>
+</svg>

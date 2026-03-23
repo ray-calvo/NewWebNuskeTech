@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none">
+  <rect width="800" height="1000" rx="48" fill="#F8FAFC"/>
+  <rect x="92" y="112" width="616" height="776" rx="40" fill="#EEF4FF"/>
+  <circle cx="400" cy="330" r="150" fill="#F0CFB2"/>
+  <rect x="236" y="476" width="328" height="258" rx="64" fill="#1D3F68"/>
+  <path d="M278 824C298 724 348 686 400 686C452 686 502 724 522 824" fill="#8799DC"/>
+  <path d="M300 286C328 192 472 192 500 286" stroke="#223A56" stroke-width="34" stroke-linecap="round"/>
+  <circle cx="346" cy="334" r="14" fill="#1D3F68"/>
+  <circle cx="454" cy="334" r="14" fill="#1D3F68"/>
+  <path d="M364 416C384 434 416 434 436 416" stroke="#1D3F68" stroke-width="12" stroke-linecap="round"/>
+  <ellipse cx="580" cy="604" rx="56" ry="74" fill="#73D184"/>
+  <circle cx="580" cy="560" r="28" fill="#8BE09D"/>
+  <path d="M578 574L610 590L578 604Z" fill="#FFC107"/>
+  <text x="400" y="912" text-anchor="middle" fill="#1D3F68" font-family="Arial, sans-serif" font-size="34" font-weight="700">Especies Exóticas</text>
+</svg>

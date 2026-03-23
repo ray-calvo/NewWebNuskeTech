@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" fill="none">
+  <rect width="480" height="480" rx="48" fill="#EEF4FF"/>
+  <circle cx="240" cy="240" r="144" fill="#8799DC" fill-opacity="0.18"/>
+  <ellipse cx="240" cy="218" rx="92" ry="108" fill="#7ECF8A"/>
+  <circle cx="240" cy="178" r="44" fill="#8FE19C"/>
+  <circle cx="222" cy="174" r="8" fill="#1D3F68"/>
+  <circle cx="258" cy="174" r="8" fill="#1D3F68"/>
+  <path d="M240 190L274 208L240 222Z" fill="#FFC107"/>
+  <path d="M240 202L210 222L240 234Z" fill="#FF8A00"/>
+  <ellipse cx="240" cy="276" rx="54" ry="68" fill="#5CBF71"/>
+  <text x="240" y="408" text-anchor="middle" fill="#1D3F68" font-family="Arial, sans-serif" font-size="28" font-weight="700">Coco</text>
+</svg>
