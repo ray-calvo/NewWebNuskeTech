@@ -1,7 +1,7 @@
-import { Footer } from "@/src/components/shared/footer";
-import { Navbar } from "@/src/components/shared/navbar";
-import { UrgencyBanner } from "@/src/components/shared/urgency-banner";
-import { WhatsAppFloat } from "@/src/components/shared/WhatsAppFloat";
+import { Footer } from "@/components/shared/footer";
+import { Navbar } from "@/components/shared/navbar";
+import { UrgencyBanner } from "@/components/shared/urgency-banner";
+import { WhatsAppFloat } from "@/components/shared/WhatsAppFloat";
 
 export default function MarketingLayout({
   children,

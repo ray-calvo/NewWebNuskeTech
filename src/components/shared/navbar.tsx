@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/Logo";
-import { MobileMenu } from "@/src/components/shared/MobileMenu";
+import { MobileMenu } from "@/components/shared/MobileMenu";
 
 const navigationItems = [
   { label: "Inicio", href: "/" },
