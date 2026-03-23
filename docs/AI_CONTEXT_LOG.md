@@ -266,3 +266,51 @@
 ### Supuestos prohibidos
 - No asumir que esta partición autoriza refactors amplios de la feature marketing.
 - No mover `WellnessSelector` ni su lógica en esta misma fase.
+
+## Entrada 2026-03-23 19:35:00 -06:00
+
+### Tipo
+- Refactor
+
+### Resumen ejecutivo
+- Se ejecutó una partición segura de `src/app/(marketing)/tecnologia/page.tsx`.
+- La página pasó de 171 líneas a 17 líneas manteniendo copy, orden visible, metadata implícita y composición general.
+- Se extrajeron bloques presentacionales a `src/features/marketing/components/technology/`.
+
+### Cambios o hallazgos
+- Se extrajo el hero de tecnología.
+- Se extrajo la sección de equipamiento médico y su dataset.
+- Se extrajo el encabezado introductorio de instalaciones.
+- `FacilitiesGallery` se mantuvo intacto porque ya era un componente autónomo de bajo acoplamiento.
+
+### Riesgos
+- Mitigado: crecimiento monolítico de `tecnologia/page.tsx`.
+- Mitigado: mezcla de datos y presentación en un solo archivo.
+- Pendiente: el dataset `equipment` ahora vive en un archivo dedicado y debe vigilarse si sigue creciendo.
+
+### Decisiones tomadas
+- Mantener en `page.tsx` solo composición.
+- Crear subcarpeta `src/features/marketing/components/technology/` para reflejar ownership del dominio.
+- No tocar `FacilitiesGallery`.
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/tecnologia/page.tsx`
+- `src/features/marketing/components/technology/types.ts`
+- `src/features/marketing/components/technology/data.ts`
+- `src/features/marketing/components/technology/TechnologyPageHero.tsx`
+- `src/features/marketing/components/technology/EquipmentSection.tsx`
+- `src/features/marketing/components/technology/FacilitiesIntro.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_5_TECNOLOGIA_PARTICION_SEGURA.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_5_TECNOLOGIA_PARTICION_SEGURA.md`
+
+### Pendientes
+- Vigilar crecimiento futuro de `data.ts`.
+- Evaluar más adelante si conviene una estrategia común para datasets grandes de marketing.
+
+### Supuestos prohibidos
+- No asumir que esta extracción habilita rediseño o refactor de `FacilitiesGallery`.
+- No tocar `/`, `/contacto` ni `/servicios` como parte de esta fase.
