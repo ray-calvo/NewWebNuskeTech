@@ -26,6 +26,16 @@ Rutas confirmadas por build y por presencia de `page.*`:
 - `/contacto`
 - `/servicios`
 - `/tecnologia`
+- `/triage`
+
+## Estado actual de triage
+
+Estado confirmado:
+
+- `triage` ya esta implementado como ruta publica en `src/app/(marketing)/triage/page.tsx`.
+- El modulo ya cuenta con tracking minimo local para soft launch.
+- Actualmente tiene un unico entrypoint secundario activo dentro de [ServicesGrid.tsx](/d:/Projects/newwebnusketech/src/features/marketing/components/ServicesGrid.tsx).
+- Sigue fuera de navbar, mobile menu y demas navegacion principal.
 
 ## Guardrails existentes
 
