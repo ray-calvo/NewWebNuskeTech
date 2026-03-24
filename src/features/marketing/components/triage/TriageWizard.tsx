@@ -8,6 +8,7 @@ import { ModifiersStep } from "@/features/marketing/components/triage/ModifiersS
 import { scoreTriage } from "@/features/marketing/components/triage/score-triage";
 import { SpeciesStep } from "@/features/marketing/components/triage/SpeciesStep";
 import { SymptomsStep } from "@/features/marketing/components/triage/SymptomsStep";
+import { trackTriageEvent } from "@/features/marketing/components/triage/track-triage";
 import { TriageIntro } from "@/features/marketing/components/triage/TriageIntro";
 import { TriageResultCard } from "@/features/marketing/components/triage/TriageResultCard";
 import type {
@@ -43,7 +44,19 @@ export function TriageWizard() {
         )
       : [];
 
+  function buildTrackingPayload(overrides?: Partial<TriageResult>) {
+    return {
+      species: selectedSpecies,
+      category: selectedCategory,
+      result_level: overrides?.level ?? result?.level ?? null,
+      total_score: overrides?.totalScore ?? result?.totalScore ?? null,
+      selected_symptom_count: selectedSymptomIds.length,
+      selected_modifier_count: selectedModifierIds.length,
+    };
+  }
+
   function resetWizard() {
+    trackTriageEvent("triage_reset", buildTrackingPayload());
     setStep("intro");
     setSelectedSpecies(null);
     setSelectedCategory(null);
@@ -53,6 +66,11 @@ export function TriageWizard() {
   }
 
   function handleSpeciesSelect(species: Species) {
+    trackTriageEvent("triage_species_selected", {
+      ...buildTrackingPayload(),
+      species,
+      category: null,
+    });
     setSelectedSpecies(species);
     setSelectedCategory(null);
     setSelectedSymptomIds([]);
@@ -61,6 +79,10 @@ export function TriageWizard() {
   }
 
   function handleCategorySelect(category: TriageCategory) {
+    trackTriageEvent("triage_category_selected", {
+      ...buildTrackingPayload(),
+      category,
+    });
     setSelectedCategory(category);
     setSelectedSymptomIds([]);
     setSelectedModifierIds([]);
@@ -89,12 +111,24 @@ export function TriageWizard() {
       selectedModifierIds,
     });
 
+    trackTriageEvent("triage_result_shown", {
+      ...buildTrackingPayload(nextResult),
+      result_level: nextResult.level,
+      total_score: nextResult.totalScore,
+    });
     setResult(nextResult);
     setStep("result");
   }
 
   if (step === "intro") {
-    return <TriageIntro onStart={() => setStep("species")} />;
+    return (
+      <TriageIntro
+        onStart={() => {
+          trackTriageEvent("triage_started", buildTrackingPayload());
+          setStep("species");
+        }}
+      />
+    );
   }
 
   if (step === "species") {
@@ -154,6 +188,12 @@ export function TriageWizard() {
       result={result}
       onBack={() => setStep("modifiers")}
       onReset={resetWizard}
+      onPrimaryCtaClick={() =>
+        trackTriageEvent("triage_primary_cta_clicked", buildTrackingPayload())
+      }
+      onSecondaryCtaClick={() =>
+        trackTriageEvent("triage_secondary_cta_clicked", buildTrackingPayload())
+      }
     />
   );
 }

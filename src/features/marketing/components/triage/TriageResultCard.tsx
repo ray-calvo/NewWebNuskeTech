@@ -9,6 +9,8 @@ type TriageResultCardProps = {
   result: TriageResult;
   onBack: () => void;
   onReset: () => void;
+  onPrimaryCtaClick: () => void;
+  onSecondaryCtaClick: () => void;
 };
 
 const levelCopy = {
@@ -39,10 +41,12 @@ function ResultCta({
   href,
   label,
   variant = "default",
+  onClick,
 }: {
   href: string;
   label: string;
   variant?: "default" | "outline";
+  onClick: () => void;
 }) {
   const isExternal = href.startsWith("http");
 
@@ -54,7 +58,7 @@ function ResultCta({
         variant={variant}
         className="h-11 rounded-2xl px-6"
       >
-        <a href={href} target="_blank" rel="noreferrer">
+        <a href={href} target="_blank" rel="noreferrer" onClick={onClick}>
           {label}
         </a>
       </Button>
@@ -68,7 +72,9 @@ function ResultCta({
       variant={variant}
       className="h-11 rounded-2xl px-6"
     >
-      <Link href={href}>{label}</Link>
+      <Link href={href} onClick={onClick}>
+        {label}
+      </Link>
     </Button>
   );
 }
@@ -77,6 +83,8 @@ export function TriageResultCard({
   result,
   onBack,
   onReset,
+  onPrimaryCtaClick,
+  onSecondaryCtaClick,
 }: TriageResultCardProps) {
   const copy = levelCopy[result.level];
 
@@ -121,11 +129,13 @@ export function TriageResultCard({
           <ResultCta
             href={result.primaryCta.href}
             label={result.primaryCta.label}
+            onClick={onPrimaryCtaClick}
           />
           <ResultCta
             href={result.secondaryCta.href}
             label={result.secondaryCta.label}
             variant="outline"
+            onClick={onSecondaryCtaClick}
           />
         </div>
 
