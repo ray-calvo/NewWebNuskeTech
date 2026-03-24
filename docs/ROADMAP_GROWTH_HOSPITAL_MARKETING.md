@@ -94,13 +94,30 @@ Debe incluir:
 
 Crear landing individual por servicio:
 
-- cirugía veterinaria
-- hospitalización
-- imagenología
-- laboratorio
-- endoscopia
-- terapia láser
-- urgencias
+- urgencias y paciente crítico
+- cirugía hospitalaria y procedimientos especializados
+- endoscopia y mínima invasión
+- diagnóstico hospitalario
+
+Prioridad operativa derivada del inventario legacy:
+
+- Prioridad 1:
+  - urgencias y paciente crítico
+  - cirugía hospitalaria y procedimientos especializados
+  - endoscopia y mínima invasión
+  - diagnóstico hospitalario
+- Prioridad 2:
+  - atención integral y preventiva
+  - exóticos
+- Prioridad 3:
+  - medicina interna / oncología / dolor
+  - grooming / pensión como cluster comercial subordinado
+
+Regla de implementación:
+
+- no migrar una URL legacy por cada página existente
+- fusionar duplicidades y construir por clusters canónicos hospitalarios
+- usar las `lp/*` como fuente de módulos rescatables, no como arquitectura final
 
 Cada landing debe incluir:
 - contenido clínico profundo

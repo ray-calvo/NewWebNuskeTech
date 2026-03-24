@@ -1178,3 +1178,308 @@
 ### Supuestos prohibidos
 - No asumir que la alineación de `/servicios` autoriza rehacer la home en esta misma fase.
 - No asumir que Wellness, Portal y Telemedicina ya están resueltos de forma definitiva solo por haber sido subordinados.
+
+## Entrada 2026-03-24 10:20:00 -06:00
+
+### Tipo
+- Documentacion
+
+### Resumen ejecutivo
+- Se auditó el sitio legacy público de Nuskë Vet Center para construir un inventario operativo exacto de páginas, clusters y módulos de contenido faltantes para la nueva web.
+- La conclusión principal es que la nueva web no debe migrar el árbol legacy URL por URL.
+- El enfoque recomendado es implementar por clusters canónicos hospitalarios y rescatar módulos valiosos desde las landings `lp/*`.
+
+### Cambios o hallazgos
+- Se clasificaron las URLs legacy en:
+  - páginas canónicas hospitalarias
+  - páginas diferenciadoras premium
+  - páginas preventivas / continuidad clínica
+  - páginas comerciales subordinadas
+  - landings de campaña
+- Se confirmaron duplicidades fuertes:
+  - `urgencias` + `urgencias-24h`
+  - `cirugia` + `cirugia-especializada` + `lp/cirugia`
+  - `endoscopia` + `minima-invasion` + `lp/endoscopia`
+  - `imagenologia` + `lp/imagenologia`
+  - `hospitalizacion` + `lp/hospitalizacion`
+  - `limpieza-dental` + `lp/profilaxis-dental`
+  - `guarderia` + `lp/pension`
+  - `pet-grooming` + `lp/pet-grooming`
+- Las landings `lp/*` aportan la mayor densidad de módulos reutilizables:
+  - hero clínico
+  - protocolo de emergencia
+  - FAQ
+  - señales de alerta
+  - comparativas
+  - qué esperar
+  - CTA operativas
+
+### Riesgos
+- Mitigado: planear futuras páginas desde intuición o desde títulos aislados sin revisar contenido legacy real.
+- Mitigado: crear páginas nuevas duplicando intención ya existente en varias URLs legacy.
+- Pendiente: varias URLs legacy aportan poco contenido visible y quedan marcadas como `requiere validacion adicional`.
+
+### Decisiones tomadas
+- Prioridad 1 de implementación futura:
+  - urgencias y paciente crítico
+  - cirugía hospitalaria y procedimientos especializados
+  - endoscopia y mínima invasión
+  - diagnóstico hospitalario
+- Prioridad 2:
+  - atención integral y preventiva
+  - exóticos
+- Prioridad 3:
+  - medicina interna / oncología / dolor
+  - grooming / pensión como cluster comercial subordinado
+- La documentación del roadmap se ajustó para reflejar esta priorización concreta.
+
+### Archivos tocados o auditados
+- `docs/LEGACY_SITE_CONTENT_INVENTORY.md`
+- `docs/LEGACY_SITE_IMPLEMENTATION_BACKLOG.md`
+- `docs/ROADMAP_GROWTH_HOSPITAL_MARKETING.md`
+- `docs/AI_CONTEXT_LOG.md`
+- URLs legacy públicas de `nuskevetcenter.com` auditadas para esta fase
+
+### Documentacion actualizada
+- `docs/LEGACY_SITE_CONTENT_INVENTORY.md`
+- `docs/LEGACY_SITE_IMPLEMENTATION_BACKLOG.md`
+- `docs/ROADMAP_GROWTH_HOSPITAL_MARKETING.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Traducir el backlog documental en fases de implementación concretas cuando se autorice construcción de nuevas páginas.
+- Validar adicionalmente las URLs legacy con contenido fuente escaso antes de convertirlas en páginas de alta inversión editorial.
+
+### Supuestos prohibidos
+- No asumir que cada URL legacy merece una página nueva independiente.
+- No asumir que una landing `lp/*` debe migrarse literal como arquitectura final.
+- No asumir que `animales-exoticos`, `medicina-interna` o `manejo-dolor` tienen densidad de contenido suficiente sin revisión adicional.
+
+## Entrada 2026-03-24 11:05:00 -06:00
+
+### Tipo
+- Documentacion
+
+### Resumen ejecutivo
+- Se convirtió la auditoría legacy y el backlog existente en un plan técnico ejecutable por fases, aterrizado al repo actual.
+- La conclusión es que sí existe base suficiente para pasar a construcción, pero solo si se respeta un orden estricto por páginas madre canónicas.
+- También quedó aclarado que `/servicios` ya está mejor alineada narrativamente, pero sigue siendo una página agregadora transicional y no el estado final de la arquitectura clínica.
+
+### Cambios o hallazgos
+- Se definió un mapa canónico de arquitectura para la nueva web:
+  - Urgencias y Paciente Crítico
+  - Cirugía Hospitalaria y Procedimientos Especializados
+  - Endoscopía y Mínima Invasión
+  - Diagnóstico Hospitalario
+  - Atención Integral y Preventiva
+  - Exóticos condicionado
+- Se documentó qué debe quedar como landing y qué debe quedar como submódulo subordinado.
+- Se bajó el backlog a fases reales de implementación, con dependencias narrativas, de contenido y de componentes.
+- Se aclaró el tratamiento futuro de `/servicios`:
+  - hub clínico
+  - no página final de profundidad
+  - no sustituto de las páginas canónicas
+
+### Riesgos
+- Mitigado: iniciar construcción de páginas nuevas sin jerarquía de páginas madre.
+- Mitigado: seguir usando `/servicios` como excusa para no construir páginas canónicas profundas.
+- Pendiente: siguen abiertas decisiones de slugs y algunas validaciones de contenido fuente para P2 y P3.
+
+### Decisiones tomadas
+- Orden recomendado de construcción:
+  - Urgencias y Paciente Crítico
+  - Cirugía Hospitalaria y Procedimientos Especializados
+  - Endoscopía y Mínima Invasión
+  - Diagnóstico Hospitalario
+  - reajuste estructural posterior de `/servicios` como hub
+- `lp/*` se mantiene como fuente modular, no como arquitectura final.
+- `medicina interna`, `manejo dolor`, `manejo heridas` y parte de `exóticos` quedan explícitamente marcados como decisiones aún no cerradas o dependientes de validación adicional.
+
+### Archivos tocados o auditados
+- `docs/SITE_CANONICAL_ARCHITECTURE.md`
+- `docs/IMPLEMENTATION_PHASE_PLAN.md`
+- `docs/SERVICES_PAGE_REALIGNMENT_PLAN.md`
+- `docs/LEGACY_SITE_CONTENT_INVENTORY.md`
+- `docs/LEGACY_SITE_IMPLEMENTATION_BACKLOG.md`
+- `docs/INTERVENCION_FASE_17_SERVICIOS_PAGE_ALIGNMENT.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/SITE_CANONICAL_ARCHITECTURE.md`
+- `docs/IMPLEMENTATION_PHASE_PLAN.md`
+- `docs/SERVICES_PAGE_REALIGNMENT_PLAN.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Cerrar slugs canónicos antes de abrir nuevas rutas.
+- Definir ownership de componentes para futuras páginas clínicas profundas.
+- Validar contenido fuente adicional para `exóticos` y clusters de segunda ola.
+
+### Supuestos prohibidos
+- No asumir que `/servicios` ya equivale al estado final solo porque su narrativa fue corregida.
+- No abrir páginas satélite de ortopedia, heridas o dolor antes de sus páginas madre.
+- No usar landings de campaña como arquitectura principal.
+
+## Entrada 2026-03-24 11:40:00 -06:00
+
+### Tipo
+- Documentacion
+
+### Resumen ejecutivo
+- Se cerró la convención final de slugs, naming y nomenclatura del sitio como última capa previa a ejecución de rutas.
+- La arquitectura ya puede pasar a construcción de páginas canónicas sin ambigüedad de nombres.
+- Se fijó además qué slugs deben permanecer clínicos, cuáles pueden ser comerciales y qué conceptos no deben recibir ruta propia.
+
+### Cambios o hallazgos
+- Se definieron slugs canónicos finales para las páginas madre:
+  - `/urgencias`
+  - `/cirugia`
+  - `/diagnostico`
+  - `/endoscopia`
+  - `/prevencion`
+  - `/exoticos`
+- Se cerró que `/servicios` se mantiene como hub y no debe renombrarse.
+- Se definió que la vertical comercial subordinada absorbe:
+  - guardería / hotel bajo `/pension`
+  - pet grooming bajo `/estetica`
+- Se cerró que:
+  - `hospitalizacion`
+  - `laboratorio`
+  - `minima-invasion`
+  - `manejo-de-heridas`
+  - `manejo-del-dolor`
+  no deben abrirse como rutas madre en esta arquitectura.
+
+### Riesgos
+- Mitigado: abrir ejecución de rutas con naming inconsistente entre páginas madre y submódulos.
+- Mitigado: reintroducir duplicidades legacy como `cirugia-especializada` o `imagenologia` como rutas principales paralelas.
+- Pendiente: `exoticos` sigue dependiendo de decisión estratégica de publicación, no de naming.
+
+### Decisiones tomadas
+- Páginas madre con slugs cortos y clínicos.
+- Singular para capacidades madre salvo excepciones naturales:
+  - `/urgencias`
+  - `/servicios`
+  - `/exoticos`
+- Las landings futuras deben permanecer bajo `/lp/`.
+- `prevencion` se fija como slug preferido frente a `preventiva`.
+- `diagnostico` se fija como slug preferido frente a `imagenologia`.
+
+### Archivos tocados o auditados
+- `docs/CANONICAL_SLUGS_AND_NAMING.md`
+- `docs/ARCHITECTURAL_FINAL_DECISIONS.md`
+- `docs/SITE_CANONICAL_ARCHITECTURE.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/CANONICAL_SLUGS_AND_NAMING.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- La única duda real que queda no es de naming sino de publicación:
+  - cuándo entra `exoticos`
+- Si en segunda ola se eleva `manejo del dolor` a vertical, su slug recomendado quedaría como `/dolor`, pero hoy no debe implementarse.
+
+### Supuestos prohibidos
+- No reabrir slugs legacy largos si ya existe un slug canónico corto aprobado.
+- No crear rutas para submódulos solo porque tienen nombre estable.
+- No sacar una landing fuera de `/lp/` para hacerla competir con una página madre.
+
+## Entrada 2026-03-24 12:20:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se materializaron las rutas madre de prioridad 1 dentro del route group de marketing existente.
+- Ya existen como rutas reales:
+  - `/urgencias`
+  - `/cirugia`
+  - `/diagnostico`
+  - `/endoscopia`
+- Cada ruta quedó con `page.tsx` mínimo funcional, metadata básica y estructura placeholder coherente con el posicionamiento hospitalario.
+
+### Cambios o hallazgos
+- Nuevas rutas creadas:
+  - `src/app/(marketing)/urgencias/page.tsx`
+  - `src/app/(marketing)/cirugia/page.tsx`
+  - `src/app/(marketing)/diagnostico/page.tsx`
+  - `src/app/(marketing)/endoscopia/page.tsx`
+- Todas heredan correctamente el layout actual de marketing con:
+  - `UrgencyBanner`
+  - `Navbar`
+  - `Footer`
+  - `WhatsAppFloat`
+- No fue necesario tocar:
+  - home
+  - `/servicios`
+  - triage
+  - layouts globales
+
+### Riesgos
+- Mitigado: seguir en fase documental sin materializar la estructura real de rutas P1.
+- Mitigado: abrir las siguientes fases sin base de App Router para páginas madre.
+- Pendiente: las cuatro rutas siguen en estado de estructura mínima y no deben crecer desordenadamente sin extracción de componentes cuando empiece la profundidad real de contenido.
+
+### Decisiones tomadas
+- Se reutilizó el route group `src/app/(marketing)` existente.
+- Se evitó crear componentes nuevos en esta fase.
+- Se dejó `/servicios` intacta para no mezclar la fase de rutas con la fase futura de hub clínico.
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/urgencias/page.tsx`
+- `src/app/(marketing)/cirugia/page.tsx`
+- `src/app/(marketing)/diagnostico/page.tsx`
+- `src/app/(marketing)/endoscopia/page.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+- Rutas activas confirmadas por build:
+  - `/`
+  - `/urgencias`
+  - `/cirugia`
+  - `/diagnostico`
+  - `/endoscopia`
+  - `/contacto`
+  - `/servicios`
+  - `/tecnologia`
+  - `/triage`
+
+### Estado documental operativo
+- Documentos canónicos vigentes para la siguiente fase:
+  - `docs/ARCHITECTURAL_FINAL_DECISIONS.md`
+  - `docs/CANONICAL_SLUGS_AND_NAMING.md`
+  - `docs/SITE_CANONICAL_ARCHITECTURE.md`
+  - `docs/IMPLEMENTATION_PHASE_PLAN.md`
+  - `docs/LEGACY_SITE_CONTENT_INVENTORY.md`
+  - `docs/LEGACY_SITE_IMPLEMENTATION_BACKLOG.md`
+- Documentos transicionales que deben conservarse por trazabilidad, no como fuente principal:
+  - `docs/SERVICES_PAGE_REALIGNMENT_PLAN.md`
+  - `docs/INTERVENCION_FASE_17_SERVICIOS_PAGE_ALIGNMENT.md`
+  - documentos `INTERVENCION_FASE_*` anteriores
+- Se decidió no reorganizar físicamente `docs/` en esta fase porque el valor inmediato era bajo frente al costo de romper referencias internas ya existentes.
+
+### Pendientes
+- Siguiente paso recomendado:
+  - iniciar implementación profunda de la página `urgencias`
+- No tocar todavía:
+  - `prevencion`
+  - `exoticos`
+  - segunda ola clínica
+  - hub final de `/servicios`
+
+### Supuestos prohibidos
+- No asumir que las rutas P1 ya están resueltas más allá de su estructura mínima.
+- No usar los placeholders actuales como contenido final.
+- No abrir UI profunda en varias rutas P1 en paralelo sin decidir antes la estrategia de componentes compartidos.
