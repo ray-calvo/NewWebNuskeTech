@@ -41,135 +41,135 @@ export const endoscopyPhoneHref = "tel:+524433246136";
 
 export const endoscopyHeroHighlights: readonly EndoscopyHighlight[] = [
   {
-    title: "Evaluación y resolución mínimamente invasiva",
+    title: "Puede evitar una cirugía mayor",
     description:
-      "La endoscopía puede ayudar a observar, confirmar y, en ciertos casos, intervenir con menos trauma.",
+      "En casos seleccionados, permite valorar y resolver sin pasar de inmediato a un abordaje más agresivo.",
   },
   {
-    title: "Puente entre diagnóstico y tratamiento",
+    title: "Ayuda a ver mejor lo que está pasando",
     description:
-      "No reemplaza el criterio diagnóstico ni la cirugía, pero puede conectar ambas rutas con menor agresión para el paciente.",
+      "Cuando la exploración no basta, puede dar una visualización directa para decidir con más seguridad el siguiente paso.",
   },
   {
-    title: "Diferenciador hospitalario premium",
+    title: "Puede hacer más ágil la recuperación",
     description:
-      "Su valor está en la precisión clínica y en la recuperación más ágil cuando el caso es candidato.",
+      "Si está bien indicada, la mínima invasión reduce trauma y puede ayudar a que el paciente se recupere mejor.",
   },
 ] as const;
 
 export const endoscopyUseCases: readonly EndoscopySignal[] = [
   {
-    title: "Sospecha de cuerpo extraño o irritación digestiva",
+    title: "Sospecha de cuerpo extraño",
     description:
-      "Casos donde puede ser útil observar directamente estructuras internas y orientar mejor la decisión clínica.",
+      "Cuando hay vómito, náusea o dolor y se sospecha que algo quedó atorado, puede ayudar a confirmar y actuar a tiempo.",
   },
   {
-    title: "Necesidad de evaluación interna con menor agresión",
+    title: "Vómito persistente o regurgitación",
     description:
-      "Escenarios donde la mínima invasión aporta información o resolución con menos trauma que un abordaje mayor.",
+      "Si el cuadro no mejora y hace falta entender qué está pasando por dentro, puede aportar claridad sin abrir de entrada.",
   },
   {
-    title: "Pacientes que requieren confirmación más precisa",
+    title: "Dificultad para tragar o irritación persistente",
     description:
-      "Cuando la evaluación clínica y el diagnóstico apuntan a una ruta que necesita visualización o toma de muestras dirigida.",
+      "Puede ser útil cuando hace falta ver directamente una zona inflamada, lesionada o con cambios que no se entienden bien desde fuera.",
   },
   {
-    title: "Seguimiento de ciertas condiciones del tracto digestivo o respiratorio superior",
+    title: "Necesidad de tomar muestra o confirmar una lesión",
     description:
-      "La endoscopía puede complementar decisiones y seguimiento cuando el caso lo justifica.",
+      "En algunos pacientes ayuda a confirmar mejor lo que está ocurriendo y a decidir si hace falta otro tratamiento.",
   },
   {
-    title: "Planeación de manejo menos invasivo",
+    title: "Casos donde se busca una vía menos invasiva",
     description:
-      "Permite valorar si el caso puede resolverse con menor trauma y recuperación más ágil.",
+      "Cuando el caso lo permite, puede ser una alternativa para valorar o resolver con menos trauma y menor recuperación que una cirugía abierta.",
   },
   {
-    title: "Casos que no requieren cirugía abierta inmediata",
+    title: "Necesidad de decidir si hay que escalar a cirugía",
     description:
-      "Ayuda a identificar cuándo una ruta mínimamente invasiva puede ser suficiente o cuándo debe escalarse.",
+      "También puede ayudar a definir si basta con esta vía o si el paciente necesita un abordaje mayor.",
   },
 ] as const;
 
 export const endoscopyCapabilities: readonly EndoscopyCapability[] = [
   {
-    title: "Visualización clínica dirigida",
+    title: "Ver directamente la zona afectada",
     description:
-      "Permite observar estructuras internas con propósito clínico y correlación con el resto del caso.",
+      "Permite observar por dentro cuando la exploración y los estudios previos todavía no explican bien el problema.",
     icon: Camera,
   },
   {
-    title: "Mínima invasión como ventaja real",
+    title: "Actuar sin abrir cuando es posible",
     description:
-      "Menor trauma, menor agresión de tejidos y recuperación potencialmente más ágil en pacientes seleccionados.",
+      "En ciertos casos puede retirar, liberar o intervenir sin pasar por una cirugía abierta desde el inicio.",
     icon: Waves,
   },
   {
-    title: "Capacidad procedimental especializada",
+    title: "Decidir mejor qué sigue para el paciente",
     description:
-      "La endoscopía se presenta como herramienta clínica especializada, no como demostración tecnológica aislada.",
+      "Ayuda a definir si basta con resolver por esta vía o si hace falta cirugía, hospitalización o seguimiento estrecho.",
     icon: Stethoscope,
   },
 ] as const;
 
 export const endoscopySupport: readonly EndoscopySupportCard[] = [
   {
-    title: "Relación con diagnóstico",
+    title: "Cuando hace falta más claridad",
     description:
-      "La endoscopía se apoya en el diagnóstico hospitalario y lo complementa cuando hace falta más precisión o visualización directa.",
+      "A veces los estudios orientan el caso, pero todavía hace falta ver directamente para decidir mejor.",
     icon: ScanSearch,
     items: [
-      "Acompaña la lectura diagnóstica del caso",
-      "No reemplaza imagenología ni laboratorio",
-      "Ayuda a precisar rutas de manejo posteriores",
+      "Puede confirmar mejor lo que está ocurriendo",
+      "No sustituye imagenología ni laboratorio",
+      "Ayuda a decidir el siguiente paso con menos duda",
     ],
   },
   {
-    title: "Relación con cirugía",
+    title: "Cuando puede evitar una cirugía mayor",
     description:
-      "La capacidad endoscópica no anula la cirugía. En algunos casos la evita, en otros ayuda a definirla y en otros funciona como paso intermedio.",
+      "En casos seleccionados, permite resolver por una vía menos agresiva o saber con más claridad si realmente hace falta abrir.",
     icon: Syringe,
     items: [
-      "Puede evitar procedimientos mayores en casos seleccionados",
+      "Puede evitar abrir cuando no es necesario",
       "Puede orientar mejor una decisión quirúrgica",
-      "Mantiene la frontera clara entre soporte y resolución quirúrgica",
+      "También muestra cuándo ya no conviene esperar",
     ],
   },
   {
-    title: "Relación con hospitalización y seguimiento",
+    title: "Cuando el paciente necesita seguir vigilado",
     description:
-      "Después del procedimiento puede seguir siendo necesario monitoreo, reevaluación o soporte hospitalario según la condición del paciente.",
+      "Después del procedimiento, algunos pacientes necesitan observación, reevaluación o soporte antes de regresar a casa.",
     icon: ShieldPlus,
     items: [
       "Recuperación más ágil cuando el caso responde bien",
-      "Observación y reevaluación si la condición lo requiere",
-      "Continuidad clínica dentro del mismo entorno hospitalario",
+      "Observación si todavía hay riesgo o dolor",
+      "Seguimiento cercano si la evolución lo necesita",
     ],
   },
 ] as const;
 
 export const endoscopyDifferentiators: readonly EndoscopyCapability[] = [
   {
-    title: "No todo caso necesita cirugía abierta",
+    title: "Puede evitar abrir cuando no hace falta",
     description:
-      "Cuando el caso lo permite, la endoscopía puede evitar un abordaje mayor y reducir el impacto del procedimiento.",
+      "Cuando el caso lo permite, ayuda a confirmar o resolver sin pasar de inmediato a una cirugía abierta.",
     icon: SearchCheck,
   },
   {
-    title: "Permite ver y actuar en la misma ruta",
+    title: "Permite actuar antes de que el caso escale",
     description:
-      "En ciertos pacientes, ayuda a confirmar el problema y resolverlo sin separar por completo evaluación y tratamiento.",
+      "Si el problema se reconoce a tiempo, puede permitir una intervención más simple antes de que el paciente se complique.",
     icon: Activity,
   },
   {
-    title: "Reduce trauma cuando el caso es candidato",
+    title: "Puede acortar la recuperación",
     description:
-      "La mínima invasión importa porque puede disminuir agresión de tejidos y hacer más ágil la recuperación.",
+      "Si está bien indicada, la mínima invasión reduce trauma y puede hacer más corta la recuperación.",
     icon: ArrowUpRight,
   },
   {
-    title: "Ayuda a decidir si hay que escalar",
+    title: "Hace más precisa la decisión terapéutica",
     description:
-      "También permite reconocer cuándo no es suficiente y cuándo el paciente necesita cirugía u otro soporte hospitalario.",
+      "Ayuda a decidir con más claridad si basta con resolver por esta vía o si el caso necesita cirugía u otro soporte.",
     icon: HeartPulse,
   },
 ] as const;

@@ -2086,3 +2086,372 @@
 - No volver a usar diferenciadores como slogans institucionales.
 - No usar “capacidad avanzada”, “soporte premium” o equivalentes abstractos como títulos.
 - No convertir los diferenciadores en mini-fichas técnicas o tecnológicas.
+
+## Entrada 2026-03-24 18:55:00 -06:00
+
+### Tipo
+- Ajuste editorial
+
+### Resumen ejecutivo
+- Se reescribieron de forma específica los diferenciadores hospitalarios de `/urgencias`.
+- El ajuste reforzó el foco clínico-operativo de la página:
+  - tiempo clínico
+  - priorización
+  - capacidad de respuesta
+  - reducción de deterioro
+- No se modificaron layout, estructura visual ni jerarquía de bloques.
+
+### Cambios o hallazgos
+- Los diferenciadores previos de urgencias ya estaban mejor que la versión original, pero todavía podían sonar demasiado explicativos o de proceso.
+- Se ajustaron para responder mejor a la pregunta:
+  - qué cambia si este hospital recibe al paciente
+- La nueva lógica editorial quedó así:
+  - actuar antes del colapso
+  - estabilizar antes de decidir
+  - priorizar lo que no puede esperar
+  - reducir tiempo perdido en la urgencia
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/urgencias/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/EDITORIAL_GOVERNANCE.md` (auditado como referencia editorial)
+
+### Decisiones tomadas
+- En urgencias, los diferenciadores deben explicar impacto operativo inmediato y no capacidad hospitalaria abstracta.
+- Se evitó hablar de:
+  - tecnología
+  - procesos institucionales
+  - complejidad hospitalaria general
+- Se mantuvo la frontera editorial:
+  - urgencias recibe, prioriza, estabiliza y evita deterioro
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Supuestos prohibidos
+- No volver a convertir los diferenciadores de urgencias en explicación institucional.
+- No desplazar el foco desde tiempo clínico y priorización hacia capacidad abstracta.
+
+## Entrada 2026-03-24 19:10:00 -06:00
+
+### Tipo
+- Ajuste editorial
+
+### Resumen ejecutivo
+- Se reescribieron de forma específica los diferenciadores hospitalarios de `/cirugia`.
+- El ajuste reforzó el foco clínico de la página en:
+  - resolución hospitalaria
+  - procedimientos especializados
+  - seguridad anestésica
+  - continuidad postoperatoria
+- No se modificaron layout, estructura visual ni jerarquía de bloques.
+
+### Cambios o hallazgos
+- Los diferenciadores previos ya tenían buena dirección editorial, pero todavía podían leerse como explicación de capacidad quirúrgica general.
+- Se ajustaron para responder mejor a estas preguntas:
+  - cuándo la cirugía cambia pronóstico
+  - cómo se reduce riesgo
+  - cómo se decide intervenir
+  - qué evita una cirugía hospitalaria bien planificada
+- La nueva lógica editorial quedó así:
+  - operar en el momento correcto cambia el pronóstico
+  - reducir riesgo cuando el paciente está comprometido
+  - evitar intervenir sin haber definido bien el caso
+  - entender que la recuperación también cambia la decisión
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/cirugia/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/EDITORIAL_GOVERNANCE.md` (auditado como referencia editorial)
+
+### Decisiones tomadas
+- En cirugía, los diferenciadores deben explicar decisiones de resolución y no promocionar procedimientos.
+- Se evitó hablar de:
+  - catálogo de procedimientos
+  - landing quirúrgica
+  - promoción tecnológica
+- Se mantuvo la frontera editorial:
+  - cirugía resuelve
+  - se apoya en anestesia, planeación y seguimiento
+  - no se presenta como procedimiento aislado
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Supuestos prohibidos
+- No volver a convertir los diferenciadores de cirugía en catálogo implícito.
+- No desplazar el foco desde decisión clínica y reducción de riesgo hacia prestigio quirúrgico abstracto.
+
+## Entrada 2026-03-24 19:30:00 -06:00
+
+### Tipo
+- Ajuste editorial
+
+### Resumen ejecutivo
+- Se reescribieron de forma específica los diferenciadores hospitalarios de `/diagnostico`.
+- El ajuste reforzó el foco clínico de la página en:
+  - soporte transversal
+  - decisiones clínicas
+  - precisión
+  - correlación diagnóstica
+- No se modificaron layout, estructura visual ni jerarquía de bloques.
+
+### Cambios o hallazgos
+- Los diferenciadores previos de diagnóstico ya estaban bien orientados, pero todavía podían sonar a explicación general del valor diagnóstico.
+- Se ajustaron para responder mejor a estas preguntas:
+  - cómo cambia decisiones
+  - cuándo evita intervenciones innecesarias
+  - cuándo acelera el tratamiento correcto
+  - cómo reduce incertidumbre clínica
+- La nueva lógica editorial quedó así:
+  - aclarar qué tratar primero
+  - evitar intervenir sin estar seguro
+  - acelerar el tratamiento correcto
+  - reducir incertidumbre en casos complejos
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/diagnostico/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/EDITORIAL_GOVERNANCE.md` (auditado como referencia editorial)
+
+### Decisiones tomadas
+- En diagnóstico, los diferenciadores deben hablar de precisión aplicada a la decisión clínica y no de disponibilidad de estudios.
+- Se evitó hablar de:
+  - lista de estudios
+  - laboratorio comercial
+  - página tecnológica
+- Se mantuvo la frontera editorial:
+  - diagnóstico orienta, confirma, prioriza y reduce incertidumbre
+  - no sustituye cirugía ni endoscopía
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Supuestos prohibidos
+- No volver a convertir los diferenciadores de diagnóstico en explicación de estudios disponibles.
+- No desplazar el foco desde decisión clínica y correlación diagnóstica hacia tecnología abstracta.
+
+## Entrada 2026-03-24 19:50:00 -06:00
+
+### Tipo
+- Ajuste editorial
+
+### Resumen ejecutivo
+- Se reescribieron de forma específica los diferenciadores hospitalarios de `/endoscopia`.
+- El ajuste reforzó el foco clínico de la página en:
+  - mínima invasión
+  - evaluación y resolución
+  - casos seleccionados
+  - puente diagnóstico-terapéutico
+- No se modificaron layout, estructura visual ni jerarquía de bloques.
+
+### Cambios o hallazgos
+- Los diferenciadores previos ya tenían buena dirección, pero todavía podían leerse como explicación general de mínima invasión.
+- Se ajustaron para responder mejor a estas preguntas:
+  - cuándo evita cirugía abierta
+  - cuándo permite actuar antes
+  - cuándo reduce recuperación
+  - cuándo mejora precisión terapéutica
+- La nueva lógica editorial quedó así:
+  - evitar abrir cuando no hace falta
+  - actuar antes de que el caso escale
+  - reducir recuperación cuando el caso es candidato
+  - hacer más precisa la decisión terapéutica
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/endoscopia/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/EDITORIAL_GOVERNANCE.md` (auditado como referencia editorial)
+
+### Decisiones tomadas
+- En endoscopía, los diferenciadores deben explicar valor procedimental y mínima invasión con impacto clínico real.
+- Se evitó hablar de:
+  - tecnología avanzada
+  - marketing premium
+  - extensión de diagnóstico
+- Se mantuvo la frontera editorial:
+  - endoscopía evalúa y puede resolver
+  - funciona como puente entre diagnóstico y tratamiento
+  - no sustituye cirugía cuando hace falta escalar
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Supuestos prohibidos
+- No volver a convertir los diferenciadores de endoscopía en promesa tecnológica.
+- No desplazar el foco desde decisión terapéutica y mínima invasión hacia sofisticación abstracta.
+
+## Entrada 2026-03-24 20:15:00 -06:00
+
+### Tipo
+- Auditoria editorial
+
+### Resumen ejecutivo
+- Se auditó transversalmente el bloque de diferenciadores hospitalarios del núcleo P1:
+  - `/urgencias`
+  - `/cirugia`
+  - `/diagnostico`
+  - `/endoscopia`
+- El sistema ya es coherente a nivel clínico y editorial.
+- Solo se aplicaron micro-ajustes de wording para mejorar claridad cognitiva y diferenciación entre páginas.
+
+### Hallazgos principales
+- La coherencia editorial general ya es buena:
+  - urgencias = tiempo clínico y priorización
+  - cirugía = resolución y reducción de riesgo
+  - diagnóstico = precisión y reducción de incertidumbre
+  - endoscopía = mínima invasión y decisión terapéutica
+- No se detectó deriva hacia:
+  - lista de estudios
+  - catálogo de procedimientos
+  - landing tecnológica
+  - claims institucionales abstractos
+- Sí había tres puntos finos de ajuste:
+  - un título de cirugía demasiado largo
+  - un título de diagnóstico con ligera superposición semántica con urgencias
+  - un título de endoscopía con lectura menos natural que el resto
+
+### Micro-ajustes realizados
+- `src/features/marketing/components/cirugia/data.ts`
+  - `Operar en el momento correcto cambia el pronóstico` -> `Operar a tiempo cambia el pronóstico`
+- `src/features/marketing/components/diagnostico/data.ts`
+  - `Aclara qué tratar primero` -> `Aclara el siguiente paso`
+- `src/features/marketing/components/endoscopia/data.ts`
+  - `Reduce recuperación cuando el caso es candidato` -> `Puede acortar la recuperación`
+
+### Evaluacion de coherencia
+- Coherencia editorial: alta
+- Coherencia clínica: alta
+- Consistencia de tono: alta
+- Claridad cognitiva: alta tras micro-ajustes
+- Diferenciación real entre páginas: suficiente y estable
+
+### Estado del sistema
+- No hace falta reescribir el núcleo P1.
+- No hace falta nueva abstracción.
+- El sistema de diferenciadores ya puede considerarse baseline editorial para futuras páginas clínicas.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/urgencias/data.ts` (auditado)
+- `src/features/marketing/components/cirugia/data.ts`
+- `src/features/marketing/components/diagnostico/data.ts`
+- `src/features/marketing/components/endoscopia/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/EDITORIAL_GOVERNANCE.md`
+
+### Validaciones
+- `npm run guardrails` OK
+- `npm run lint` OK
+- `npm run build` OK
+
+### Supuestos prohibidos
+- No volver a homogeneizar tanto los diferenciadores que las páginas pierdan frontera clínica.
+- No reabrir cambios amplios sobre el núcleo P1 sin una razón narrativa real.
+
+## Entrada 2026-03-24 20:45:00 -06:00
+
+### Tipo
+- Ajuste narrativo
+
+### Resumen ejecutivo
+- Se rehízo por completo el dataset narrativo de `src/features/marketing/components/endoscopia/data.ts`.
+- El objetivo fue sacar el contenido del plano de guideline interna y llevarlo a una narrativa orientada al caso del paciente.
+- Se mantuvieron tipos, exports y estructura técnica; solo cambió el contenido textual.
+
+### Diagnóstico
+- El dataset anterior todavía arrastraba varios patrones de meta-copy:
+  - explicaciones sobre la capacidad como concepto interno
+  - lenguaje de frontera entre áreas clínicas
+  - formulaciones demasiado abstractas como `capacidad procedimental` o `correlación clínica`
+  - frases más cercanas a arquitectura narrativa que a experiencia del cliente final
+- Eso no rompía técnicamente la página, pero sí la acercaba a una voz interna del hospital en vez de a una orientación clara para el usuario.
+
+### Cambio de enfoque aplicado
+- Se cambió el modelo narrativo de:
+  - capacidad -> explicación -> contexto hospital
+- Hacia:
+  - situación clínica -> decisión -> impacto para el paciente
+- El nuevo dataset ahora prioriza:
+  - cuándo puede ayudar la endoscopía
+  - qué puede evitar
+  - cuándo se integra con diagnóstico, cirugía u hospitalización
+  - qué cambia para el paciente cuando la vía mínimamente invasiva está bien indicada
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/endoscopia/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Decisiones tomadas
+- No se cambiaron nombres de exports ni tipos.
+- No se tocó layout ni UI.
+- Se mantuvo la frontera correcta:
+  - endoscopía como capacidad clínica especializada
+  - herramienta de evaluación y resolución mínimamente invasiva
+  - puente entre diagnóstico y tratamiento
+- Se evitó que el texto sonara a:
+  - guía interna
+  - brochure conceptual
+  - página tecnológica
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos pendientes
+- No queda bloqueo técnico ni narrativo inmediato en `endoscopia/data.ts`.
+- El único riesgo operativo del cierre es externo a esta fase:
+  - el working tree ya traía cambios editoriales pendientes en `urgencias`, `cirugia` y `diagnostico`, así que el commit de esta fase debe cuidarse para no mezclar lotes sin intención.
+
+### Supuestos prohibidos
+- No reintroducir meta-copy visible en datasets de producción.
+- No volver a explicar el modelo clínico del hospital como teoría interna dentro del contenido público.
+- No tratar mínima invasión como tecnología por sí sola.
