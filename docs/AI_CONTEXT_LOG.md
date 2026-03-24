@@ -973,3 +973,56 @@
 ### Supuestos prohibidos
 - No asumir que volumen bajo permite conclusiones firmes.
 - No asumir que mas clics por si solos implican mejor ajuste del modulo.
+
+## Entrada 2026-03-24 02:25:00 -06:00
+
+### Tipo
+- Refactor
+
+### Resumen ejecutivo
+- Se rediseño la sección `MedicalTeam` con un enfoque premium de hospital veterinario.
+- La sección dejó de comportarse como una grilla plana de staff y pasó a comunicar jerarquía clínica, dirección médica y capacidad hospitalaria.
+- No se tocaron otras secciones, rutas ni navegación.
+
+### Cambios o hallazgos
+- `src/features/marketing/components/MedicalTeam.tsx` fue reescrita para operar en tres capas:
+  - Dirección Médica
+  - Guardia Hospitalaria y Cuidados Críticos
+  - Especialidades Quirúrgicas y Diagnóstico Avanzado
+- Se incorporaron las imágenes reales locales del equipo a la sección:
+  - `public/marketing/team/Alexis.webp`
+  - `public/marketing/team/Alondra.webp`
+  - `public/marketing/team/Diana.webp`
+  - `public/marketing/team/Janine.webp`
+- El copy se ajustó para reforzar autoridad clínica, alta especialidad y orientación hospitalaria.
+
+### Riesgos
+- Mitigado: mantener una percepción de staff genérico sin liderazgo clínico visible.
+- Mitigado: usar una galería uniforme que no diferenciara dirección médica, guardia crítica y especialidades.
+- Pendiente: si la sección sigue creciendo con más perfiles, puede requerir extracción estructural en otra fase.
+
+### Decisiones tomadas
+- Mantener el trabajo acotado a `MedicalTeam.tsx` y a los assets de imagen directamente necesarios.
+- Dar al director médico el mayor peso visual.
+- Mantener CTAs alineados a rutas existentes (`/contacto` y `/servicios`) sin tocar navegación global.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/MedicalTeam.tsx`
+- `public/marketing/team/Alexis.webp`
+- `public/marketing/team/Alondra.webp`
+- `public/marketing/team/Diana.webp`
+- `public/marketing/team/Janine.webp`
+- `docs/INTERVENCION_FASE_14_MEDICAL_TEAM_PREMIUM_REDIGN.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/INTERVENCION_FASE_14_MEDICAL_TEAM_PREMIUM_REDIGN.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Revisar en QA visual final si la lectura de jerarquía se mantiene fuerte en móvil.
+- Evaluar más adelante si el equipo médico merece una estructura de datos propia si aumentan perfiles o subespecialidades.
+
+### Supuestos prohibidos
+- No asumir que este rediseño autoriza rehacer otras secciones del home.
+- No asumir que la narrativa premium sustituye la necesidad de mantener consistencia clínica real en futuros contenidos.
