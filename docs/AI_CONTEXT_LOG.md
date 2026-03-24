@@ -1077,3 +1077,53 @@
 ### Supuestos prohibidos
 - No asumir que este cambio autoriza rehacer otras secciones del home.
 - No asumir que el reposicionamiento visual reemplaza la necesidad de mantener CTAs de urgencias realmente operativos.
+
+## Entrada 2026-03-24 03:40:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se rediseñó la sección `ServicesGrid` para comunicar capacidad hospitalaria integral en vez de un listado veterinario tradicional.
+- La nueva jerarquía pone primero urgencias y paciente crítico, luego cirugía y diagnóstico, y finalmente mínima invasión y atención preventiva.
+- No se tocaron triage, home fuera de esta sección, `MedicalTeam`, rutas ni tracking.
+
+### Cambios o hallazgos
+- `src/features/marketing/components/ServicesGrid.tsx` fue reestructurada en cinco capacidades clínicas:
+  - Atención Veterinaria de Emergencias 24/7
+  - Cirugía Veterinaria Especializada
+  - Diagnóstico Médico Avanzado
+  - Procedimientos de Mínima Invasión
+  - Atención Integral y Preventiva
+- El bloque de urgencias conserva el CTA contextual hacia `/triage?entrypoint=services-grid-urgencias`.
+- La tecnología quedó subordinada al contexto clínico y hospitalario.
+
+### Riesgos
+- Mitigado: mantener una percepción de catálogo plano o clínica básica.
+- Mitigado: perder el punto de entrada secundario del triage al tocar urgencias.
+- Pendiente: si el contenido sigue creciendo, puede requerir extracción estructural para mantener claridad del componente.
+
+### Decisiones tomadas
+- Mantener el trabajo concentrado en `ServicesGrid.tsx`.
+- Hacer de urgencias el bloque principal y más visible.
+- Alinear los CTAs a rutas y acciones ya existentes:
+  - llamada directa
+  - `/contacto`
+  - `/servicios`
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/ServicesGrid.tsx`
+- `docs/INTERVENCION_FASE_16_SERVICIOS_HOSPITAL_POSITIONING.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/INTERVENCION_FASE_16_SERVICIOS_HOSPITAL_POSITIONING.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Verificar en QA visual si el bloque de urgencias mantiene dominancia clara en móvil.
+- Evaluar más adelante si conviene separar datos y presentación si la sección vuelve a crecer.
+
+### Supuestos prohibidos
+- No asumir que esta intervención autoriza rehacer otras áreas del home.
+- No asumir que la presencia de tecnología justifica volver a un enfoque centrado en equipamiento y no en capacidad médica.
