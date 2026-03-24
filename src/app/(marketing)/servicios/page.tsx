@@ -1,11 +1,9 @@
-import { WellnessSelector } from "@/features/marketing/components/WellnessSelector";
-import { DigitalServicesSection } from "@/features/marketing/components/services/DigitalServicesSection";
+import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
 import { ServicesPageHero } from "@/features/marketing/components/services/ServicesPageHero";
 import { ServiceCategorySection } from "@/features/marketing/components/services/ServiceCategorySection";
-import {
-  capabilityBlocks,
-  digitalServices,
-} from "@/features/marketing/components/services/data";
+import { capabilityBlocks } from "@/features/marketing/components/services/data";
 
 export default function ServiciosPage() {
   return (
@@ -24,26 +22,41 @@ export default function ServiciosPage() {
             <ServiceCategorySection key={block.title} block={block} />
           ))}
 
-          <section className="space-y-5 rounded-[2rem] border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(242,246,251,0.92))] p-6 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.18)] sm:p-8">
-            <div className="max-w-3xl space-y-3">
-              <span className="inline-flex rounded-full border border-primary/15 bg-primary/5 px-4 py-1 text-sm font-semibold text-primary">
-                Continuidad preventiva
-              </span>
-              <h2 className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
-                Planes de seguimiento y protección continua
+          <section className="rounded-[2rem] border border-primary/10 bg-white/85 p-6 shadow-[0_24px_80px_-56px_rgba(29,63,104,0.16)] sm:p-8">
+            <div className="max-w-3xl space-y-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+                Elegir la ruta correcta
+              </p>
+              <h2 className="text-3xl font-semibold tracking-tight text-primary">
+                Si no sabes por dónde empezar, prioriza la situación clínica
               </h2>
               <p className="text-base leading-8 text-slate-600">
-                Wellness se conserva como extensión de continuidad clínica y
-                prevención. En esta fase no se eliminó, pero quedó subordinado
-                al bloque hospitalario principal para no romper la narrativa de
-                urgencias, cirugía y diagnóstico.
+                Si el paciente está decaído, con dolor intenso, dificultad para
+                respirar o una descompensación aguda, la entrada correcta sigue
+                siendo urgencias. Si el cuadro permite valorar con más calma,
+                usa la ruta clínica que mejor corresponda o contáctanos para
+                orientarte.
               </p>
             </div>
 
-            <WellnessSelector />
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="h-11 rounded-2xl bg-primary px-6 text-primary-foreground hover:bg-secondary"
+              >
+                <Link href="/urgencias">Ir a urgencias</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-11 rounded-2xl border-primary/20 bg-white px-6 text-primary hover:bg-primary/5"
+              >
+                <Link href="/contacto">Solicitar orientación</Link>
+              </Button>
+            </div>
           </section>
-
-          <DigitalServicesSection services={digitalServices} />
         </div>
       </div>
     </main>

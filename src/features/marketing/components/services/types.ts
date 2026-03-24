@@ -2,21 +2,16 @@ export type ServiceSection = {
   title: string;
   category: string;
   description: string;
-  imageSrc: string;
-  imageAlt: string;
   icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
-  benefits: readonly string[];
-  whatsappMessage: string;
+  bullets: readonly string[];
+  href?: string;
+  ctaLabel?: string;
+  status?: "published" | "planned" | "subordinate";
 };
 
 export type ServiceCategoryBlock = {
+  badge?: string;
   title: string;
   description: string;
   services: readonly ServiceSection[];
-};
-
-export type DigitalService = {
-  title: string;
-  description: string;
-  whatsappMessage: string;
 };

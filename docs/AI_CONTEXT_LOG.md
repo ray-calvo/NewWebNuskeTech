@@ -2747,3 +2747,83 @@
 - No convertir `prevencion` en wellness comercial.
 - No hacerla competir con urgencias.
 - No fragmentarla pronto en subpáginas sin una necesidad clínica real.
+
+## Entrada 2026-03-24 23:35:00 -06:00
+
+### Tipo
+- Refactor
+
+### Resumen ejecutivo
+- Se realineó `/servicios` para que funcione como hub clínico de navegación y no como catálogo o pseudo-página madre.
+- La página ahora ordena el mapa hospitalario en tres niveles:
+  - núcleo hospitalario publicado
+  - continuidad clínica
+  - líneas todavía no publicadas o subordinadas
+- No se tocaron las páginas madre ya abiertas ni se crearon nuevas rutas.
+
+### Diagnóstico
+- `/servicios` arrastraba dos problemas narrativos:
+  - profundizaba demasiado contenido que ya pertenece a `/urgencias`, `/cirugia`, `/diagnostico`, `/endoscopia` y `/prevencion`
+  - todavía usaba copy de sistema o de instrucción sobre cómo leer el hub
+- El riesgo era que compitiera con las páginas madre y volviera a sonar a catálogo hospitalario amplio.
+
+### Cambios realizados
+- `src/features/marketing/components/services/types.ts`
+  - el modelo de datos quedó alineado a navegación clínica y estados de publicación
+- `src/features/marketing/components/services/data.ts`
+  - la data se reescribió para funcionar como mapa de rutas y no como inventario profundo de servicios
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+  - el hero se ajustó para orientar al usuario hacia la ruta clínica correcta
+- `src/features/marketing/components/services/ServiceCategorySection.tsx`
+  - las cards se ajustaron para reforzar estado y jerarquía sin parecer fichas de catálogo
+- `src/features/marketing/components/services/DigitalServicesSection.tsx`
+  - quedó como bloque auxiliar genérico y fuera de la composición principal del hub
+- `src/app/(marketing)/servicios/page.tsx`
+  - se eliminó el cierre meta-narrativo y se reemplazó por un bloque simple de orientación clínica con CTA a urgencias y contacto
+
+### Estructura final
+- Núcleo hospitalario:
+  - urgencias
+  - cirugía
+  - diagnóstico
+  - endoscopía
+- Continuidad clínica:
+  - prevención
+- Publicación posterior / subordinado:
+  - exóticos
+  - oncología
+  - medicina interna
+  - comercial subordinado
+
+### Decisiones tomadas
+- `/servicios` queda consolidada como hub clínico.
+- La página enlaza y orienta, pero no sustituye ni resume en exceso a las páginas madre.
+- Lo no publicado se menciona solo con el peso justo para no competir con el núcleo ya abierto.
+- Se retiró de esta ruta cualquier protagonismo innecesario de bloques más comerciales o demasiado profundos.
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/servicios/page.tsx`
+- `src/features/marketing/components/services/types.ts`
+- `src/features/marketing/components/services/data.ts`
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+- `src/features/marketing/components/services/ServiceCategorySection.tsx`
+- `src/features/marketing/components/services/DigitalServicesSection.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos restantes
+- `/servicios` ya no compite de forma grave con las páginas madre, pero habrá que mantener esta disciplina cuando se publiquen nuevas rutas P2.
+- Si en el futuro vuelve a cargarse con demasiado detalle, puede reincidir en comportamiento de catálogo.
+
+### Supuestos prohibidos
+- No volver a convertir `/servicios` en resumen profundo de las páginas madre.
+- No dar protagonismo desde el hub a líneas todavía no publicadas o subordinadas.

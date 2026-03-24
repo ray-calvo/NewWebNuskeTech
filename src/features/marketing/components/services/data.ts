@@ -1,252 +1,165 @@
 import {
-  Check,
+  Activity,
+  ClipboardCheck,
   HeartPulse,
-  Microscope,
-  Monitor,
   ScanSearch,
-  ShieldPlus,
   Stethoscope,
   Syringe,
+  Waves,
 } from "lucide-react";
 
-import type {
-  DigitalService,
-  ServiceCategoryBlock,
-  ServiceSection,
-} from "@/features/marketing/components/services/types";
-
-const surgeryServices: readonly ServiceSection[] = [
-  {
-    title: "Cirugía Hospitalaria y Manejo Quirúrgico Integral",
-    category: "Cirugía especializada",
-    description:
-      "Intervenciones quirúrgicas respaldadas por control anestésico avanzado, monitoreo intraoperatorio y continuidad clínica durante la recuperación.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1579154341098-e4e158cc7f55?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Quirófano veterinario con instrumentación y monitorización avanzada",
-    icon: Syringe,
-    benefits: [
-      "Cirugía de tejidos blandos y procedimientos complejos",
-      "Anestesia hospitalaria con control avanzado de signos vitales",
-      "Recuperación controlada y seguimiento postoperatorio",
-    ],
-    whatsappMessage:
-      "Hola Nuskë, solicito una valoración quirúrgica para mi mascota...",
-  },
-];
-
-const diagnosticServices: readonly ServiceSection[] = [
-  {
-    title: "Imagenología Avanzada",
-    category: "Diagnóstico avanzado",
-    description:
-      "Rayos X digitales de alta frecuencia y ultrasonido Doppler a color para apoyar decisiones diagnósticas rápidas en pacientes complejos.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1583912267550-d4bcddac42b4?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Equipo de imagenología y ultrasonido clínico",
-    icon: ScanSearch,
-    benefits: [
-      "Imagenología para decisiones clínicas oportunas",
-      "Ultrasonido y evaluación complementaria",
-      "Soporte rápido a urgencias, cirugía y hospitalización",
-    ],
-    whatsappMessage:
-      "Hola Nuskë, quisiera información sobre estudios diagnósticos para mi mascota...",
-  },
-  {
-    title: "Laboratorio Clínico In-house",
-    category: "Diagnóstico avanzado",
-    description:
-      "Pruebas de sangre, citologías y diagnósticos rápidos en sitio para respaldar estabilización, hospitalización y seguimiento clínico sin depender de tiempos externos.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Laboratorio clínico con instrumentos diagnósticos",
-    icon: Microscope,
-    benefits: [
-      "Biometrías y química sanguínea en minutos",
-      "Diagnóstico rápido sin salir del hospital",
-      "Apoyo inmediato a decisiones médicas críticas",
-    ],
-    whatsappMessage:
-      "Hola Nuskë, quisiera información sobre estudios de laboratorio para mi mascota...",
-  },
-  {
-    title: "Valoración Clínica para Pacientes No Convencionales",
-    category: "Diagnóstico avanzado",
-    description:
-      "Atención clínica y evaluación médica especializada para aves, reptiles y pequeños mamíferos dentro de una lógica hospitalaria controlada.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Consulta clínica para especies exóticas en un entorno veterinario controlado",
-    icon: Stethoscope,
-    benefits: [
-      "Valoración clínica adaptada por especie",
-      "Ambiente controlado para reducir estrés",
-      "Seguimiento médico especializado",
-    ],
-    whatsappMessage:
-      "Hola Nuskë, quisiera agendar una valoración para mi ejemplar exótico...",
-  },
-] as const;
-
-const urgentServices: readonly ServiceSection[] = [
-  {
-    title: "Urgencias, Estabilización y Triage Hospitalario",
-    category: "Paciente crítico",
-    description:
-      "Disponibilidad total los 365 días del año para estabilizar, priorizar y orientar con rapidez a cada paciente desde su llegada.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Área veterinaria de urgencias con personal médico y equipamiento clínico",
-    icon: HeartPulse,
-    benefits: [
-      "Atención sin cita previa las 24 horas",
-      "Triaje y estabilización inmediata",
-      "Laboratorio y apoyo diagnóstico en sitio",
-    ],
-    whatsappMessage:
-      "Hola Nuskë, tengo una emergencia con mi mascota y voy en camino...",
-  },
-  {
-    title: "Hospitalización Especializada",
-    category: "Paciente crítico",
-    description:
-      "Seguimiento continuo para pacientes que requieren vigilancia clínica, recuperación supervisada y menor estrés durante su estancia.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Área hospitalaria veterinaria con camas y equipamiento clínico",
-    icon: ShieldPlus,
-    benefits: [
-      "Áreas separadas por especie",
-      "Monitoreo continuo para recuperación segura",
-      "Enfoque Fear-Free para reducir el estrés",
-    ],
-    whatsappMessage:
-      "Hola Nuskë, necesito información sobre hospitalización para mi mascota...",
-  },
-  {
-    title: "Cuidados Intensivos",
-    category: "Paciente crítico",
-    description:
-      "Monitoreo constante y soporte hospitalario avanzado para pacientes críticos que necesitan vigilancia intensiva y respuesta inmediata.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Monitor clínico y área de cuidados intensivos veterinarios",
-    icon: Monitor,
-    benefits: [
-      "Monitoreo constante de signos vitales",
-      "Respuesta hospitalaria para casos críticos",
-      "Soporte integral durante fases de mayor riesgo",
-    ],
-    whatsappMessage:
-      "Hola Nuskë, quisiera orientación sobre cuidados intensivos para mi mascota...",
-  },
-] as const;
-
-const minimallyInvasiveServices: readonly ServiceSection[] = [
-  {
-    title: "Endoscopía y Procedimientos de Mínima Invasión",
-    category: "Mínima invasión",
-    description:
-      "Alternativas diagnósticas y terapéuticas que reducen trauma quirúrgico, dolor y tiempo de recuperación en pacientes seleccionados.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Equipo médico para procedimientos endoscópicos y mínima invasión",
-    icon: Stethoscope,
-    benefits: [
-      "Endoscopía diagnóstica y terapéutica",
-      "Procedimientos guiados con menor trauma",
-      "Recuperación más rápida y seguimiento clínico cercano",
-    ],
-    whatsappMessage:
-      "Hola Nuskë, me interesa conocer opciones de mínima invasión para mi mascota...",
-  },
-] as const;
-
-const preventiveServices: readonly ServiceSection[] = [
-  {
-    title: "Consulta Médica y Seguimiento Preventivo",
-    category: "Continuidad clínica",
-    description:
-      "Valoración médica continua para detectar cambios clínicos a tiempo, ajustar manejo y sostener la salud del paciente a largo plazo.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Consulta veterinaria preventiva en un entorno clínico moderno",
-    icon: Check,
-    benefits: [
-      "Consulta médica",
-      "Vacunación",
-      "Nutrición",
-      "Control preventivo",
-    ],
-    whatsappMessage:
-      "Hola Nuskë, quisiera agendar una consulta preventiva para mi mascota...",
-  },
-  {
-    title: "Odontología Veterinaria",
-    category: "Continuidad clínica",
-    description:
-      "Limpieza ultrasónica y valoración de salud oral para prevenir dolor, infecciones y complicaciones sistémicas asociadas al deterioro dental.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Atención odontológica veterinaria en una clínica moderna",
-    icon: Check,
-    benefits: [
-      "Limpieza ultrasónica profesional",
-      "Prevención de enfermedad periodontal",
-      "Salud oral como parte del bienestar general",
-    ],
-    whatsappMessage:
-      "Hola Nuskë, quisiera informes sobre odontología veterinaria para mi mascota...",
-  },
-] as const;
-
-export const digitalServices: readonly DigitalService[] = [
-  {
-    title: "Portal del Propietario",
-    description:
-      "Acceso a historial médico y resultados de laboratorio en línea para acompañar continuidad clínica y seguimiento informado del paciente.",
-    whatsappMessage:
-      "Hola Nuskë, quisiera más información sobre el Portal del Propietario...",
-  },
-  {
-    title: "Telemedicina",
-    description:
-      "Consultas por video para orientación clínica y seguimientos médicos cuando el contexto del paciente permite una revisión remota segura.",
-    whatsappMessage:
-      "Hola Nuskë, me interesa agendar una consulta de telemedicina...",
-  },
-] as const;
+import type { ServiceCategoryBlock } from "@/features/marketing/components/services/types";
 
 export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
   {
-    title: "Urgencias y Paciente Crítico",
+    badge: "Núcleo hospitalario",
+    title: "Rutas clínicas principales del hospital",
     description:
-      "Capacidad hospitalaria central para estabilizar, monitorizar y sostener pacientes con mayor riesgo clínico.",
-    services: urgentServices,
+      "Si tu mascota necesita atención hoy, estas son las rutas clínicas que ya están publicadas y mejor explican cada tipo de decisión.",
+    services: [
+      {
+        title: "Urgencias",
+        category: "Núcleo hospitalario",
+        description:
+          "Es la entrada correcta cuando hay dolor intenso, trauma, dificultad para respirar, descompensación o cualquier cambio que no puede esperar.",
+        icon: HeartPulse,
+        bullets: [
+          "Actuar sin perder tiempo",
+          "Estabilizar y priorizar lo más urgente",
+          "Definir rápido si hace falta diagnóstico o cirugía",
+        ],
+        href: "/urgencias",
+        ctaLabel: "Ir a urgencias",
+        status: "published",
+      },
+      {
+        title: "Cirugía",
+        category: "Núcleo hospitalario",
+        description:
+          "Conviene cuando el caso puede necesitar intervención, hay que decidir si operar y se requiere una ruta segura antes, durante y después del procedimiento.",
+        icon: Syringe,
+        bullets: [
+          "Valorar si operar cambia el pronóstico",
+          "Planear la intervención con menos riesgo",
+          "Dar continuidad al postoperatorio",
+        ],
+        href: "/cirugia",
+        ctaLabel: "Ver cirugía",
+        status: "published",
+      },
+      {
+        title: "Diagnóstico",
+        category: "Núcleo hospitalario",
+        description:
+          "Ayuda cuando todavía no está claro qué está causando el problema y hace falta decidir con más certeza qué sigue para el paciente.",
+        icon: ScanSearch,
+        bullets: [
+          "Aclarar el cuadro antes de intervenir",
+          "Reducir incertidumbre clínica",
+          "Acelerar la siguiente decisión útil",
+        ],
+        href: "/diagnostico",
+        ctaLabel: "Ver diagnóstico",
+        status: "published",
+      },
+      {
+        title: "Endoscopía",
+        category: "Núcleo hospitalario",
+        description:
+          "Sirve cuando una vía mínimamente invasiva puede ayudar a observar, confirmar o incluso resolver sin pasar de entrada a una cirugía abierta.",
+        icon: Waves,
+        bullets: [
+          "Valorar si la mínima invasión aplica",
+          "Evitar abrir cuando no hace falta",
+          "Tomar una mejor decisión terapéutica",
+        ],
+        href: "/endoscopia",
+        ctaLabel: "Ver endoscopía",
+        status: "published",
+      },
+    ],
   },
   {
-    title: "Cirugía Veterinaria Especializada",
+    badge: "Continuidad clínica",
+    title: "Prevención y seguimiento con criterio clínico",
     description:
-      "Intervenciones quirúrgicas respaldadas por control anestésico avanzado y recuperación hospitalaria.",
-    services: surgeryServices,
+      "No todo empieza en una urgencia. Cuando todavía hay margen para anticiparse, esta ruta ayuda a vigilar, ajustar y reducir complicaciones evitables.",
+    services: [
+      {
+        title: "Prevención",
+        category: "Continuidad clínica",
+        description:
+          "Reúne revisiones, vacunas, desparasitación y seguimiento oportuno dentro de una misma decisión de cuidado anticipado.",
+        icon: ClipboardCheck,
+        bullets: [
+          "Detectar antes de que el problema escale",
+          "Acompañar pacientes sanos o con riesgo",
+          "Reducir urgencias evitables",
+        ],
+        href: "/prevencion",
+        ctaLabel: "Ver prevención",
+        status: "published",
+      },
+    ],
   },
   {
-    title: "Diagnóstico Médico Avanzado",
+    badge: "Publicación posterior",
+    title: "Líneas clínicas y servicios que se abrirán más adelante",
     description:
-      "Herramientas clínicas y diagnósticas para entender mejor al paciente y decidir con mayor precisión.",
-    services: diagnosticServices,
-  },
-  {
-    title: "Procedimientos de Mínima Invasión",
-    description:
-      "Capacidad diferenciadora para resolver e intervenir con menos trauma y una recuperación más ágil.",
-    services: minimallyInvasiveServices,
-  },
-  {
-    title: "Atención Integral y Preventiva",
-    description:
-      "Continuidad médica y seguimiento clínico para sostener salud, prevención y control a largo plazo.",
-    services: preventiveServices,
+      "Estas áreas forman parte del desarrollo del sitio, pero hoy no deben distraer de las rutas clínicas ya publicadas.",
+    services: [
+      {
+        title: "Exóticos",
+        category: "Publicación posterior",
+        description:
+          "Se abrirá cuando pueda explicarse con claridad cómo se valora y acompaña a especies no convencionales sin volverlo una categoría ambigua.",
+        icon: Activity,
+        bullets: [
+          "Todavía no tiene ruta propia",
+          "Necesita contenido clínico más sólido",
+          "No debe competir con el núcleo ya publicado",
+        ],
+        status: "planned",
+      },
+      {
+        title: "Oncología",
+        category: "Publicación posterior",
+        description:
+          "Se publicará cuando el contenido permita orientar evaluación, seguimiento y tratamiento sin sonar a brochure especializado.",
+        icon: Stethoscope,
+        bullets: [
+          "Aún no tiene página publicada",
+          "Necesita narrativa clínica propia",
+          "Por ahora queda fuera del protagonismo principal",
+        ],
+        status: "planned",
+      },
+      {
+        title: "Medicina interna",
+        category: "Publicación posterior",
+        description:
+          "Debe abrirse solo cuando pueda definirse como una ruta clara para casos complejos, no como un cajón general de problemas.",
+        icon: ScanSearch,
+        bullets: [
+          "Todavía no tiene frontera clínica suficiente",
+          "Necesita una ruta mejor definida",
+          "Se mantiene subordinada por ahora",
+        ],
+        status: "planned",
+      },
+      {
+        title: "Comercial subordinado",
+        category: "Subordinado",
+        description:
+          "Grooming, pensión y otras líneas comerciales existen, pero no deben marcar la lectura principal de la experiencia hospitalaria.",
+        icon: Activity,
+        bullets: [
+          "No forman parte del núcleo clínico",
+          "No deben ocupar el primer plano del hub",
+          "Su exposición seguirá siendo controlada",
+        ],
+        status: "subordinate",
+      },
+    ],
   },
 ] as const;
