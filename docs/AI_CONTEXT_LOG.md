@@ -1634,3 +1634,77 @@
 - No convertir el scaffold placeholder en layout universal obligatorio.
 - No asumir que todo patrón visual de `urgencias` ya debe compartirse.
 - No expandir esta capa compartida a más abstracciones hasta ver una segunda página madre profunda real.
+
+## Entrada 2026-03-24 14:15:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- `/cirugia` pasó de scaffold mínimo a página madre clínica real con narrativa quirúrgica propia.
+- La página ya comunica valoración quirúrgica, cirugía hospitalaria, seguridad anestésica, apoyo diagnóstico, recuperación postoperatoria y diferenciadores hospitalarios.
+- La intervención se mantuvo acotada a la ruta `cirugia` y a componentes mínimos de dominio quirúrgico.
+
+### Cambios o hallazgos
+- `src/app/(marketing)/cirugia/page.tsx` dejó de usar solo el scaffold placeholder.
+- Se incorporaron dos archivos de dominio:
+  - `src/features/marketing/components/cirugia/CirugiaHero.tsx`
+  - `src/features/marketing/components/cirugia/data.ts`
+- La estructura narrativa final quedó en este orden:
+  - hero quirúrgico principal
+  - cuándo puede requerirse valoración quirúrgica
+  - cirugía hospitalaria como capacidad de resolución clínica
+  - seguridad anestésica y monitoreo
+  - apoyo diagnóstico, planificación y seguimiento postoperatorio
+  - diferenciadores hospitalarios
+  - CTA final con ruta quirúrgica y desvío a urgencias si aplica
+- La página evita:
+  - catálogo exhaustivo de procedimientos
+  - tono comercial
+  - repetición de la lógica narrativa de `urgencias`
+
+### Riesgos
+- Mitigado: dejar `/cirugia` como placeholder sin densidad clínica real.
+- Mitigado: copiar la estructura narrativa de urgencias en vez de construir una identidad quirúrgica propia.
+- Pendiente: si `diagnostico` se profundiza después sin coordinar el límite entre “apoyo diagnóstico perioperatorio” y “página madre diagnóstica”, puede aparecer solape de narrativa que habrá que vigilar.
+
+### Decisiones tomadas
+- La cirugía se presenta como capacidad hospitalaria de resolución, no como listado de servicios.
+- Se mantuvo enlace a `/urgencias` como ruta correcta para pacientes inestables.
+- No se tocaron:
+  - `/urgencias`
+  - `/diagnostico`
+  - `/endoscopia`
+  - `/servicios`
+  - home
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/cirugia/page.tsx`
+- `src/features/marketing/components/cirugia/CirugiaHero.tsx`
+- `src/features/marketing/components/cirugia/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Pendientes
+- Siguiente paso recomendado:
+  - profundizar `/diagnostico`
+- Al hacerlo, vigilar frontera entre:
+  - diagnóstico como página madre
+  - diagnóstico como soporte de cirugía
+
+### Supuestos prohibidos
+- No convertir la página de cirugía en catálogo exhaustivo de procedimientos.
+- No copiar el hero o las secciones de urgencias solo cambiando el copy.
+- No diluir la autoridad quirúrgica con contenido comercial o estético.
