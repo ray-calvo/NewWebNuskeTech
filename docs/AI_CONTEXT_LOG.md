@@ -4276,3 +4276,94 @@
 - No conectar todavía el engine a componentes React.
 - No usar este engine para resolver copy visible sin una capa adaptadora posterior.
 - No mezclar Fase 3 triage con provider o persistencia prematuros.
+
+## Entrada 2026-03-25 07:00:00 -06:00
+
+### Tipo
+- Implementacion Fase 3 runtime clinico
+
+### Resumen ejecutivo
+- Se implementó la Fase 3 del runtime clínico como capa pura `triage-bridge` en `src/lib/clinical-runtime/triage-bridge/`.
+- El bridge traduce la salida del triage actual al lenguaje del runtime clínico:
+  - estado UX clínico
+  - intensidad CTA
+  - ruta sugerida
+  - señales de urgencia
+  - activación de override
+  - fallback seguro
+- No se tocó la UI del triage ni se conectó todavía a React o a páginas visibles.
+
+### Estructura elegida
+- Ubicación:
+  - `src/lib/clinical-runtime/triage-bridge/`
+- Motivo:
+  - mantener el bridge como adaptador puro entre feature existente y runtime clínico
+  - evitar acoplar triage a UI o al engine directamente
+  - preparar una futura conexión limpia con `urgency-override` y `cta-decision-engine`
+
+### Piezas implementadas
+- `triage-bridge-types.ts`
+  - severidad normalizada del triage
+  - input y output del bridge
+  - hints de complejidad
+  - forma de integración con engine
+- `triage-bridge.ts`
+  - mapeo de `emergency | urgent | consult` al runtime clínico
+  - resolución de ruta sugerida
+  - activación de señales de urgencia
+  - activación de override
+  - helpers para convertir salida del bridge a input consumible por el engine
+- `index.ts`
+  - barrel del bridge
+
+### Cómo se aprovechó el triage actual
+- `score-triage.ts`
+  - aporta:
+    - `level`
+    - `totalScore`
+    - `reasons`
+    - `emergencyOverrideTriggered`
+- `types.ts`
+  - aporta:
+    - `Species`
+    - `TriageCategory`
+    - `TriageLevel`
+    - `TriageResult`
+- El bridge no altera esa lógica; solo la reinterpreta dentro del lenguaje del runtime clínico.
+
+### Decisiones relevantes
+- `emergency`
+  - escala a `/urgencias`
+  - activa override
+  - produce intensidad máxima
+- `urgent`
+  - orienta a `/diagnostico` o `/cirugia` según contexto disponible
+  - no activa override por defecto
+- complejidad
+  - se puede resolver hacia `/medicina-interna`, `/oncologia` o `/exoticos` cuando el contexto lo permite
+- `consult`
+  - baja intensidad y orienta a seguimiento o valoración no urgente
+
+### Siguiente fase recomendada
+- No abrir UI dinámica todavía.
+- La siguiente fase natural es la Fase 4:
+  - wiring de aplicación entre bridge + engine
+  - primer servicio runtime de resolución
+  - sin provider global complejo todavía
+  - sin adaptación visual final todavía
+
+### Archivos tocados o auditados
+- `src/lib/clinical-runtime/triage-bridge/triage-bridge-types.ts`
+- `src/lib/clinical-runtime/triage-bridge/triage-bridge.ts`
+- `src/lib/clinical-runtime/triage-bridge/index.ts`
+- `docs/AI_CONTEXT_LOG.md`
+- `src/features/marketing/components/triage/score-triage.ts` (auditado)
+- `src/features/marketing/components/triage/types.ts` (auditado)
+- `src/features/marketing/components/triage/triage-data.ts` (auditado)
+- `src/lib/clinical-runtime/domain/urgency-override.ts` (auditado)
+- `src/lib/clinical-runtime/engine/cta-decision-engine.ts` (auditado)
+
+### Supuestos prohibidos
+- No hacer que triage decida la UI final por sí solo.
+- No usar el bridge como reemplazo del CTA engine.
+- No conectar todavía el bridge a componentes React o estado global.
