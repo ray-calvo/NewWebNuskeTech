@@ -2975,3 +2975,81 @@
 ### Supuestos prohibidos
 - No subir `exoticos` al mismo nivel narrativo que urgencias, cirugía, diagnóstico o endoscopía.
 - No volver a usar el hub para resumir demasiado las páginas ya publicadas.
+
+## Entrada 2026-03-25 01:05:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se abrió `/oncologia` como nueva página clínica del sitio.
+- La página quedó construida como una ruta de evaluación, decisión y seguimiento para pacientes con sospecha o diagnóstico oncológico.
+- La implementación mantuvo un tono:
+  - sobrio
+  - humano
+  - hospitalario
+  - sin alarmismo
+  - sin promesas de curación
+
+### Diagnóstico
+- Se partió desde cero: no existía la ruta ni un dominio propio para oncología.
+- El principal riesgo narrativo era que la página sonara a:
+  - landing emocional
+  - catálogo de tratamientos
+  - promesa terapéutica
+  - página triste o dramática
+- La solución fue plantearla como una capacidad clínica para:
+  - valorar mejor
+  - estudiar con criterio
+  - coordinar diagnóstico, cirugía, hospitalización y seguimiento según el caso
+
+### Cambios realizados
+- Se creó:
+  - `src/app/(marketing)/oncologia/page.tsx`
+  - `src/features/marketing/components/oncologia/OncologiaHero.tsx`
+  - `src/features/marketing/components/oncologia/data.ts`
+- La estructura narrativa final quedó en este orden:
+  - hero principal de oncología
+  - cuándo conviene valoración oncológica
+  - oncología como evaluación, decisión y seguimiento
+  - relación con diagnóstico, cirugía y hospitalización
+  - continuidad clínica y acompañamiento del paciente
+  - diferenciadores hospitalarios
+  - CTA final con valoración y desvío a urgencias si aplica
+
+### Decisiones tomadas
+- `oncologia` se presenta como medicina de alta complejidad con criterio, no como promesa de tratamiento.
+- Se evitó tratar la página como:
+  - catálogo de terapias
+  - página emocional
+  - promesa de curación
+- La relación con el resto del hospital quedó explícita:
+  - se apoya en diagnóstico
+  - puede coordinar cirugía u hospitalización
+  - requiere continuidad clínica y control del paciente
+  - si hay descompensación aguda, la entrada correcta sigue siendo urgencias
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/oncologia/page.tsx`
+- `src/features/marketing/components/oncologia/OncologiaHero.tsx`
+- `src/features/marketing/components/oncologia/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos restantes
+- `/servicios` todavía no refleja la publicación de `/oncologia` porque en esta fase no se tocó el hub.
+- Si se decide darle visibilidad dentro del hub, conviene hacerlo en una micro-fase separada para preservar trazabilidad y jerarquía.
+
+### Supuestos prohibidos
+- No convertir `oncologia` en promesa de tratamiento o curación.
+- No volverla una landing emocional.
+- No plantearla como catálogo de terapias o procedimientos.
