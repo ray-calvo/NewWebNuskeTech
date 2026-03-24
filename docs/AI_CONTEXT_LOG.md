@@ -1708,3 +1708,82 @@
 - No convertir la página de cirugía en catálogo exhaustivo de procedimientos.
 - No copiar el hero o las secciones de urgencias solo cambiando el copy.
 - No diluir la autoridad quirúrgica con contenido comercial o estético.
+
+## Entrada 2026-03-24 14:50:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- `/diagnostico` pasó de scaffold mínimo a página madre clínica real con narrativa diagnóstica propia.
+- La página ya comunica diagnóstico como capacidad hospitalaria transversal, soporte para decisiones clínicas y articulador entre urgencias, cirugía, hospitalización y endoscopía.
+- La intervención se mantuvo acotada a la ruta `diagnostico` y a componentes mínimos de dominio diagnóstico.
+
+### Cambios o hallazgos
+- `src/app/(marketing)/diagnostico/page.tsx` dejó de depender solo del scaffold placeholder.
+- Se incorporaron dos archivos de dominio:
+  - `src/features/marketing/components/diagnostico/DiagnosticoHero.tsx`
+  - `src/features/marketing/components/diagnostico/data.ts`
+- La estructura narrativa final quedó en este orden:
+  - hero diagnóstico principal
+  - por qué el diagnóstico cambia decisiones clínicas
+  - imagenología, laboratorio y evaluación complementaria como sistema integrado
+  - diagnóstico como soporte transversal del hospital
+  - diferenciadores hospitalarios
+  - CTA final con orientación diagnóstica y desvío a urgencias si aplica
+- La página evita:
+  - lista exhaustiva de estudios
+  - tono de landing de imagenología
+  - absorción narrativa de cirugía o endoscopía
+
+### Riesgos
+- Mitigado: dejar `/diagnostico` como placeholder sin valor clínico real.
+- Mitigado: tratar diagnóstico como apéndice de cirugía.
+- Mitigado: convertir la página en catálogo técnico o lista de estudios.
+- Pendiente: cuando se profundice `/endoscopia`, habrá que vigilar bien la frontera entre diagnóstico como soporte y endoscopía como capacidad procedimental diferenciada.
+
+### Decisiones tomadas
+- Diagnóstico se presenta como sistema de soporte clínico transversal.
+- La página deja clara su relación con:
+  - urgencias
+  - cirugía
+  - hospitalización
+  - endoscopía
+  sin absorberlas narrativamente.
+- No se tocaron:
+  - `/urgencias`
+  - `/cirugia`
+  - `/endoscopia`
+  - `/servicios`
+  - home
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/diagnostico/page.tsx`
+- `src/features/marketing/components/diagnostico/DiagnosticoHero.tsx`
+- `src/features/marketing/components/diagnostico/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Pendientes
+- Siguiente paso recomendado:
+  - profundizar `/endoscopia`
+- Al hacerlo, mantener explícita esta frontera:
+  - diagnóstico orienta y acompaña
+  - endoscopía resuelve como capacidad procedimental específica
+
+### Supuestos prohibidos
+- No convertir `/diagnostico` en página de catálogo de estudios.
+- No hacer que imagenología o laboratorio vuelvan a aparecer como páginas madre paralelas.
+- No diluir la frontera entre soporte diagnóstico y resolución procedimental.
