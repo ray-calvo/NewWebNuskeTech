@@ -543,6 +543,64 @@
 - No asumir que el triage ya sustituye orientacion clinica profesional.
 - No asumir que la simple exposicion de `/triage` implica que el modulo ya esta listo para promocion amplia.
 
+## Entrada 2026-03-23 23:05:00 -06:00
+
+### Tipo
+- Documentacion
+
+### Resumen ejecutivo
+- Se cerro la trazabilidad documental pendiente del roadmap y del triage.
+- Tambien se audito si `/triage` debe entrar ya a la navegación principal.
+- La recomendacion actual es mantener `/triage` activo pero no destacado todavia.
+
+### Cambios o hallazgos
+- Se reconocen formalmente como documentacion base committed:
+  - `docs/ROADMAP_GROWTH_HOSPITAL_MARKETING.md`
+  - `docs/TRIAGE_FUNCTIONAL_SPEC.md`
+  - `docs/TRIAGE_IMPLEMENTATION_PLAN.md`
+- Nueva auditoria:
+  - `docs/TRIAGE_EXPOSURE_DECISION_AUDIT.md`
+- La evidencia actual muestra que:
+  - `/triage` existe y funciona
+  - el scoring sigue en estado MVP
+  - no hay analytics ni calibracion clinica endurecida
+  - la navegación principal actual sigue centrada en servicios, tecnología y contacto
+
+### Riesgos
+- Mitigado: dejar sin commit la base documental del triage.
+- Mitigado: tomar una decision de exposición por intuicion.
+- Pendiente: si el triage gana visibilidad futura, habrá que endurecer medición y validación clínica.
+
+### Decisiones tomadas
+- El roadmap y la documentacion base del triage se consolidan como parte formal del repo.
+- `/triage` se recomienda como ruta existente pero no prominente por ahora.
+- No se modifica todavía navbar, mobile menu, hero ni footer.
+
+### Archivos tocados o auditados
+- `docs/ROADMAP_GROWTH_HOSPITAL_MARKETING.md`
+- `docs/TRIAGE_FUNCTIONAL_SPEC.md`
+- `docs/TRIAGE_IMPLEMENTATION_PLAN.md`
+- `docs/TRIAGE_EXPOSURE_DECISION_AUDIT.md`
+- `docs/AI_CONTEXT_LOG.md`
+- `src/app/(marketing)/triage/page.tsx`
+- `src/features/marketing/components/triage/TriageWizard.tsx`
+- `src/features/marketing/components/triage/TriageResultCard.tsx`
+- `src/components/shared/navbar.tsx`
+- `src/components/shared/footer.tsx`
+- `src/features/marketing/components/Hero.tsx`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/TRIAGE_EXPOSURE_DECISION_AUDIT.md`
+
+### Pendientes
+- Reevaluar la exposición principal de `/triage` cuando exista validación clínica y estrategia de medición mínima.
+- Decidir en otra fase si el entrypoint correcto debe ser navbar, hero, landing dedicada o CTA de urgencias.
+
+### Supuestos prohibidos
+- No asumir que una ruta funcional debe entrar automáticamente al navbar.
+- No asumir que el estado MVP actual del triage ya justifica exposición principal.
+
 ## Entrada 2026-03-23 21:40:00 -06:00
 
 ### Tipo
