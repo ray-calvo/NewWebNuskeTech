@@ -139,6 +139,21 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
         ctaLabel: "Ver oncología",
         status: "published",
       },
+      {
+        title: "Medicina interna",
+        category: "Ruta clínica complementaria",
+        description:
+          "Ruta para pacientes con signos persistentes, evolución incierta o cuadros complejos que necesitan integrar mejor estudios, contexto y seguimiento.",
+        icon: ScanSearch,
+        bullets: [
+          "Ordenar mejor casos que no encajan en una sola etiqueta",
+          "Integrar estudios, evolución y contexto clínico",
+          "Decidir si conviene seguir, escalar o cambiar de ruta",
+        ],
+        href: "/medicina-interna",
+        ctaLabel: "Ver medicina interna",
+        status: "published",
+      },
     ],
   },
   {
@@ -147,19 +162,6 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
     description:
       "Estas áreas forman parte del desarrollo del sitio, pero hoy no deben distraer de las rutas clínicas ya publicadas.",
     services: [
-      {
-        title: "Medicina interna",
-        category: "Publicación posterior",
-        description:
-          "Debe abrirse solo cuando pueda definirse como una ruta clara para casos complejos, no como un cajón general de problemas.",
-        icon: ScanSearch,
-        bullets: [
-          "Todavía no tiene frontera clínica suficiente",
-          "Necesita una ruta mejor definida",
-          "Se mantiene subordinada por ahora",
-        ],
-        status: "planned",
-      },
       {
         title: "Comercial subordinado",
         category: "Subordinado",

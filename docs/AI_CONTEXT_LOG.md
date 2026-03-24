@@ -3198,3 +3198,75 @@
 - No convertir `medicina-interna` en contenedor ambiguo para todo lo no resuelto.
 - No volverla una consulta general con nombre más sofisticado.
 - No duplicar la función clínica de diagnóstico ni de oncología.
+
+## Entrada 2026-03-25 02:20:00 -06:00
+
+### Tipo
+- Refactor
+
+### Resumen ejecutivo
+- Se actualizó `/servicios` para reflejar la publicación de `/medicina-interna`.
+- El hub mantiene su función de mapa clínico y ahora reconoce tres rutas clínicas complementarias ya publicadas:
+  - exóticos
+  - oncología
+  - medicina interna
+- No se alteró el núcleo hospitalario ni se profundizó contenido de páginas madre.
+
+### Diagnóstico
+- `/servicios` seguía desactualizado porque `medicina-interna` todavía aparecía dentro de publicación posterior.
+- La capa de rutas clínicas complementarias seguía siendo válida y no necesitó refactor mayor; solo requería incorporar la nueva ruta publicada.
+- No apareció deriva editorial grave adicional en el hub.
+
+### Cambios realizados
+- `src/features/marketing/components/services/data.ts`
+  - `medicina-interna` salió del bloque de publicación posterior
+  - se integró junto a `exoticos` y `oncologia` dentro de rutas clínicas complementarias
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+  - se actualizó el hero para reflejar que medicina interna ya forma parte de las rutas publicadas
+- `docs/AI_CONTEXT_LOG.md`
+  - se registró esta micro-fase de actualización del hub
+
+### Estado final del hub
+- Núcleo hospitalario:
+  - urgencias
+  - cirugía
+  - diagnóstico
+  - endoscopía
+- Continuidad clínica:
+  - prevención
+- Rutas clínicas complementarias:
+  - exóticos
+  - oncología
+  - medicina interna
+- Publicación posterior / subordinado:
+  - comercial subordinado
+
+### Decisiones tomadas
+- `medicina-interna` queda visible en el hub porque ya está publicada.
+- No se la subió al mismo plano que el núcleo hospitalario.
+- Se conserva una capa intermedia de rutas complementarias para no diluir la jerarquía clínica del sitio.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/services/data.ts`
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+- `src/app/(marketing)/servicios/page.tsx` (auditado)
+- `src/features/marketing/components/services/ServiceCategorySection.tsx` (auditado)
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos restantes
+- No hay bloqueo real antes de abrir la siguiente página.
+- Si siguen creciendo las rutas complementarias, más adelante podría hacer falta revisar si el hub necesita una subdivisión aún más explícita dentro de esa capa, pero todavía no.
+
+### Supuestos prohibidos
+- No subir `medicina-interna` al mismo plano narrativo que urgencias, cirugía, diagnóstico o endoscopía.
+- No convertir el bloque de rutas complementarias en un segundo catálogo.
