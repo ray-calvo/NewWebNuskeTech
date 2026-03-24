@@ -19,7 +19,7 @@ export function DiagnosticoHero() {
               <Badge variant="secondary">Diagnóstico hospitalario</Badge>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                Soporte para decisiones clínicas
+                Aclarar el cuadro y decidir mejor
               </div>
             </div>
 
@@ -28,10 +28,10 @@ export function DiagnosticoHero() {
                 Diagnóstico Hospitalario para Casos Complejos
               </h1>
               <p className="text-lg leading-8 text-slate-600">
-                Capacidad diagnóstica transversal para sostener decisiones
-                clínicas en urgencias, cirugía, hospitalización y seguimiento.
-                El diagnóstico se entiende aquí como sistema hospitalario de
-                precisión, no como lista aislada de estudios.
+                Cuando la exploración no basta, el diagnóstico ayuda a entender
+                mejor el cuadro, priorizar riesgos y decidir qué tratamiento o
+                procedimiento conviene seguir. No se trata de pedir estudios
+                por pedirlos, sino de tomar mejores decisiones.
               </p>
             </div>
 
@@ -47,7 +47,7 @@ export function DiagnosticoHero() {
                   rel="noreferrer"
                 >
                   <Microscope aria-hidden={true} className="h-4 w-4" />
-                  Solicitar orientación
+                  Solicitar valoración
                 </a>
               </Button>
               <Button
@@ -81,20 +81,19 @@ export function DiagnosticoHero() {
 
             <section className="rounded-[1.6rem] border border-primary/10 bg-primary p-5 text-white shadow-[0_20px_60px_-36px_rgba(15,23,42,0.5)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Frontera diagnóstica
+                Cuando hace falta más claridad
               </p>
               <p className="mt-3 text-lg font-semibold text-white">
-                El diagnóstico orienta la decisión clínica, pero no reemplaza la
-                intervención ni absorbe la endoscopía.
+                El diagnóstico ayuda a decidir mejor, pero no reemplaza una
+                cirugía o un procedimiento cuando el caso necesita resolverse.
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Esta página debe explicar cómo se articula el criterio
-                diagnóstico con urgencias, cirugía y procedimientos, manteniendo
-                clara la frontera entre soporte y resolución.
+                Su papel es reducir incertidumbre: aclarar el cuadro, confirmar
+                riesgos y orientar el siguiente paso con menos duda.
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
                 <ScanSearch aria-hidden={true} className="h-4 w-4" />
-                Precisión diagnóstica hospitalaria
+                Apoyo a decisiones clínicas
               </div>
             </section>
           </div>

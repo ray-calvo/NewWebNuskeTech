@@ -28,10 +28,10 @@ export function CirugiaHero() {
                 Cirugía Hospitalaria y Procedimientos Especializados
               </h1>
               <p className="text-lg leading-8 text-slate-600">
-                Capacidad quirúrgica hospitalaria para pacientes que requieren
-                intervención, control anestésico, monitoreo y continuidad
-                clínica. La cirugía se presenta como proceso médico integral,
-                no como lista aislada de procedimientos.
+                Valoración y resolución quirúrgica para pacientes que necesitan
+                intervenirse con seguridad anestésica, monitoreo y seguimiento
+                cercano. Aquí importa decidir bien cuándo operar y cómo
+                acompañar la recuperación.
               </p>
             </div>
 
@@ -77,20 +77,20 @@ export function CirugiaHero() {
 
             <section className="rounded-[1.6rem] border border-primary/10 bg-primary p-5 text-white shadow-[0_20px_60px_-36px_rgba(15,23,42,0.5)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Cirugía como sistema clínico
+                Si el paciente está inestable
               </p>
               <p className="mt-3 text-lg font-semibold text-white">
-                Si el paciente está inestable, la ruta correcta puede iniciar en
-                urgencias antes de pasar a resolución quirúrgica.
+                La ruta correcta puede empezar en urgencias antes de definir si
+                conviene operar.
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                La cirugía hospitalaria se integra con valoración crítica,
-                diagnóstico y monitoreo para decidir el momento y el soporte
-                más adecuados del procedimiento.
+                Primero importa estabilizar, aclarar el cuadro y valorar el
+                riesgo. Después se decide el mejor momento y soporte para la
+                intervención.
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
                 <HeartPulse aria-hidden={true} className="h-4 w-4" />
-                Coordinación con urgencias y paciente crítico
+                Coordinación con urgencias y monitoreo
               </div>
             </section>
           </div>

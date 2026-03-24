@@ -27,9 +27,9 @@ export function UrgenciasHero() {
               <p className="text-lg leading-8 text-slate-600">
                 Atención inmediata para pacientes que llegan con trauma, dolor
                 agudo, compromiso respiratorio, descompensación sistémica o
-                deterioro rápido. La urgencia se aborda como proceso
-                hospitalario completo: valoración, estabilización, monitoreo y
-                continuidad clínica.
+                deterioro rápido. Aquí importa valorar, estabilizar,
+                monitorear y decidir rápido qué necesita el paciente para no
+                perder tiempo crítico.
               </p>
             </div>
 

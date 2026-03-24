@@ -19,7 +19,7 @@ export function EndoscopiaHero() {
               <Badge variant="secondary">Endoscopía y mínima invasión</Badge>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                Capacidad procedimental especializada
+                Evaluar o resolver con mínima invasión
               </div>
             </div>
 
@@ -28,10 +28,11 @@ export function EndoscopiaHero() {
                 Endoscopía y Mínima Invasión Veterinaria
               </h1>
               <p className="text-lg leading-8 text-slate-600">
-                Capacidad clínica especializada para evaluar y, en ciertos
-                casos, resolver con menor agresión. La endoscopía se entiende
-                aquí como puente entre diagnóstico y tratamiento, no como pieza
-                tecnológica aislada ni como sustituto de cirugía.
+                Cuando el caso lo permite, la endoscopía ayuda a ver mejor lo
+                que está ocurriendo y, en algunos pacientes, a resolver sin
+                pasar de inmediato por una cirugía abierta. Su valor está en
+                decidir mejor y actuar con menos trauma cuando está bien
+                indicada.
               </p>
             </div>
 
@@ -77,21 +78,19 @@ export function EndoscopiaHero() {
 
             <section className="rounded-[1.6rem] border border-primary/10 bg-primary p-5 text-white shadow-[0_20px_60px_-36px_rgba(15,23,42,0.5)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Frontera procedimental
+                Cuando esta vía puede ayudar más
               </p>
               <p className="mt-3 text-lg font-semibold text-white">
-                La endoscopía acompaña el diagnóstico y puede evitar o redefinir
-                algunos abordajes mayores, pero no sustituye la cirugía cuando
-                el caso requiere otra resolución.
+                Puede evitar abrir cuando no hace falta, pero también ayuda a
+                reconocer cuándo el caso necesita cirugía u otro soporte.
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Su valor premium está en combinar menor invasión, mejor
-                visualización y recuperación potencialmente más ágil en
-                pacientes correctamente seleccionados.
+                La clave está en usarla en el momento correcto: cuando aporta
+                más claridad, menos trauma y una mejor decisión terapéutica.
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
                 <Waves aria-hidden={true} className="h-4 w-4" />
-                Mínima invasión con criterio clínico
+                Mínima invasión cuando está indicada
               </div>
             </section>
           </div>

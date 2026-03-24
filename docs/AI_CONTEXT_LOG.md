@@ -2603,3 +2603,81 @@
 ### Supuestos prohibidos
 - No reintroducir lenguaje de arquitectura clínica interna en datasets visibles.
 - No volver a explicar el hospital como sistema conceptual en vez de orientar el caso del paciente.
+
+## Entrada 2026-03-24 22:05:00 -06:00
+
+### Tipo
+- Auditoria editorial
+
+### Resumen ejecutivo
+- Se auditó comparativamente el sistema de heroes clínicos del núcleo P1:
+  - `/urgencias`
+  - `/cirugia`
+  - `/diagnostico`
+  - `/endoscopia`
+- El sistema ya era estable a nivel estructural, pero había desigualdad editorial:
+  - `urgencias` estaba más claro y operativo
+  - `cirugia` estaba razonablemente sólido
+  - `diagnostico` y `endoscopia` cargaban más abstracción conceptual
+- Se hicieron solo ajustes mínimos de copy para consolidar un patrón editorial común.
+
+### Diagnóstico
+- Incoherencias detectadas:
+  - `diagnostico` tenía el hero más abstracto e institucional del grupo
+  - `endoscopia` todavía usaba formulaciones demasiado conceptuales en badge y card oscura
+  - `cirugia` tenía una card lateral algo cercana a “sistema clínico” más que a orientación de decisión
+  - `urgencias` estaba más fuerte en claridad de acción y por eso funcionaba como referencia implícita del núcleo
+- No se detectó necesidad de rehacer layouts ni de crear nueva abstracción técnica.
+
+### Cambios realizados
+- `src/features/marketing/components/urgencias/UrgenciasHero.tsx`
+  - copy principal más directo hacia tiempo crítico y decisión rápida
+- `src/features/marketing/components/cirugia/CirugiaHero.tsx`
+  - hero body y card lateral reescritos para enfatizar decisión quirúrgica, estabilización previa y monitoreo
+- `src/features/marketing/components/diagnostico/DiagnosticoHero.tsx`
+  - badge, cuerpo, CTA y card lateral reescritos para quitar abstracción institucional
+- `src/features/marketing/components/diagnostico/data.ts`
+  - micro-ajuste en hero highlights para mejorar claridad y frontera clínica
+- `src/features/marketing/components/endoscopia/EndoscopiaHero.tsx`
+  - badge, cuerpo y card lateral reescritos para reforzar mínima invasión orientada a decisión, no a tecnología
+
+### Sistema editorial resultante
+- Patrón consolidado del hero clínico P1:
+  - qué capacidad es
+  - cuándo importa
+  - qué decisión o acción sigue
+- Fronteras clínicas consolidadas:
+  - urgencias = actuar ya y estabilizar
+  - cirugía = valorar resolución quirúrgica
+  - diagnóstico = aclarar el cuadro y decidir mejor
+  - endoscopía = evaluar o resolver con mínima invasión cuando aplica
+- Patrón de CTA consolidado:
+  - urgencias = acción inmediata
+  - resto P1 = solicitar valoración + llamar al hospital
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/urgencias/UrgenciasHero.tsx`
+- `src/features/marketing/components/cirugia/CirugiaHero.tsx`
+- `src/features/marketing/components/diagnostico/DiagnosticoHero.tsx`
+- `src/features/marketing/components/diagnostico/data.ts`
+- `src/features/marketing/components/endoscopia/EndoscopiaHero.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos restantes
+- No hay bloqueo real antes de P2.
+- El riesgo principal sigue siendo editorial:
+  - mantener este mismo nivel de claridad si se abren nuevas páginas clínicas sin dejar que vuelvan a aparecer badges o cards demasiado conceptuales.
+
+### Supuestos prohibidos
+- No volver a convertir heroes clínicos en manifiestos institucionales.
+- No usar badges o cards laterales para explicar teoría interna del hospital.

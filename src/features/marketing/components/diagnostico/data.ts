@@ -41,12 +41,12 @@ export const diagnosticsPhoneHref = "tel:+524433246136";
 
 export const diagnosticsHeroHighlights: readonly DiagnosticHighlight[] = [
   {
-    title: "Diagnóstico como soporte a decisiones",
+    title: "Ayuda a decidir con más claridad",
     description:
       "Cuando el cuadro no es claro, ayuda a priorizar mejor, confirmar sospechas y definir qué sigue.",
   },
   {
-    title: "Integración con urgencias y cirugía",
+    title: "Importa antes y después de intervenir",
     description:
       "Puede ayudar tanto en cuadros agudos como antes o después de un procedimiento, cuando hace falta decidir con más certeza.",
   },
