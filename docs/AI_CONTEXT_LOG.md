@@ -720,6 +720,50 @@
 - No asumir que emitir eventos locales equivale a analitica completa.
 - No asumir que el tracking minimo ya justifica exponer `/triage` en navegacion principal.
 
+## Entrada 2026-03-24 00:35:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se ejecuto un soft launch controlado del triage con un unico entrypoint secundario dentro del home.
+- `/triage` sigue fuera de la navegacion principal, pero ya cuenta con una exposicion contextual y reversible.
+- El objetivo fue probar descubribilidad sin sobreexponer un MVP heuristico.
+
+### Cambios o hallazgos
+- Se agrego un CTA contextual hacia `/triage` dentro de la tarjeta `Urgencias 24/7` en `src/features/marketing/components/ServicesGrid.tsx`.
+- No se tocaron `navbar`, `mobile menu`, `hero` ni `footer`.
+- Se actualizo el checklist de soft launch para reflejar la nueva exposicion controlada.
+
+### Riesgos
+- Mitigado: seguir con `/triage` completamente oculto pese a tener tracking minimo disponible.
+- Mitigado: mover el triage demasiado pronto a una posicion principal del sitio.
+- Pendiente: observar si el CTA contextual realmente aporta descubribilidad sin desviar indebidamente urgencias directas.
+
+### Decisiones tomadas
+- Se eligio un solo punto de entrada secundario.
+- Se eligio la tarjeta `Urgencias 24/7` por coherencia de intencion clinica y bajo riesgo UX.
+- El triage sigue sin ganar prominencia global.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/ServicesGrid.tsx`
+- `docs/TRIAGE_SOFT_LAUNCH_CHECKLIST.md`
+- `docs/INTERVENCION_FASE_12_TRIAGE_SOFT_LAUNCH.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/TRIAGE_SOFT_LAUNCH_CHECKLIST.md`
+- `docs/INTERVENCION_FASE_12_TRIAGE_SOFT_LAUNCH.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Monitorear uso y finalizacion del triage desde este entrypoint secundario.
+- Reevaluar mas adelante si se mantiene, se retira o se amplifica esta exposicion.
+
+### Supuestos prohibidos
+- No asumir que un CTA contextual exitoso implica que el triage ya debe ir al navbar.
+- No asumir que el entrypoint elegido es definitivo si las metricas del soft launch no lo respaldan.
+
 ## Entrada 2026-03-23 21:40:00 -06:00
 
 ### Tipo

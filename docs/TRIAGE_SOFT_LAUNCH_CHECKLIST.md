@@ -110,3 +110,37 @@ Payload minimo actual:
 - Ya existe revision clinica del scoring y del copy final.
 - El equipo puede medir al menos de forma minima el comportamiento del soft launch.
 - La decision de mayor visibilidad queda documentada antes de tocar navegacion principal.
+
+## 10. Exposicion actual del soft launch
+
+Estado actual:
+
+- `/triage` quedo expuesto de forma secundaria dentro de la tarjeta `Urgencias 24/7` en home.
+- No se agrego al navbar principal.
+- No se agrego al mobile menu principal.
+- No se agrego al hero.
+
+## 11. Que validar despues del despliegue
+
+- Si el entrypoint contextual recibe clics reales.
+- Si el volumen de `triage_started` justifica mantenerlo visible.
+- Si los usuarios completan el flujo despues de entrar por ese CTA.
+- Si el CTA genera confusion con el mensaje principal de urgencias.
+- Si hay señales de que el entrypoint retrasa acciones urgentes reales.
+
+## 12. Criterios para mantener, retirar o ampliar la exposicion
+
+Mantener:
+
+- si el CTA recibe uso razonable y no genera confusion visible
+
+Retirar:
+
+- si genera ruido UX
+- si casi no recibe clics
+- si se detecta tension con el mensaje principal de urgencias
+
+Ampliar:
+
+- solo si el soft launch muestra uso, finalizacion y comportamiento coherente
+- solo despues de revision clinica y decision documental explicita
