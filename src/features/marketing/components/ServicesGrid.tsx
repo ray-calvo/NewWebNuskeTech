@@ -54,7 +54,7 @@ const services = [
             de decidir el siguiente paso.
           </p>
           <Link
-            href="/triage"
+            href="/triage?entrypoint=services-grid-urgencias"
             className="mt-3 inline-flex text-sm font-semibold text-white underline-offset-4 hover:underline"
           >
             Abrir triage orientativo

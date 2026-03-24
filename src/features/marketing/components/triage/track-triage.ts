@@ -7,7 +7,10 @@ import type {
 } from "@/features/marketing/components/triage/types";
 
 export type TriageTrackingEventName =
+  | "triage_entrypoint_detected"
   | "triage_started"
+  | "triage_step_viewed"
+  | "triage_step_abandoned"
   | "triage_species_selected"
   | "triage_category_selected"
   | "triage_result_shown"
@@ -16,6 +19,9 @@ export type TriageTrackingEventName =
   | "triage_reset";
 
 export type TriageTrackingPayload = {
+  entrypoint_source?: string | null;
+  step_name?: string | null;
+  step_index?: number | null;
   species?: Species | null;
   category?: TriageCategory | null;
   result_level?: TriageLevel | null;
