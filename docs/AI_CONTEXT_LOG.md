@@ -3564,3 +3564,388 @@
 ### Supuestos prohibidos
 - No tratar este charter como documento opcional o aspiracional.
 - No reabrir crecimiento libre por especialidades sin contrastarlo contra este modelo institucional.
+
+## Entrada 2026-03-25 03:45:00 -06:00
+
+### Tipo
+- Modelo UX clinico
+
+### Resumen ejecutivo
+- Se definió el modelo profundo de experiencia clínica digital del usuario dentro del hospital digital.
+- La conclusión principal es que el usuario no navega el sitio como “buscador de especialidades”.
+- El usuario navega desde uno de tres estados dominantes:
+  - urgencia
+  - duda
+  - seguimiento
+
+### Modelo mental del usuario
+- El dueño del paciente no piensa primero en arquitectura del hospital.
+- Piensa primero en:
+  - qué tan urgente se ve el problema
+  - si puede esperar o no
+  - si ya tiene un hallazgo o diagnóstico previo
+  - si necesita confirmar, decidir o dar seguimiento
+- Su pregunta real no suele ser:
+  - “qué especialidad existe”
+- Su pregunta real suele ser:
+  - “a dónde entro con esto”
+  - “qué tan grave puede ser”
+  - “qué ruta me ayuda a decidir mejor”
+
+### Entrada real al hospital digital
+- Entrada principal real:
+  - urgencias, cuando hay percepción de riesgo inmediato
+- Entrada secundaria real:
+  - `/servicios`, cuando el usuario sabe que necesita atención pero no identifica aún la ruta correcta
+- Entradas de complejidad:
+  - diagnóstico, medicina interna, oncología y exóticos, cuando ya hay un hallazgo, una sospecha o un contexto más definido
+- Entrada de continuidad:
+  - prevención, cuando todavía hay margen y el usuario busca seguimiento o control oportuno
+
+### Journeys clínicos principales
+
+#### Journey 1: Urgencia
+- Estado mental:
+  - miedo
+  - prisa
+  - baja tolerancia a leer
+- Ruta típica:
+  - home o CTA urgente -> `/urgencias` -> llamada / WhatsApp / llegada al hospital
+- Necesidad:
+  - confirmar que debe actuar ya
+  - reducir demora
+  - no equivocarse de entrada
+
+#### Journey 2: Duda clínica no resuelta
+- Estado mental:
+  - incertidumbre
+  - búsqueda de claridad
+- Ruta típica:
+  - `/servicios` -> `/diagnostico` o `/medicina-interna`
+- Necesidad:
+  - entender qué ruta ayuda a aclarar el cuadro
+  - evitar entrar a una especialidad demasiado pronto
+
+#### Journey 3: Sospecha de resolución
+- Estado mental:
+  - el usuario cree que puede requerirse intervención
+- Ruta típica:
+  - `/servicios` -> `/cirugia`
+  - o `/urgencias` -> `/cirugia` si el caso entra por descompensación
+- Necesidad:
+  - saber si la ruta correcta es resolver, no solo estudiar
+
+#### Journey 4: Hallazgo complejo o diagnóstico previo
+- Estado mental:
+  - preocupación sostenida
+  - necesidad de acompañamiento
+- Ruta típica:
+  - `/oncologia` o `/medicina-interna`
+- Necesidad:
+  - entender qué sigue
+  - no sentirse abandonado entre estudios, hallazgos y decisiones
+
+#### Journey 5: Ruta de especie o complejidad adaptada
+- Estado mental:
+  - el usuario sabe que el paciente no encaja en la lógica habitual
+- Ruta típica:
+  - `/exoticos`
+- Necesidad:
+  - confirmar que el hospital puede valorar con criterio propio
+
+#### Journey 6: Continuidad y cuidado anticipado
+- Estado mental:
+  - baja urgencia
+  - mayor apertura a seguimiento
+- Ruta típica:
+  - `/prevencion`
+- Necesidad:
+  - entender que prevenir también es medicina seria
+
+### Rutas invisibles entre páginas
+- `urgencias -> diagnostico`
+  - cuando el paciente ya fue estabilizado y hay que aclarar
+- `urgencias -> cirugia`
+  - cuando la resolución se vuelve necesaria
+- `diagnostico -> cirugia`
+  - cuando el estudio confirma necesidad de intervención
+- `diagnostico -> oncologia`
+  - cuando aparece una sospecha o hallazgo compatible con complejidad oncológica
+- `diagnostico -> medicina-interna`
+  - cuando el problema no queda claro en una sola lectura
+- `medicina-interna -> oncologia`
+  - cuando el caso requiere una ruta más específica
+- `prevencion -> diagnostico`
+  - cuando algo detectado en seguimiento necesita aclararse
+- `exoticos -> urgencias`
+  - cuando un paciente no convencional llega ya comprometido
+
+### Puntos críticos de decisión
+- decidir si actuar ya o si todavía hay margen
+- decidir si el problema necesita aclaración o resolución
+- decidir si el caso encaja en una ruta estructural o en una ruta de complejidad
+- decidir cuándo dejar de “esperar a ver” y pedir valoración
+- decidir si el seguimiento sigue siendo suficiente o si hay que escalar
+
+### Momentos clínicos clave
+- Momento de urgencia:
+  - el usuario necesita muy poco texto y mucha certeza de acción
+- Momento de duda:
+  - el usuario necesita orientación y frontera entre rutas
+- Momento de seguimiento:
+  - el usuario necesita continuidad, no dramatización
+- Momento de complejidad:
+  - el usuario necesita integración del caso y acompañamiento
+
+### Riesgos UX clínicos
+- Que el usuario busque especialidades cuando en realidad necesita una ruta por decisión clínica.
+- Que `/servicios` vuelva a crecer como catálogo y aumente fricción.
+- Que una página complementaria compita con una ruta estructural.
+- Que el usuario tarde demasiado en reconocer que el caso ya es urgencia.
+- Que el seguimiento se perciba como algo menor y no como continuidad médica seria.
+
+### Oportunidades futuras
+- Afinar mejor las conexiones invisibles entre rutas sin alterar arquitectura base.
+- Diseñar patrones de transición entre:
+  - aclaración diagnóstica
+  - resolución
+  - complejidad
+  - seguimiento
+- Fortalecer el sistema de CTA según estado mental del usuario:
+  - actuar ya
+  - solicitar valoración
+  - seguir acompañando
+- Desarrollar en otra fase una guía operativa de clinical UX states para:
+  - urgencia
+  - duda
+  - complejidad
+  - seguimiento
+
+### Decision operativa recomendada
+- La siguiente fase no debería abrir páginas nuevas por defecto.
+- Conviene trabajar primero sobre el modelo de transición y experiencia entre rutas ya publicadas.
+
+### Archivos tocados o auditados
+- `docs/CLINICAL_DIGITAL_MODEL_CHARTER.md`
+- `src/features/marketing/components/services/data.ts` (auditado)
+- `docs/AI_CONTEXT_LOG.md`
+
+### Supuestos prohibidos
+- No asumir que el usuario navega como si conociera la organización interna del hospital.
+- No diseñar futuras expansiones solo desde la lógica de especialidad.
+- No confundir más rutas con mejor experiencia clínica.
+
+## Entrada 2026-03-25 04:05:00 -06:00
+
+### Tipo
+- Sistema UX clinico
+
+### Resumen ejecutivo
+- Se definió el sistema oficial de estados UX clínicos del hospital digital.
+- El sistema propone que la experiencia del sitio responda al estado clínico percibido por el usuario y no solo al contenido de cada página.
+- Los estados oficiales quedan definidos como:
+  - urgencia percibida
+  - incertidumbre clínica
+  - complejidad reconocida
+  - estabilidad / seguimiento
+
+### Sistema oficial de estados UX clínicos
+
+#### Estado 1: Urgencia percibida
+- El usuario siente que algo no puede esperar.
+- Necesita:
+  - certeza
+  - rapidez
+  - acción inmediata
+- Riesgo emocional dominante:
+  - miedo con baja tolerancia a explorar
+
+#### Estado 2: Incertidumbre clínica
+- El usuario detecta que algo no está bien, pero no entiende qué ruta corresponde.
+- Necesita:
+  - orientación
+  - frontera entre rutas
+  - reducción de ambigüedad
+- Riesgo emocional dominante:
+  - confusión y espera excesiva
+
+#### Estado 3: Complejidad reconocida
+- El usuario ya sabe o sospecha que el caso es más complejo, prolongado o especializado.
+- Necesita:
+  - integración del caso
+  - lectura más profunda
+  - acompañamiento
+- Riesgo emocional dominante:
+  - carga mental alta y sensación de fragmentación
+
+#### Estado 4: Estabilidad / seguimiento
+- El usuario no percibe una urgencia inmediata, pero sí necesidad de vigilar, prevenir o seguir acompañando.
+- Necesita:
+  - continuidad
+  - claridad de próximos pasos
+  - control sin dramatización
+- Riesgo emocional dominante:
+  - banalizar el seguimiento o postergarlo demasiado
+
+### Comportamiento del sitio por estado
+
+#### Urgencia percibida
+- El sitio debe:
+  - reducir texto y aumentar certeza
+  - reforzar acceso rápido a urgencias
+  - minimizar exploración secundaria
+- Señalización adecuada:
+  - lenguaje directo
+  - confirmación de necesidad de actuar
+  - rutas muy claras hacia llamada, WhatsApp o llegada
+- CTA dominante:
+  - actuar ya
+
+#### Incertidumbre clínica
+- El sitio debe:
+  - ayudar a elegir ruta sin forzar especialidad
+  - priorizar comparación implícita entre aclarar, resolver o seguir
+  - reducir ambigüedad entre páginas cercanas
+- Señalización adecuada:
+  - “cuándo esta ruta tiene sentido”
+  - “qué cambia si entras aquí”
+  - “cuándo no conviene seguir esperando”
+- CTA dominante:
+  - solicitar valoración / aclarar el caso
+
+#### Complejidad reconocida
+- El sitio debe:
+  - reconocer que el caso no es simple
+  - transmitir integración clínica
+  - acompañar mejor la continuidad entre rutas
+- Señalización adecuada:
+  - contexto
+  - seguimiento
+  - coordinación entre áreas
+- CTA dominante:
+  - solicitar valoración / continuar con criterio
+
+#### Estabilidad / seguimiento
+- El sitio debe:
+  - sostener una relación menos dramática y más longitudinal
+  - mostrar prevención y seguimiento como medicina seria
+  - evitar tono trivial o comercial
+- Señalización adecuada:
+  - cuidado anticipado
+  - control oportuno
+  - continuidad clínica
+- CTA dominante:
+  - agendar / solicitar valoración / mantener seguimiento
+
+### Señalización clínica recomendada por estado
+- Urgencia:
+  - confirmar gravedad percibida
+  - enfatizar tiempo y acción
+- Incertidumbre:
+  - aclarar frontera entre rutas
+  - orientar siguiente paso
+- Complejidad:
+  - mostrar integración de áreas y continuidad
+  - reducir sensación de fragmentación
+- Seguimiento:
+  - reforzar valor de la vigilancia y el control
+  - evitar lenguaje menor o secundario
+
+### Sistema de CTA por estado
+- Urgencia percibida:
+  - `Ir a urgencias`
+  - `Llamar ahora`
+  - `WhatsApp`
+- Incertidumbre clínica:
+  - `Solicitar valoración`
+  - `Aclarar el caso`
+- Complejidad reconocida:
+  - `Solicitar valoración`
+  - `Dar seguimiento`
+  - `Hablar con el hospital`
+- Estabilidad / seguimiento:
+  - `Agendar valoración`
+  - `Mantener seguimiento`
+
+### Progresión entre estados
+- Urgencia -> diagnóstico o cirugía
+  - cuando el paciente ya fue estabilizado
+- Incertidumbre -> diagnóstico o medicina interna
+  - cuando hace falta aclarar antes de decidir
+- Complejidad -> oncología, medicina interna o exóticos
+  - cuando ya existe una lectura más específica o un contexto más denso
+- Seguimiento -> prevención, diagnóstico o complejidad
+  - cuando algo cambia y deja de ser solo control
+
+### Riesgos si no se implementa este sistema
+- Cada página puede terminar resolviendo el mismo problema UX de forma distinta.
+- El usuario puede recibir CTAs inconsistentes según página y no según estado mental.
+- Las rutas estructurales y complementarias pueden competir en vez de ordenarse.
+- El hospital digital puede perder claridad justo cuando el caso del usuario se vuelve más sensible.
+
+### Oportunidades estratégicas
+- Diseñar en el futuro un sistema de CTA por estado y no solo por página.
+- Afinar transiciones invisibles entre rutas ya publicadas.
+- Crear señales visuales y narrativas coherentes para urgencia, duda, complejidad y seguimiento.
+- Convertir el sitio en una experiencia hospitalaria más sensible al momento clínico del usuario sin crecer por páginas.
+
+### Decision operativa recomendada
+- Antes de abrir nuevas rutas, conviene traducir este sistema de estados a reglas operativas de:
+  - CTA
+  - señalización
+  - transiciones entre páginas
+
+### Archivos tocados o auditados
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/CLINICAL_DIGITAL_MODEL_CHARTER.md` (auditado)
+
+### Supuestos prohibidos
+- No diseñar el UX del hospital solo por tipo de página.
+- No asumir que el mismo CTA sirve igual en urgencia, duda, complejidad y seguimiento.
+- No seguir expandiendo páginas sin traducir antes este modelo a comportamiento UX.
+
+## Entrada 2026-03-25 04:25:00 -06:00
+
+### Tipo
+- Formalizacion institucional UX
+
+### Resumen ejecutivo
+- Se formalizó el sistema de estados clínicos UX del hospital digital en un documento institucional nuevo:
+  - `docs/CLINICAL_STATE_UX_SYSTEM.md`
+- El sistema deja de ser una conclusión operativa aislada y pasa a ser una regla reusable para decisiones futuras de diseño, contenido, navegación y expansión.
+- No se tocó código de producto.
+
+### Documento institucional creado
+- `docs/CLINICAL_STATE_UX_SYSTEM.md`
+
+### Relación con el Clinical Digital Model Charter
+- `CLINICAL_DIGITAL_MODEL_CHARTER.md` define cómo se organiza el hospital digital.
+- `CLINICAL_STATE_UX_SYSTEM.md` define cómo debe responder la experiencia del sitio al estado clínico percibido por el usuario.
+- Ambos documentos deben leerse juntos:
+  - charter = estructura del hospital digital
+  - state UX system = comportamiento UX del hospital digital
+
+### Sistema institucional formalizado
+- Estados UX clínicos oficiales:
+  - urgencia percibida
+  - incertidumbre clínica
+  - complejidad reconocida
+  - estabilidad / seguimiento
+- Regla central:
+  - el sitio debe responder primero al estado clínico percibido del usuario y después a la taxonomía interna del hospital
+
+### Siguiente fase recomendada
+- No abrir nuevas páginas por defecto.
+- Traducir este sistema a reglas operativas futuras para:
+  - CTA
+  - señalización
+  - transiciones entre rutas
+
+### Archivos tocados o auditados
+- `docs/CLINICAL_STATE_UX_SYSTEM.md`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/CLINICAL_DIGITAL_MODEL_CHARTER.md` (auditado)
+
+### Supuestos prohibidos
+- No tratar este sistema UX como documento opcional.
+- No seguir tomando decisiones de CTA o jerarquía sin contrastarlas contra el estado clínico percibido del usuario.
