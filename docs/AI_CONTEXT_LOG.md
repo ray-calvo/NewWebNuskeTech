@@ -4000,3 +4000,63 @@
 ### Supuestos prohibidos
 - No tratar el sistema de CTA como capa decorativa.
 - No definir CTAs sin pasar antes por estado clínico UX y riesgo percibido.
+
+## Entrada 2026-03-25 05:10:00 -06:00
+
+### Tipo
+- Operacionalizacion institucional CTA
+
+### Resumen ejecutivo
+- Se operacionalizó el sistema clínico de CTAs del hospital digital en dos documentos nuevos:
+  - `docs/CLINICAL_CTA_EXECUTION_MATRIX.md`
+  - `docs/CLINICAL_CTA_VISUAL_SYSTEM.md`
+- La matriz aterriza la lógica institucional a reglas operativas por página, estado clínico, conflicto y fallback.
+- El sistema visual fija cómo debe traducirse la jerarquía clínica de CTAs a intensidad visual, layout y señalización implícita.
+- También quedó formalizada la futura integración conceptual con triage como capa capaz de sobrescribir lógica local de página.
+
+### Relación con marcos institucionales existentes
+- `CLINICAL_DIGITAL_MODEL_CHARTER.md`
+  - define el modelo clínico estructural del hospital digital
+- `CLINICAL_STATE_UX_SYSTEM.md`
+  - define los estados UX clínicos y su progresión
+- `CLINICAL_CTA_SYSTEM.md`
+  - define jerarquía y reglas conceptuales de CTA
+- `CLINICAL_CTA_EXECUTION_MATRIX.md`
+  - traduce ese sistema a comportamiento operativo por página y estado
+- `CLINICAL_CTA_VISUAL_SYSTEM.md`
+  - define cómo debe verse la jerarquía CTA sin caer en lógica promocional
+
+### Sistema institucional formalizado
+- Principio operativo:
+  - el CTA correcto se define por estado clínico + riesgo + momento del journey
+- Jerarquía de intensidad operacional:
+  - Nivel 4: emergencia
+  - Nivel 3: decisión médica
+  - Nivel 2: seguimiento clínico
+  - Nivel 1: orientación segura
+- Reglas nuevas formalizadas:
+  - urgencias sobrescribe otras lógicas si existe riesgo claro o percibido
+  - páginas complementarias no deben tener CTA más agresivo que el núcleo salvo riesgo clínico explícito
+  - triage puede sobrescribir la lógica de página, pero nunca bajar urgencia si hay riesgo
+
+### Siguiente fase recomendada
+- No abrir nuevas páginas por defecto.
+- Traducir este sistema a una auditoría de implementación futura sobre:
+  - CTAs reales del home
+  - franja superior de urgencias
+  - hub `/servicios`
+  - páginas madre del núcleo y rutas complementarias
+- Si se activa trabajo de producto, la siguiente fase natural es mapear CTAs visibles actuales contra la matriz y detectar desalineaciones.
+
+### Archivos tocados o auditados
+- `docs/CLINICAL_CTA_EXECUTION_MATRIX.md`
+- `docs/CLINICAL_CTA_VISUAL_SYSTEM.md`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/CLINICAL_DIGITAL_MODEL_CHARTER.md` (auditado)
+- `docs/CLINICAL_STATE_UX_SYSTEM.md` (auditado)
+- `docs/CLINICAL_CTA_SYSTEM.md` (auditado)
+
+### Supuestos prohibidos
+- No implementar CTAs futuros solo por convención visual heredada.
+- No dejar que la página local defina por sí sola la intensidad CTA si el estado clínico o el triage indican otra cosa.
+- No usar urgencia visual como sustituto de claridad clínica.
