@@ -181,10 +181,11 @@ export default function DiagnosticoPage() {
                 La pregunta correcta no es solo qué estudio hacer, sino qué decisión clínica necesita el paciente
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                Esta página orienta hacia valoración diagnóstica hospitalaria y
-                lectura clínica del caso. Si el paciente está inestable,
-                prioriza urgencias. Si la necesidad es procedimental, esta ruta
-                acompaña pero no reemplaza cirugía o endoscopía.
+                Esta página orienta hacia una valoración diagnóstica
+                hospitalaria y la lectura clínica del caso. Si el paciente
+                está inestable, prioriza urgencias. Si la necesidad es
+                procedimental, esta ruta acompaña pero no reemplaza cirugía o
+                endoscopía.
               </p>
             </div>
 
@@ -193,7 +194,7 @@ export default function DiagnosticoPage() {
                 Acción recomendada
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Si necesitas orientación sobre estudios o valoración diagnóstica
+                Si necesitas una valoración diagnóstica o orientación clínica
                 para un caso complejo, contacta al hospital. Si el paciente
                 está descompensado, la ruta correcta sigue siendo urgencias.
               </p>
@@ -209,7 +210,7 @@ export default function DiagnosticoPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Solicitar orientación
+                    Solicitar valoración
                   </a>
                 </Button>
                 <Button

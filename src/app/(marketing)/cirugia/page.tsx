@@ -210,10 +210,10 @@ export default function CirugiaPage() {
                 La decisión correcta no siempre es “operar ya”, sino valorar bien y resolver con criterio
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                Esta página orienta hacia valoración quirúrgica, no hacia una
-                promesa automática de procedimiento. Si el paciente llega
-                inestable o con trauma importante, la ruta correcta puede
-                comenzar en urgencias.
+                Esta página orienta hacia una valoración quirúrgica
+                hospitalaria, no hacia una promesa automática de procedimiento.
+                Si el paciente llega inestable o con trauma importante, la
+                ruta correcta puede comenzar en urgencias.
               </p>
             </div>
 
@@ -222,9 +222,9 @@ export default function CirugiaPage() {
                 Acción recomendada
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Si buscas una valoración quirúrgica o necesitas orientación
-                médica para un posible procedimiento, contacta al hospital. Si
-                el paciente está descompensado, prioriza la ruta de urgencias.
+                Si necesitas una valoración quirúrgica o orientación clínica
+                sobre un posible procedimiento, contacta al hospital. Si el
+                paciente está descompensado, prioriza la ruta de urgencias.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">

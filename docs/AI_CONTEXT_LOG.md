@@ -1867,3 +1867,156 @@
 - No tratar endoscopía como página de equipo o tecnología aislada.
 - No reabrir `mínima invasión` como página paralela.
 - No convertir `/endoscopia` en catálogo exhaustivo de procedimientos.
+
+## Entrada 2026-03-24 17:05:00 -06:00
+
+### Tipo
+- Auditoria
+
+### Resumen ejecutivo
+- Se ejecutó una auditoría transversal de coherencia clínica y arquitectónica sobre las páginas madre P1:
+  - `/urgencias`
+  - `/cirugia`
+  - `/diagnostico`
+  - `/endoscopia`
+- El núcleo P1 ya se percibe consistente como sistema hospitalario, con identidad clínica propia por página y sin conflicto técnico inmediato.
+- No se detectó necesidad de refactor amplio antes de abrir la siguiente fase, pero sí aparecieron ajustes puntuales recomendables para evitar drift narrativo y de UX.
+
+### Hallazgos principales
+- La jerarquía hospitalaria general ya es coherente:
+  - urgencias como puerta de entrada crítica
+  - cirugía como capacidad resolutiva
+  - diagnóstico como soporte transversal
+  - endoscopía como capacidad procedimental especializada
+- La densidad estructural entre páginas es suficientemente pareja.
+- Ninguna página suena hoy a catálogo comercial ni a landing promocional agresiva.
+- La capa compartida actual sigue siendo suficiente:
+  - `ClinicalSection`
+  - `ClinicalBulletGrid`
+  - `ClinicalParentPageScaffold`
+
+### Riesgos detectados
+- Riesgo narrativo bajo:
+  - `/endoscopia` y `/diagnostico` están bien separados, pero comparten frontera delicada; si futuras iteraciones agregan demasiado detalle clínico, podrían empezar a solaparse.
+- Riesgo UX medio-bajo:
+  - los CTAs son coherentes, pero no están completamente normalizados en lenguaje:
+    - `Solicitar valoración`
+    - `Solicitar orientación`
+    - `Llamar al hospital`
+    - `Ir a urgencias 24/7`
+  - no es inconsistencia crítica, pero ya marca un punto de estandarización futura.
+- Riesgo arquitectónico bajo:
+  - aún no se necesita una nueva abstracción compartida.
+  - si se profundizan más páginas clínicas con bloques oscuros + caja final de acción + cards de soporte, puede aparecer una segunda capa compartida ligera para CTA/final block, pero todavía no conviene forzarla.
+
+### Recomendaciones puntuales
+- Mantener la capa compartida actual sin ampliarla todavía.
+- Antes de abrir P2, considerar una micro-fase de normalización editorial de CTAs entre páginas madre clínicas.
+- Mantener explícitas estas fronteras:
+  - urgencias recibe, estabiliza y prioriza
+  - cirugía resuelve con soporte perioperatorio
+  - diagnóstico soporta decisiones transversales
+  - endoscopía evalúa y puede resolver con mínima invasión en casos seleccionados
+
+### Decision de readiness
+- Sí puede abrirse la siguiente fase del proyecto sin refactor previo obligatorio.
+- No conviene abrir P2 amplio todavía.
+- Conviene primero consolidar el núcleo P1:
+  - revisar consistencia editorial fina
+  - decidir si `/servicios` necesitará ajuste posterior como hub
+  - luego abrir la siguiente ola clínica
+
+### Archivos auditados
+- `src/app/(marketing)/urgencias/page.tsx`
+- `src/app/(marketing)/cirugia/page.tsx`
+- `src/app/(marketing)/diagnostico/page.tsx`
+- `src/app/(marketing)/endoscopia/page.tsx`
+- `src/features/marketing/components/clinical/ClinicalSection.tsx`
+- `src/features/marketing/components/clinical/ClinicalParentPageScaffold.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Cambios realizados
+- Solo documentación.
+- No se modificó código de producto.
+
+### Validaciones
+- Se confirmó revisión comparativa directa del código y estado actual del repositorio.
+- No se ejecutaron `guardrails`, `lint` ni `build` porque esta fase no introdujo cambios de producto.
+
+### Supuestos prohibidos
+- No usar `/urgencias` como plantilla implícita rígida para todas las páginas madre.
+- No abrir P2 sin vigilar primero la coherencia editorial fina del núcleo P1.
+- No ampliar la capa compartida por anticipación en lugar de necesidad real.
+
+## Entrada 2026-03-24 18:00:00 -06:00
+
+### Tipo
+- Ajuste editorial
+
+### Resumen ejecutivo
+- Se ejecutó una micro-fase editorial sobre el núcleo P1:
+  - `/urgencias`
+  - `/cirugia`
+  - `/diagnostico`
+  - `/endoscopia`
+- No se tocaron arquitectura, componentes técnicos ni estructura visual.
+- El objetivo fue alinear tono clínico, semántica hospitalaria y wording de CTA sin reescribir páginas completas.
+
+### Cambios o hallazgos
+- La principal micro-inconsistencia estaba en el sistema de CTA no urgente:
+  - `/cirugia` y `/endoscopia` ya usaban `Solicitar valoración`
+  - `/diagnostico` usaba `Solicitar orientación`
+- Se normalizó el CTA principal no urgente hacia `Solicitar valoración`.
+- También se ajustó el wording de cierre para reforzar el modelo mental clínico:
+  - cirugía -> valoración quirúrgica hospitalaria
+  - diagnóstico -> valoración diagnóstica hospitalaria
+  - endoscopía -> valoración endoscópica especializada
+- `/urgencias` se mantuvo como excepción deliberada:
+  - su jerarquía de acción sigue siendo inmediata
+  - conserva `Llamar ahora`, `WhatsApp inmediato`, `Cómo llegar` y acceso secundario a triage
+
+### Sistema editorial resultante
+- CTA hospitalario inmediato:
+  - urgencias -> acción inmediata
+- CTA hospitalario no urgente:
+  - páginas madre clínicas -> `Solicitar valoración`
+- CTA secundario común:
+  - `Llamar al hospital`
+- CTA terciario de seguridad:
+  - `Ir a urgencias 24/7`
+- Modelo mental protegido:
+  - urgencias recibe y prioriza
+  - cirugía resuelve
+  - diagnóstico orienta y soporta
+  - endoscopía evalúa y puede resolver con mínima invasión
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/urgencias/page.tsx` (auditado)
+- `src/app/(marketing)/cirugia/page.tsx`
+- `src/app/(marketing)/diagnostico/page.tsx`
+- `src/app/(marketing)/endoscopia/page.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos pendientes
+- No queda bloqueo inmediato antes de P2.
+- El principal riesgo futuro sigue siendo editorial:
+  - que nuevas páginas clínicas reintroduzcan variantes innecesarias de CTA o tono
+- La siguiente fase ya puede abrir contenido nuevo, siempre que mantenga este sistema editorial base.
+
+### Supuestos prohibidos
+- No volver a fragmentar los CTA principales no urgentes sin una razón clínica real.
+- No transformar `/diagnostico` en una página más consultiva que clínica.
+- No hacer que `/endoscopia` pierda su condición de capacidad especializada por exceso de lenguaje genérico.

@@ -182,8 +182,8 @@ export default function EndoscopiaPage() {
                 La decisión correcta no es “hacer endoscopía siempre”, sino saber cuándo aporta una ruta menos invasiva y más precisa
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                Esta página orienta hacia valoración especializada de
-                endoscopía. Si el paciente está inestable, la ruta correcta
+                Esta página orienta hacia una valoración endoscópica
+                especializada. Si el paciente está inestable, la ruta correcta
                 puede empezar en urgencias. Si el caso requiere soporte
                 diagnóstico más amplio o cirugía, esta capacidad se integra sin
                 sustituirlas.
@@ -195,7 +195,7 @@ export default function EndoscopiaPage() {
                 Acción recomendada
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Si buscas orientación sobre endoscopía o una opción
+                Si necesitas una valoración endoscópica o explorar una opción
                 mínimamente invasiva para un caso complejo, contacta al
                 hospital. Si el paciente está comprometido, prioriza urgencias.
               </p>
