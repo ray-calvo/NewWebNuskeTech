@@ -15,7 +15,7 @@ export function TriageIntro({ onStart }: TriageIntroProps) {
       <CardHeader className="space-y-4">
         <Badge>Antes de comenzar</Badge>
         <CardTitle className="max-w-3xl text-3xl font-semibold tracking-[-0.03em] text-slate-950">
-          Esta herramienta orienta de forma inicial, pero no sustituye la
+          Esta herramienta orienta el siguiente paso, pero no sustituye la
           valoración veterinaria.
         </CardTitle>
       </CardHeader>
@@ -32,19 +32,22 @@ export function TriageIntro({ onStart }: TriageIntroProps) {
                 </p>
                 <p className="text-sm leading-7 text-slate-600">
                   El triage ayuda a clasificar urgencia y orientar el siguiente
-                  paso. No da diagnósticos y no reemplaza una revisión médica.
+                  paso. No confirma diagnósticos y no reemplaza una revisión
+                  médica.
                 </p>
               </div>
             </div>
             <ul className="space-y-3 text-sm leading-7 text-slate-600">
               <li>
-                Si observas signos críticos, no esperes a terminar el flujo.
+                Si observas signos críticos, no esperes a terminar el flujo y
+                busca atención inmediata.
               </li>
               <li>
                 Usa respuestas lo más cercanas posible a lo que estás viendo.
               </li>
               <li>
-                El resultado te dirigirá a urgencias, atención hoy o consulta.
+                El resultado orienta si conviene priorizar urgencias, atención
+                hoy o consulta.
               </li>
             </ul>
           </div>
@@ -61,7 +64,7 @@ export function TriageIntro({ onStart }: TriageIntroProps) {
                 <p className="text-sm leading-7 text-slate-600">
                   Si tu mascota tiene dificultad para respirar, convulsiones,
                   sangrado abundante o no responde, acude a urgencias de
-                  inmediato.
+                  inmediato sin esperar el resultado del triage.
                 </p>
               </div>
             </div>
@@ -92,7 +95,7 @@ export function TriageIntro({ onStart }: TriageIntroProps) {
             className="h-11 rounded-2xl border-accent bg-accent/10 px-6 text-secondary hover:bg-accent/20 hover:text-primary"
           >
             <a href="https://wa.me/524433369624" target="_blank" rel="noreferrer">
-              WhatsApp inmediato
+              Pedir apoyo por WhatsApp
             </a>
           </Button>
         </div>

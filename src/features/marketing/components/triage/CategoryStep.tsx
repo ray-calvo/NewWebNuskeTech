@@ -38,7 +38,7 @@ export function CategoryStep({
       <CardHeader className="space-y-3">
         <Badge variant="secondary">Paso 2 de 4</Badge>
         <CardTitle className="text-2xl font-semibold text-slate-950">
-          ¿En qué tipo de problema encaja mejor lo que estás viendo?
+          ¿Qué tipo de problema se parece más a lo que estás viendo?
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">

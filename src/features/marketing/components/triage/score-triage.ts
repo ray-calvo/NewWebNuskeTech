@@ -16,7 +16,7 @@ type ScoreTriageInput = {
 };
 
 const emergencyPrimaryCta: TriageCta = {
-  label: "Ir a urgencias",
+  label: "Buscar urgencias ahora",
   href: "/contacto",
 };
 
@@ -26,17 +26,17 @@ const emergencySecondaryCta: TriageCta = {
 };
 
 const urgentPrimaryCta: TriageCta = {
-  label: "Atención hoy",
+  label: "Solicitar atención hoy",
   href: "/contacto",
 };
 
 const urgentSecondaryCta: TriageCta = {
-  label: "WhatsApp",
+  label: "Hablar por WhatsApp",
   href: "https://wa.me/524433369624",
 };
 
 const consultPrimaryCta: TriageCta = {
-  label: "Agendar consulta",
+  label: "Agendar valoración",
   href: "/contacto",
 };
 

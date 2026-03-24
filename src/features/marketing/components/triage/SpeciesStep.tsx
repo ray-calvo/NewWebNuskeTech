@@ -59,8 +59,7 @@ export function SpeciesStep({
                   {species.label}
                 </p>
                 <p className="mt-2 text-sm leading-7 text-slate-600">
-                  Selecciona la especie para filtrar categorías y síntomas
-                  relevantes del MVP.
+                  Esto ayuda a mostrar opciones más cercanas a tu caso.
                 </p>
               </button>
             );

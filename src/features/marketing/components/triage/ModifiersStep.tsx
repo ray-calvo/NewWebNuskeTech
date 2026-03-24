@@ -26,7 +26,7 @@ export function ModifiersStep({
       <CardHeader className="space-y-3">
         <Badge variant="secondary">Paso 4 de 4</Badge>
         <CardTitle className="text-2xl font-semibold text-slate-950">
-          ¿Hay factores que estén haciendo el problema más preocupante?
+          ¿Hay factores que hagan este caso más urgente?
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -93,7 +93,7 @@ export function ModifiersStep({
             className="h-11 rounded-2xl bg-primary px-6 text-primary-foreground hover:bg-secondary"
             onClick={onComplete}
           >
-            Ver resultado
+            Revisar resultado
           </Button>
         </div>
       </CardContent>

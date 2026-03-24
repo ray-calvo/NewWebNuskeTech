@@ -34,51 +34,60 @@ export function SymptomsStep({
       <CardContent className="space-y-6">
         <p className="text-sm leading-7 text-slate-600">
           Puedes elegir más de uno. El resultado final se basa en la combinación
-          de síntomas y factores agravantes.
+          de síntomas y factores agravantes. Si no encuentras una opción exacta,
+          elige la más parecida.
         </p>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          {symptoms.map((symptom) => {
-            const isSelected = selectedSymptomIds.includes(symptom.id);
+        {symptoms.length > 0 ? (
+          <div className="grid gap-4 md:grid-cols-2">
+            {symptoms.map((symptom) => {
+              const isSelected = selectedSymptomIds.includes(symptom.id);
 
-            return (
-              <button
-                key={symptom.id}
-                type="button"
-                className={cn(
-                  "rounded-2xl border p-5 text-left transition-all",
-                  isSelected
-                    ? "border-primary bg-primary/5 shadow-[0_16px_40px_-24px_rgba(29,63,104,0.55)]"
-                    : "border-slate-200 bg-slate-50 hover:border-primary/30 hover:bg-white",
-                )}
-                onClick={() => onToggle(symptom.id)}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="space-y-2">
-                    <p className="text-base font-semibold text-slate-950">
-                      {symptom.label}
-                    </p>
-                    {symptom.description ? (
-                      <p className="text-sm leading-7 text-slate-600">
-                        {symptom.description}
+              return (
+                <button
+                  key={symptom.id}
+                  type="button"
+                  className={cn(
+                    "rounded-2xl border p-5 text-left transition-all",
+                    isSelected
+                      ? "border-primary bg-primary/5 shadow-[0_16px_40px_-24px_rgba(29,63,104,0.55)]"
+                      : "border-slate-200 bg-slate-50 hover:border-primary/30 hover:bg-white",
+                  )}
+                  onClick={() => onToggle(symptom.id)}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="space-y-2">
+                      <p className="text-base font-semibold text-slate-950">
+                        {symptom.label}
                       </p>
-                    ) : null}
+                      {symptom.description ? (
+                        <p className="text-sm leading-7 text-slate-600">
+                          {symptom.description}
+                        </p>
+                      ) : null}
+                    </div>
+                    <div
+                      className={cn(
+                        "mt-1 flex size-6 shrink-0 items-center justify-center rounded-full border",
+                        isSelected
+                          ? "border-primary bg-primary text-primary-foreground"
+                          : "border-slate-300 bg-white text-transparent",
+                      )}
+                    >
+                      <CheckCircle2 className="h-4 w-4" />
+                    </div>
                   </div>
-                  <div
-                    className={cn(
-                      "mt-1 flex size-6 shrink-0 items-center justify-center rounded-full border",
-                      isSelected
-                        ? "border-primary bg-primary text-primary-foreground"
-                        : "border-slate-300 bg-white text-transparent",
-                    )}
-                  >
-                    <CheckCircle2 className="h-4 w-4" />
-                  </div>
-                </div>
-              </button>
-            );
-          })}
-        </div>
+                </button>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm leading-7 text-slate-600">
+            No encontramos síntomas cargados para esta combinación dentro del
+            MVP actual. Puedes regresar y elegir una categoría más cercana o
+            buscar orientación directa por contacto.
+          </div>
+        )}
 
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
           <div className="flex gap-2">
