@@ -477,6 +477,72 @@
 - No asumir que el modulo ya esta listo para exposicion publica.
 - No asumir que el scoring actual equivale a criterio diagnostico.
 
+## Entrada 2026-03-23 22:40:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se implemento la primera version funcional del wizard UI para el modulo de triage veterinario MVP.
+- El modulo ya esta expuesto en la ruta publica `/triage`.
+- La implementacion reutiliza la base existente de tipos, datos y scoring sin mezclar reglas de negocio con UI.
+
+### Cambios o hallazgos
+- Nueva ruta publica:
+  - `src/app/(marketing)/triage/page.tsx`
+- Nuevos componentes de UI:
+  - `src/features/marketing/components/triage/TriageWizard.tsx`
+  - `src/features/marketing/components/triage/TriageIntro.tsx`
+  - `src/features/marketing/components/triage/SpeciesStep.tsx`
+  - `src/features/marketing/components/triage/CategoryStep.tsx`
+  - `src/features/marketing/components/triage/SymptomsStep.tsx`
+  - `src/features/marketing/components/triage/ModifiersStep.tsx`
+  - `src/features/marketing/components/triage/TriageResultCard.tsx`
+- El flujo implementado cubre:
+  - aviso inicial
+  - especie
+  - categoria
+  - sintomas
+  - modificadores
+  - resultado
+- `score-triage.ts` sigue siendo la fuente de verdad para el resultado.
+
+### Riesgos
+- Mitigado: construir el wizard dentro de un solo archivo.
+- Mitigado: duplicar logica de scoring en componentes visuales.
+- Pendiente: el scoring y el copy del resultado aun requieren validacion clinica adicional antes de considerarse endurecidos.
+
+### Decisiones tomadas
+- `page.tsx` se mantuvo como composicion simple.
+- El wizard se implemento como componente cliente.
+- No se introdujo backend, persistencia, analytics ni autenticacion.
+- La ruta se expuso sin tocar `/`, `/contacto`, `/servicios` ni `/tecnologia`.
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/triage/page.tsx`
+- `src/features/marketing/components/triage/TriageWizard.tsx`
+- `src/features/marketing/components/triage/TriageIntro.tsx`
+- `src/features/marketing/components/triage/SpeciesStep.tsx`
+- `src/features/marketing/components/triage/CategoryStep.tsx`
+- `src/features/marketing/components/triage/SymptomsStep.tsx`
+- `src/features/marketing/components/triage/ModifiersStep.tsx`
+- `src/features/marketing/components/triage/TriageResultCard.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_9_TRIAGE_WIZARD_MVP.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_9_TRIAGE_WIZARD_MVP.md`
+
+### Pendientes
+- Revisar calibracion del triage con criterio veterinario.
+- Decidir en otra fase si `/triage` debe entrar a la navegacion principal.
+- Evaluar tracking ligero en una fase posterior.
+
+### Supuestos prohibidos
+- No asumir que el triage ya sustituye orientacion clinica profesional.
+- No asumir que la simple exposicion de `/triage` implica que el modulo ya esta listo para promocion amplia.
+
 ## Entrada 2026-03-23 21:40:00 -06:00
 
 ### Tipo
