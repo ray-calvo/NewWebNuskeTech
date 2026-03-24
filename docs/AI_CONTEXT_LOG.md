@@ -1483,3 +1483,78 @@
 - No asumir que las rutas P1 ya están resueltas más allá de su estructura mínima.
 - No usar los placeholders actuales como contenido final.
 - No abrir UI profunda en varias rutas P1 en paralelo sin decidir antes la estrategia de componentes compartidos.
+
+## Entrada 2026-03-24 13:10:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- `/urgencias` pasó de una estructura mínima con placeholders a una primera página madre hospitalaria real.
+- La página ya comunica urgencias 24/7, paciente crítico, hospitalización como submódulo, apoyo diagnóstico, apoyo quirúrgico y CTA hospitalarias coherentes.
+- La intervención se mantuvo acotada a la ruta `urgencias` y a componentes mínimos directamente relacionados.
+
+### Cambios o hallazgos
+- `src/app/(marketing)/urgencias/page.tsx` dejó de ser una página placeholder.
+- Se extrajeron componentes ligeros para evitar que la ruta creciera como monolito:
+  - `src/features/marketing/components/urgencias/UrgenciasHero.tsx`
+  - `src/features/marketing/components/urgencias/UrgenciasSectionBlock.tsx`
+  - `src/features/marketing/components/urgencias/data.ts`
+- La estructura narrativa final quedó en este orden:
+  - hero clínico principal
+  - cuándo acudir de inmediato
+  - atención a paciente crítico
+  - hospitalización y monitoreo continuo
+  - apoyo diagnóstico y apoyo quirúrgico
+  - diferenciadores hospitalarios
+  - CTA final de acción inmediata
+- Se mantuvieron CTAs a:
+  - llamada
+  - WhatsApp
+  - cómo llegar
+  - triage orientativo como apoyo secundario
+
+### Riesgos
+- Mitigado: dejar `/urgencias` como ruta madre sin utilidad clínica real.
+- Mitigado: profundizar la página dentro de un único archivo demasiado grande.
+- Pendiente: si las siguientes páginas madre se construyen sin una estrategia mínima de componentes compartidos, puede aparecer duplicación entre `urgencias`, `cirugia`, `diagnostico` y `endoscopia`.
+
+### Decisiones tomadas
+- Hospitalización se trató como submódulo narrativo dentro de la página, no como ruta independiente.
+- El triage se mantuvo como apoyo secundario y no como CTA principal.
+- No se tocaron:
+  - `/cirugia`
+  - `/diagnostico`
+  - `/endoscopia`
+  - `/servicios`
+  - home
+  - layouts globales
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/urgencias/page.tsx`
+- `src/features/marketing/components/urgencias/UrgenciasHero.tsx`
+- `src/features/marketing/components/urgencias/UrgenciasSectionBlock.tsx`
+- `src/features/marketing/components/urgencias/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Pendientes
+- Siguiente paso recomendado:
+  - profundizar `cirugia` con el mismo nivel de solidez, pero solo después de decidir si conviene reutilizar una capa mínima de secciones clínicas compartidas
+
+### Supuestos prohibidos
+- No asumir que la estructura extraída de `urgencias` ya define por sí sola el sistema completo de páginas madre.
+- No copiar esta página literalmente en las demás rutas P1.
+- No convertir la urgencia en landing comercial ni en página de servicios fragmentados.
