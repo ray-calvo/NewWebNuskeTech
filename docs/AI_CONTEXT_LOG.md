@@ -2681,3 +2681,69 @@
 ### Supuestos prohibidos
 - No volver a convertir heroes clínicos en manifiestos institucionales.
 - No usar badges o cards laterales para explicar teoría interna del hospital.
+
+## Entrada 2026-03-24 23:00:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se abrió `/prevencion` como nueva página clínica del sitio.
+- La página quedó construida como capacidad de cuidado anticipado y seguimiento oportuno, sin caer en wellness genérico ni en catálogo preventivo.
+- La implementación se mantuvo coherente con el tono del núcleo clínico y con la arquitectura actual del repo.
+
+### Diagnóstico
+- Se partió desde cero: no existía ruta ni componentes de dominio para `prevencion`.
+- El principal riesgo narrativo era bajar el nivel clínico del sitio y sonar a página comercial ligera.
+- La solución fue construir una página accesible pero sobria, orientada a decisiones preventivas y a continuidad clínica.
+
+### Cambios realizados
+- Se creó:
+  - `src/app/(marketing)/prevencion/page.tsx`
+  - `src/features/marketing/components/prevencion/PrevencionHero.tsx`
+  - `src/features/marketing/components/prevencion/data.ts`
+- La estructura narrativa final quedó en este orden:
+  - hero principal de prevención
+  - por qué prevenir cambia el curso del caso
+  - prevención como detección oportuna, seguimiento y control responsable
+  - vacunas, desparasitación, revisiones y monitoreo dentro de una misma lógica clínica
+  - diferenciadores hospitalarios
+  - CTA final con valoración preventiva y desvío a urgencias si aplica
+
+### Decisiones tomadas
+- Prevención se presenta como medicina anticipada y seguimiento inteligente.
+- La página no compite con urgencias ni con el hospital:
+  - ayuda a actuar antes
+  - reduce deterioro evitable
+  - da continuidad a pacientes sanos o con riesgo
+- Se evitó convertirla en:
+  - wellness superficial
+  - catálogo de vacunas
+  - contenido de blog
+  - página infantilizada
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/prevencion/page.tsx`
+- `src/features/marketing/components/prevencion/PrevencionHero.tsx`
+- `src/features/marketing/components/prevencion/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos pendientes
+- No hay bloqueo técnico real.
+- El siguiente riesgo narrativo será sostener este mismo nivel de sobriedad si se abre una segunda ola preventiva más granular.
+- `/servicios` no se tocó en esta fase; si más adelante se reajusta como hub, habrá que decidir cómo enlazar `prevencion` sin duplicar relato.
+
+### Supuestos prohibidos
+- No convertir `prevencion` en wellness comercial.
+- No hacerla competir con urgencias.
+- No fragmentarla pronto en subpáginas sin una necesidad clínica real.
