@@ -423,3 +423,109 @@
 ### Supuestos prohibidos
 - No asumir que el cierre legacy elimina la necesidad de auditoria previa para futuros cambios estructurales.
 - No usar la ausencia de legacy como excusa para reabrir cambios amplios en configuracion o arquitectura sin trazabilidad.
+
+## Entrada 2026-03-23 22:05:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se inicio la implementacion del modulo de triage veterinario MVP solo en su base estructural segura.
+- Se crearon tipos, datos iniciales y logica pura de scoring sin abrir todavia ruta publica ni UI del wizard.
+- No se toco producto activo existente.
+
+### Cambios o hallazgos
+- Nuevo directorio: `src/features/marketing/components/triage/`
+- Nuevos archivos:
+  - `src/features/marketing/components/triage/types.ts`
+  - `src/features/marketing/components/triage/triage-data.ts`
+  - `src/features/marketing/components/triage/score-triage.ts`
+- `triage-data.ts` incluye especies, categorias, sintomas base y modificadores agravantes.
+- `score-triage.ts` implementa:
+  - override de emergencia
+  - score acumulado
+  - ajuste por multiples sintomas moderados
+  - resultado con CTA primario y secundario
+
+### Riesgos
+- Mitigado: iniciar el triage con un wizard monolitico y sin fronteras.
+- Mitigado: mezclar reglas de negocio con UI desde la primera fase.
+- Pendiente: el scoring sigue siendo un baseline MVP y debera calibrarse con criterio veterinario antes de exponerse al publico.
+
+### Decisiones tomadas
+- La fase se limito a tipos, datos y scoring puro.
+- No se creo aun `src/app/(marketing)/triage/page.tsx`.
+- No se creo UI, backend, persistencia ni analytics.
+- Se uso lenguaje orientado a propietarios y no diagnostico.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/triage/types.ts`
+- `src/features/marketing/components/triage/triage-data.ts`
+- `src/features/marketing/components/triage/score-triage.ts`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_8_TRIAGE_BASE_ESTRUCTURAL.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/INTERVENCION_FASE_8_TRIAGE_BASE_ESTRUCTURAL.md`
+
+### Pendientes
+- Construir en otra fase la ruta publica y la UI minima del wizard.
+- Validar la calibracion del scoring con criterio veterinario antes de lanzamiento.
+
+### Supuestos prohibidos
+- No asumir que el modulo ya esta listo para exposicion publica.
+- No asumir que el scoring actual equivale a criterio diagnostico.
+
+## Entrada 2026-03-23 21:40:00 -06:00
+
+### Tipo
+- Documentacion
+
+### Resumen ejecutivo
+- El modulo de triage veterinario MVP queda formalmente reconocido como siguiente feature prioritario de valor dentro del roadmap activo del repo.
+- Ya existe base documental suficiente para evitar improvisacion en una futura implementacion.
+- En esta fase no se implemento codigo.
+
+### Cambios o hallazgos
+- Ya existe `docs/TRIAGE_FUNCTIONAL_SPEC.md`.
+- Ya existe `docs/TRIAGE_IMPLEMENTATION_PLAN.md`.
+- El objetivo funcional del triage queda fijado en:
+  - orientacion inicial
+  - clasificacion de urgencia
+  - conversion
+- El roadmap ya reconoce el triage como prioridad alta de Fase 1 con soporte documental existente.
+
+### Riesgos
+- Mitigado: iniciar implementacion futura sin alcance funcional ni plan tecnico documentados.
+- Mitigado: confusion entre triage MVP y portal de clientes.
+- Pendiente: el feature sigue sin implementacion real y requerira una fase separada para construccion segura.
+
+### Decisiones tomadas
+- El triage se reconoce formalmente como siguiente modulo prioritario de crecimiento con foco hospitalario.
+- Sigue fuera de alcance en esta fase:
+  - portal de clientes
+  - backend
+  - login
+  - IA real
+  - historial
+  - diagnostico automatico
+- No se crea aun ruta, componente ni logica de scoring en codigo.
+
+### Archivos tocados o auditados
+- `docs/ROADMAP_GROWTH_HOSPITAL_MARKETING.md`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/TRIAGE_FUNCTIONAL_SPEC.md`
+- `docs/TRIAGE_IMPLEMENTATION_PLAN.md`
+
+### Documentacion actualizada
+- `docs/ROADMAP_GROWTH_HOSPITAL_MARKETING.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Definir una fase de implementacion segura para `triage` cuando se autorice construccion.
+- Validar posteriormente el scoring con criterio veterinario antes de exponer el modulo al publico.
+
+### Supuestos prohibidos
+- No asumir que el triage ya existe en `src/app`.
+- No asumir que la documentacion actual autoriza backend, autenticacion o integraciones avanzadas.
