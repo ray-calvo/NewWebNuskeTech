@@ -1127,3 +1127,54 @@
 ### Supuestos prohibidos
 - No asumir que esta intervención autoriza rehacer otras áreas del home.
 - No asumir que la presencia de tecnología justifica volver a un enfoque centrado en equipamiento y no en capacidad médica.
+
+## Entrada 2026-03-24 04:05:00 -06:00
+
+### Tipo
+- Refactor
+
+### Resumen ejecutivo
+- Se alineó la página `/servicios` con el posicionamiento hospitalario integral ya aplicado en la home.
+- La página dejó de presentarse como un catálogo separado y pasó a funcionar como extensión natural de la narrativa hospitalaria del sitio.
+- No se tocó la home, ni triage, ni `MedicalTeam`, ni rutas.
+
+### Cambios o hallazgos
+- `src/features/marketing/components/services/ServicesPageHero.tsx` fue reformulado con un encabezado hospitalario integral.
+- `src/features/marketing/components/services/data.ts` dejó de organizar la página en `Especialidades / Urgencias / Preventivos` y pasó a:
+  - Urgencias y Paciente Crítico
+  - Cirugía Veterinaria Especializada
+  - Diagnóstico Médico Avanzado
+  - Procedimientos de Mínima Invasión
+  - Atención Integral y Preventiva
+- `WellnessSelector` se conservó, pero quedó subordinado a continuidad preventiva.
+- `DigitalServicesSection` se reformuló para presentar Portal del Propietario y Telemedicina como soporte complementario de continuidad clínica.
+
+### Riesgos
+- Mitigado: sostener una desalineación narrativa entre home y `/servicios`.
+- Mitigado: borrar de forma agresiva Wellness, Portal o Telemedicina sin tratamiento gradual.
+- Pendiente: si el volumen de contenido sigue creciendo, la página puede requerir una siguiente capa de extracción para evitar volver a concentrar demasiada carga narrativa.
+
+### Decisiones tomadas
+- No tocar `ServicesGrid.tsx` de la home.
+- Alinear `/servicios` por narrativa, orden y copy, no por duplicación literal del home.
+- Mantener Wellness, Portal y Telemedicina, pero subordinados a la historia principal de capacidad hospitalaria.
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/servicios/page.tsx`
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+- `src/features/marketing/components/services/DigitalServicesSection.tsx`
+- `src/features/marketing/components/services/data.ts`
+- `docs/INTERVENCION_FASE_17_SERVICIOS_PAGE_ALIGNMENT.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/INTERVENCION_FASE_17_SERVICIOS_PAGE_ALIGNMENT.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Revisar visualmente si Wellness queda claramente subordinado en móvil.
+- Evaluar más adelante si los bloques de continuidad preventiva merecen una separación estructural mayor.
+
+### Supuestos prohibidos
+- No asumir que la alineación de `/servicios` autoriza rehacer la home en esta misma fase.
+- No asumir que Wellness, Portal y Telemedicina ya están resueltos de forma definitiva solo por haber sido subordinados.
