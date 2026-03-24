@@ -152,27 +152,27 @@ export const supportCards: readonly SupportCard[] = [
 
 export const differentiators: readonly Capability[] = [
   {
-    title: "Guardia hospitalaria activa 24/7",
+    title: "No esperar a que empeore",
     description:
-      "Disponibilidad operativa para atender cuadros agudos durante todo el año.",
+      "Cuando hay dificultad para respirar, colapso o dolor agudo, la decisión correcta es actuar de inmediato y no observar en casa.",
     icon: Gauge,
   },
   {
-    title: "Criterio clínico hospitalario",
+    title: "Permite estabilizar antes de decidir",
     description:
-      "La urgencia se entiende como proceso hospitalario, no solo como consulta inmediata.",
+      "En pacientes inestables, primero importa sostener respiración, dolor y perfusión antes de pasar a estudios o procedimientos.",
     icon: Stethoscope,
   },
   {
-    title: "Continuidad entre urgencias, diagnóstico y cirugía",
+    title: "Evita mover al paciente entre rutas separadas",
     description:
-      "La página madre conecta con la resolución clínica posterior sin fragmentar al paciente.",
+      "Si el caso necesita diagnóstico, hospitalización o cirugía, la transición puede hacerse dentro de la misma lógica hospitalaria.",
     icon: Activity,
   },
   {
-    title: "Acción inmediata y ubicación clara",
+    title: "Reduce pasos cuando el tiempo importa",
     description:
-      "Llamada, WhatsApp y cómo llegar priorizados para reducir fricción en la urgencia.",
+      "Llamar, escribir y llegar rápido ayuda a no perder tiempo en un momento en el que cada minuto puede cambiar el manejo.",
     icon: MapPin,
   },
 ] as const;

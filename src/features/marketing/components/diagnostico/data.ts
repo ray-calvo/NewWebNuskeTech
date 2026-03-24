@@ -149,27 +149,27 @@ export const transversalSupport: readonly DiagnosticSupportCard[] = [
 
 export const diagnosticDifferentiators: readonly DiagnosticCapability[] = [
   {
-    title: "Diagnóstico como sistema, no como lista de estudios",
+    title: "Evita decidir a ciegas",
     description:
-      "La página madre debe comunicar criterio clínico y no solo disponibilidad técnica.",
+      "Cuando la exploración no alcanza, el diagnóstico ayuda a definir mejor el problema antes de tratar o intervenir.",
     icon: Stethoscope,
   },
   {
-    title: "Capacidad transversal del hospital",
+    title: "Ayuda a priorizar lo urgente",
     description:
-      "El diagnóstico articula urgencias, cirugía, hospitalización y seguimiento.",
+      "En pacientes que cambian rápido, aporta información para decidir qué atender primero y qué puede esperar.",
     icon: Activity,
   },
   {
-    title: "Correlación clínica y reevaluación",
+    title: "Permite ajustar el plan del caso",
     description:
-      "El valor no está solo en obtener datos, sino en interpretarlos dentro del caso.",
+      "Los hallazgos ayudan a confirmar, descartar o cambiar la ruta clínica cuando la evolución no es la esperada.",
     icon: Gauge,
   },
   {
-    title: "Apoyo oportuno para casos complejos",
+    title: "Aclara cuándo hace falta otro paso",
     description:
-      "El diagnóstico se integra a la respuesta del hospital cuando el paciente exige decisiones más finas.",
+      "Puede mostrar si el paciente necesita cirugía, hospitalización, seguimiento estrecho o una reevaluación distinta.",
     icon: Monitor,
   },
 ] as const;

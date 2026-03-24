@@ -170,27 +170,27 @@ export const surgerySupportCards: readonly SurgerySupportCard[] = [
 
 export const surgicalDifferentiators: readonly SurgeryCapability[] = [
   {
-    title: "Criterio quirúrgico hospitalario",
+    title: "No todo caso necesita operar hoy",
     description:
-      "La cirugía se presenta como capacidad clínica integral, no como catálogo de intervenciones.",
+      "La valoración quirúrgica ayuda a decidir cuándo intervenir, cuándo estabilizar primero y cuándo seguir otra ruta clínica.",
     icon: TriangleAlert,
   },
   {
-    title: "Seguridad anestésica como eje",
+    title: "La anestesia cambia la decisión",
     description:
-      "La anestesia y el monitoreo forman parte central de la promesa de seguridad del hospital.",
+      "En pacientes delicados, contar con control anestésico y monitoreo permite plantear procedimientos con menos riesgo evitable.",
     icon: Monitor,
   },
   {
-    title: "Planeación y continuidad",
+    title: "Evita operar sin contexto clínico",
     description:
-      "La intervención se integra con diagnóstico previo y seguimiento posterior dentro del mismo sistema clínico.",
+      "El apoyo diagnóstico y la planeación preoperatoria ayudan a definir mejor el abordaje y el seguimiento posterior.",
     icon: ClipboardCheck,
   },
   {
-    title: "Capacidad para casos complejos",
+    title: "Permite seguir cuidando después del procedimiento",
     description:
-      "La cirugía se posiciona como resolución hospitalaria para pacientes que requieren más que una intervención aislada.",
+      "Cuando el paciente necesita control de dolor, vigilancia o reevaluación, la recuperación puede continuar dentro del hospital.",
     icon: Syringe,
   },
 ] as const;

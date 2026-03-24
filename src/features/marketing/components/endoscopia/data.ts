@@ -149,27 +149,27 @@ export const endoscopySupport: readonly EndoscopySupportCard[] = [
 
 export const endoscopyDifferentiators: readonly EndoscopyCapability[] = [
   {
-    title: "Capacidad especializada, no tecnología por sí misma",
+    title: "No todo caso necesita cirugía abierta",
     description:
-      "El valor está en lo que permite resolver clínicamente, no en el equipo aislado.",
+      "Cuando el caso lo permite, la endoscopía puede evitar un abordaje mayor y reducir el impacto del procedimiento.",
     icon: SearchCheck,
   },
   {
-    title: "Menor invasión con criterio",
+    title: "Permite ver y actuar en la misma ruta",
     description:
-      "La mínima invasión importa cuando el caso la necesita y cuando mejora realmente la experiencia clínica del paciente.",
+      "En ciertos pacientes, ayuda a confirmar el problema y resolverlo sin separar por completo evaluación y tratamiento.",
     icon: Activity,
   },
   {
-    title: "Conecta evaluación y tratamiento",
+    title: "Reduce trauma cuando el caso es candidato",
     description:
-      "La endoscopía se ubica entre diagnóstico y resolución, sin perder su identidad procedimental propia.",
+      "La mínima invasión importa porque puede disminuir agresión de tejidos y hacer más ágil la recuperación.",
     icon: ArrowUpRight,
   },
   {
-    title: "Soporte premium para casos seleccionados",
+    title: "Ayuda a decidir si hay que escalar",
     description:
-      "Refuerza el posicionamiento del hospital en complejidad, precisión y recuperación controlada.",
+      "También permite reconocer cuándo no es suficiente y cuándo el paciente necesita cirugía u otro soporte hospitalario.",
     icon: HeartPulse,
   },
 ] as const;

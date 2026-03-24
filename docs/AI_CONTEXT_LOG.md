@@ -2020,3 +2020,69 @@
 - No volver a fragmentar los CTA principales no urgentes sin una razón clínica real.
 - No transformar `/diagnostico` en una página más consultiva que clínica.
 - No hacer que `/endoscopia` pierda su condición de capacidad especializada por exceso de lenguaje genérico.
+
+## Entrada 2026-03-24 18:35:00 -06:00
+
+### Tipo
+- Ajuste editorial
+
+### Resumen ejecutivo
+- Se aplicó el sistema editorial de diferenciadores hospitalarios definido en `docs/EDITORIAL_GOVERNANCE.md`.
+- El cambio se limitó al contenido textual de los bloques de diferenciadores del núcleo P1:
+  - `/urgencias`
+  - `/cirugia`
+  - `/diagnostico`
+  - `/endoscopia`
+- No se modificaron layout, estructura visual, jerarquía de bloques ni arquitectura técnica.
+
+### Cambios o hallazgos
+- Los diferenciadores anteriores todavía explicaban capacidades abstractas o conceptos hospitalarios generales.
+- Se reescribieron para que cada card:
+  - cambie una decisión clínica
+  - sea situacional
+  - se entienda rápido
+  - evite meta-discurso institucional o tecnológico
+- La nueva lógica quedó así:
+  - urgencias -> diferenciadores operativos
+  - cirugía -> diferenciadores de resolución
+  - diagnóstico -> diferenciadores de precisión
+  - endoscopía -> diferenciadores de mínima invasión
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/urgencias/data.ts`
+- `src/features/marketing/components/cirugia/data.ts`
+- `src/features/marketing/components/diagnostico/data.ts`
+- `src/features/marketing/components/endoscopia/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/EDITORIAL_GOVERNANCE.md` (auditado como fuente editorial, no versionado en este lote)
+
+### Decisiones tomadas
+- Los diferenciadores hospitalarios ya no explican “lo que el hospital es”.
+- Ahora explican:
+  - qué decisión cambia
+  - qué evita
+  - cuándo importa
+- Se mantuvo intacta la jerarquía de páginas y secciones.
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos pendientes
+- El principal riesgo ya no es técnico sino editorial:
+  - mantener este mismo criterio cuando se abran P2 o nuevos bloques hospitalarios
+- `docs/EDITORIAL_GOVERNANCE.md` sigue fuera de commit en el working tree actual; no se incluyó automáticamente para no arrastrar un archivo no cerrado por esta fase.
+
+### Supuestos prohibidos
+- No volver a usar diferenciadores como slogans institucionales.
+- No usar “capacidad avanzada”, “soporte premium” o equivalentes abstractos como títulos.
+- No convertir los diferenciadores en mini-fichas técnicas o tecnológicas.
