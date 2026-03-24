@@ -4060,3 +4060,68 @@
 - No implementar CTAs futuros solo por convención visual heredada.
 - No dejar que la página local defina por sí sola la intensidad CTA si el estado clínico o el triage indican otra cosa.
 - No usar urgencia visual como sustituto de claridad clínica.
+
+## Entrada 2026-03-25 05:40:00 -06:00
+
+### Tipo
+- Arquitectura runtime clinica
+
+### Resumen ejecutivo
+- Se diseñó la arquitectura runtime del hospital digital en un documento nuevo:
+  - `docs/CLINICAL_RUNTIME_ARCHITECTURE.md`
+- El documento define cómo traducir el sistema clínico institucional a una arquitectura implementable por fases, sin hardcodear CTAs por página.
+- También fija la separación entre dominio clínico, aplicación y presentación, y deja explícita la futura integración con triage.
+
+### Documento institucional creado
+- `docs/CLINICAL_RUNTIME_ARCHITECTURE.md`
+
+### Piezas principales del sistema
+- `clinical-state-model`
+- `page-context-resolver`
+- `clinical-signal-layer`
+- `urgency-override`
+- `cta-decision-engine`
+- `triage-bridge`
+- `clinical-ui-adapter`
+
+### Regla central
+- el runtime clínico debe responder primero al estado clínico percibido y al riesgo activo, y solo después al contexto local de la página
+
+### Relación con marcos previos
+- `CLINICAL_DIGITAL_MODEL_CHARTER.md`
+  - define la organización estructural del hospital digital
+- `CLINICAL_STATE_UX_SYSTEM.md`
+  - define estados clínicos UX y progresiones
+- `CLINICAL_CTA_SYSTEM.md`
+  - define la jerarquía institucional de CTAs
+- `CLINICAL_CTA_EXECUTION_MATRIX.md`
+  - define comportamiento operativo por página y estado
+- `CLINICAL_CTA_VISUAL_SYSTEM.md`
+  - define la jerarquía visual clínica
+- `CLINICAL_RUNTIME_ARCHITECTURE.md`
+  - define cómo convertir todo eso en sistema ejecutable real
+
+### Siguiente fase recomendada
+- No abrir nuevas páginas por defecto.
+- La siguiente fase natural es diseñar o implementar la Fase 1 del runtime:
+  - tipos del dominio clínico
+  - mapa de contexto por página
+  - reglas de transición
+  - `urgency-override`
+- Antes de tocar UI dinámica, conviene construir primero el dominio y el motor de decisión puro.
+
+### Archivos tocados o auditados
+- `docs/CLINICAL_RUNTIME_ARCHITECTURE.md`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/CLINICAL_DIGITAL_MODEL_CHARTER.md` (auditado)
+- `docs/CLINICAL_STATE_UX_SYSTEM.md` (auditado)
+- `docs/CLINICAL_CTA_SYSTEM.md` (auditado)
+- `docs/CLINICAL_CTA_EXECUTION_MATRIX.md` (auditado)
+- `docs/CLINICAL_CTA_VISUAL_SYSTEM.md` (auditado)
+- `src/features/marketing/components/triage/score-triage.ts` (auditado)
+- `src/features/marketing/components/triage/types.ts` (auditado)
+
+### Supuestos prohibidos
+- No implementar el runtime como suma de condiciones locales en cada página.
+- No acoplar triage directamente a componentes visuales sin puente explícito.
+- No resolver urgencia solo desde estilo o copy.
