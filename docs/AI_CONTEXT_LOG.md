@@ -4125,3 +4125,81 @@
 - No implementar el runtime como suma de condiciones locales en cada página.
 - No acoplar triage directamente a componentes visuales sin puente explícito.
 - No resolver urgencia solo desde estilo o copy.
+
+## Entrada 2026-03-25 06:05:00 -06:00
+
+### Tipo
+- Implementacion Fase 1 runtime clinico
+
+### Resumen ejecutivo
+- Se implementó la Fase 1 del dominio runtime clínico como capa pura y reusable dentro de `src/lib/clinical-runtime/domain/`.
+- La implementación cubre:
+  - tipos clínicos base
+  - mapa de contexto por página
+  - reglas de transición clínica
+  - `urgency-override`
+- No se tocaron páginas, layout, copy visible ni componentes UI.
+
+### Estructura elegida
+- Ubicación:
+  - `src/lib/clinical-runtime/domain/`
+- Motivo:
+  - mantiene la lógica clínica fuera de `app/` y fuera de `features/marketing`
+  - permite reuso futuro por páginas, triage y adaptadores visuales
+  - respeta la separación prevista en `CLINICAL_RUNTIME_ARCHITECTURE.md`
+
+### Piezas implementadas
+- `clinical-types.ts`
+  - estados UX clínicos
+  - niveles de intensidad CTA
+  - tipos de ruta y capa clínica
+  - contexto de página
+  - señales activas de urgencia
+  - resultado estructurado de sobrescritura
+- `page-context-map.ts`
+  - fuente única de verdad para:
+    - `/`
+    - `/servicios`
+    - `/urgencias`
+    - `/cirugia`
+    - `/diagnostico`
+    - `/endoscopia`
+    - `/prevencion`
+    - `/exoticos`
+    - `/oncologia`
+    - `/medicina-interna`
+    - `/triage`
+- `transition-rules.ts`
+  - transiciones clínicas institucionales mínimas ya cerradas
+- `urgency-override.ts`
+  - resolución pura de escalamiento a urgencias y preservación de fallback seguro
+- `index.ts`
+  - barrel del dominio runtime
+
+### Decisiones relevantes
+- Se usó inglés técnico consistente en nombres de dominio y slugs/rutas reales en los contextos.
+- No se agregó store, provider ni bridge con triage todavía.
+- No se agregaron tests en esta fase porque el repo no tiene aún runner ni convención instalada para lógica pura; introducirla aquí hubiera ampliado el alcance más de lo necesario.
+
+### Siguiente fase recomendada
+- Construir la Fase 2 del runtime:
+  - `cta-decision-engine`
+  - reglas de conflicto CTA
+  - resolución de CTA dominante, secundarios y fallback por estado + página
+- Mantener esa fase todavía en dominio puro, sin UI dinámica.
+
+### Archivos tocados o auditados
+- `src/lib/clinical-runtime/domain/clinical-types.ts`
+- `src/lib/clinical-runtime/domain/page-context-map.ts`
+- `src/lib/clinical-runtime/domain/transition-rules.ts`
+- `src/lib/clinical-runtime/domain/urgency-override.ts`
+- `src/lib/clinical-runtime/domain/index.ts`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/CLINICAL_RUNTIME_ARCHITECTURE.md` (auditado)
+- `src/features/marketing/components/triage/score-triage.ts` (auditado)
+- `src/features/marketing/components/triage/types.ts` (auditado)
+
+### Supuestos prohibidos
+- No duplicar estas reglas en páginas individuales.
+- No conectar todavía `urgency-override` directamente a JSX.
+- No mezclar Fase 2 CTA engine con persistencia o adaptación visual prematura.
