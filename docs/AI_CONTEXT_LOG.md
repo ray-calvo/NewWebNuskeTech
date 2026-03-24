@@ -1026,3 +1026,54 @@
 ### Supuestos prohibidos
 - No asumir que este rediseño autoriza rehacer otras secciones del home.
 - No asumir que la narrativa premium sustituye la necesidad de mantener consistencia clínica real en futuros contenidos.
+
+## Entrada 2026-03-24 03:05:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se rediseñó el inicio del sitio marketing para reforzar un posicionamiento de hospital veterinario de alta complejidad.
+- La franja superior pasó a operar como sistema funcional de urgencias 24/7.
+- El hero fue reposicionado para destacar capacidad hospitalaria, cirugía avanzada, atención crítica y respuesta inmediata.
+
+### Cambios o hallazgos
+- `src/components/shared/urgency-banner.tsx` ahora incluye:
+  - mensaje operativo de urgencias
+  - CTA de llamada
+  - CTA de WhatsApp
+  - CTA de cómo llegar
+- `src/features/marketing/components/Hero.tsx` dejó atrás el concepto visual tipo mockup y ahora usa una imagen clínica real remota ya compatible con el repo.
+- Se añadió indicador visible:
+  - `Guardia hospitalaria activa 24/7`
+- Se ajustaron `src/components/shared/navbar.tsx` y `src/components/shared/MobileMenu.tsx` para respetar el nuevo header superior sticky.
+
+### Riesgos
+- Mitigado: mantener una lectura de home demasiado genérica o promocional.
+- Mitigado: seguir tratando urgencias como contenido accesorio.
+- Pendiente: validar percepción visual final del stack sticky en uso real móvil y desktop.
+
+### Decisiones tomadas
+- Mantener la intervención acotada a barra superior y hero.
+- Reutilizar una imagen clínica remota ya permitida por `next.config.ts` en vez de introducir nuevos assets.
+- No tocar rutas, tracking, triage, servicios, tecnología, contacto ni `MedicalTeam`.
+
+### Archivos tocados o auditados
+- `src/components/shared/urgency-banner.tsx`
+- `src/components/shared/navbar.tsx`
+- `src/components/shared/MobileMenu.tsx`
+- `src/features/marketing/components/Hero.tsx`
+- `docs/INTERVENCION_FASE_15_HOME_HOSPITAL_POSITIONING.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/INTERVENCION_FASE_15_HOME_HOSPITAL_POSITIONING.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Revisar si el hero requiere un asset propio futuro para reforzar aún más el posicionamiento hospitalario.
+- Validar en QA visual que la relación entre franja de urgencias y navbar siga siendo cómoda en scroll y navegación móvil.
+
+### Supuestos prohibidos
+- No asumir que este cambio autoriza rehacer otras secciones del home.
+- No asumir que el reposicionamiento visual reemplaza la necesidad de mantener CTAs de urgencias realmente operativos.
