@@ -601,6 +601,67 @@
 - No asumir que una ruta funcional debe entrar automáticamente al navbar.
 - No asumir que el estado MVP actual del triage ya justifica exposición principal.
 
+## Entrada 2026-03-23 23:35:00 -06:00
+
+### Tipo
+- Refactor
+
+### Resumen ejecutivo
+- Se ejecuto una fase ligera de hardening sobre el modulo de triage sin tocar navegacion ni scoring heuristico de fondo.
+- El objetivo fue reducir riesgos de copy ambiguo, exceso de precision percibida y friccion UX evidente antes de cualquier soft launch.
+- Tambien se dejo un checklist documental para prueba controlada.
+
+### Cambios o hallazgos
+- Se ajusto microcopy en:
+  - `src/features/marketing/components/triage/TriageIntro.tsx`
+  - `src/features/marketing/components/triage/SpeciesStep.tsx`
+  - `src/features/marketing/components/triage/CategoryStep.tsx`
+  - `src/features/marketing/components/triage/SymptomsStep.tsx`
+  - `src/features/marketing/components/triage/ModifiersStep.tsx`
+  - `src/features/marketing/components/triage/TriageResultCard.tsx`
+  - `src/features/marketing/components/triage/score-triage.ts`
+- Se agrego mensaje de fallback cuando no hay sintomas disponibles en una combinacion del MVP.
+- Se endurecio el aviso legal y se redujo el tono potencialmente demasiado concluyente de los resultados.
+- Se creo `docs/TRIAGE_SOFT_LAUNCH_CHECKLIST.md`.
+
+### Riesgos
+- Mitigado: falsa precision percibida en el resultado.
+- Mitigado: instrucciones poco claras en el flujo.
+- Mitigado: copy que podia sonar mas concluyente de lo deseable para un MVP heuristico.
+- Pendiente: validacion clinica del scoring y del copy final.
+
+### Decisiones tomadas
+- No se toco navbar, hero, mobile menu ni footer.
+- No se expuso `/triage` en la navegacion principal.
+- No se modifico la logica heuristica de clasificacion.
+- El hardening se limito a copy, microcopy y preparacion documental para soft launch.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/triage/TriageIntro.tsx`
+- `src/features/marketing/components/triage/SpeciesStep.tsx`
+- `src/features/marketing/components/triage/CategoryStep.tsx`
+- `src/features/marketing/components/triage/SymptomsStep.tsx`
+- `src/features/marketing/components/triage/ModifiersStep.tsx`
+- `src/features/marketing/components/triage/TriageResultCard.tsx`
+- `src/features/marketing/components/triage/score-triage.ts`
+- `docs/TRIAGE_SOFT_LAUNCH_CHECKLIST.md`
+- `docs/INTERVENCION_FASE_10_TRIAGE_HARDENING_LIGERO.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/TRIAGE_SOFT_LAUNCH_CHECKLIST.md`
+- `docs/INTERVENCION_FASE_10_TRIAGE_HARDENING_LIGERO.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Revision clinica del scoring y del copy final.
+- Definir medicion minima antes de un soft launch mas visible.
+- Reevaluar mas adelante si el triage debe exponerse en entradas principales del sitio.
+
+### Supuestos prohibidos
+- No asumir que endurecer el copy equivale a validacion clinica completa.
+- No asumir que el triage ya esta listo para promocion amplia solo porque el flujo es mas claro.
+
 ## Entrada 2026-03-23 21:40:00 -06:00
 
 ### Tipo
