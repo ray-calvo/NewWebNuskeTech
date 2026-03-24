@@ -3270,3 +3270,297 @@
 ### Supuestos prohibidos
 - No subir `medicina-interna` al mismo plano narrativo que urgencias, cirugía, diagnóstico o endoscopía.
 - No convertir el bloque de rutas complementarias en un segundo catálogo.
+
+## Entrada 2026-03-25 02:40:00 -06:00
+
+### Tipo
+- Auditoria estructural
+
+### Resumen ejecutivo
+- Se auditó el crecimiento clínico del sitio después de publicar:
+  - núcleo hospitalario P1
+  - prevención
+  - exóticos
+  - oncología
+  - medicina interna
+- El mapa clínico actual sigue siendo coherente.
+- El punto de mayor cuidado ya no es técnico sino estructural:
+  - evitar que las rutas complementarias se conviertan en catálogo paralelo
+
+### Lectura estructural del mapa actual
+- Núcleo hospitalario:
+  - urgencias
+  - cirugía
+  - diagnóstico
+  - endoscopía
+- Continuidad clínica:
+  - prevención
+- Rutas clínicas complementarias:
+  - exóticos
+  - oncología
+  - medicina interna
+- Hub:
+  - `/servicios` ya refleja correctamente esta jerarquía
+
+### Evaluación del estado actual
+- El núcleo hospitalario ya es suficiente y está bien cerrado para esta fase.
+- `prevencion` está bien posicionada:
+  - visible
+  - subordinada al hospital
+  - sin competir con el núcleo
+- El bloque de rutas clínicas complementarias sigue siendo válido, pero ya está cerca de su límite razonable.
+- Con tres rutas complementarias publicadas, cualquier expansión futura sin criterio puede hacer que el hub empiece a leerse como catálogo.
+
+### Reglas de crecimiento propuestas
+- Abrir una nueva página clínica solo si cumple simultáneamente:
+  - tiene frontera clínica propia y entendible para usuario no experto
+  - no duplica una ruta ya publicada
+  - puede sostener una narrativa completa de decisión y seguimiento
+  - aporta una lectura hospitalaria real, no solo SEO o listado de servicios
+- Degradar una especialidad a submódulo cuando:
+  - depende casi por completo de otra ruta madre
+  - no tiene recorrido clínico propio
+  - su valor principal está dentro de cirugía, diagnóstico, urgencias o prevención
+  - necesita más contexto que identidad propia
+- No dar página propia cuando:
+  - el tema solo nombra un procedimiento, técnica o estudio
+  - su diferenciación es demasiado fina para navegación principal
+  - todavía se entiende mejor como bloque dentro de otra página
+  - solo serviría para inflar el mapa sin mejorar decisiones del usuario
+
+### Regla de capacidad máxima por capa
+- Núcleo hospitalario:
+  - debe mantenerse corto y estable
+  - no debe crecer salvo que surja una nueva ruta claramente estructural
+- Continuidad clínica:
+  - puede crecer poco
+  - idealmente como una sola capa coherente, no fragmentada
+- Rutas clínicas complementarias:
+  - no debería crecer indefinidamente
+  - al pasar de tres a cuatro rutas publicadas, conviene reauditar si sigue siendo una sola capa o si necesita subdivisión
+
+### Orden de expansión sugerido
+- Próxima expansión más sana:
+  - revisar si conviene cerrar por ahora el mapa clínico antes de seguir publicando más rutas
+- Si se abre una nueva página, priorizar:
+  - una ruta con frontera clínica realmente clara y no un procedimiento suelto
+- Candidatos que hoy no conviene abrir como página madre independiente:
+  - laboratorio
+  - hospitalización
+  - cuidados intensivos
+  - ortopedia como página aislada temprana
+  - manejo del dolor como página aislada temprana
+  - manejo de heridas como página aislada temprana
+
+### Riesgos si no se controla el crecimiento
+- Arquitectónicos:
+  - proliferación de rutas con frontera débil
+  - duplicación entre páginas clínicas y submódulos
+  - hub degradado a catálogo
+- Narrativos:
+  - pérdida de la lectura hospitalaria
+  - rutas complementarias compitiendo con el núcleo
+  - páginas demasiado finas para sostener tono premium clínico
+- UX:
+  - más fricción al elegir ruta
+  - sensación de exceso de opciones
+  - menor claridad sobre qué página conviene abrir primero
+
+### Decisiones operativas recomendadas
+- No abrir nuevas especialidades “por inercia” solo porque existen en legacy.
+- Reauditar el bloque complementario antes de publicar una cuarta ruta fuera de núcleo y continuidad.
+- Mantener la regla:
+  - núcleo = estructural
+  - continuidad = seguimiento
+  - complementarias = rutas clínicas publicadas con frontera propia
+  - submódulos = capacidades sin autonomía suficiente
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/services/data.ts`
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+- `src/app/(marketing)/servicios/page.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Supuestos prohibidos
+- No asumir que toda especialidad del legacy merece página propia en la nueva web.
+- No crecer el bloque de rutas complementarias sin reauditar su límite estructural.
+- No usar `/servicios` para absorber falta de criterio arquitectónico.
+
+## Entrada 2026-03-25 03:00:00 -06:00
+
+### Tipo
+- Consolidacion de modelo
+
+### Resumen ejecutivo
+- Se consolidó el modelo clínico digital del hospital para fijar reglas de expansión antes de abrir nuevas especialidades.
+- El sitio no representa un hospital organizado como catálogo de especialidades.
+- El modelo que ya emerge y se recomienda fijar es:
+  - hospital por recorrido clínico
+  - hospital por complejidad
+  - con especialidades subordinadas a decisiones y trayectorias del paciente
+
+### Modelo clínico digital identificado
+- El mapa actual no se comporta como "hospital por especialidades".
+- El sitio ya funciona como una combinación de:
+  - hospital por recorrido clínico:
+    - urgencias
+    - cirugía
+    - diagnóstico
+    - seguimiento
+  - hospital por complejidad:
+    - medicina interna
+    - oncología
+    - exóticos
+- Las especialidades ya publicadas no actúan como catálogo independiente, sino como rutas clínicas con frontera propia.
+
+### Modelo clínico digital recomendado
+- Modelo definitivo recomendado:
+  - hospital veterinario de alta complejidad organizado por decisiones clínicas y recorridos del paciente
+- Traducción operativa:
+  - núcleo = rutas estructurales del hospital
+  - continuidad = prevención y seguimiento
+  - complejidad = rutas que requieren integración clínica o criterio especializado
+  - submódulos = capacidades que viven dentro de otras rutas y no necesitan autonomía pública
+- Este modelo protege mejor:
+  - la lectura hospitalaria
+  - la utilidad para el usuario
+  - la consistencia de navegación
+
+### Qué tipo de rutas sí deben abrirse en el futuro
+- Rutas que representen una decisión clínica reconocible para el usuario.
+- Rutas que cambien realmente la forma de entender o manejar un caso.
+- Rutas que puedan sostener:
+  - cuándo aplica
+  - qué cambia
+  - cómo se integra con otras áreas
+  - qué acción sigue
+- Rutas con autonomía clínica suficiente, no solo con nombre de especialidad.
+
+### Qué tipo de rutas no debe tener página propia
+- Procedimientos aislados.
+- Técnicas diagnósticas o terapéuticas sin autonomía narrativa.
+- Soportes hospitalarios que ya viven dentro de otra ruta estructural.
+- Servicios comerciales subordinados.
+- Especialidades demasiado finas que solo fragmentarían el mapa sin mejorar decisiones.
+
+### Reglas institucionales de expansión
+- Regla 1:
+  - ninguna nueva página debe abrirse solo porque existe en legacy
+- Regla 2:
+  - una nueva ruta debe responder a una pregunta clínica que el usuario pueda reconocer
+- Regla 3:
+  - si una capacidad depende de otra para explicarse, debe ser submódulo, no página
+- Regla 4:
+  - el núcleo hospitalario no debe crecer salvo que aparezca una nueva ruta claramente estructural
+- Regla 5:
+  - la continuidad clínica debe permanecer compacta y no fragmentarse en microespecialidades
+- Regla 6:
+  - la capa de complejidad/complementarias debe crecer muy lentamente y con reauditoría antes de expandirse más
+- Regla 7:
+  - `/servicios` debe seguir siendo mapa, no superficie para compensar falta de criterio estructural
+
+### Límite estructural de expansión
+- Núcleo hospitalario:
+  - debe permanecer estable
+  - no más de las rutas estructurales realmente necesarias
+- Continuidad:
+  - idealmente una sola familia clara
+- Complejidad / complementarias:
+  - ya está cerca del límite razonable
+  - antes de abrir otra ruta en esta capa conviene decidir si:
+    - se consolida el modelo
+    - se subdivide la capa
+    - o se frena la expansión pública
+
+### Lógica institucional de capas
+- Capa 1:
+  - núcleo hospitalario
+  - entrada, resolución, aclaración diagnóstica y mínima invasión
+- Capa 2:
+  - continuidad clínica
+  - prevención y seguimiento
+- Capa 3:
+  - complejidad clínica
+  - casos que requieren integración, especialidad o lectura adaptada
+- Capa 4:
+  - submódulos y líneas no públicas
+  - no deben competir con las capas 1 a 3
+
+### Riesgos estratégicos si no se consolida el modelo
+- Convertir el hospital en catálogo de especialidades.
+- Diluir la lógica de decisiones clínicas.
+- Volver ambiguo el hub `/servicios`.
+- Hacer que el usuario tenga más opciones pero menos claridad.
+- Abrir páginas con frontera débil que luego compitan entre sí.
+
+### Líneas futuras coherentes con el modelo
+- Posibles líneas futuras solo si sostienen frontera clínica real:
+  - alguna ruta de complejidad adicional claramente diferenciada
+  - una expansión controlada de continuidad si aparece una familia clínica suficientemente sólida
+- Líneas que hoy siguen encajando mejor como submódulo:
+  - hospitalización
+  - cuidados intensivos
+  - laboratorio
+  - ortopedia temprana
+  - manejo del dolor temprano
+  - manejo de heridas temprano
+
+### Decision institucional recomendada
+- Congelar temporalmente la expansión libre por especialidades.
+- Tratar toda nueva ruta futura como excepción justificada contra este modelo.
+- Mantener la identidad del sitio como:
+  - hospital veterinario premium de alta complejidad
+  - organizado por recorridos clínicos y decisiones
+  - no por acumulación de especialidades sueltas
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/services/data.ts` (auditado)
+- `src/features/marketing/components/services/ServicesPageHero.tsx` (auditado)
+- `src/app/(marketing)/servicios/page.tsx` (auditado)
+- `docs/AI_CONTEXT_LOG.md`
+
+### Supuestos prohibidos
+- No reinterpretar el sitio como catálogo de especialidades solo porque ya existen más rutas clínicas.
+- No abrir nuevas páginas para “completar” legacy si no fortalecen el modelo hospitalario.
+- No dejar que la capa complementaria sustituya al núcleo como lectura dominante del sitio.
+
+## Entrada 2026-03-25 03:20:00 -06:00
+
+### Tipo
+- Consolidacion institucional
+
+### Resumen ejecutivo
+- Se formalizó el modelo clínico digital del hospital en un documento institucional nuevo:
+  - `docs/CLINICAL_DIGITAL_MODEL_CHARTER.md`
+- El modelo deja de ser una conclusión implícita del crecimiento reciente y pasa a ser una regla oficial de gobernanza para futuras decisiones.
+- No se tocó código de producto ni navegación.
+
+### Documento institucional creado
+- `docs/CLINICAL_DIGITAL_MODEL_CHARTER.md`
+
+### Contenido consolidado
+- definición oficial del hospital digital
+- qué no es este hospital digital
+- arquitectura clínica institucional por capas
+- reglas institucionales de expansión
+- riesgos estratégicos
+- líneas futuras coherentes
+- implicaciones operativas para navegación, contenido, copy y arquitectura de información
+
+### Regla principal para crecimiento futuro
+- Toda expansión futura debe proteger la identidad del sitio como hospital veterinario premium de alta complejidad organizado por recorridos clínicos y decisiones, no por acumulación de especialidades sueltas.
+
+### Siguiente paso recomendado
+- No abrir una nueva especialidad por inercia.
+- Usar este charter como criterio obligatorio antes de:
+  - abrir una nueva ruta clínica
+  - promover un submódulo a página
+  - reordenar `/servicios`
+
+### Archivos tocados o auditados
+- `docs/CLINICAL_DIGITAL_MODEL_CHARTER.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Supuestos prohibidos
+- No tratar este charter como documento opcional o aspiracional.
+- No reabrir crecimiento libre por especialidades sin contrastarlo contra este modelo institucional.
