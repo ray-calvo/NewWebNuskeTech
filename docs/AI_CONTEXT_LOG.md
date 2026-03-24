@@ -662,6 +662,64 @@
 - No asumir que endurecer el copy equivale a validacion clinica completa.
 - No asumir que el triage ya esta listo para promocion amplia solo porque el flujo es mas claro.
 
+## Entrada 2026-03-24 00:05:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se agrego tracking minimo al modulo de triage para soportar un soft launch controlado.
+- La estrategia elegida evita dependencias pesadas y mantiene separacion limpia entre tracking, scoring y UI.
+- No se modifico navegacion principal ni se introdujo backend.
+
+### Cambios o hallazgos
+- Nuevo helper:
+  - `src/features/marketing/components/triage/track-triage.ts`
+- Eventos implementados:
+  - `triage_started`
+  - `triage_species_selected`
+  - `triage_category_selected`
+  - `triage_result_shown`
+  - `triage_primary_cta_clicked`
+  - `triage_secondary_cta_clicked`
+  - `triage_reset`
+- El helper emite:
+  - `CustomEvent("triage:track")`
+  - push opcional a `window.dataLayer`
+  - `console.info` en desarrollo
+
+### Riesgos
+- Mitigado: soft launch sin observabilidad minima.
+- Mitigado: necesidad de integrar una plataforma analitica pesada antes de validar el feature.
+- Pendiente: la capa actual no provee persistencia ni dashboard por si sola.
+
+### Decisiones tomadas
+- El tracking se mantuvo local al modulo de triage.
+- No se mezclo tracking con scoring heuristico.
+- No se toco navbar, mobile menu, hero ni footer.
+- No se agrego analytics real, solo preparacion minima para conectarlo despues.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/triage/track-triage.ts`
+- `src/features/marketing/components/triage/TriageWizard.tsx`
+- `src/features/marketing/components/triage/TriageResultCard.tsx`
+- `docs/TRIAGE_SOFT_LAUNCH_CHECKLIST.md`
+- `docs/INTERVENCION_FASE_11_TRIAGE_TRACKING_MINIMO.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/TRIAGE_SOFT_LAUNCH_CHECKLIST.md`
+- `docs/INTERVENCION_FASE_11_TRIAGE_TRACKING_MINIMO.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Conectar esta capa minima a una herramienta real si el soft launch demuestra traccion.
+- Revisar resultados y conversion antes de decidir mayor visibilidad.
+
+### Supuestos prohibidos
+- No asumir que emitir eventos locales equivale a analitica completa.
+- No asumir que el tracking minimo ya justifica exponer `/triage` en navegacion principal.
+
 ## Entrada 2026-03-23 21:40:00 -06:00
 
 ### Tipo

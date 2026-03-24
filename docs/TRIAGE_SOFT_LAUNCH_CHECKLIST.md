@@ -54,3 +54,59 @@
 - El modulo pasa `npm run lint`.
 - El modulo pasa `npm run build`.
 - Existe decision explicita documentada en `docs/AI_CONTEXT_LOG.md` antes de tocar navbar, hero, mobile menu o footer.
+
+## 6. Tracking minimo implementado
+
+Estado actual:
+
+- Ya existe helper local de tracking para triage.
+- Ya se emiten eventos minimos del funnel.
+- El modulo no depende aun de una plataforma externa obligatoria.
+
+Eventos actualmente implementados:
+
+- `triage_started`
+- `triage_species_selected`
+- `triage_category_selected`
+- `triage_result_shown`
+- `triage_primary_cta_clicked`
+- `triage_secondary_cta_clicked`
+- `triage_reset`
+
+Payload minimo actual:
+
+- `species`
+- `category`
+- `result_level`
+- `total_score`
+- `selected_symptom_count`
+- `selected_modifier_count`
+
+## 7. Que validar durante soft launch
+
+- Si el modulo recibe inicios reales del flujo.
+- Si los usuarios llegan hasta el resultado.
+- Si existe abandono fuerte en una especie o categoria concreta.
+- Si el CTA principal recibe clic cuando el resultado es `emergency` o `urgent`.
+- Si el CTA secundario capta mejor conversion en casos ambiguos.
+- Si el flujo genera combinaciones inesperadas que ameriten revision clinica.
+
+## 8. Metricas minimas a observar
+
+- numero de `triage_started`
+- numero de `triage_result_shown`
+- tasa basica de finalizacion
+- distribucion por `result_level`
+- clics en CTA primario
+- clics en CTA secundario
+- distribucion por especie
+- distribucion por categoria
+
+## 9. Criterio para decidir si el triage puede ganar mas visibilidad
+
+- El flujo muestra finalizacion suficiente para justificar mayor exposicion.
+- Los resultados no muestran patrones claramente problematicos.
+- El CTA principal y secundario muestran comportamiento coherente.
+- Ya existe revision clinica del scoring y del copy final.
+- El equipo puede medir al menos de forma minima el comportamiento del soft launch.
+- La decision de mayor visibilidad queda documentada antes de tocar navegacion principal.
