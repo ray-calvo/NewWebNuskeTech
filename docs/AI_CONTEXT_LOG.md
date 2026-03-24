@@ -3125,3 +3125,76 @@
 ### Supuestos prohibidos
 - No subir `oncologia` al mismo plano narrativo que urgencias, cirugía, diagnóstico o endoscopía.
 - No convertir el bloque de rutas complementarias en un segundo catálogo.
+
+## Entrada 2026-03-25 02:00:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se abrió `/medicina-interna` como nueva página clínica del sitio.
+- La página quedó construida como ruta de valoración médica integral para casos complejos, persistentes o de evolución incierta.
+- La implementación evita que medicina interna se lea como consulta genérica o como cajón de sastre.
+
+### Diagnóstico
+- Se partió desde cero: no existía la ruta ni un dominio propio para medicina interna.
+- El principal riesgo narrativo era que la página sonara a:
+  - consulta básica
+  - contenedor ambiguo para “todo lo demás”
+  - duplicado de diagnóstico
+  - duplicado de oncología
+- La solución fue plantearla como una capacidad clínica para:
+  - integrar signos, estudios y contexto del caso
+  - ordenar mejor la siguiente decisión
+  - sostener seguimiento cuando el cuadro todavía no es simple
+
+### Cambios realizados
+- Se creó:
+  - `src/app/(marketing)/medicina-interna/page.tsx`
+  - `src/features/marketing/components/medicina-interna/MedicinaInternaHero.tsx`
+  - `src/features/marketing/components/medicina-interna/data.ts`
+- La estructura narrativa final quedó en este orden:
+  - hero principal de medicina interna
+  - cuándo conviene una valoración médica integral
+  - signos persistentes, cambios progresivos o cuadros poco claros
+  - medicina interna como evaluación, integración y seguimiento
+  - relación con diagnóstico, oncología, hospitalización y prevención
+  - continuidad clínica para pacientes complejos
+  - diferenciadores hospitalarios
+  - CTA final con valoración y desvío a urgencias si aplica
+
+### Decisiones tomadas
+- `medicina-interna` se presenta como una ruta para integrar mejor el caso, no como consulta general.
+- Se evitó duplicar:
+  - diagnóstico, que aclara estudios y hallazgos
+  - oncología, que acompaña sospechas o diagnósticos oncológicos
+- La relación con otras rutas quedó explícita:
+  - integra información diagnóstica
+  - puede escalar hacia oncología u hospitalización
+  - se conecta con prevención y seguimiento
+  - si el paciente pierde estabilidad, la entrada correcta sigue siendo urgencias
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/medicina-interna/page.tsx`
+- `src/features/marketing/components/medicina-interna/MedicinaInternaHero.tsx`
+- `src/features/marketing/components/medicina-interna/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos restantes
+- `/servicios` todavía no refleja la publicación de `/medicina-interna` porque en esta fase no se tocó el hub.
+- Si se decide integrarla en el mapa de navegación, conviene hacerlo en una micro-fase separada para mantener jerarquía y trazabilidad.
+
+### Supuestos prohibidos
+- No convertir `medicina-interna` en contenedor ambiguo para todo lo no resuelto.
+- No volverla una consulta general con nombre más sofisticado.
+- No duplicar la función clínica de diagnóstico ni de oncología.
