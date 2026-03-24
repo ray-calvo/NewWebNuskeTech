@@ -1787,3 +1787,83 @@
 - No convertir `/diagnostico` en página de catálogo de estudios.
 - No hacer que imagenología o laboratorio vuelvan a aparecer como páginas madre paralelas.
 - No diluir la frontera entre soporte diagnóstico y resolución procedimental.
+
+## Entrada 2026-03-24 16:10:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- `/endoscopia` pasó de scaffold mínimo a página madre clínica real con narrativa procedimental propia.
+- La página ya comunica endoscopía como capacidad clínica especializada, puente entre diagnóstico y tratamiento y expresión real del valor de mínima invasión dentro del hospital.
+- La intervención se mantuvo acotada a la ruta `endoscopia` y a componentes mínimos de dominio endoscópico.
+
+### Cambios o hallazgos
+- `src/app/(marketing)/endoscopia/page.tsx` dejó de depender solo del scaffold placeholder.
+- Se incorporaron dos archivos de dominio:
+  - `src/features/marketing/components/endoscopia/EndoscopiaHero.tsx`
+  - `src/features/marketing/components/endoscopia/data.ts`
+- La estructura narrativa final quedó en este orden:
+  - hero principal de endoscopía
+  - qué es y por qué importa clínicamente
+  - capacidad mínimamente invasiva de evaluación y resolución
+  - relación con diagnóstico, cirugía y hospitalización sin absorberlos
+  - diferenciadores hospitalarios
+  - CTA final con valoración especializada y desvío a urgencias si aplica
+- La página evita:
+  - sonar a landing tecnológica
+  - convertirse en catálogo exhaustivo de procedimientos
+  - duplicar la narrativa de diagnóstico o cirugía
+
+### Riesgos
+- Mitigado: dejar `/endoscopia` como placeholder sin valor clínico propio.
+- Mitigado: presentar mínima invasión como promesa tecnológica aislada.
+- Mitigado: absorber narrativamente diagnóstico o cirugía.
+- Pendiente: cuando se abra la siguiente ola clínica, habrá que mantener clara la frontera entre endoscopía como capacidad procedimental y los futuros submódulos o páginas de soporte preventivo.
+
+### Decisiones tomadas
+- Endoscopía se presenta como capacidad clínica especializada y mínimamente invasiva.
+- El valor de `mínima invasión` queda absorbido aquí y no vuelve como página separada.
+- La página deja clara su relación con:
+  - diagnóstico
+  - cirugía
+  - hospitalización
+  sin convertirse en apéndice de ninguna.
+- No se tocaron:
+  - `/urgencias`
+  - `/cirugia`
+  - `/diagnostico`
+  - `/servicios`
+  - home
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/endoscopia/page.tsx`
+- `src/features/marketing/components/endoscopia/EndoscopiaHero.tsx`
+- `src/features/marketing/components/endoscopia/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Pendientes
+- Siguiente paso recomendado:
+  - estabilizar el núcleo de páginas madre ya abiertas antes de reabrir `/servicios` o construir una segunda ola clínica
+- Al hacerlo, mantener explícita esta frontera:
+  - diagnóstico soporta
+  - endoscopía evalúa y puede resolver con mínima invasión
+  - cirugía asume la resolución cuando se requiere un abordaje mayor
+
+### Supuestos prohibidos
+- No tratar endoscopía como página de equipo o tecnología aislada.
+- No reabrir `mínima invasión` como página paralela.
+- No convertir `/endoscopia` en catálogo exhaustivo de procedimientos.
