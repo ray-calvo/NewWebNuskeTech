@@ -1,35 +1,51 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BadgeCheck, HeartPulse, ShieldPlus, Stethoscope } from "lucide-react";
+import {
+  Activity,
+  ArrowRight,
+  BadgeCheck,
+  HeartPulse,
+  PhoneCall,
+  ShieldPlus,
+  Siren,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-const heroImage = "/marketing/hero/hero-placeholder.svg";
+const heroImage =
+  "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1800&q=80";
 
 const authorityPoints = [
-  "Alta especialidad para pacientes complejos",
-  "Tecnología de mínima invasión y diagnóstico digital",
-  "Atención humana con respuesta de urgencias 24/7",
+  "Cuidados intensivos y vigilancia hospitalaria continua",
+  "Cirugía avanzada para pacientes complejos y críticos",
+  "Diagnóstico hospitalario para respuesta clínica oportuna",
 ];
 
 export function Hero() {
   return (
-    <section className="px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-12">
-      <div className="mx-auto grid max-w-7xl gap-8 overflow-hidden rounded-[2rem] border border-white/70 bg-white/82 p-6 shadow-[0_30px_120px_-70px_rgba(15,23,42,0.55)] backdrop-blur md:p-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(420px,0.92fr)] lg:items-center lg:gap-12 lg:p-12">
+    <section className="px-4 pb-12 pt-8 sm:px-6 lg:px-8 lg:pb-16 lg:pt-10">
+      <div className="mx-auto grid max-w-7xl gap-8 overflow-hidden rounded-[2.2rem] border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(237,243,250,0.94))] p-6 shadow-[0_36px_120px_-76px_rgba(15,23,42,0.56)] md:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(460px,1fr)] lg:items-center lg:gap-12 lg:p-12">
         <div className="space-y-8">
           <div className="space-y-6">
-            <span className="inline-flex rounded-full border border-primary/15 bg-primary/8 px-4 py-1 text-sm font-semibold text-primary">
-              Expertos en casos complejos
-            </span>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex rounded-full border border-primary/15 bg-primary/8 px-4 py-1 text-sm font-semibold text-primary">
+                Hospital veterinario 24/7
+              </span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-sm font-semibold text-emerald-700">
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                Guardia hospitalaria activa 24/7
+              </div>
+            </div>
+
             <div className="space-y-4">
-              <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.04em] text-primary sm:text-5xl lg:text-[4.2rem] lg:leading-[0.96]">
-                Alta especialidad veterinaria con enfoque humano y tecnología de mínima invasión.
+              <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-[4.35rem] lg:leading-[0.94]">
+                Alta especialidad veterinaria para casos críticos
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-slate-600">
-                En Nuskë Vet Center atendemos pacientes que requieren precisión,
-                experiencia médica y equipamiento avanzado. Unimos cirugía de alta
-                especialidad, imagenología digital y mínima invasión con una atención
-                cercana para tu mascota y tu familia.
+                Hospital veterinario 24/7 con cirugía avanzada, cuidados
+                intensivos y diagnóstico hospitalario. Diseñado para responder
+                con velocidad clínica, criterio médico y continuidad de atención
+                en pacientes complejos.
               </p>
             </div>
           </div>
@@ -38,17 +54,23 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="h-11 bg-primary px-6 text-primary-foreground hover:bg-secondary"
+              className="h-12 rounded-2xl bg-[#a60f14] px-6 text-white shadow-[0_18px_46px_-24px_rgba(103,8,12,0.9)] hover:bg-[#8d1014]"
             >
-              <Link href="/contacto">Agendar Cita</Link>
+              <a href="tel:+524433246136">
+                <PhoneCall aria-hidden={true} className="h-4 w-4" />
+                Emergencia ahora
+              </a>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="h-11 border-accent bg-accent/10 text-secondary hover:bg-accent/20 hover:text-primary"
+              className="h-12 rounded-2xl border-primary/15 bg-white text-primary hover:bg-primary/5"
             >
-              <Link href="/servicios">Ver Servicios</Link>
+              <Link href="/contacto">
+                Agendar valoración
+                <ArrowRight aria-hidden={true} className="h-4 w-4" />
+              </Link>
             </Button>
           </div>
 
@@ -56,7 +78,7 @@ export function Hero() {
             {authorityPoints.map((point) => (
               <div
                 key={point}
-                className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-3"
+                className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-3 shadow-[0_18px_40px_-30px_rgba(15,23,42,0.18)]"
               >
                 <BadgeCheck className="h-5 w-5 text-primary" aria-hidden="true" />
                 <p className="text-sm font-medium text-slate-700">{point}</p>
@@ -66,49 +88,86 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute -left-4 top-10 hidden h-36 w-36 rounded-full bg-muted/30 blur-3xl lg:block" />
-          <div className="absolute -right-6 bottom-8 hidden h-40 w-40 rounded-full bg-primary/18 blur-3xl lg:block" />
+          <div className="absolute -left-6 top-12 hidden h-40 w-40 rounded-full bg-primary/10 blur-3xl lg:block" />
+          <div className="absolute -right-6 bottom-10 hidden h-44 w-44 rounded-full bg-destructive/10 blur-3xl lg:block" />
 
-          <div className="relative rounded-[2rem] border border-slate-200/70 bg-slate-950 p-3 shadow-[0_30px_100px_-60px_rgba(2,132,199,0.6)]">
-            <div className="relative overflow-hidden rounded-[1.5rem]">
+          <div className="relative overflow-hidden rounded-[2rem] border border-slate-200/70 bg-slate-950 shadow-[0_34px_100px_-62px_rgba(15,23,42,0.6)]">
+            <div className="relative min-h-[560px]">
               <Image
                 src={heroImage}
-                alt="Equipo veterinario en una clínica moderna atendiendo a un paciente con tecnología especializada"
-                width={1400}
-                height={1200}
+                alt="Área hospitalaria veterinaria con equipo médico y entorno clínico de alta complejidad"
+                fill
                 priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="h-[520px] w-full object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-950/10 to-transparent" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,17,28,0.18),rgba(9,17,28,0.74))]" />
             </div>
 
-            <div className="absolute inset-x-8 bottom-8 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-slate-950/82 p-4 text-white backdrop-blur">
-                <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/45 text-white">
-                  <Stethoscope className="h-5 w-5" aria-hidden="true" />
+            <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 border-b border-white/10 bg-slate-950/42 px-6 py-4 text-white backdrop-blur">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-white">
+                  <Siren className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-                  Mínima Invasión
-                </p>
-                <p className="mt-2 text-sm leading-6 text-slate-200">
-                  Endoscopía y procedimientos menos dolorosos con recuperación más ágil.
-                </p>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/90">
+                    Respuesta crítica
+                  </p>
+                  <p className="text-sm text-white/75">
+                    Guardia hospitalaria y estabilización inmediata
+                  </p>
+                </div>
               </div>
+              <div className="hidden rounded-full border border-emerald-300/30 bg-emerald-400/12 px-4 py-2 text-sm font-semibold text-emerald-100 sm:inline-flex">
+                Activo 24/7
+              </div>
+            </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/92 p-4 text-slate-900 backdrop-blur">
-                <div className="mb-3 flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-destructive/10 text-destructive">
+            <div className="absolute inset-x-6 bottom-6 grid gap-4 xl:grid-cols-[1.08fr_0.92fr]">
+              <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/78 p-5 text-white backdrop-blur">
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-white">
                     <HeartPulse className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-slate-900">Urgencias 24/7</p>
-                    <p className="text-xs text-slate-500">Respuesta inmediata y monitoreo continuo</p>
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
+                      Capacidad hospitalaria
+                    </p>
+                    <p className="text-base font-semibold text-white">
+                      Atención inmediata para pacientes críticos
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
-                  <ShieldPlus className="h-4 w-4 text-primary" aria-hidden="true" />
-                  Certificación PROCERVET y protocolos de alta especialidad
+                <p className="text-sm leading-7 text-slate-200">
+                  Equipo médico preparado para urgencias, hospitalización,
+                  vigilancia intensiva y continuidad quirúrgica en casos de alta
+                  complejidad.
+                </p>
+              </div>
+
+              <div className="rounded-[1.75rem] border border-white/12 bg-white/92 p-5 text-slate-900 backdrop-blur">
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Activity className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
+                      Operación clínica
+                    </p>
+                    <p className="text-base font-semibold text-slate-950">
+                      Cirugía avanzada y diagnóstico hospitalario
+                    </p>
+                  </div>
+                </div>
+                <div className="space-y-3 text-sm leading-6 text-slate-600">
+                  <div className="flex items-start gap-2">
+                    <ShieldPlus className="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
+                    Protocolos médicos para estabilización, monitoreo y decisión rápida.
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <BadgeCheck className="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
+                    Resolución hospitalaria desde urgencias hasta procedimientos complejos.
+                  </div>
                 </div>
               </div>
             </div>

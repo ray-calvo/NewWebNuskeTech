@@ -36,7 +36,7 @@ export function MobileMenu({ navigationItems }: MobileMenuProps) {
       {isOpen ? (
         <div
           id="mobile-navigation"
-          className="absolute inset-x-4 top-[5.5rem] rounded-[1.75rem] border border-white/70 bg-white/95 p-4 shadow-[0_28px_90px_-52px_rgba(15,23,42,0.55)] backdrop-blur"
+          className="absolute inset-x-4 top-[6.1rem] rounded-[1.75rem] border border-white/70 bg-white/95 p-4 shadow-[0_28px_90px_-52px_rgba(15,23,42,0.55)] backdrop-blur"
         >
           <nav aria-label="Principal móvil" className="flex flex-col gap-2">
             {navigationItems.map((item) => (
