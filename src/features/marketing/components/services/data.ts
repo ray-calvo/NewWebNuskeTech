@@ -104,24 +104,39 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
     ],
   },
   {
-    badge: "Diferenciación clínica",
-    title: "Capacidades ya publicadas que amplían la lectura del hospital",
+    badge: "Rutas clínicas complementarias",
+    title: "Capacidades ya publicadas que amplían la lectura clínica del hospital",
     description:
       "Estas rutas ya están abiertas y aportan valor clínico propio, sin desplazar el papel central de urgencias, cirugía, diagnóstico y endoscopía.",
     services: [
       {
         title: "Exóticos",
-        category: "Diferenciación clínica",
+        category: "Ruta clínica complementaria",
         description:
           "Ruta para aves, reptiles y pequeños mamíferos que necesitan valoración médica adaptada por especie y decisiones clínicas con otra lectura.",
         icon: Bird,
         bullets: [
           "Valorar señales que cambian según la especie",
           "Decidir diagnóstico, soporte o seguimiento con menos demora",
-          "Dar visibilidad a una capacidad reputacional ya publicada",
+          "Sostener una capacidad reputacional ya publicada",
         ],
         href: "/exoticos",
         ctaLabel: "Ver exóticos",
+        status: "published",
+      },
+      {
+        title: "Oncología",
+        category: "Ruta clínica complementaria",
+        description:
+          "Ruta para pacientes con sospecha o diagnóstico oncológico que necesitan estudiar mejor el caso, ordenar decisiones y dar continuidad clínica.",
+        icon: Stethoscope,
+        bullets: [
+          "Valorar masas, cambios progresivos o hallazgos persistentes",
+          "Coordinar diagnóstico, cirugía, hospitalización o seguimiento",
+          "Acompañar casos complejos sin perder la claridad de la ruta",
+        ],
+        href: "/oncologia",
+        ctaLabel: "Ver oncología",
         status: "published",
       },
     ],
@@ -132,19 +147,6 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
     description:
       "Estas áreas forman parte del desarrollo del sitio, pero hoy no deben distraer de las rutas clínicas ya publicadas.",
     services: [
-      {
-        title: "Oncología",
-        category: "Publicación posterior",
-        description:
-          "Se publicará cuando el contenido permita orientar evaluación, seguimiento y tratamiento sin sonar a brochure especializado.",
-        icon: Stethoscope,
-        bullets: [
-          "Aún no tiene página publicada",
-          "Necesita narrativa clínica propia",
-          "Por ahora queda fuera del protagonismo principal",
-        ],
-        status: "planned",
-      },
       {
         title: "Medicina interna",
         category: "Publicación posterior",

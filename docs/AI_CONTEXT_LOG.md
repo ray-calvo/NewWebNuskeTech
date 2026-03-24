@@ -3053,3 +3053,75 @@
 - No convertir `oncologia` en promesa de tratamiento o curación.
 - No volverla una landing emocional.
 - No plantearla como catálogo de terapias o procedimientos.
+
+## Entrada 2026-03-25 01:30:00 -06:00
+
+### Tipo
+- Refactor
+
+### Resumen ejecutivo
+- Se actualizó `/servicios` para reflejar la publicación de `/oncologia`.
+- El hub mantiene su función de mapa clínico y ahora reconoce dos rutas complementarias ya publicadas:
+  - exóticos
+  - oncología
+- No se alteró el núcleo hospitalario ni se profundizó contenido de páginas madre.
+
+### Diagnóstico
+- `/servicios` seguía desactualizado porque `oncologia` todavía aparecía dentro de publicación posterior.
+- La capa llamada `Diferenciación clínica` ya no era del todo precisa ahora que agrupaba más de una ruta publicada.
+- No había una deriva grave de tono, pero sí convenía un microajuste de naming para que el bloque se leyera más como navegación clínica y menos como categoría conceptual.
+
+### Cambios realizados
+- `src/features/marketing/components/services/data.ts`
+  - `oncologia` salió del bloque de publicación posterior
+  - se integró junto a `exoticos` dentro de una capa de rutas clínicas complementarias
+  - se ajustó el naming del bloque para hacerlo más claro y menos abstracto
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+  - se actualizó el hero para reflejar que `exoticos` y `oncologia` ya son rutas publicadas
+- `docs/AI_CONTEXT_LOG.md`
+  - se registró esta micro-fase de actualización del hub
+
+### Estado final del hub
+- Núcleo hospitalario:
+  - urgencias
+  - cirugía
+  - diagnóstico
+  - endoscopía
+- Continuidad clínica:
+  - prevención
+- Rutas clínicas complementarias:
+  - exóticos
+  - oncología
+- Publicación posterior / subordinado:
+  - medicina interna
+  - comercial subordinado
+
+### Decisiones tomadas
+- `oncologia` queda visible en el hub porque ya está publicada.
+- No se la subió al mismo plano que el núcleo hospitalario.
+- El bloque intermedio pasa a leerse como conjunto de rutas clínicas complementarias ya abiertas, no como etiqueta reputacional abstracta.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/services/data.ts`
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+- `src/app/(marketing)/servicios/page.tsx` (auditado)
+- `src/features/marketing/components/services/ServiceCategorySection.tsx` (auditado)
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos restantes
+- No hay bloqueo real antes de abrir la siguiente página.
+- Si se siguen sumando rutas publicadas fuera del núcleo, habrá que vigilar que esta capa intermedia no crezca tanto que vuelva a competir con el núcleo hospitalario.
+
+### Supuestos prohibidos
+- No subir `oncologia` al mismo plano narrativo que urgencias, cirugía, diagnóstico o endoscopía.
+- No convertir el bloque de rutas complementarias en un segundo catálogo.
