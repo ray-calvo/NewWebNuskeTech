@@ -3949,3 +3949,54 @@
 ### Supuestos prohibidos
 - No tratar este sistema UX como documento opcional.
 - No seguir tomando decisiones de CTA o jerarquía sin contrastarlas contra el estado clínico percibido del usuario.
+
+## Entrada 2026-03-25 04:45:00 -06:00
+
+### Tipo
+- Formalizacion institucional CTA
+
+### Resumen ejecutivo
+- Se formalizó el sistema institucional de CTAs clínicos del hospital digital en un documento nuevo:
+  - `docs/CLINICAL_CTA_SYSTEM.md`
+- El sistema traduce el modelo clínico institucional y el sistema de estados UX a reglas operativas de acción.
+- No se tocó código de producto.
+
+### Documento institucional creado
+- `docs/CLINICAL_CTA_SYSTEM.md`
+
+### Relación con marcos institucionales existentes
+- `CLINICAL_DIGITAL_MODEL_CHARTER.md`
+  - define cómo se organiza el hospital digital
+- `CLINICAL_STATE_UX_SYSTEM.md`
+  - define cómo responde la experiencia al estado clínico percibido del usuario
+- `CLINICAL_CTA_SYSTEM.md`
+  - define cómo deben jerarquizarse, redactarse y convivir las acciones dentro de ese sistema
+
+### Sistema institucional formalizado
+- Jerarquía de CTA definida:
+  - CTA de urgencia inmediata
+  - CTA de valoración clínica
+  - CTA de seguimiento / continuidad
+  - CTA de orientación secundaria
+  - CTA de fallback seguro
+- Principio central:
+  - los CTAs no se definen por página aislada ni por estética
+  - se definen por estado clínico percibido, riesgo y momento del recorrido
+
+### Siguiente fase recomendada
+- No abrir nuevas páginas por defecto.
+- Traducir este sistema a reglas operativas futuras para:
+  - implementación de CTA
+  - priorización visual
+  - transiciones entre rutas
+  - señalización clínica contextual
+
+### Archivos tocados o auditados
+- `docs/CLINICAL_CTA_SYSTEM.md`
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/CLINICAL_DIGITAL_MODEL_CHARTER.md` (auditado)
+- `docs/CLINICAL_STATE_UX_SYSTEM.md` (auditado)
+
+### Supuestos prohibidos
+- No tratar el sistema de CTA como capa decorativa.
+- No definir CTAs sin pasar antes por estado clínico UX y riesgo percibido.
