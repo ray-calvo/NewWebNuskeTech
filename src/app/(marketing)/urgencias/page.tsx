@@ -4,6 +4,10 @@ import { Monitor, TriangleAlert } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
+  ClinicalBulletGrid,
+  ClinicalSection,
+} from "@/features/marketing/components/clinical/ClinicalSection";
+import {
   criticalCareCapabilities,
   differentiators,
   finalActions,
@@ -13,10 +17,6 @@ import {
   urgentPhoneHref,
   urgentWhatsAppHref,
 } from "@/features/marketing/components/urgencias/data";
-import {
-  BulletGrid,
-  UrgenciasSectionBlock,
-} from "@/features/marketing/components/urgencias/UrgenciasSectionBlock";
 import { UrgenciasHero } from "@/features/marketing/components/urgencias/UrgenciasHero";
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function UrgenciasPage() {
     <main className="bg-background">
       <UrgenciasHero />
 
-      <UrgenciasSectionBlock
+      <ClinicalSection
         badge="Cuándo acudir de inmediato"
         title="Situaciones que requieren acción inmediata"
         description="Si observas cualquiera de estas señales, no conviene esperar a una consulta programada. La prioridad es mover al paciente hacia valoración médica inmediata."
@@ -55,9 +55,9 @@ export default function UrgenciasPage() {
             </section>
           ))}
         </div>
-      </UrgenciasSectionBlock>
+      </ClinicalSection>
 
-      <UrgenciasSectionBlock
+      <ClinicalSection
         badge="Paciente crítico"
         title="Atención hospitalaria para estabilizar y sostener al paciente crítico"
         description="La urgencia no termina en la recepción. La página madre debe comunicar que Nuskë puede evaluar, estabilizar, monitorear y decidir el siguiente paso clínico dentro de una lógica hospitalaria continua."
@@ -83,7 +83,7 @@ export default function UrgenciasPage() {
             );
           })}
         </div>
-      </UrgenciasSectionBlock>
+      </ClinicalSection>
 
       <section className="px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div className="mx-auto max-w-7xl rounded-[2rem] bg-[linear-gradient(135deg,#1d3f68_0%,#16314f_70%,#11263d_100%)] p-6 text-white shadow-[0_34px_110px_-62px_rgba(15,23,42,0.58)] md:p-8 lg:p-10">
@@ -102,7 +102,7 @@ export default function UrgenciasPage() {
                 control de dolor, terapia de soporte y seguimiento estrecho
                 antes de decidir alta, cirugía o siguiente intervención.
               </p>
-              <BulletGrid
+              <ClinicalBulletGrid
                 items={[
                   "Observación clínica continua",
                   "Reevaluación según evolución",
@@ -148,7 +148,7 @@ export default function UrgenciasPage() {
         </div>
       </section>
 
-      <UrgenciasSectionBlock
+      <ClinicalSection
         badge="Diferenciadores hospitalarios"
         title="Lo que esta página debe comunicar sobre la capacidad real del hospital"
         description="La urgencia debe sentirse como operación clínica seria, no como anuncio aislado. Estos diferenciadores sostienen la lectura premium y hospitalaria de Nuskë."
@@ -174,7 +174,7 @@ export default function UrgenciasPage() {
             );
           })}
         </div>
-      </UrgenciasSectionBlock>
+      </ClinicalSection>
 
       <section className="px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pb-16">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_24px_70px_-46px_rgba(15,23,42,0.2)] md:p-8 lg:p-10">

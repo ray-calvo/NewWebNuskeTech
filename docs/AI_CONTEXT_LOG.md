@@ -1558,3 +1558,79 @@
 - No asumir que la estructura extraída de `urgencias` ya define por sí sola el sistema completo de páginas madre.
 - No copiar esta página literalmente en las demás rutas P1.
 - No convertir la urgencia en landing comercial ni en página de servicios fragmentados.
+
+## Entrada 2026-03-24 13:40:00 -06:00
+
+### Tipo
+- Refactor
+
+### Resumen ejecutivo
+- Se auditó si ya convenía extraer una capa mínima de patrones compartidos para páginas madre clínicas.
+- La decisión fue afirmativa, pero solo en un nivel muy acotado:
+  - scaffold placeholder de página madre
+  - bloque narrativo reutilizable de sección
+- No se creó un sistema genérico grande ni se tocó el copy profundo de páginas todavía no desarrolladas.
+
+### Cambios o hallazgos
+- Las rutas placeholder `cirugia`, `diagnostico` y `endoscopia` repetían exactamente la misma estructura:
+  - badge
+  - H1
+  - descripción
+  - tres cards placeholder
+  - CTA principal y secundaria
+- En `urgencias` ya existía un patrón reusable real:
+  - encabezado narrativo de sección
+  - grilla de bullets reutilizable
+- Se extrajeron dos piezas compartidas:
+  - `src/features/marketing/components/clinical/ClinicalParentPageScaffold.tsx`
+  - `src/features/marketing/components/clinical/ClinicalSection.tsx`
+- `UrgenciasSectionBlock.tsx` dejó de existir y fue absorbido por el patrón clínico compartido.
+
+### Riesgos
+- Mitigado: duplicación temprana entre `cirugia`, `diagnostico` y `endoscopia`.
+- Mitigado: dejar que `urgencias` generara un patrón reusable sin consolidarlo a tiempo.
+- Pendiente: el hero clínico todavía no se estandariza y eso es intencional; si se fuerza antes de profundizar otra página madre, puede aparecer una abstracción demasiado rígida.
+
+### Decisiones tomadas
+- Sí se estandarizó:
+  - scaffold mínimo de página madre placeholder
+  - bloque de sección narrativa
+  - bullet grid clínico
+- Deliberadamente NO se estandarizó:
+  - hero clínico principal
+  - CTA hospitalaria profunda
+  - datos de dominio
+  - layouts específicos de cada capacidad
+- `/urgencias` se mantuvo como referencia más profunda, no como template literal de las demás.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/clinical/ClinicalParentPageScaffold.tsx`
+- `src/features/marketing/components/clinical/ClinicalSection.tsx`
+- `src/app/(marketing)/urgencias/page.tsx`
+- `src/app/(marketing)/cirugia/page.tsx`
+- `src/app/(marketing)/diagnostico/page.tsx`
+- `src/app/(marketing)/endoscopia/page.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Pendientes
+- Siguiente paso recomendado:
+  - profundizar `/cirugia` usando el scaffold solo como base de salida, no como límite de diseño
+- Antes de profundizar una tercera página madre, reevaluar si hace falta una capa compartida adicional para hero clínico o CTA finales.
+
+### Supuestos prohibidos
+- No convertir el scaffold placeholder en layout universal obligatorio.
+- No asumir que todo patrón visual de `urgencias` ya debe compartirse.
+- No expandir esta capa compartida a más abstracciones hasta ver una segunda página madre profunda real.

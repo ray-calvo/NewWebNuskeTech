@@ -3,19 +3,19 @@ import { BadgeCheck } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 
-type UrgenciasSectionBlockProps = {
+type ClinicalSectionProps = {
   badge?: string;
   title: string;
   description: string;
   children: ReactNode;
 };
 
-export function UrgenciasSectionBlock({
+export function ClinicalSection({
   badge,
   title,
   description,
   children,
-}: UrgenciasSectionBlockProps) {
+}: ClinicalSectionProps) {
   return (
     <section className="px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <div className="mx-auto max-w-7xl space-y-6">
@@ -37,7 +37,10 @@ type BulletGridProps = {
   tone?: "default" | "dark";
 };
 
-export function BulletGrid({ items, tone = "default" }: BulletGridProps) {
+export function ClinicalBulletGrid({
+  items,
+  tone = "default",
+}: BulletGridProps) {
   return (
     <div className="grid gap-3 sm:grid-cols-2">
       {items.map((item) => (
@@ -52,7 +55,10 @@ export function BulletGrid({ items, tone = "default" }: BulletGridProps) {
         >
           <BadgeCheck
             aria-hidden={true}
-            className={["h-4 w-4 shrink-0", tone === "dark" ? "text-accent" : "text-primary"].join(" ")}
+            className={[
+              "h-4 w-4 shrink-0",
+              tone === "dark" ? "text-accent" : "text-primary",
+            ].join(" ")}
           />
           {item}
         </div>
