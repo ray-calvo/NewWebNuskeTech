@@ -43,17 +43,17 @@ export const diagnosticsHeroHighlights: readonly DiagnosticHighlight[] = [
   {
     title: "Diagnóstico como soporte a decisiones",
     description:
-      "La precisión diagnóstica ayuda a priorizar, confirmar y ajustar el siguiente paso clínico.",
+      "Cuando el cuadro no es claro, ayuda a priorizar mejor, confirmar sospechas y definir qué sigue.",
   },
   {
     title: "Integración con urgencias y cirugía",
     description:
-      "Los estudios no viven aislados: se conectan con cuadros agudos, planificación y seguimiento.",
+      "Puede ayudar tanto en cuadros agudos como antes o después de un procedimiento, cuando hace falta decidir con más certeza.",
   },
   {
-    title: "Capacidad hospitalaria transversal",
+    title: "Mejor información para casos complejos",
     description:
-      "Imagenología, laboratorio y evaluación clínica complementaria dentro de una misma lógica hospitalaria.",
+      "Cuando la exploración física no alcanza, una mejor lectura del caso ayuda a evitar errores y retrasos en el tratamiento.",
   },
 ] as const;
 
@@ -94,19 +94,19 @@ export const diagnosticCapabilities: readonly DiagnosticCapability[] = [
   {
     title: "Imagenología hospitalaria",
     description:
-      "Herramientas para evaluar estructuras, orientar sospechas y complementar la exploración clínica.",
+      "Ayuda a revisar estructuras y confirmar sospechas cuando el problema no se entiende solo con la exploración.",
     icon: ScanSearch,
   },
   {
     title: "Laboratorio clínico como soporte",
     description:
-      "Resultados que ayudan a dimensionar estado general, compromiso sistémico y evolución del paciente.",
+      "Permite valorar mejor el estado general del paciente y detectar cambios que modifican la decisión clínica.",
     icon: Microscope,
   },
   {
     title: "Evaluación complementaria y correlación",
     description:
-      "Los hallazgos se entienden en conjunto con la clínica del paciente, no como dato aislado.",
+      "Los hallazgos sirven cuando se leen junto con los signos y la evolución del paciente, no como datos aislados.",
     icon: SearchCheck,
   },
 ] as const;
@@ -115,61 +115,61 @@ export const transversalSupport: readonly DiagnosticSupportCard[] = [
   {
     title: "Diagnóstico como soporte en urgencias",
     description:
-      "En cuadros agudos, el diagnóstico ayuda a priorizar decisiones, confirmar sospechas y sostener la ruta hospitalaria inicial.",
+      "En cuadros agudos, ayuda a decidir qué debe atenderse primero y qué necesita confirmarse rápido para no perder tiempo.",
     icon: HeartPulse,
     items: [
-      "Correlación rápida con el estado del paciente",
-      "Apoyo para decidir estabilización y siguientes pasos",
-      "Mejor lectura de riesgo clínico en escenarios críticos",
+      "Mejor lectura del estado real del paciente",
+      "Ayuda a decidir estabilización y siguientes pasos",
+      "Menos duda en escenarios críticos",
     ],
   },
   {
     title: "Planificación quirúrgica y seguimiento",
     description:
-      "El diagnóstico orienta el momento del procedimiento, la preparación del paciente y la reevaluación posterior.",
+      "Antes o después de un procedimiento, ayuda a decidir mejor el momento, la preparación y los cambios necesarios en el seguimiento.",
     icon: ClipboardCheck,
     items: [
-      "Planeación preoperatoria con mejor contexto clínico",
-      "Seguimiento de evolución después de la intervención",
-      "Apoyo a decisiones perioperatorias",
+      "Mejor contexto antes de intervenir",
+      "Seguimiento de evolución después del procedimiento",
+      "Ajustes de decisión según la respuesta clínica",
     ],
   },
   {
     title: "Relación con endoscopía y mínima invasión",
     description:
-      "La endoscopía es una capacidad procedimental diferenciada; el diagnóstico la acompaña, pero no la absorbe ni la reemplaza.",
+      "A veces ayuda a decidir si una vía mínimamente invasiva está indicada o si el caso necesita otra ruta.",
     icon: Eye,
     items: [
-      "Criterio para decidir si un procedimiento está indicado",
-      "Complemento a la evaluación clínica y de imagen",
-      "Frontera clara entre soporte diagnóstico y resolución procedimental",
+      "Ayuda a decidir si un procedimiento está indicado",
+      "Complementa la evaluación clínica y de imagen",
+      "Aclara cuándo conviene escalar a otra intervención",
     ],
   },
 ] as const;
 
 export const diagnosticDifferentiators: readonly DiagnosticCapability[] = [
   {
-    title: "Evita decidir a ciegas",
+    title: "Aclara el siguiente paso",
     description:
-      "Cuando la exploración no alcanza, el diagnóstico ayuda a definir mejor el problema antes de tratar o intervenir.",
+      "Cuando el cuadro no es claro, ayuda a decidir qué necesita atención inmediata y qué puede esperar sin aumentar el riesgo.",
     icon: Stethoscope,
   },
   {
-    title: "Ayuda a priorizar lo urgente",
+    title: "Evita intervenir sin estar seguro",
     description:
-      "En pacientes que cambian rápido, aporta información para decidir qué atender primero y qué puede esperar.",
+      "En algunos casos, una mejor correlación diagnóstica evita procedimientos o tratamientos que todavía no están bien indicados.",
     icon: Activity,
   },
   {
-    title: "Permite ajustar el plan del caso",
+    title: "Acelera el tratamiento correcto",
     description:
-      "Los hallazgos ayudan a confirmar, descartar o cambiar la ruta clínica cuando la evolución no es la esperada.",
+      "Cuando la información clínica encaja mejor, el siguiente paso puede definirse antes y con menos ensayo y error.",
     icon: Gauge,
   },
   {
-    title: "Aclara cuándo hace falta otro paso",
+    title: "Reduce incertidumbre en casos complejos",
     description:
-      "Puede mostrar si el paciente necesita cirugía, hospitalización, seguimiento estrecho o una reevaluación distinta.",
+      "Ayuda a confirmar si el paciente necesita cirugía, hospitalización, seguimiento estrecho o una reevaluación diferente.",
     icon: Monitor,
   },
 ] as const;

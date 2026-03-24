@@ -2522,3 +2522,84 @@
 ### Supuestos prohibidos
 - No volver a introducir guideline editorial visible en JSX de producción.
 - No usar `ClinicalSection` para explicar estrategia de posicionamiento en vez de impacto clínico.
+
+## Entrada 2026-03-24 21:35:00 -06:00
+
+### Tipo
+- Ajuste narrativo
+
+### Resumen ejecutivo
+- Se cerró la limpieza narrativa pendiente de tres datasets clínicos:
+  - `src/features/marketing/components/urgencias/data.ts`
+  - `src/features/marketing/components/cirugia/data.ts`
+  - `src/features/marketing/components/diagnostico/data.ts`
+- El objetivo fue eliminar lenguaje interno de arquitectura clínica y llevar el contenido a una narrativa de:
+  - situación clínica
+  - decisión
+  - impacto para el paciente
+
+### Diagnóstico
+- Todavía quedaban frases y patrones como:
+  - `capacidad hospitalaria`
+  - `lógica hospitalaria`
+  - `se conecta con`
+  - `capacidad quirúrgica/anestésica del hospital`
+  - explicaciones centradas en cómo se organiza el hospital, no en el caso del paciente
+- Eso no rompía la UI, pero sí dejaba fragmentos de voz interna de producto visibles en contenido de producción.
+
+### Cambios realizados
+- `src/features/marketing/components/urgencias/data.ts`
+  - hero highlights y support cards reescritos para hablar de:
+    - actuar sin perder tiempo
+    - vigilar al paciente
+    - definir rápido la siguiente ruta
+- `src/features/marketing/components/cirugia/data.ts`
+  - hero highlights, capabilities y support cards reescritos para hablar de:
+    - decidir mejor cuándo operar
+    - reducir decisiones apresuradas
+    - sostener recuperación y vigilancia
+- `src/features/marketing/components/diagnostico/data.ts`
+  - hero highlights, capabilities y support cards reescritos para hablar de:
+    - aclarar el cuadro clínico
+    - priorizar mejor
+    - evitar errores y retrasos
+    - decidir si hace falta otra intervención
+
+### Resultado narrativo
+- Urgencias:
+  - tiempo clínico
+  - priorización
+  - respuesta rápida
+- Cirugía:
+  - resolución
+  - momento correcto
+  - seguridad y recuperación
+- Diagnóstico:
+  - claridad del caso
+  - reducción de incertidumbre
+  - mejor decisión clínica
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/urgencias/data.ts`
+- `src/features/marketing/components/cirugia/data.ts`
+- `src/features/marketing/components/diagnostico/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos pendientes
+- No queda bloqueo técnico.
+- El núcleo P1 queda editorialmente más consistente después de este cierre.
+- No se detecta necesidad inmediata de nuevos refactors narrativos amplios en estos tres datasets.
+
+### Supuestos prohibidos
+- No reintroducir lenguaje de arquitectura clínica interna en datasets visibles.
+- No volver a explicar el hospital como sistema conceptual en vez de orientar el caso del paciente.

@@ -46,17 +46,17 @@ export const heroHighlights: readonly Highlight[] = [
   {
     title: "Respuesta clínica inmediata",
     description:
-      "Recepción, valoración inicial y estabilización desde el primer contacto.",
+      "Si el paciente llega comprometido, la prioridad es valorarlo y empezar a actuar sin perder tiempo.",
   },
   {
     title: "Paciente crítico y monitoreo",
     description:
-      "Capacidad hospitalaria para vigilancia continua y seguimiento estrecho.",
+      "Algunos pacientes necesitan quedarse vigilados para ver si responden o si el cuadro sigue empeorando.",
   },
   {
     title: "Apoyo diagnóstico y quirúrgico",
     description:
-      "Integración con estudios y procedimientos cuando el cuadro lo requiere.",
+      "Si la urgencia necesita estudios o procedimiento, puede definirse la siguiente ruta sin retrasar la atención.",
   },
 ] as const;
 
@@ -118,33 +118,33 @@ export const supportCards: readonly SupportCard[] = [
   {
     title: "Hospitalización y monitoreo continuo",
     description:
-      "Submódulo hospitalario para pacientes que no pueden regresar a casa de inmediato y requieren observación, tratamiento y reevaluación frecuente.",
+      "Cuando el paciente no está listo para irse a casa, puede quedarse en observación, tratamiento y reevaluación cercana.",
     icon: ShieldPlus,
     items: [
       "Observación clínica continua",
       "Seguimiento de respuesta al tratamiento",
-      "Menor estrés con manejo hospitalario estructurado",
+      "Reevaluación según cómo evoluciona",
     ],
   },
   {
     title: "Apoyo diagnóstico",
     description:
-      "Estudios y valoración diagnóstica que ayudan a entender mejor el cuadro agudo y a decidir el siguiente paso con criterio hospitalario.",
+      "Cuando el cuadro no es claro, los estudios ayudan a entender mejor el problema y a decidir qué sigue.",
     icon: ScanSearch,
     items: [
       "Imagenología y laboratorio según criterio médico",
-      "Correlación clínica de hallazgos",
-      "Soporte rápido para casos complejos",
+      "Mejor lectura de lo que está ocurriendo",
+      "Decisiones más rápidas en cuadros agudos",
     ],
   },
   {
     title: "Apoyo quirúrgico",
     description:
-      "Cuando la urgencia evoluciona a procedimiento, la página se conecta con la capacidad quirúrgica y anestésica del hospital.",
+      "Si el paciente necesita procedimiento, puede definirse si conviene operar y en qué condiciones hacerlo con más seguridad.",
     icon: Syringe,
     items: [
       "Valoración prequirúrgica",
-      "Control anestésico hospitalario",
+      "Planeación anestésica según el estado del paciente",
       "Continuidad postoperatoria",
     ],
   },
@@ -152,27 +152,27 @@ export const supportCards: readonly SupportCard[] = [
 
 export const differentiators: readonly Capability[] = [
   {
-    title: "No esperar a que empeore",
+    title: "Permite actuar antes del colapso",
     description:
-      "Cuando hay dificultad para respirar, colapso o dolor agudo, la decisión correcta es actuar de inmediato y no observar en casa.",
+      "Cuando el paciente empieza a deteriorarse, recibirlo de inmediato puede evitar que llegue a un punto más crítico.",
     icon: Gauge,
   },
   {
-    title: "Permite estabilizar antes de decidir",
+    title: "Primero estabiliza, luego decide",
     description:
-      "En pacientes inestables, primero importa sostener respiración, dolor y perfusión antes de pasar a estudios o procedimientos.",
+      "Si llega inestable, la prioridad es sostener respiración, circulación y dolor antes de pensar en estudios o procedimientos.",
     icon: Stethoscope,
   },
   {
-    title: "Evita mover al paciente entre rutas separadas",
+    title: "Prioriza lo que no puede esperar",
     description:
-      "Si el caso necesita diagnóstico, hospitalización o cirugía, la transición puede hacerse dentro de la misma lógica hospitalaria.",
+      "Ayuda a diferenciar qué debe atenderse en los primeros minutos y qué puede ordenarse después sin aumentar el riesgo.",
     icon: Activity,
   },
   {
-    title: "Reduce pasos cuando el tiempo importa",
+    title: "Reduce tiempo perdido en la urgencia",
     description:
-      "Llamar, escribir y llegar rápido ayuda a no perder tiempo en un momento en el que cada minuto puede cambiar el manejo.",
+      "Cuando hay un cuadro agudo, llegar rápido y activar la atención desde el primer contacto cambia el margen de respuesta.",
     icon: MapPin,
   },
 ] as const;

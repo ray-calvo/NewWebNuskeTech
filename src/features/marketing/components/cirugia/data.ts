@@ -43,17 +43,17 @@ export const surgeryHeroHighlights: readonly SurgeryHighlight[] = [
   {
     title: "Resolución quirúrgica hospitalaria",
     description:
-      "La cirugía se integra a valoración, anestesia, monitoreo y seguimiento dentro del mismo hospital.",
+      "Cuando el paciente necesita cirugía, importa valorar bien el caso, intervenir con seguridad y seguir de cerca la recuperación.",
   },
   {
     title: "Seguridad anestésica y vigilancia",
     description:
-      "Control intraoperatorio y acompañamiento postoperatorio según la condición del paciente.",
+      "La anestesia y el monitoreo ayudan a reducir riesgo antes, durante y después del procedimiento.",
   },
   {
     title: "Apoyo diagnóstico y planificación",
     description:
-      "La decisión quirúrgica se sostiene con criterio clínico, estudios y reevaluación cuando hace falta.",
+      "Antes de intervenir, hace falta entender bien el caso para decidir cuándo conviene operar y cómo hacerlo.",
   },
 ] as const;
 
@@ -94,19 +94,19 @@ export const surgeryCapabilities: readonly SurgeryCapability[] = [
   {
     title: "Valoración quirúrgica hospitalaria",
     description:
-      "Definición del problema, del momento de intervención y del soporte médico necesario alrededor del procedimiento.",
+      "Ayuda a definir si el problema necesita cirugía, cuándo conviene intervenir y qué soporte hace falta alrededor del procedimiento.",
     icon: Stethoscope,
   },
   {
     title: "Procedimientos especializados",
     description:
-      "Abordaje de tejidos blandos y resolución de cuadros que requieren intervención técnica y control clínico.",
+      "Permite resolver cuadros que no mejoran solos y que necesitan una intervención planeada con criterio médico.",
     icon: Syringe,
   },
   {
     title: "Continuidad postoperatoria",
     description:
-      "Seguimiento estructurado de dolor, evolución, monitoreo y decisiones posteriores al procedimiento.",
+      "Después del procedimiento, el seguimiento ayuda a controlar dolor, vigilar evolución y decidir con tiempo si algo necesita ajustarse.",
     icon: Activity,
   },
 ] as const;
@@ -136,61 +136,61 @@ export const surgerySupportCards: readonly SurgerySupportCard[] = [
   {
     title: "Apoyo diagnóstico y planificación quirúrgica",
     description:
-      "La cirugía hospitalaria no parte de una intuición aislada. Se apoya en estudios, exploración clínica y planeación del abordaje más adecuado para cada paciente.",
+      "Antes de operar, hace falta entender bien el problema para elegir el mejor abordaje y reducir decisiones apresuradas.",
     icon: ScanSearch,
     items: [
       "Imagenología y laboratorio según criterio médico",
-      "Definición de riesgo y oportunidad quirúrgica",
-      "Planeación del procedimiento y del entorno postoperatorio",
+      "Definición del mejor momento para intervenir",
+      "Planeación del procedimiento y la recuperación",
     ],
   },
   {
     title: "Recuperación, hospitalización y seguimiento",
     description:
-      "Algunos pacientes requieren quedarse en observación, reevaluarse o sostener soporte hospitalario después del procedimiento.",
+      "Algunos pacientes necesitan quedarse vigilados después de la cirugía para controlar dolor, respuesta y posibles cambios en la evolución.",
     icon: ShieldPlus,
     items: [
       "Monitoreo postoperatorio",
       "Control de evolución y reevaluación clínica",
-      "Continuidad con hospitalización cuando hace falta",
+      "Observación cercana cuando hace falta",
     ],
   },
   {
     title: "Integración con otras capacidades del hospital",
     description:
-      "La página madre quirúrgica se conecta con diagnóstico, urgencias y cuidado crítico cuando la condición lo exige.",
+      "Si el paciente llega inestable o necesita más estudios, la decisión quirúrgica puede apoyarse sin perder continuidad en el caso.",
     icon: Microscope,
     items: [
-      "Coordinación con urgencias para pacientes inestables",
+      "Apoyo desde urgencias en pacientes comprometidos",
       "Soporte diagnóstico antes y después del procedimiento",
-      "Ruta clínica integrada para casos complejos",
+      "Menos cambios bruscos de plan en casos complejos",
     ],
   },
 ] as const;
 
 export const surgicalDifferentiators: readonly SurgeryCapability[] = [
   {
-    title: "No todo caso necesita operar hoy",
+    title: "Operar a tiempo cambia el pronóstico",
     description:
-      "La valoración quirúrgica ayuda a decidir cuándo intervenir, cuándo estabilizar primero y cuándo seguir otra ruta clínica.",
+      "La valoración quirúrgica ayuda a distinguir cuándo conviene intervenir, cuándo estabilizar primero y cuándo esperar sería un riesgo.",
     icon: TriangleAlert,
   },
   {
-    title: "La anestesia cambia la decisión",
+    title: "Reduce riesgo cuando el paciente está comprometido",
     description:
-      "En pacientes delicados, contar con control anestésico y monitoreo permite plantear procedimientos con menos riesgo evitable.",
+      "En pacientes delicados, la evaluación anestésica y el monitoreo permiten intervenir con más control y menos riesgo evitable.",
     icon: Monitor,
   },
   {
-    title: "Evita operar sin contexto clínico",
+    title: "Evita intervenir sin haber definido bien el caso",
     description:
-      "El apoyo diagnóstico y la planeación preoperatoria ayudan a definir mejor el abordaje y el seguimiento posterior.",
+      "El apoyo diagnóstico y la planeación preoperatoria ayudan a elegir mejor el abordaje y a reducir errores de decisión.",
     icon: ClipboardCheck,
   },
   {
-    title: "Permite seguir cuidando después del procedimiento",
+    title: "La recuperación también cambia la decisión",
     description:
-      "Cuando el paciente necesita control de dolor, vigilancia o reevaluación, la recuperación puede continuar dentro del hospital.",
+      "Cuando el paciente necesita control de dolor, vigilancia o reevaluación, contar con seguimiento hospitalario evita altas prematuras.",
     icon: Syringe,
   },
 ] as const;
