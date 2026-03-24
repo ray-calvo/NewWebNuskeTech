@@ -816,3 +816,58 @@
 ### Supuestos prohibidos
 - No asumir que el triage ya existe en `src/app`.
 - No asumir que la documentacion actual autoriza backend, autenticacion o integraciones avanzadas.
+
+## Entrada 2026-03-24 01:05:00 -06:00
+
+### Tipo
+- Documentacion
+
+### Resumen ejecutivo
+- Se audito el estado actual del soft launch controlado de `/triage`.
+- La recomendacion operativa actual es mantener el unico entrypoint secundario ya implementado y no ampliar todavia su exposicion.
+- Tambien se actualizo el resumen operativo del repo para reflejar que `triage` ya esta implementado, cuenta con tracking minimo y sigue fuera de navegacion principal.
+
+### Cambios o hallazgos
+- El entrypoint actual sigue ubicado en la tarjeta `Urgencias 24/7` de `src/features/marketing/components/ServicesGrid.tsx`.
+- El CTA secundario es coherente con la intencion del usuario, pero su contexto exige vigilar que no compita con la accion directa de urgencias.
+- El tracking minimo actual cubre:
+  - inicio de flujo
+  - seleccion de especie
+  - seleccion de categoria
+  - visualizacion de resultado
+  - clic en CTA principal
+  - clic en CTA secundario
+  - reset del flujo
+- Aun faltan senales mas finas para evaluacion avanzada, como origen exacto del entrypoint y abandono por paso.
+
+### Riesgos
+- Mitigado: tomar la siguiente decision de exposicion del triage sin criterios documentados.
+- Mitigado: perder trazabilidad del estado real del soft launch dentro del repo.
+- Pendiente: el triage sigue siendo un MVP heuristico y todavia no debe pasar a navegacion principal.
+
+### Decisiones tomadas
+- Mantener `/triage` fuera de navbar y mobile menu.
+- Mantener el unico CTA secundario actual como mecanismo de soft launch controlado.
+- Posponer cualquier segunda exposicion hasta contar con evidencia minima de uso y claridad UX.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/ServicesGrid.tsx`
+- `src/features/marketing/components/triage/TriageWizard.tsx`
+- `src/features/marketing/components/triage/track-triage.ts`
+- `docs/TRIAGE_SOFT_LAUNCH_EVALUATION.md`
+- `docs/REPO_STATUS_SUMMARY.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/TRIAGE_SOFT_LAUNCH_EVALUATION.md`
+- `docs/REPO_STATUS_SUMMARY.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Observar el comportamiento real del funnel del triage durante el soft launch.
+- Definir si el CTA actual debe mantenerse, retirarse o complementarse con una segunda exposicion controlada.
+- Evaluar en otra fase si conviene capturar origen de entrypoint y abandono por paso.
+
+### Supuestos prohibidos
+- No asumir que el simple hecho de tener tracking minimo ya justifica mas visibilidad.
+- No asumir que el CTA actual en urgencias es definitivo sin evidencia de uso real.
