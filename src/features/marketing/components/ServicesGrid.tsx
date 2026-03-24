@@ -35,12 +35,30 @@ const services = [
       <div className="pointer-events-none absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-[#ff0000] via-[#ff6b6b] to-transparent" />
     ),
     body: (
-      <div className="grid gap-3 pt-2 text-sm text-white sm:grid-cols-2">
-        <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-          Hospital Veterinario 24h Verificado
+      <div className="space-y-4 pt-2">
+        <div className="grid gap-3 text-sm text-white sm:grid-cols-2">
+          <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+            Hospital Veterinario 24h Verificado
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+            Monitoreo y protocolos de alta especialidad
+          </div>
         </div>
-        <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-          Monitoreo y protocolos de alta especialidad
+
+        <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
+          <p className="text-sm font-medium text-white">
+            ¿No sabes qué tan urgente es lo que estás viendo?
+          </p>
+          <p className="mt-2 text-sm leading-6 text-white/80">
+            Usa nuestro triage orientativo para recibir una guía inicial antes
+            de decidir el siguiente paso.
+          </p>
+          <Link
+            href="/triage"
+            className="mt-3 inline-flex text-sm font-semibold text-white underline-offset-4 hover:underline"
+          >
+            Abrir triage orientativo
+          </Link>
         </div>
       </div>
     ),
