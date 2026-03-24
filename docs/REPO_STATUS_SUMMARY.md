@@ -36,6 +36,8 @@ Estado confirmado:
 - El modulo ya cuenta con tracking minimo local para soft launch.
 - Actualmente tiene un unico entrypoint secundario activo dentro de [ServicesGrid.tsx](/d:/Projects/newwebnusketech/src/features/marketing/components/ServicesGrid.tsx).
 - Sigue fuera de navbar, mobile menu y demas navegacion principal.
+- Ya existe una guia formal de lectura en [TRIAGE_SOFT_LAUNCH_READOUT_GUIDE.md](/d:/Projects/newwebnusketech/docs/TRIAGE_SOFT_LAUNCH_READOUT_GUIDE.md).
+- La decision de visibilidad futura queda condicionada a observacion real del soft launch, no a intuicion.
 
 ## Guardrails existentes
 
