@@ -925,3 +925,51 @@
 ### Supuestos prohibidos
 - No asumir que `triage_step_abandoned` representa abandono exacto del usuario en todos los casos.
 - No asumir que mayor observabilidad ya justifica ampliar exposicion del feature.
+
+## Entrada 2026-03-24 01:55:00 -06:00
+
+### Tipo
+- Documentacion
+
+### Resumen ejecutivo
+- Se agrego una guia formal de lectura para observar el soft launch actual del triage durante una ventana corta de uso real.
+- En esta fase no hubo cambios de producto, tracking ni exposicion.
+- La siguiente decision sobre visibilidad o ajustes del modulo queda condicionada a observacion real del patron de uso.
+
+### Cambios o hallazgos
+- Nuevo documento:
+  - `docs/TRIAGE_SOFT_LAUNCH_READOUT_GUIDE.md`
+- La guia fija:
+  - ventana sugerida de observacion
+  - lectura base del funnel actual
+  - senales minimas a observar
+  - criterios para mantener, ajustar, recalibrar, ampliar o retirar exposicion
+- Se actualizo el resumen operativo del repo para reflejar que el triage ya cuenta con guia formal de lectura para soft launch.
+
+### Riesgos
+- Mitigado: interpretar el soft launch solo por intuicion o por conteo aislado de clics.
+- Mitigado: tomar una decision de visibilidad futura sin marco operativo comun.
+- Pendiente: la lectura sigue dependiendo de observacion real; no existe aun consolidacion automatizada fuera del tracking actual.
+
+### Decisiones tomadas
+- No tocar codigo ni tracking en esta fase.
+- No cambiar la exposicion actual del triage.
+- Usar una ventana corta de observacion real antes de decidir el siguiente movimiento del modulo.
+
+### Archivos tocados o auditados
+- `docs/TRIAGE_SOFT_LAUNCH_READOUT_GUIDE.md`
+- `docs/REPO_STATUS_SUMMARY.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/TRIAGE_SOFT_LAUNCH_READOUT_GUIDE.md`
+- `docs/REPO_STATUS_SUMMARY.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Ejecutar la observacion real del soft launch en la ventana definida.
+- Decidir despues si corresponde mantener, ajustar o ampliar la exposicion.
+
+### Supuestos prohibidos
+- No asumir que volumen bajo permite conclusiones firmes.
+- No asumir que mas clics por si solos implican mejor ajuste del modulo.
