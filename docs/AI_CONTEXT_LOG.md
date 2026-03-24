@@ -4203,3 +4203,76 @@
 - No duplicar estas reglas en páginas individuales.
 - No conectar todavía `urgency-override` directamente a JSX.
 - No mezclar Fase 2 CTA engine con persistencia o adaptación visual prematura.
+
+## Entrada 2026-03-25 06:35:00 -06:00
+
+### Tipo
+- Implementacion Fase 2 runtime clinico
+
+### Resumen ejecutivo
+- Se implementó la Fase 2 del runtime clínico como capa pura de engine en `src/lib/clinical-runtime/engine/`.
+- La nueva capa resuelve:
+  - CTA dominante
+  - secundarios permitidos
+  - terciarios de transición
+  - fallback seguro
+  - intensidad resuelta
+  - CTAs prohibidos
+  - motivo y fuente de decisión
+- El engine consume el dominio ya construido y respeta `urgency-override` como sobrescritura prioritaria.
+
+### Estructura elegida
+- Ubicación:
+  - `src/lib/clinical-runtime/engine/`
+- Motivo:
+  - separa reglas de decisión operativa del dominio clínico base
+  - mantiene el sistema reusable y libre de React
+  - prepara la futura integración con triage y adaptadores visuales sin acoplarla todavía
+
+### Piezas implementadas
+- `cta-engine-types.ts`
+  - kinds de acción CTA
+  - niveles de prioridad
+  - slots
+  - input y output del engine
+  - fuente de decisión
+- `cta-decision-engine.ts`
+  - resolución pura por:
+    - estado clínico
+    - contexto de página
+    - tipo de ruta
+    - `urgency-override`
+  - generación de CTA dominante
+  - secundarios y terciarios
+  - fallback seguro
+  - lista de acciones prohibidas
+- `index.ts`
+  - barrel del engine
+
+### Decisiones relevantes
+- Se mantuvo el engine como capa pura y sin provider global.
+- No se agregaron tests todavía porque el repo sigue sin runner ni convención instalada para lógica pura; introducirlos aquí hubiera abierto una fase nueva.
+- La salida del engine usa acciones estructuradas, no copy visible, para permitir futura conexión con UI sin hardcodear etiquetas.
+
+### Siguiente fase recomendada
+- Construir la Fase 3 del runtime:
+  - `triage-bridge`
+  - mapping de niveles de triage al modelo clínico runtime
+  - sobrescritura de estado UX
+  - ruta sugerida y conflicto entre triage y página
+- Mantener todavía esa fase fuera de React y sin persistencia global.
+
+### Archivos tocados o auditados
+- `src/lib/clinical-runtime/engine/cta-engine-types.ts`
+- `src/lib/clinical-runtime/engine/cta-decision-engine.ts`
+- `src/lib/clinical-runtime/engine/index.ts`
+- `src/lib/clinical-runtime/domain/clinical-types.ts` (auditado)
+- `src/lib/clinical-runtime/domain/page-context-map.ts` (auditado)
+- `src/lib/clinical-runtime/domain/urgency-override.ts` (auditado)
+- `docs/AI_CONTEXT_LOG.md`
+- `docs/CLINICAL_CTA_EXECUTION_MATRIX.md` (auditado)
+
+### Supuestos prohibidos
+- No conectar todavía el engine a componentes React.
+- No usar este engine para resolver copy visible sin una capa adaptadora posterior.
+- No mezclar Fase 3 triage con provider o persistencia prematuros.
