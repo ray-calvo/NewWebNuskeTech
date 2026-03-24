@@ -2899,3 +2899,79 @@
 - No convertir `exoticos` en curiosidad comercial o listado anecdótico de especies.
 - No presentar la ruta como isla separada del hospital.
 - No abrir subpáginas por especie sin una necesidad clínica real.
+
+## Entrada 2026-03-25 00:35:00 -06:00
+
+### Tipo
+- Refactor
+
+### Resumen ejecutivo
+- Se actualizó `/servicios` para reflejar la publicación de `/exoticos`.
+- El hub mantiene su función de mapa clínico y no vuelve a comportarse como catálogo.
+- `exoticos` quedó visible como ruta ya publicada de diferenciación clínica, sin desplazar el núcleo hospitalario.
+
+### Diagnóstico
+- `/servicios` estaba desactualizado en dos puntos:
+  - `exoticos` seguía apareciendo como línea no publicada
+  - el hero todavía no reconocía la ampliación real del mapa clínico
+- También persistía un wording menor demasiado conceptual en algunas frases del bloque de publicación posterior.
+
+### Cambios realizados
+- `src/features/marketing/components/services/data.ts`
+  - `exoticos` salió del bloque de publicación posterior
+  - se creó un bloque intermedio de diferenciación clínica para rutas ya publicadas que no deben competir con el núcleo
+  - se hizo micro-limpieza editorial de wording para mantener tono más orientador
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+  - se agregó la mención de `exoticos` como ruta ya publicada
+  - se simplificó un claim del hero para evitar tono demasiado explicativo
+- `docs/AI_CONTEXT_LOG.md`
+  - se registró esta micro-fase de actualización del hub
+
+### Estado final del hub
+- Núcleo hospitalario:
+  - urgencias
+  - cirugía
+  - diagnóstico
+  - endoscopía
+- Continuidad clínica:
+  - prevención
+- Diferenciación clínica publicada:
+  - exóticos
+- Publicación posterior / subordinado:
+  - oncología
+  - medicina interna
+  - comercial subordinado
+
+### Decisiones tomadas
+- `exoticos` ya forma parte visible del hub porque la ruta existe y está publicada.
+- No se subió al mismo plano que el núcleo hospitalario para no romper la jerarquía clínica del sitio.
+- El hub sigue orientando navegación y no entra en profundidad clínica de cada página madre.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/services/data.ts`
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+- `src/app/(marketing)/servicios/page.tsx` (auditado)
+- `src/features/marketing/components/services/ServiceCategorySection.tsx` (auditado)
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos restantes
+- No hay bloqueo real antes de abrir la siguiente página.
+- El siguiente riesgo volvería a aparecer solo si futuras rutas publicadas se agregan al hub sin respetar esta jerarquía:
+  - núcleo hospitalario
+  - continuidad clínica
+  - diferenciación publicada
+  - publicación posterior
+
+### Supuestos prohibidos
+- No subir `exoticos` al mismo nivel narrativo que urgencias, cirugía, diagnóstico o endoscopía.
+- No volver a usar el hub para resumir demasiado las páginas ya publicadas.

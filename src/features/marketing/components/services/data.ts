@@ -1,5 +1,6 @@
 import {
   Activity,
+  Bird,
   ClipboardCheck,
   HeartPulse,
   ScanSearch,
@@ -103,24 +104,34 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
     ],
   },
   {
+    badge: "Diferenciación clínica",
+    title: "Capacidades ya publicadas que amplían la lectura del hospital",
+    description:
+      "Estas rutas ya están abiertas y aportan valor clínico propio, sin desplazar el papel central de urgencias, cirugía, diagnóstico y endoscopía.",
+    services: [
+      {
+        title: "Exóticos",
+        category: "Diferenciación clínica",
+        description:
+          "Ruta para aves, reptiles y pequeños mamíferos que necesitan valoración médica adaptada por especie y decisiones clínicas con otra lectura.",
+        icon: Bird,
+        bullets: [
+          "Valorar señales que cambian según la especie",
+          "Decidir diagnóstico, soporte o seguimiento con menos demora",
+          "Dar visibilidad a una capacidad reputacional ya publicada",
+        ],
+        href: "/exoticos",
+        ctaLabel: "Ver exóticos",
+        status: "published",
+      },
+    ],
+  },
+  {
     badge: "Publicación posterior",
     title: "Líneas clínicas y servicios que se abrirán más adelante",
     description:
       "Estas áreas forman parte del desarrollo del sitio, pero hoy no deben distraer de las rutas clínicas ya publicadas.",
     services: [
-      {
-        title: "Exóticos",
-        category: "Publicación posterior",
-        description:
-          "Se abrirá cuando pueda explicarse con claridad cómo se valora y acompaña a especies no convencionales sin volverlo una categoría ambigua.",
-        icon: Activity,
-        bullets: [
-          "Todavía no tiene ruta propia",
-          "Necesita contenido clínico más sólido",
-          "No debe competir con el núcleo ya publicado",
-        ],
-        status: "planned",
-      },
       {
         title: "Oncología",
         category: "Publicación posterior",
@@ -151,7 +162,7 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
         title: "Comercial subordinado",
         category: "Subordinado",
         description:
-          "Grooming, pensión y otras líneas comerciales existen, pero no deben marcar la lectura principal de la experiencia hospitalaria.",
+          "Grooming, pensión y otras líneas comerciales existen, pero no deben marcar la lectura principal del recorrido clínico del sitio.",
         icon: Activity,
         bullets: [
           "No forman parte del núcleo clínico",

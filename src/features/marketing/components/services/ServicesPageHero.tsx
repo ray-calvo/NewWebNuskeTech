@@ -19,8 +19,9 @@ export function ServicesPageHero() {
           {[
             "Urgencias, cirugía, diagnóstico y endoscopía forman el núcleo hospitalario",
             "Prevención acompaña control, seguimiento y detección oportuna",
+            "Exóticos ya tiene ruta publicada como capacidad clínica de diferenciación",
             "Si el paciente está inestable, la ruta correcta sigue siendo urgencias",
-            "Aquí eliges la ruta adecuada sin repetir todo el contenido de cada página",
+            "Aquí eliges la ruta adecuada sin repetir a fondo cada página",
           ].map((item) => (
             <div
               key={item}
