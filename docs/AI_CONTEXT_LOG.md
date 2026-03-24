@@ -2827,3 +2827,75 @@
 ### Supuestos prohibidos
 - No volver a convertir `/servicios` en resumen profundo de las páginas madre.
 - No dar protagonismo desde el hub a líneas todavía no publicadas o subordinadas.
+
+## Entrada 2026-03-25 00:10:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se abrió `/exoticos` como nueva página clínica del sitio.
+- La página quedó planteada como capacidad hospitalaria para pacientes no convencionales, no como rareza comercial ni como catálogo por especie.
+- La implementación mantiene el tono del sitio:
+  - clínico
+  - sobrio
+  - comprensible
+  - orientado a decisiones
+
+### Diagnóstico
+- Se partió desde cero: no existía la ruta ni un dominio propio para exóticos.
+- El principal riesgo narrativo era que la página sonara a nicho curioso, servicio accesorio o listado superficial de especies.
+- La solución fue construirla como una ruta clínica de diferenciación reputacional:
+  - valoración adaptada por especie
+  - señales de alerta
+  - diagnóstico, soporte u hospitalización según el caso
+  - relación clara con urgencias sin competir con el núcleo P1
+
+### Cambios realizados
+- Se creó:
+  - `src/app/(marketing)/exoticos/page.tsx`
+  - `src/features/marketing/components/exoticos/ExoticosHero.tsx`
+  - `src/features/marketing/components/exoticos/data.ts`
+- La estructura narrativa final quedó en este orden:
+  - hero principal de exóticos
+  - por qué estos pacientes requieren valoración adaptada
+  - señales o escenarios donde conviene valoración médica
+  - valoración, diagnóstico y manejo según el caso
+  - diagnóstico, hospitalización y procedimientos dentro de un entorno controlado
+  - diferenciadores hospitalarios
+  - CTA final con valoración y desvío a urgencias si aplica
+
+### Decisiones tomadas
+- `exoticos` se presenta como capacidad clínica seria para aves, reptiles y pequeños mamíferos.
+- Se evitó:
+  - infantilizar al paciente
+  - usar tono lifestyle o anecdótico
+  - construir la página como catálogo exhaustivo por especie
+- La relación con el hospital quedó clara:
+  - si el paciente está inestable, la entrada correcta sigue siendo urgencias
+  - si aún hay margen, la valoración clínica guía diagnóstico, seguimiento o soporte
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/exoticos/page.tsx`
+- `src/features/marketing/components/exoticos/ExoticosHero.tsx`
+- `src/features/marketing/components/exoticos/data.ts`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos restantes
+- `/servicios` todavía no refleja la existencia de `/exoticos` porque en esta fase se respetó la restricción de no tocar el hub.
+- Si se quiere dar más visibilidad a exóticos, esa actualización debe hacerse en una fase aparte para no mezclar aperturas de rutas con navegación global.
+
+### Supuestos prohibidos
+- No convertir `exoticos` en curiosidad comercial o listado anecdótico de especies.
+- No presentar la ruta como isla separada del hospital.
+- No abrir subpáginas por especie sin una necesidad clínica real.
