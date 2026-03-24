@@ -871,3 +871,57 @@
 ### Supuestos prohibidos
 - No asumir que el simple hecho de tener tracking minimo ya justifica mas visibilidad.
 - No asumir que el CTA actual en urgencias es definitivo sin evidencia de uso real.
+
+## Entrada 2026-03-24 01:35:00 -06:00
+
+### Tipo
+- Implementacion
+
+### Resumen ejecutivo
+- Se agrego una capa ligera adicional de observabilidad al modulo de triage para leer mejor el soft launch actual.
+- La mejora no cambia la exposicion del feature, no agrega entrypoints nuevos y no modifica scoring.
+- El objetivo fue identificar mejor el origen de entrada y obtener una lectura minima de progresion y abandono por paso.
+
+### Cambios o hallazgos
+- El CTA contextual actual en `src/features/marketing/components/ServicesGrid.tsx` ahora deja trazado su origen mediante query param.
+- `src/features/marketing/components/triage/track-triage.ts` ahora soporta:
+  - `triage_entrypoint_detected`
+  - `triage_step_viewed`
+  - `triage_step_abandoned`
+- El payload de tracking se amplio con:
+  - `entrypoint_source`
+  - `step_name`
+  - `step_index`
+- `src/features/marketing/components/triage/TriageWizard.tsx` ahora emite senales de vista de paso y abandono aproximado sin mezclar tracking con scoring.
+
+### Riesgos
+- Mitigado: seguir evaluando el soft launch sin saber de donde proviene el acceso actual.
+- Mitigado: no tener lectura minima de progresion del wizard.
+- Pendiente: `triage_step_abandoned` sigue siendo una aproximacion ligera y no una medicion exacta.
+
+### Decisiones tomadas
+- Mantener el tracking local y sin dependencias nuevas.
+- Usar el entrypoint actual de `ServicesGrid` como unica fuente etiquetada en esta fase.
+- Tratar abandono por paso como senal orientativa basada en reinicio o salida de pagina desde pasos intermedios.
+
+### Archivos tocados o auditados
+- `src/features/marketing/components/ServicesGrid.tsx`
+- `src/features/marketing/components/triage/TriageWizard.tsx`
+- `src/features/marketing/components/triage/track-triage.ts`
+- `docs/TRIAGE_SOFT_LAUNCH_CHECKLIST.md`
+- `docs/INTERVENCION_FASE_13_TRIAGE_OBSERVABILIDAD_LIGERA.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Documentacion actualizada
+- `docs/TRIAGE_SOFT_LAUNCH_CHECKLIST.md`
+- `docs/INTERVENCION_FASE_13_TRIAGE_OBSERVABILIDAD_LIGERA.md`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Pendientes
+- Observar si el abandono se concentra en algun paso concreto.
+- Decidir mas adelante si hace falta capturar mayor granularidad o conectar el tracking a una herramienta externa.
+- Mantener `/triage` fuera de navegacion principal mientras el scoring siga en estado MVP heuristico.
+
+### Supuestos prohibidos
+- No asumir que `triage_step_abandoned` representa abandono exacto del usuario en todos los casos.
+- No asumir que mayor observabilidad ya justifica ampliar exposicion del feature.

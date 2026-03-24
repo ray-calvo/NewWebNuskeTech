@@ -94,6 +94,9 @@ Payload minimo actual:
 ## 8. Metricas minimas a observar
 
 - numero de `triage_started`
+- numero de `triage_entrypoint_detected`
+- numero de `triage_step_viewed`
+- numero de `triage_step_abandoned`
 - numero de `triage_result_shown`
 - tasa basica de finalizacion
 - distribucion por `result_level`
@@ -123,8 +126,11 @@ Estado actual:
 ## 11. Que validar despues del despliegue
 
 - Si el entrypoint contextual recibe clics reales.
+- Si `entrypoint_source` llega con el valor esperado desde el CTA contextual actual.
 - Si el volumen de `triage_started` justifica mantenerlo visible.
 - Si los usuarios completan el flujo despues de entrar por ese CTA.
+- Si la progresion por pasos se ve razonable y no se estanca de forma evidente en una pantalla concreta.
+- Si aparecen `triage_step_abandoned` repetidos en un mismo paso.
 - Si el CTA genera confusion con el mensaje principal de urgencias.
 - Si hay señales de que el entrypoint retrasa acciones urgentes reales.
 
@@ -144,3 +150,14 @@ Ampliar:
 
 - solo si el soft launch muestra uso, finalizacion y comportamiento coherente
 - solo despues de revision clinica y decision documental explicita
+
+## 13. Validaciones minimas adicionales de observabilidad
+
+- Confirmar que `entrypoint_source` se emite como `services-grid-urgencias` al entrar desde el CTA contextual actual.
+- Confirmar que cada paso visible emite `triage_step_viewed` con `step_name` y `step_index`.
+- Confirmar que el reinicio desde un paso intermedio emite `triage_step_abandoned`.
+- Confirmar que salir de la pagina desde un paso intermedio emite una senal basica de abandono cuando el navegador dispara `pagehide`.
+- Revisar antes de pensar en una segunda exposicion si:
+  - el origen del trafico queda bien identificado
+  - la progresion por pasos muestra continuidad razonable
+  - el abandono se concentra o no en una parte especifica del wizard
