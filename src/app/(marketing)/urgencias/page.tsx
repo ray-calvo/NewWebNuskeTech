@@ -60,7 +60,7 @@ export default function UrgenciasPage() {
       <ClinicalSection
         badge="Paciente crítico"
         title="Atención hospitalaria para estabilizar y sostener al paciente crítico"
-        description="La urgencia no termina en la recepción. La página madre debe comunicar que Nuskë puede evaluar, estabilizar, monitorear y decidir el siguiente paso clínico dentro de una lógica hospitalaria continua."
+        description="La atención de urgencias no termina en la recepción. Algunos pacientes necesitan estabilización, monitoreo y una decisión clínica sostenida antes de definir el siguiente paso."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {criticalCareCapabilities.map((capability) => {
@@ -150,8 +150,8 @@ export default function UrgenciasPage() {
 
       <ClinicalSection
         badge="Diferenciadores hospitalarios"
-        title="Lo que esta página debe comunicar sobre la capacidad real del hospital"
-        description="La urgencia debe sentirse como operación clínica seria, no como anuncio aislado. Estos diferenciadores sostienen la lectura premium y hospitalaria de Nuskë."
+        title="Lo que cambia cuando el paciente recibe atención inmediata"
+        description="En una urgencia real, importa actuar a tiempo, priorizar bien y reducir el riesgo antes de que el cuadro se complique más."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {differentiators.map((item) => {

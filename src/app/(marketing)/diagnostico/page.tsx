@@ -31,7 +31,7 @@ export default function DiagnosticoPage() {
       <ClinicalSection
         badge="Por qué cambia decisiones clínicas"
         title="El diagnóstico hospitalario cambia el rumbo del caso cuando la clínica sola no alcanza"
-        description="La página madre diagnóstica debe explicar que la precisión no existe para “hacer estudios”, sino para entender mejor al paciente y decidir con más seguridad el siguiente paso."
+        description="Cuando la exploración no basta para entender el problema, contar con mejor información ayuda a decidir con más seguridad qué hacer primero y qué puede esperar."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {diagnosticsDecisionContexts.map((signal) => (
@@ -58,7 +58,7 @@ export default function DiagnosticoPage() {
       <ClinicalSection
         badge="Capacidad diagnóstica"
         title="Imagenología, laboratorio y evaluación complementaria como sistema integrado"
-        description="Diagnóstico hospitalario no es una suma de herramientas aisladas. Es la combinación de evaluación clínica, estudios y correlación para sostener decisiones más precisas."
+        description="Imagenología, laboratorio y evaluación complementaria ayudan a confirmar sospechas, ajustar prioridades y reducir la incertidumbre cuando el caso es más complejo."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {diagnosticCapabilities.map((capability) => {
@@ -147,8 +147,8 @@ export default function DiagnosticoPage() {
 
       <ClinicalSection
         badge="Diferenciadores hospitalarios"
-        title="Lo que esta página debe comunicar sobre el diagnóstico dentro del hospital"
-        description="Diagnóstico no debe sonar a disponibilidad técnica aislada. Debe sonar a precisión clínica, interpretación y soporte real a decisiones complejas."
+        title="Lo que cambia cuando el caso se entiende mejor"
+        description="Una mejor correlación diagnóstica ayuda a evitar intervenciones innecesarias, acelerar el tratamiento correcto y decidir con menos duda."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {diagnosticDifferentiators.map((item) => {

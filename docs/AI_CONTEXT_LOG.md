@@ -2455,3 +2455,70 @@
 - No reintroducir meta-copy visible en datasets de producción.
 - No volver a explicar el modelo clínico del hospital como teoría interna dentro del contenido público.
 - No tratar mínima invasión como tecnología por sí sola.
+
+## Entrada 2026-03-24 21:10:00 -06:00
+
+### Tipo
+- Ajuste narrativo
+
+### Resumen ejecutivo
+- Se auditó el uso de `ClinicalSection` en el núcleo P1 para detectar meta-copy visible en producción.
+- Se reescribieron únicamente títulos y descripciones con lenguaje de estrategia narrativa, guideline editorial o posicionamiento abstracto.
+- No se modificaron layout, props, componentes ni estructuras visuales.
+
+### Diagnóstico
+- Había varias instancias con copy de arquitectura de contenido visible al usuario final, por ejemplo:
+  - `Lo que esta página debe comunicar...`
+  - `La página madre debe explicar...`
+  - descripciones centradas en el modelo hospitalario como concepto
+- Eso generaba una ruptura de voz: la página hablaba por momentos como guideline interna, no como orientación clínica para un dueño informado.
+
+### Cambios realizados
+- `src/app/(marketing)/urgencias/page.tsx`
+  - se reemplazó meta-copy por lenguaje centrado en estabilización, priorización y riesgo inmediato
+- `src/app/(marketing)/cirugia/page.tsx`
+  - se reemplazó meta-copy por lenguaje centrado en decisión de intervenir, seguridad y recuperación
+- `src/app/(marketing)/diagnostico/page.tsx`
+  - se reemplazó meta-copy por lenguaje centrado en claridad del caso, prioridades y reducción de incertidumbre
+- `src/app/(marketing)/endoscopia/page.tsx`
+  - se reemplazó meta-copy por lenguaje centrado en mínima invasión, decisión terapéutica y evitar cirugía abierta cuando no hace falta
+
+### Patron narrativo aplicado
+- Se eliminó copy que:
+  - explicaba lo que la página debía comunicar
+  - describía posicionamiento o modelo hospitalario como teoría
+  - hablaba de la capacidad como concepto abstracto
+- Se reemplazó por copy que:
+  - explica cuándo importa
+  - explica qué cambia
+  - explica qué puede evitar
+  - orienta la decisión clínica
+
+### Archivos tocados o auditados
+- `src/app/(marketing)/urgencias/page.tsx`
+- `src/app/(marketing)/cirugia/page.tsx`
+- `src/app/(marketing)/diagnostico/page.tsx`
+- `src/app/(marketing)/endoscopia/page.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Validaciones ejecutadas
+- `npm run guardrails`
+- `npm run lint`
+- `npm run build`
+
+### Resultado de validaciones
+- `guardrails` OK
+- `lint` OK
+- `build` OK
+
+### Riesgos pendientes
+- No queda bloqueo técnico.
+- Sí quedan en working tree otros ajustes editoriales previos sobre datasets de:
+  - urgencias
+  - cirugía
+  - diagnóstico
+- Esos cambios no pertenecen necesariamente a este lote narrativo de `ClinicalSection` y deben decidirse aparte al commitear.
+
+### Supuestos prohibidos
+- No volver a introducir guideline editorial visible en JSX de producción.
+- No usar `ClinicalSection` para explicar estrategia de posicionamiento en vez de impacto clínico.

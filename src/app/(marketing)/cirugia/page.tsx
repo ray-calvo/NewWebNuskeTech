@@ -59,7 +59,7 @@ export default function CirugiaPage() {
       <ClinicalSection
         badge="Capacidad quirúrgica"
         title="Cirugía hospitalaria como capacidad de resolución clínica"
-        description="La página madre quirúrgica debe dejar claro que Nuskë puede valorar, intervenir, monitorizar y dar continuidad al paciente dentro de la misma lógica hospitalaria."
+        description="Cuando un paciente necesita cirugía, importa decidir bien el momento, intervenir con seguridad y sostener la recuperación dentro del mismo entorno hospitalario."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {surgeryCapabilities.map((capability) => {
@@ -176,8 +176,8 @@ export default function CirugiaPage() {
 
       <ClinicalSection
         badge="Diferenciadores hospitalarios"
-        title="Lo que esta página debe comunicar sobre la cirugía dentro del hospital"
-        description="La cirugía no debe sonar a promoción de procedimiento. Debe sonar a sistema quirúrgico con soporte, criterio y continuidad médica."
+        title="Lo que cambia cuando la cirugía se decide con criterio"
+        description="Aquí importa cuándo conviene intervenir, cómo se reduce riesgo alrededor del procedimiento y qué se evita cuando la recuperación sigue bien vigilada."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {surgicalDifferentiators.map((item) => {

@@ -31,7 +31,7 @@ export default function EndoscopiaPage() {
       <ClinicalSection
         badge="Qué es y por qué importa"
         title="La endoscopía permite evaluar y, en algunos casos, resolver con menor agresión"
-        description="La página madre de endoscopía debe explicar su valor clínico: visualizar mejor, intervenir con menor trauma en casos seleccionados y aportar una ruta menos invasiva cuando el paciente puede beneficiarse de ella."
+        description="Cuando el caso lo permite, la endoscopía ayuda a ver mejor lo que ocurre y, en algunos pacientes, a resolver sin pasar de inmediato por una cirugía abierta."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {endoscopyUseCases.map((signal) => (
@@ -58,7 +58,7 @@ export default function EndoscopiaPage() {
       <ClinicalSection
         badge="Capacidad especializada"
         title="Endoscopía como evaluación y resolución mínimamente invasiva"
-        description="La endoscopía se presenta aquí como capacidad procedimental especializada que puede observar, apoyar decisiones y en ciertos casos resolver sin necesidad de un abordaje más agresivo."
+        description="Puede confirmar mejor el problema, orientar el tratamiento y en ciertos casos resolver por una vía menos invasiva y con menor recuperación."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {endoscopyCapabilities.map((capability) => {
@@ -148,8 +148,8 @@ export default function EndoscopiaPage() {
 
       <ClinicalSection
         badge="Diferenciadores hospitalarios"
-        title="Lo que esta página debe comunicar sobre la endoscopía dentro del hospital"
-        description="La endoscopía no debe sonar a landing tecnológica ni a catálogo de procedimientos. Debe sonar a capacidad clínica especializada con valor procedimental propio."
+        title="Lo que cambia cuando la mínima invasión está bien indicada"
+        description="Puede evitar abrir cuando no hace falta, actuar antes de que el cuadro escale y ayudar a decidir con más precisión la mejor ruta terapéutica."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {endoscopyDifferentiators.map((item) => {
