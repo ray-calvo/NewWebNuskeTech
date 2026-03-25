@@ -1,3 +1,4 @@
+import { ClinicalCtaBar } from "@/components/shared/clinical-cta-bar";
 import { Footer } from "@/components/shared/footer";
 import { Navbar } from "@/components/shared/navbar";
 import { RouteScrollReset } from "@/components/shared/route-scroll-reset";
@@ -14,6 +15,7 @@ export default function MarketingLayout({
       <RouteScrollReset />
       <UrgencyBanner />
       <Navbar />
+      <ClinicalCtaBar />
       <main className="flex-1">{children}</main>
       <Footer />
       <WhatsAppFloat />

@@ -4999,3 +4999,41 @@
 
 ### Siguiente paso recomendado
 - Si se quiere iniciar CTA hospitalario global real, hacerlo primero en una sola superficie persistente controlada del layout de marketing y conectarla a la nueva session layer por medio de la puerta de orquestacion ya creada.
+
+## Entrada 2026-03-24 23:06:00 -06:00
+
+### Tipo
+- Piloto controlado de superficie global clinica persistente en layout marketing
+
+### Resumen ejecutivo
+- Se monto una sola `ClinicalCtaBar` dentro del layout de marketing.
+- Consume:
+  - `readClinicalSessionSnapshot()`
+  - `resolveGlobalClinicalCtaForRoute(...)`
+- Reacciona a sesion clinica sembrada por triage sin provider ni persistencia.
+
+### Decision arquitectonica validada
+- La superficie global pudo montarse sin provider.
+- No aparecio necesidad real de reactividad estructural multi-rama.
+- `useSyncExternalStore` fue suficiente para leer la session layer cliente desde una unica superficie persistente.
+
+### Comportamiento aplicado
+- La barra vive entre navbar y main, sin añadir otro sticky agresivo.
+- Se oculta en:
+  - `/urgencias`
+  - `/triage`
+  para no competir con superficies locales ya dominantes.
+- Con sesion activa:
+  - muestra continuidad clinica visible
+  - resuelve CTA global con la puerta de orquestacion
+- Sin sesion:
+  - degrada a orientacion clinica sobria
+  - usa fallback prudente segun la ruta
+
+### Ajuste estructural relevante
+- La puerta de orquestacion global dejo de reutilizar ciegamente preferencias locales por pagina.
+- Ahora usa preferencias globales mas prudentes para evitar que `/servicios` empuje urgencias como CTA principal sin contexto clinico activo.
+
+### Riesgo observado
+- No aparecio bloqueo estructural.
+- El siguiente umbral real para evaluar provider seria solo cuando una segunda superficie global persistente necesite reaccionar a la misma sesion al mismo tiempo.
