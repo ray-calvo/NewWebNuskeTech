@@ -29,7 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={plusJakartaSans.variable}>
+    <html
+      lang="es"
+      className={plusJakartaSans.variable}
+      data-scroll-behavior="smooth"
+    >
       <body className="min-h-screen">{children}</body>
     </html>
   );
