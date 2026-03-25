@@ -4367,3 +4367,86 @@
 - No hacer que triage decida la UI final por sí solo.
 - No usar el bridge como reemplazo del CTA engine.
 - No conectar todavía el bridge a componentes React o estado global.
+
+## Entrada 2026-03-25 07:30:00 -06:00
+
+### Tipo
+- Implementacion Fase 4 runtime clinico
+
+### Resumen ejecutivo
+- Se implementó la Fase 4 del runtime clínico como capa pura `clinical-ui-adapter` en `src/lib/clinical-runtime/ui-adapter/`.
+- El adapter traduce salida runtime a un modelo presentacional reusable sin meter lógica clínica nueva en componentes UI.
+- La salida ya modela:
+  - CTA dominante visible
+  - secundarios visibles
+  - fallback visible
+  - señales clínicas visibles
+  - prioridad visual sugerida
+  - transiciones sugeridas
+  - flags simples para integración futura
+
+### Estructura elegida
+- Ubicación:
+  - `src/lib/clinical-runtime/ui-adapter/`
+- Motivo:
+  - mantener separada la traducción runtime -> presentación
+  - permitir integración futura en hero, banners, CTA bars, hub y triage result views sin acoplarlos todavía
+  - evitar que la UI tenga que interpretar directamente el output del engine o del bridge
+
+### Piezas implementadas
+- `clinical-ui-adapter-types.ts`
+  - `ClinicalUiAdapterInput`
+  - `ClinicalUiAdapterOutput`
+  - `VisibleCta`
+  - `VisibleClinicalSignal`
+  - `VisualPriorityHint`
+  - `SuggestedTransition`
+  - `PageClinicalUiModel`
+- `clinical-ui-adapter.ts`
+  - adaptación de runtime a modelo UI
+  - prioridad visual sugerida
+  - señales visibles por urgencia, incertidumbre, complejidad y seguimiento
+  - transiciones sugeridas desde page context y triage
+  - flags simples para wiring futuro
+- `index.ts`
+  - barrel del adapter
+
+### Decisiones relevantes
+- No se introdujo copy final visible; el adapter usa `semanticLabelKey` para no congelar textos en esta capa.
+- El adapter no decide clínica nueva:
+  - consume `cta-decision-engine`
+  - consume `urgency-override`
+  - consume `triage-bridge` opcional
+- La salida ya es apta para futura integración con:
+  - hero
+  - urgency banner
+  - CTA bars
+  - páginas madre
+  - `/servicios`
+  - triage results
+
+### Siguiente fase recomendada
+- No abrir todavía provider global complejo.
+- La siguiente fase natural es Fase 5:
+  - wiring ligero de aplicación
+  - primer punto real de consumo del runtime
+  - probablemente empezando por:
+    - triage result view
+    - barra de urgencias
+    - o una sola página madre del núcleo para validar integración
+
+### Archivos tocados o auditados
+- `src/lib/clinical-runtime/ui-adapter/clinical-ui-adapter-types.ts`
+- `src/lib/clinical-runtime/ui-adapter/clinical-ui-adapter.ts`
+- `src/lib/clinical-runtime/ui-adapter/index.ts`
+- `docs/AI_CONTEXT_LOG.md`
+- `src/lib/clinical-runtime/engine/cta-decision-engine.ts` (auditado)
+- `src/lib/clinical-runtime/engine/cta-engine-types.ts` (auditado)
+- `src/lib/clinical-runtime/triage-bridge/triage-bridge-types.ts` (auditado)
+- `src/lib/clinical-runtime/triage-bridge/triage-bridge.ts` (auditado)
+- `src/components/shared/urgency-banner.tsx` (auditado para consumo futuro)
+
+### Supuestos prohibidos
+- No meter decisiones clínicas nuevas dentro del adapter.
+- No convertir `semanticLabelKey` en copy visible sin capa de consumo explícita.
+- No usar todavía esta capa para wiring masivo en todo el sitio.
