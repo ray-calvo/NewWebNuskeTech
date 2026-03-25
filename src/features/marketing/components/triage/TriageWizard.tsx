@@ -16,6 +16,7 @@ import type {
   TriageCategory,
   TriageResult,
 } from "@/features/marketing/components/triage/types";
+import { resolveClinicalUiModelForPage } from "@/lib/clinical-runtime/application";
 
 type WizardStep =
   | "intro"
@@ -334,9 +335,19 @@ export function TriageWizard() {
     return null;
   }
 
+  const runtimeUiModel = resolveClinicalUiModelForPage({
+    pathname: "/triage",
+    triageInput: {
+      triageResult: result,
+      species: selectedSpecies,
+      category: selectedCategory,
+    },
+  }).uiModel;
+
   return (
     <TriageResultCard
       result={result}
+      runtimeUiModel={runtimeUiModel}
       onBack={() => setStep("modifiers")}
       onReset={resetWizard}
       onPrimaryCtaClick={() =>

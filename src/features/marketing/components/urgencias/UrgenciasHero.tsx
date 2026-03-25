@@ -3,10 +3,63 @@ import { HeartPulse, MapPin, PhoneCall } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import type { PageClinicalUiModel, VisibleCta } from "@/lib/clinical-runtime/ui-adapter";
 
 import { heroHighlights, mapsHref, urgentPhoneHref, urgentWhatsAppHref } from "./data";
 
-export function UrgenciasHero() {
+type UrgenciasHeroProps = {
+  clinicalUiModel?: PageClinicalUiModel;
+};
+
+function resolveHeroAction(cta: VisibleCta): {
+  href: string;
+  label: string;
+  icon: typeof PhoneCall;
+} {
+  switch (cta.actionKind) {
+    case "open-whatsapp":
+      return {
+        href: urgentWhatsAppHref,
+        label: "WhatsApp inmediato",
+        icon: HeartPulse,
+      };
+    case "emergency-route":
+    case "call-now":
+    default:
+      return {
+        href: urgentPhoneHref,
+        label: "Llamar ahora",
+        icon: PhoneCall,
+      };
+  }
+}
+
+export function UrgenciasHero({ clinicalUiModel }: UrgenciasHeroProps) {
+  const dominantRuntimeCta =
+    clinicalUiModel?.secondaryCtas.find((cta) => cta.actionKind === "call-now") ??
+    clinicalUiModel?.dominantCta;
+  const secondaryRuntimeCta =
+    clinicalUiModel?.secondaryCtas.find(
+      (cta) => cta.actionKind === "open-whatsapp",
+    ) ?? clinicalUiModel?.fallbackCta;
+
+  const primaryAction = dominantRuntimeCta
+    ? resolveHeroAction(dominantRuntimeCta)
+    : {
+        href: urgentPhoneHref,
+        label: "Llamar ahora",
+        icon: PhoneCall,
+      };
+  const secondaryAction = secondaryRuntimeCta
+    ? resolveHeroAction(secondaryRuntimeCta)
+    : {
+        href: urgentWhatsAppHref,
+        label: "WhatsApp inmediato",
+        icon: HeartPulse,
+      };
+  const PrimaryIcon = primaryAction.icon;
+  const SecondaryIcon = secondaryAction.icon;
+
   return (
     <section className="px-4 pb-10 pt-12 sm:px-6 lg:px-8 lg:pb-14 lg:pt-16">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-slate-200 bg-[linear-gradient(135deg,#ffffff_0%,#eef4fa_100%)] p-6 shadow-[0_34px_110px_-62px_rgba(15,23,42,0.32)] md:p-8 lg:p-10">
@@ -39,9 +92,9 @@ export function UrgenciasHero() {
                 size="lg"
                 className="h-12 rounded-2xl bg-[#a60f14] px-6 text-white shadow-[0_18px_46px_-24px_rgba(103,8,12,0.9)] hover:bg-[#8d1014]"
               >
-                <a href={urgentPhoneHref}>
-                  <PhoneCall aria-hidden={true} className="h-4 w-4" />
-                  Llamar ahora
+                <a href={primaryAction.href}>
+                  <PrimaryIcon aria-hidden={true} className="h-4 w-4" />
+                  {primaryAction.label}
                 </a>
               </Button>
               <Button
@@ -50,9 +103,9 @@ export function UrgenciasHero() {
                 variant="outline"
                 className="h-12 rounded-2xl border-primary/15 bg-white text-primary hover:bg-primary/5"
               >
-                <a href={urgentWhatsAppHref} target="_blank" rel="noreferrer">
-                  <HeartPulse aria-hidden={true} className="h-4 w-4" />
-                  WhatsApp inmediato
+                <a href={secondaryAction.href} target="_blank" rel="noreferrer">
+                  <SecondaryIcon aria-hidden={true} className="h-4 w-4" />
+                  {secondaryAction.label}
                 </a>
               </Button>
               <Button

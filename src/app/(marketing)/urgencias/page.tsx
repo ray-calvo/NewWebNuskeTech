@@ -18,6 +18,7 @@ import {
   urgentWhatsAppHref,
 } from "@/features/marketing/components/urgencias/data";
 import { UrgenciasHero } from "@/features/marketing/components/urgencias/UrgenciasHero";
+import { resolveClinicalUiModelForPage } from "@/lib/clinical-runtime/application";
 
 export const metadata: Metadata = {
   title: "Urgencias",
@@ -26,9 +27,13 @@ export const metadata: Metadata = {
 };
 
 export default function UrgenciasPage() {
+  const clinicalUiModel = resolveClinicalUiModelForPage({
+    pathname: "/urgencias",
+  }).uiModel;
+
   return (
     <main className="bg-background">
-      <UrgenciasHero />
+      <UrgenciasHero clinicalUiModel={clinicalUiModel} />
 
       <ClinicalSection
         badge="Cuándo acudir de inmediato"

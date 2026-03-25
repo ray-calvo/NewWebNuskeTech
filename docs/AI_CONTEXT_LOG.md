@@ -4450,3 +4450,94 @@
 - No meter decisiones clínicas nuevas dentro del adapter.
 - No convertir `semanticLabelKey` en copy visible sin capa de consumo explícita.
 - No usar todavía esta capa para wiring masivo en todo el sitio.
+
+## Entrada 2026-03-25 08:05:00 -06:00
+
+### Tipo
+- Implementacion Fase 5 runtime clinico
+
+### Resumen ejecutivo
+- Se implementó la Fase 5 del runtime clínico con una capa mínima de aplicación y wiring controlado en dos puntos reales del sitio:
+  - `/triage`
+  - `/urgencias`
+- La nueva capa compone:
+  - page context
+  - triage bridge
+  - CTA engine
+  - UI adapter
+- El objetivo de la fase se cumplió sin provider global, sin persistencia y sin wiring masivo.
+
+### Servicio de aplicación creado
+- Ubicación:
+  - `src/lib/clinical-runtime/application/`
+- Piezas:
+  - `clinical-runtime-service-types.ts`
+  - `clinical-runtime-service.ts`
+  - `index.ts`
+
+### Responsabilidad del servicio
+- resolver `PageClinicalUiModel` listo para consumo
+- aceptar `pathname`
+- aceptar estado clínico opcional
+- aceptar señales de urgencia opcionales
+- aceptar triage input opcional
+- componer internamente:
+  - `page-context-map`
+  - `triage-bridge`
+  - `cta-decision-engine`
+  - `clinical-ui-adapter`
+
+### Wiring real aplicado
+- `/triage`
+  - `TriageWizard.tsx`
+    - ahora resuelve `uiModel` con el servicio usando:
+      - resultado real de triage
+      - species seleccionada
+      - category seleccionada
+  - `TriageResultCard.tsx`
+    - consume el `uiModel` de forma mínima para resolver CTA primario y secundario visibles sin reescribir el flujo completo
+- `/urgencias`
+  - `src/app/(marketing)/urgencias/page.tsx`
+    - ahora resuelve el `uiModel` de la página con el servicio
+  - `UrgenciasHero.tsx`
+    - consume el modelo para derivar la acción dominante y secundaria sin hardcodear completamente la lógica clínica
+
+### Validaciones funcionales buscadas
+- triage emergencia
+  - escala a urgencias y prioriza acción urgente
+- triage no urgente
+  - mantiene orientación clínica sin romper el flujo actual
+- urgencias
+  - mantiene acción dominante correcta
+  - evita volver a meter lógica clínica embebida en el hero
+
+### Siguiente fase recomendada
+- No expandir el wiring a todas las páginas todavía.
+- La siguiente fase natural es:
+  - evaluar uno o dos puntos adicionales
+  - o introducir un wiring ligero y reusable para:
+    - barra de urgencias
+    - una segunda página madre
+    - resultado de triage con señales visuales más claras
+- Mantener aún fuera de alcance:
+  - provider global complejo
+  - persistencia
+  - adaptación visual completa del sitio
+
+### Archivos tocados o auditados
+- `src/lib/clinical-runtime/application/clinical-runtime-service-types.ts`
+- `src/lib/clinical-runtime/application/clinical-runtime-service.ts`
+- `src/lib/clinical-runtime/application/index.ts`
+- `src/features/marketing/components/triage/TriageWizard.tsx`
+- `src/features/marketing/components/triage/TriageResultCard.tsx`
+- `src/app/(marketing)/urgencias/page.tsx`
+- `src/features/marketing/components/urgencias/UrgenciasHero.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+- `src/lib/clinical-runtime/ui-adapter/clinical-ui-adapter.ts` (auditado)
+- `src/lib/clinical-runtime/engine/cta-decision-engine.ts` (auditado)
+- `src/lib/clinical-runtime/triage-bridge/triage-bridge.ts` (auditado)
+
+### Supuestos prohibidos
+- No usar este wiring mínimo como excusa para saltar a integración masiva.
+- No reinyectar lógica clínica en componentes fuera del servicio.
+- No introducir provider global hasta que haya suficiente superficie real consumiendo el sistema.

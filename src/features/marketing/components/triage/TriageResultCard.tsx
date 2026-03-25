@@ -4,14 +4,98 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { TriageResult } from "@/features/marketing/components/triage/types";
+import type { PageClinicalUiModel, VisibleCta } from "@/lib/clinical-runtime/ui-adapter";
 
 type TriageResultCardProps = {
   result: TriageResult;
+  runtimeUiModel?: PageClinicalUiModel | null;
   onBack: () => void;
   onReset: () => void;
   onPrimaryCtaClick: () => void;
   onSecondaryCtaClick: () => void;
 };
+
+const phoneHref = "tel:+524433246136";
+const whatsappHref = "https://wa.me/524433369624";
+
+function getRouteLabel(href: string | null) {
+  switch (href) {
+    case "/urgencias":
+      return "Ir a urgencias";
+    case "/cirugia":
+      return "Ir a cirugía";
+    case "/diagnostico":
+      return "Ir a diagnóstico";
+    case "/endoscopia":
+      return "Ir a endoscopia";
+    case "/prevencion":
+      return "Ir a prevención";
+    case "/exoticos":
+      return "Ir a exóticos";
+    case "/oncologia":
+      return "Ir a oncología";
+    case "/medicina-interna":
+      return "Ir a medicina interna";
+    case "/servicios":
+      return "Ver servicios";
+    default:
+      return "Solicitar valoración";
+  }
+}
+
+function resolveRuntimeCtaPresentation(cta: VisibleCta): {
+  href: string;
+  label: string;
+} {
+  switch (cta.actionKind) {
+    case "call-now":
+      return {
+        href: phoneHref,
+        label: "Llamar ahora",
+      };
+    case "open-whatsapp":
+      return {
+        href: whatsappHref,
+        label: "WhatsApp",
+      };
+    case "orientation-request":
+      return {
+        href: cta.targetRoute ?? "/servicios",
+        label: "Aclarar el caso",
+      };
+    case "followup-request":
+      return {
+        href: cta.targetRoute ?? "/contacto",
+        label: "Dar seguimiento",
+      };
+    case "schedule-valuation":
+      return {
+        href: cta.targetRoute ?? "/contacto",
+        label: "Agendar valoración",
+      };
+    case "specialized-valuation-request":
+      return {
+        href: cta.targetRoute ?? "/contacto",
+        label: "Solicitar valoración especializada",
+      };
+    case "route-transition":
+      return {
+        href: cta.targetRoute ?? "/servicios",
+        label: getRouteLabel(cta.targetRoute),
+      };
+    case "emergency-route":
+      return {
+        href: cta.targetRoute ?? "/urgencias",
+        label: "Ir a urgencias",
+      };
+    case "valuation-request":
+    default:
+      return {
+        href: cta.targetRoute ?? "/contacto",
+        label: "Solicitar valoración",
+      };
+  }
+}
 
 const levelCopy = {
   emergency: {
@@ -81,12 +165,20 @@ function ResultCta({
 
 export function TriageResultCard({
   result,
+  runtimeUiModel,
   onBack,
   onReset,
   onPrimaryCtaClick,
   onSecondaryCtaClick,
 }: TriageResultCardProps) {
   const copy = levelCopy[result.level];
+  const runtimePrimary = runtimeUiModel
+    ? resolveRuntimeCtaPresentation(runtimeUiModel.dominantCta)
+    : result.primaryCta;
+  const runtimeSecondarySource = runtimeUiModel?.secondaryCtas[0] ?? runtimeUiModel?.fallbackCta;
+  const runtimeSecondary = runtimeSecondarySource
+    ? resolveRuntimeCtaPresentation(runtimeSecondarySource)
+    : result.secondaryCta;
 
   return (
     <Card className="border-slate-200 bg-white/95">
@@ -127,13 +219,13 @@ export function TriageResultCard({
 
         <div className="flex flex-col gap-3 sm:flex-row">
           <ResultCta
-            href={result.primaryCta.href}
-            label={result.primaryCta.label}
+            href={runtimePrimary.href}
+            label={runtimePrimary.label}
             onClick={onPrimaryCtaClick}
           />
           <ResultCta
-            href={result.secondaryCta.href}
-            label={result.secondaryCta.label}
+            href={runtimeSecondary.href}
+            label={runtimeSecondary.label}
             variant="outline"
             onClick={onSecondaryCtaClick}
           />
