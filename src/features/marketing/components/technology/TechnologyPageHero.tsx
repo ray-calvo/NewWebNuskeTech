@@ -2,8 +2,8 @@ import { Badge } from "@/components/ui/badge";
 
 export function TechnologyPageHero() {
   return (
-    <section className="px-4 pb-12 pt-12 sm:px-6 lg:px-8 lg:pb-16 lg:pt-16">
-      <div className="mx-auto max-w-7xl space-y-8">
+    <section className="px-4 pb-10 pt-6 sm:px-6 lg:px-8 lg:pb-12 lg:pt-8">
+      <div className="mx-auto max-w-7xl space-y-6">
         <div className="max-w-3xl space-y-4">
           <Badge variant="secondary">Nuskë Tech</Badge>
           <h1 className="text-4xl font-semibold tracking-[-0.04em] text-primary sm:text-5xl lg:text-6xl lg:leading-[1.02]">

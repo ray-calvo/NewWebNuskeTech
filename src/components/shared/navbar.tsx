@@ -13,10 +13,10 @@ const navigationItems = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-[4.5rem] z-50 border-b border-white/60 bg-slate-50/88 backdrop-blur-xl lg:top-[4.125rem]">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-[4.5rem] z-50 border-b border-white/60 bg-slate-50/88 backdrop-blur-xl lg:top-[3.25rem]">
+      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <div className="h-11 w-[220px]">
+          <div className="h-10 w-[210px]">
             <Logo className="h-full w-full" />
           </div>
         </Link>
@@ -39,7 +39,7 @@ export function Navbar() {
         <div className="hidden items-center md:flex">
           <Button
             asChild
-            className="h-11 rounded-2xl bg-primary px-6 text-primary-foreground shadow-[0_12px_30px_-18px_rgba(29,63,104,0.9)] hover:bg-secondary"
+            className="h-10 rounded-2xl bg-primary px-6 text-primary-foreground shadow-[0_12px_30px_-18px_rgba(29,63,104,0.9)] hover:bg-secondary"
           >
             <a href="https://wa.me/524433369624" target="_blank" rel="noreferrer">
               Agendar Cita

@@ -4660,3 +4660,67 @@
 ### Supuestos prohibidos
 - No tocar todavía el header completo para resolver este síntoma puntual.
 - No abrir un refactor visual amplio por un problema local de composición vertical.
+
+## Entrada 2026-03-24 18:38:24 -06:00
+
+### Tipo
+- Ajuste global de primer fold en páginas principales
+
+### Resumen ejecutivo
+- Se confirmó que la sensación de mini scroll no era exclusiva de `/urgencias`.
+- El patrón se repetía en:
+  - heroes clínicos P1 y P2
+  - `/servicios`
+  - `/tecnologia`
+  - hero principal de inicio
+- Se aplicó una corrección transversal pequeña y segura en dos capas:
+  - compactación del stack superior sticky
+  - compactación del spacing inicial de los heroes top-level
+
+### Diagnóstico breve
+- El problema perceptual provenía de la combinación de:
+  - `UrgencyBanner` con altura relevante
+  - `Navbar` sticky alto
+  - padding superior repetido en la mayoría de heroes (`pt-12` / `lg:pt-16`)
+  - padding interno generoso en los contenedores hero
+- La repetición sistemática de ese patrón hacía que el primer pantallazo se sintiera cargado en casi todas las rutas principales.
+
+### Ajuste aplicado
+- `UrgencyBanner`
+  - se redujo padding vertical
+  - se compactaron ligeramente los botones de acción
+- `Navbar`
+  - se redujo altura visible
+  - se ajustó tamaño del logo
+  - se compactó el CTA desktop
+  - se corrigió el offset sticky desktop para el banner ya reducido
+- Heroes principales
+  - se redujo spacing superior/inferior de sección
+  - se redujo padding interno de contenedores hero
+  - se redujeron gaps verticales principales
+- Se mantuvo intacto:
+  - sticky behavior
+  - copy visible
+  - arquitectura de páginas
+  - runtime clínico
+
+### Superficies afectadas
+- `src/components/shared/urgency-banner.tsx`
+- `src/components/shared/navbar.tsx`
+- `src/features/marketing/components/Hero.tsx`
+- `src/features/marketing/components/urgencias/UrgenciasHero.tsx`
+- `src/features/marketing/components/cirugia/CirugiaHero.tsx`
+- `src/features/marketing/components/diagnostico/DiagnosticoHero.tsx`
+- `src/features/marketing/components/endoscopia/EndoscopiaHero.tsx`
+- `src/features/marketing/components/prevencion/PrevencionHero.tsx`
+- `src/features/marketing/components/exoticos/ExoticosHero.tsx`
+- `src/features/marketing/components/oncologia/OncologiaHero.tsx`
+- `src/features/marketing/components/medicina-interna/MedicinaInternaHero.tsx`
+- `src/features/marketing/components/services/ServicesPageHero.tsx`
+- `src/features/marketing/components/technology/TechnologyPageHero.tsx`
+- `src/features/marketing/components/clinical/ClinicalParentPageScaffold.tsx`
+
+### Supuestos prohibidos
+- No convertir este ajuste en un rediseño completo de header.
+- No abrir todavía una lógica avanzada de viewport-aware layout.
+- No rehacer componentes solo por homogeneidad cosmética.

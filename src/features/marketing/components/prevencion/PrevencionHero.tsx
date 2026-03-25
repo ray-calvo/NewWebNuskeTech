@@ -11,9 +11,9 @@ import {
 
 export function PrevencionHero() {
   return (
-    <section className="px-4 pb-10 pt-12 sm:px-6 lg:px-8 lg:pb-14 lg:pt-16">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-slate-200 bg-[linear-gradient(135deg,#ffffff_0%,#eef4fa_100%)] p-6 shadow-[0_34px_110px_-62px_rgba(15,23,42,0.32)] md:p-8 lg:p-10">
-        <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
+    <section className="px-4 pb-8 pt-6 sm:px-6 lg:px-8 lg:pb-10 lg:pt-8">
+      <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-slate-200 bg-[linear-gradient(135deg,#ffffff_0%,#eef4fa_100%)] p-5 shadow-[0_34px_110px_-62px_rgba(15,23,42,0.32)] md:p-7 lg:p-8">
+        <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-7">
           <div className="space-y-6">
             <div className="flex flex-wrap items-center gap-3">
               <Badge variant="secondary">Prevención y seguimiento</Badge>
@@ -99,4 +99,3 @@ export function PrevencionHero() {
     </section>
   );
 }
-

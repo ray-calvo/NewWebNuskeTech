@@ -23,8 +23,8 @@ const authorityPoints = [
 
 export function Hero() {
   return (
-    <section className="px-4 pb-12 pt-8 sm:px-6 lg:px-8 lg:pb-16 lg:pt-10">
-      <div className="mx-auto grid max-w-7xl gap-8 overflow-hidden rounded-[2.2rem] border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(237,243,250,0.94))] p-6 shadow-[0_36px_120px_-76px_rgba(15,23,42,0.56)] md:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(460px,1fr)] lg:items-center lg:gap-12 lg:p-12">
+    <section className="px-4 pb-10 pt-5 sm:px-6 lg:px-8 lg:pb-12 lg:pt-6">
+      <div className="mx-auto grid max-w-7xl gap-6 overflow-hidden rounded-[2.2rem] border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(237,243,250,0.94))] p-5 shadow-[0_36px_120px_-76px_rgba(15,23,42,0.56)] md:p-7 lg:grid-cols-[minmax(0,1fr)_minmax(460px,1fr)] lg:items-center lg:gap-10 lg:p-10">
         <div className="space-y-8">
           <div className="space-y-6">
             <div className="flex flex-wrap items-center gap-3">
