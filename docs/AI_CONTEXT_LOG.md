@@ -4758,3 +4758,38 @@
 ### Supuestos prohibidos
 - No acoplar este fix a componentes de página individuales.
 - No convertir el problema en un refactor de router o navegación mientras el reset global de layout sea suficiente.
+
+## Entrada 2026-03-24 19:18:00 -06:00
+
+### Tipo
+- Fase 6b runtime clinico: expansion controlada a servicios y medicina interna
+
+### Resumen ejecutivo
+- Se expandió el wiring del runtime clínico a:
+  - `/servicios` como superficie de orientación
+  - `/medicina-interna` como ruta clínica complementaria
+- El objetivo fue validar escalabilidad fuera de:
+  - `/triage`
+  - `/urgencias`
+- Se mantuvo el radio de cambio bajo y sin provider global.
+
+### Decisiones de integración
+- `/servicios`
+  - Se integró el runtime en el bloque final de orientación.
+  - No se tocó cada card del hub para evitar convertir la página en UI dinámica excesiva.
+  - Se usó:
+    - CTA principal desde runtime
+    - CTA secundario desde runtime
+    - transiciones sugeridas limitadas
+- `/medicina-interna`
+  - Se resolvió `PageClinicalUiModel` en la página.
+  - Se pasó a `MedicinaInternaHero`.
+  - El cierre final también consume acciones resueltas por runtime.
+
+### Ajustes de dominio asociados
+- Se ajustó el orden de transición primaria de `/servicios` para que en incertidumbre clínica priorice primero `/diagnostico` y conserve `/urgencias` como fallback seguro.
+
+### Supuestos prohibidos
+- No cablear todavía todas las páginas clínicas.
+- No introducir provider global antes de validar más superficies complementarias.
+- No usar el runtime para volver el hub `/servicios` una pantalla de decisiones agresiva.

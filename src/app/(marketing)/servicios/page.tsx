@@ -4,8 +4,20 @@ import { Button } from "@/components/ui/button";
 import { ServicesPageHero } from "@/features/marketing/components/services/ServicesPageHero";
 import { ServiceCategorySection } from "@/features/marketing/components/services/ServiceCategorySection";
 import { capabilityBlocks } from "@/features/marketing/components/services/data";
+import { resolveClinicalUiModelForPage } from "@/lib/clinical-runtime/application";
+import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
 
 export default function ServiciosPage() {
+  const clinicalUiModel = resolveClinicalUiModelForPage({
+    pathname: "/servicios",
+  }).uiModel;
+  const runtimeConsumption = selectClinicalUiConsumption(clinicalUiModel, {
+    primaryPreference: ["emergency-route"],
+    secondaryPreference: ["orientation-request", "valuation-request"],
+  });
+  const finalPrimaryAction = runtimeConsumption.primaryCta;
+  const finalSecondaryAction = runtimeConsumption.secondaryCta;
+
   return (
     <main
       className="bg-background"
@@ -45,17 +57,35 @@ export default function ServiciosPage() {
                 size="lg"
                 className="h-11 rounded-2xl bg-primary px-6 text-primary-foreground hover:bg-secondary"
               >
-                <Link href="/urgencias">Ir a urgencias</Link>
+                <Link href={finalPrimaryAction.href}>{finalPrimaryAction.label}</Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="h-11 rounded-2xl border-primary/20 bg-white px-6 text-primary hover:bg-primary/5"
-              >
-                <Link href="/contacto">Solicitar orientación</Link>
-              </Button>
+              {finalSecondaryAction ? (
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="h-11 rounded-2xl border-primary/20 bg-white px-6 text-primary hover:bg-primary/5"
+                >
+                  <Link href={finalSecondaryAction.href}>
+                    {finalSecondaryAction.label}
+                  </Link>
+                </Button>
+              ) : null}
             </div>
+
+            {runtimeConsumption.suggestedTransitions.length > 0 ? (
+              <div className="mt-5 flex flex-wrap gap-3">
+                {runtimeConsumption.suggestedTransitions.slice(0, 2).map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
           </section>
         </div>
       </div>

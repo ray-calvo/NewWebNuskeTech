@@ -24,8 +24,8 @@ const clinicalPageContextMap = {
     canBeOverriddenByUrgency: true,
     defaultFallbackRoute: "/urgencias",
     primaryTransitions: [
-      "/urgencias",
       "/diagnostico",
+      "/urgencias",
       "/cirugia",
       "/medicina-interna",
     ],

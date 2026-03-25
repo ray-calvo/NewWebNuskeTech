@@ -74,7 +74,7 @@ function presentVisibleCta(cta: VisibleCta): PresentedClinicalCta {
       };
     case "followup-request":
       return {
-        href: cta.targetRoute ?? "/contacto",
+        href: "/contacto",
         label: "Dar seguimiento",
         kind: cta.actionKind,
         priorityLevel: cta.priorityLevel,
@@ -84,7 +84,7 @@ function presentVisibleCta(cta: VisibleCta): PresentedClinicalCta {
       };
     case "schedule-valuation":
       return {
-        href: cta.targetRoute ?? "/contacto",
+        href: "/contacto",
         label: "Agendar valoración",
         kind: cta.actionKind,
         priorityLevel: cta.priorityLevel,
@@ -94,7 +94,7 @@ function presentVisibleCta(cta: VisibleCta): PresentedClinicalCta {
       };
     case "specialized-valuation-request":
       return {
-        href: cta.targetRoute ?? "/contacto",
+        href: "/contacto",
         label: "Solicitar valoración especializada",
         kind: cta.actionKind,
         priorityLevel: cta.priorityLevel,
@@ -125,7 +125,7 @@ function presentVisibleCta(cta: VisibleCta): PresentedClinicalCta {
     case "valuation-request":
     default:
       return {
-        href: cta.targetRoute ?? "/contacto",
+        href: "/contacto",
         label: "Solicitar valoración",
         kind: cta.actionKind,
         priorityLevel: cta.priorityLevel,
