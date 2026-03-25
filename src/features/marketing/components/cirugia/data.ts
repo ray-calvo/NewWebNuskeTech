@@ -36,57 +36,57 @@ export type SurgerySupportCard = {
 };
 
 export const surgeryWhatsAppHref =
-  "https://wa.me/524433369624?text=Hola%20Nusk%C3%AB,%20quiero%20agendar%20una%20valoraci%C3%B3n%20quir%C3%BArgica%20para%20mi%20mascota.";
+  "https://wa.me/524433369624?text=Hola%20Nusk%C3%AB,%20quiero%20orientaci%C3%B3n%20sobre%20si%20mi%20mascota%20podr%C3%ADa%20necesitar%20cirug%C3%ADa.";
 export const surgeryPhoneHref = "tel:+524433246136";
 
 export const surgeryHeroHighlights: readonly SurgeryHighlight[] = [
   {
-    title: "Resolución quirúrgica hospitalaria",
+    title: "Cirugía con respaldo hospitalario",
     description:
-      "Cuando el paciente necesita cirugía, importa valorar bien el caso, intervenir con seguridad y seguir de cerca la recuperación.",
+      "Si tu mascota necesita cirugía, importa valorar bien el caso, intervenir con seguridad y vigilar de cerca su recuperación.",
   },
   {
-    title: "Seguridad anestésica y vigilancia",
+    title: "Anestesia y monitoreo durante el procedimiento",
     description:
-      "La anestesia y el monitoreo ayudan a reducir riesgo antes, durante y después del procedimiento.",
+      "La seguridad no depende solo de operar. También cuenta cómo se vigila a tu mascota antes, durante y después.",
   },
   {
-    title: "Apoyo diagnóstico y planificación",
+    title: "Estudios y planeación antes de decidir",
     description:
-      "Antes de intervenir, hace falta entender bien el caso para decidir cuándo conviene operar y cómo hacerlo.",
+      "Antes de intervenir, hace falta entender bien qué está pasando para decidir si conviene operar y en qué momento hacerlo.",
   },
 ] as const;
 
 export const surgicalAssessmentSignals: readonly SurgerySignal[] = [
   {
-    title: "Dolor agudo persistente",
+    title: "Dolor fuerte que no mejora",
     description:
-      "Cuando el dolor no mejora, limita movimiento o se acompaña de deterioro general.",
+      "Cuando el dolor persiste, limita su movimiento o viene acompañado de decaimiento y malestar general.",
   },
   {
-    title: "Heridas profundas o tejidos comprometidos",
+    title: "Heridas profundas o tejido comprometido",
     description:
-      "Lesiones que requieren valoración médica para decidir cierre, manejo quirúrgico o vigilancia hospitalaria.",
+      "Lesiones que necesitan revisión médica para decidir si requieren cirugía, cierre especial o vigilancia hospitalaria.",
   },
   {
-    title: "Masas, crecimiento anormal o cambios progresivos",
+    title: "Masas o cambios que han ido creciendo",
     description:
-      "Pacientes que requieren definición diagnóstica y posible intervención programada.",
+      "Casos en los que hace falta revisar bien el problema y valorar si conviene un procedimiento programado.",
   },
   {
-    title: "Vómito persistente, distensión o sospecha de obstrucción",
+    title: "Vómito persistente, abdomen inflamado o sospecha de obstrucción",
     description:
-      "Escenarios donde la resolución puede requerir apoyo diagnóstico y cirugía hospitalaria.",
+      "Situaciones en las que puede hacer falta apoyo diagnóstico y, en algunos casos, cirugía hospitalaria.",
   },
   {
-    title: "Fracturas, luxaciones o trauma con compromiso funcional",
+    title: "Fracturas, luxaciones o golpes con dificultad para moverse",
     description:
-      "Situaciones que necesitan criterio quirúrgico y, en algunos casos, continuidad con urgencias.",
+      "Problemas que necesitan valoración médica y, según el caso, una decisión quirúrgica o atención por urgencias.",
   },
   {
-    title: "Recuperación postraumática o postoperatoria compleja",
+    title: "Recuperación complicada después de un trauma o una cirugía",
     description:
-      "Pacientes que necesitan seguimiento estrecho y soporte hospitalario durante la evolución.",
+      "Pacientes que necesitan vigilancia cercana y apoyo hospitalario durante su evolución.",
   },
 ] as const;
 
@@ -94,71 +94,71 @@ export const surgeryCapabilities: readonly SurgeryCapability[] = [
   {
     title: "Valoración quirúrgica hospitalaria",
     description:
-      "Ayuda a definir si el problema necesita cirugía, cuándo conviene intervenir y qué soporte hace falta alrededor del procedimiento.",
+      "Ayuda a definir si tu mascota realmente necesita cirugía, cuándo conviene hacerla y qué cuidados hacen falta alrededor del procedimiento.",
     icon: Stethoscope,
   },
   {
     title: "Procedimientos especializados",
     description:
-      "Permite resolver cuadros que no mejoran solos y que necesitan una intervención planeada con criterio médico.",
+      "Permiten atender problemas que no van a resolverse solos y que necesitan una intervención planeada con criterio médico.",
     icon: Syringe,
   },
   {
-    title: "Continuidad postoperatoria",
+    title: "Seguimiento después de la cirugía",
     description:
-      "Después del procedimiento, el seguimiento ayuda a controlar dolor, vigilar evolución y decidir con tiempo si algo necesita ajustarse.",
+      "Después del procedimiento, el seguimiento ayuda a controlar dolor, vigilar cómo evoluciona y detectar a tiempo si algo necesita ajustarse.",
     icon: Activity,
   },
 ] as const;
 
 export const anesthesiaCapabilities: readonly SurgeryCapability[] = [
   {
-    title: "Evaluación anestésica previa",
+    title: "Revisión previa a la anestesia",
     description:
-      "Valoración del estado general del paciente y preparación según riesgo clínico.",
+      "Se valora el estado general de tu mascota para prepararla mejor según su condición y nivel de riesgo.",
     icon: ClipboardCheck,
   },
   {
-    title: "Monitoreo intraoperatorio",
+    title: "Monitoreo durante el procedimiento",
     description:
-      "Seguimiento de parámetros críticos durante el procedimiento para sostener seguridad y respuesta oportuna.",
+      "Se vigilan parámetros importantes durante la cirugía para responder a tiempo ante cualquier cambio.",
     icon: Monitor,
   },
   {
-    title: "Control de dolor y soporte",
+    title: "Control de dolor y apoyo en recuperación",
     description:
-      "Manejo del confort y recuperación con medidas ajustadas a la condición clínica.",
+      "El confort y la recuperación se acompañan con medidas ajustadas a lo que necesita cada paciente.",
     icon: HeartPulse,
   },
 ] as const;
 
 export const surgerySupportCards: readonly SurgerySupportCard[] = [
   {
-    title: "Apoyo diagnóstico y planificación quirúrgica",
+    title: "Estudios y planeación antes de cirugía",
     description:
-      "Antes de operar, hace falta entender bien el problema para elegir el mejor abordaje y reducir decisiones apresuradas.",
+      "Antes de operar, hace falta entender bien el problema para elegir el mejor abordaje y evitar decisiones apresuradas.",
     icon: ScanSearch,
     items: [
-      "Imagenología y laboratorio según criterio médico",
-      "Definición del mejor momento para intervenir",
-      "Planeación del procedimiento y la recuperación",
+      "Estudios de imagen y laboratorio según criterio médico",
+      "Definir el mejor momento para intervenir",
+      "Planear el procedimiento y la recuperación",
     ],
   },
   {
-    title: "Recuperación, hospitalización y seguimiento",
+    title: "Recuperación, hospitalización y vigilancia",
     description:
-      "Algunos pacientes necesitan quedarse vigilados después de la cirugía para controlar dolor, respuesta y posibles cambios en la evolución.",
+      "Algunos pacientes necesitan quedarse vigilados después de la cirugía para controlar dolor, respuesta y cambios en su evolución.",
     icon: ShieldPlus,
     items: [
-      "Monitoreo postoperatorio",
-      "Control de evolución y reevaluación clínica",
+      "Monitoreo después del procedimiento",
+      "Revisión de evolución y seguimiento médico",
       "Observación cercana cuando hace falta",
     ],
   },
   {
-    title: "Integración con otras capacidades del hospital",
+    title: "Apoyo de otras áreas del hospital",
     description:
-      "Si el paciente llega inestable o necesita más estudios, la decisión quirúrgica puede apoyarse sin perder continuidad en el caso.",
+      "Si tu mascota llega delicada o necesita más estudios, la decisión quirúrgica puede apoyarse sin perder continuidad en su atención.",
     icon: Microscope,
     items: [
       "Apoyo desde urgencias en pacientes comprometidos",
@@ -170,27 +170,27 @@ export const surgerySupportCards: readonly SurgerySupportCard[] = [
 
 export const surgicalDifferentiators: readonly SurgeryCapability[] = [
   {
-    title: "Operar a tiempo cambia el pronóstico",
+    title: "Saber cuándo operar cambia el pronóstico",
     description:
-      "La valoración quirúrgica ayuda a distinguir cuándo conviene intervenir, cuándo estabilizar primero y cuándo esperar sería un riesgo.",
+      "La valoración quirúrgica ayuda a distinguir cuándo conviene intervenir, cuándo hay que estabilizar primero y cuándo esperar sería un riesgo.",
     icon: TriangleAlert,
   },
   {
-    title: "Reduce riesgo cuando el paciente está comprometido",
+    title: "Más seguridad en pacientes delicados",
     description:
-      "En pacientes delicados, la evaluación anestésica y el monitoreo permiten intervenir con más control y menos riesgo evitable.",
+      "Cuando un paciente está comprometido, la evaluación anestésica y el monitoreo permiten actuar con más control y menos riesgo evitable.",
     icon: Monitor,
   },
   {
-    title: "Evita intervenir sin haber definido bien el caso",
+    title: "Ayuda a no operar sin haber definido bien el caso",
     description:
-      "El apoyo diagnóstico y la planeación preoperatoria ayudan a elegir mejor el abordaje y a reducir errores de decisión.",
+      "Los estudios y la planeación previa ayudan a elegir mejor el procedimiento y a reducir errores de decisión.",
     icon: ClipboardCheck,
   },
   {
-    title: "La recuperación también cambia la decisión",
+    title: "La recuperación también importa en la decisión",
     description:
-      "Cuando el paciente necesita control de dolor, vigilancia o reevaluación, contar con seguimiento hospitalario evita altas prematuras.",
+      "Si tu mascota necesita control de dolor, vigilancia o nuevas revisiones, el seguimiento hospitalario ayuda a evitar altas antes de tiempo.",
     icon: Syringe,
   },
 ] as const;

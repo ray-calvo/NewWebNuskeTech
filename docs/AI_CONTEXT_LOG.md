@@ -5181,3 +5181,34 @@
 - No se cambió navegación.
 - No se alteró la secuencia del flujo.
 - No se modificó el modelo de severidad más allá del wording visible.
+
+## Entrada 2026-03-25 03:04:00 -06:00
+
+### Tipo
+- Afinación editorial de la página de cirugía
+
+### Resumen ejecutivo
+- Se reescribió el copy de `/cirugia` para que suene menos institucional y más claro para dueños de mascotas que están valorando una posible cirugía.
+- La narrativa pasó de “capacidad quirúrgica hospitalaria” a explicar con más sencillez cuándo puede hacer falta una cirugía, por qué importa la seguridad anestésica y cómo influye la recuperación.
+- No se alteró la estructura clínica de la página ni su wiring con runtime.
+
+### Decisiones clave
+- `CirugiaHero` conservó layout y consumo runtime, pero con lenguaje más humano y directo.
+- `data.ts` se reescribió para bajar abstracción en:
+  - señales clínicas
+  - capacidades
+  - soporte perioperatorio
+  - diferenciadores
+- `page.tsx` mantuvo la arquitectura de secciones y solo ajustó badges, títulos, descripciones y CTA copy.
+
+### Resultado narrativo
+- La página ahora comunica mejor:
+  - cuándo una mascota puede necesitar cirugía
+  - por qué no siempre se trata de “operar ya”
+  - qué valor aporta el monitoreo, la anestesia y la recuperación hospitalaria
+
+### Supuestos protegidos
+- No se cambió runtime clínico.
+- No se alteró navegación.
+- No se modificó la arquitectura de la página.
+- No se abrió ninguna ruta nueva.

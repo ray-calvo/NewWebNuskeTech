@@ -25,7 +25,7 @@ export function CirugiaHero({ clinicalUiModel }: CirugiaHeroProps) {
     : null;
   const primaryAction = runtimeConsumption?.primaryCta ?? {
     href: surgeryWhatsAppHref,
-    label: "Solicitar valoración",
+    label: "Pedir orientación por cirugía",
     kind: "specialized-valuation-request",
     isExternal: true,
   };
@@ -45,19 +45,19 @@ export function CirugiaHero({ clinicalUiModel }: CirugiaHeroProps) {
               <Badge variant="secondary">Cirugía hospitalaria</Badge>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                Valoración y resolución quirúrgica
+                Valoración quirúrgica y atención hospitalaria
               </div>
             </div>
 
             <div className="max-w-4xl space-y-4">
               <h1 className="text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-6xl lg:leading-[0.98]">
-                Cirugía Hospitalaria y Procedimientos Especializados
+                Cirugía hospitalaria para mascotas que necesitan ser atendidas con seguridad
               </h1>
               <p className="text-lg leading-8 text-slate-600">
-                Valoración y resolución quirúrgica para pacientes que necesitan
-                intervenirse con seguridad anestésica, monitoreo y seguimiento
-                cercano. Aquí importa decidir bien cuándo operar y cómo
-                acompañar la recuperación.
+                Atendemos pacientes que pueden requerir cirugía con valoración previa,
+                control anestésico, monitoreo y seguimiento cercano. No se trata solo
+                de operar, sino de decidir bien cuándo hacerlo y acompañar a tu mascota
+                antes, durante y después del procedimiento.
               </p>
             </div>
 
@@ -121,20 +121,19 @@ export function CirugiaHero({ clinicalUiModel }: CirugiaHeroProps) {
 
             <section className="rounded-[1.6rem] border border-primary/10 bg-primary p-5 text-white shadow-[0_20px_60px_-36px_rgba(15,23,42,0.5)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Si el paciente está inestable
+                Si tu mascota llega delicada
               </p>
               <p className="mt-3 text-lg font-semibold text-white">
-                La ruta correcta puede empezar en urgencias antes de definir si
-                conviene operar.
+                Primero puede ser más importante estabilizarla que decidir de inmediato si necesita cirugía.
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Primero importa estabilizar, aclarar el cuadro y valorar el
-                riesgo. Después se decide el mejor momento y soporte para la
-                intervención.
+                En algunos casos, lo primero es controlar el dolor, revisar su estado
+                general y reducir riesgos. Después se valora con mayor seguridad si
+                conviene operar y en qué momento hacerlo.
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
                 <HeartPulse aria-hidden={true} className="h-4 w-4" />
-                Coordinación con urgencias y monitoreo
+                Coordinación con urgencias y vigilancia hospitalaria
               </div>
             </section>
           </div>

@@ -20,7 +20,7 @@ import { resolveClinicalUiConsumptionForPage } from "@/lib/clinical-runtime/appl
 export const metadata: Metadata = {
   title: "Cirugía",
   description:
-    "Cirugía hospitalaria y procedimientos especializados con control anestésico, seguridad clínica y seguimiento postoperatorio en Nuskë Vet Center.",
+    "Cirugía veterinaria hospitalaria con control anestésico, monitoreo y seguimiento postoperatorio en Nuskë Vet Center.",
 };
 
 export default function CirugiaPage() {
@@ -36,9 +36,9 @@ export default function CirugiaPage() {
       <CirugiaHero clinicalUiModel={clinicalUiModel} />
 
       <ClinicalSection
-        badge="Cuándo puede requerirse valoración quirúrgica"
-        title="Situaciones en las que una mascota puede necesitar resolución quirúrgica"
-        description="No todos los casos llegan a cirugía de la misma manera. Algunos aparecen como urgencia, otros como proceso progresivo o hallazgo clínico que requiere intervención planificada."
+        badge="Cuándo puede necesitar cirugía"
+        title="Hay casos en los que tu mascota puede necesitar una cirugía"
+        description="No todos los pacientes llegan a cirugía por la misma razón. A veces aparece como una urgencia, otras como un problema que avanza con el tiempo o como un hallazgo que necesita resolverse con un procedimiento planeado."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {surgicalAssessmentSignals.map((signal) => (
@@ -64,8 +64,8 @@ export default function CirugiaPage() {
 
       <ClinicalSection
         badge="Capacidad quirúrgica"
-        title="Cirugía hospitalaria como capacidad de resolución clínica"
-        description="Cuando un paciente necesita cirugía, importa decidir bien el momento, intervenir con seguridad y sostener la recuperación dentro del mismo entorno hospitalario."
+        title="Cuando una mascota necesita cirugía, importa hacerlo con seguridad"
+        description="No solo se trata de operar. También importa valorar bien al paciente, decidir el mejor momento y acompañar su recuperación dentro de un entorno hospitalario."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {surgeryCapabilities.map((capability) => {
@@ -99,19 +99,17 @@ export default function CirugiaPage() {
                 Seguridad anestésica y monitoreo
               </div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                La cirugía se sostiene en anestesia, vigilancia y control clínico
+                Una cirugía segura también depende de la anestesia, la vigilancia y el control clínico
               </h2>
               <p className="text-base leading-8 text-slate-100">
-                La capacidad quirúrgica hospitalaria no se comunica solo por el
-                procedimiento. También se comunica por la evaluación previa, el
-                monitoreo intraoperatorio y el soporte durante la recuperación.
+                La seguridad de un procedimiento no depende solo de la cirugía en sí. También cuenta la evaluación previa, el monitoreo durante el procedimiento y el soporte que recibe tu mascota al recuperarse.
               </p>
               <ClinicalBulletGrid
                 items={[
-                  "Valoración prequirúrgica según condición clínica",
-                  "Monitoreo intraoperatorio con seguimiento continuo",
-                  "Control de dolor y soporte durante recuperación",
-                  "Decisiones perioperatorias con criterio hospitalario",
+                  "Valoración prequirúrgica según el estado del paciente",
+                  "Monitoreo continuo durante el procedimiento",
+                  "Control de dolor y apoyo durante la recuperación",
+                  "Decisiones médicas con criterio hospitalario antes, durante y después",
                 ]}
                 tone="dark"
               />
@@ -143,9 +141,9 @@ export default function CirugiaPage() {
       </section>
 
       <ClinicalSection
-        badge="Planificación y continuidad"
-        title="Apoyo diagnóstico, planificación quirúrgica y seguimiento postoperatorio"
-        description="La cirugía hospitalaria se fortalece cuando el procedimiento está integrado con diagnóstico, recuperación y vigilancia clínica posterior."
+        badge="Planeación y recuperación"
+        title="La cirugía funciona mejor cuando también se planea y se acompaña bien"
+        description="El procedimiento es solo una parte. También importa el apoyo diagnóstico, la preparación del caso y el seguimiento después de la cirugía."
       >
         <div className="grid gap-4 md:grid-cols-3">
           {surgerySupportCards.map((card) => {
@@ -181,9 +179,9 @@ export default function CirugiaPage() {
       </ClinicalSection>
 
       <ClinicalSection
-        badge="Diferenciadores hospitalarios"
-        title="Lo que cambia cuando la cirugía se decide con criterio"
-        description="Aquí importa cuándo conviene intervenir, cómo se reduce riesgo alrededor del procedimiento y qué se evita cuando la recuperación sigue bien vigilada."
+        badge="Lo que hace la diferencia"
+        title="Cuando una cirugía se decide bien, cambia todo alrededor del procedimiento"
+        description="Importa saber cuándo conviene operar, cómo se reduce el riesgo y cómo se vigila la recuperación para detectar a tiempo cualquier cambio importante."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {surgicalDifferentiators.map((item) => {
@@ -213,13 +211,10 @@ export default function CirugiaPage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-primary sm:text-4xl">
-                La decisión correcta no siempre es “operar ya”, sino valorar bien y resolver con criterio
+                No siempre se trata de operar de inmediato, sino de valorar bien y tomar la mejor decisión para tu mascota
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                Esta página orienta hacia una valoración quirúrgica
-                hospitalaria, no hacia una promesa automática de procedimiento.
-                Si el paciente llega inestable o con trauma importante, la
-                ruta correcta puede comenzar en urgencias.
+                Esta página te orienta cuando puede hacer falta una valoración quirúrgica. No significa que toda mascota vaya a requerir cirugía. Si el paciente llega inestable, con dolor intenso o tras un trauma, lo correcto puede ser comenzar por urgencias.
               </p>
             </div>
 
@@ -228,9 +223,7 @@ export default function CirugiaPage() {
                 Acción recomendada
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Si necesitas una valoración quirúrgica o orientación clínica
-                sobre un posible procedimiento, contacta al hospital. Si el
-                paciente está descompensado, prioriza la ruta de urgencias.
+                Si crees que tu mascota podría necesitar cirugía o quieres orientación sobre un procedimiento, ponte en contacto con el hospital. Si se ve descompensado o el caso parece urgente, entra directo por urgencias.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">
