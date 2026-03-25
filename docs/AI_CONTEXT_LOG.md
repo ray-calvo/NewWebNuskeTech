@@ -4612,3 +4612,51 @@
 - No volver a introducir mappers locales de CTA visible en cada componente nuevo.
 - No usar esta capa como sustituto de adaptación visual completa.
 - No expandir el wiring masivo antes de estabilizar este patrón en más de una superficie adicional.
+
+## Entrada 2026-03-25 09:00:00 -06:00
+
+### Tipo
+- Ajuste composicion vertical primer fold
+
+### Resumen ejecutivo
+- Se auditó la composición vertical inicial de `/urgencias` considerando:
+  - `UrgencyBanner`
+  - `Navbar`
+  - `UrgenciasHero`
+- No se detectó necesidad de rehacer el stack sticky.
+- El ajuste seguro y suficiente fue compactar el hero de `/urgencias` para reducir la sensación de mini scroll en el primer pantallazo.
+
+### Diagnostico breve
+- `UrgencyBanner`
+  - mantiene una altura relevante por:
+    - `py-3`
+    - botones `h-9`
+- `Navbar`
+  - aporta una altura fija de `h-20`
+  - además se posiciona sticky bajo el banner con offset superior
+- El problema perceptible no estaba en sticky behavior roto, sino en la suma:
+  - header sticky acumulado
+  - padding superior del hero
+  - padding interno amplio del bloque principal
+
+### Ajuste aplicado
+- Se redujo en `UrgenciasHero.tsx`:
+  - padding superior de la sección
+  - padding inferior de la sección
+  - padding interno del bloque hero
+  - gap principal entre columnas/bloques
+- No se tocaron:
+  - copy
+  - behavior sticky
+  - layout global
+  - runtime clínico
+
+### Archivos tocados o auditados
+- `src/components/shared/urgency-banner.tsx` (auditado)
+- `src/components/shared/navbar.tsx` (auditado)
+- `src/features/marketing/components/urgencias/UrgenciasHero.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Supuestos prohibidos
+- No tocar todavía el header completo para resolver este síntoma puntual.
+- No abrir un refactor visual amplio por un problema local de composición vertical.
