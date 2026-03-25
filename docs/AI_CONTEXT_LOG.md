@@ -4830,3 +4830,37 @@
 ### Supuestos prohibidos
 - No abrir todavía wiring masivo al resto del núcleo ni de complementarias.
 - No introducir provider ligero solo por comodidad hasta decidir si la siguiente fase será expansión amplia o consolidación del patrón.
+
+## Entrada 2026-03-24 20:05:00 -06:00
+
+### Tipo
+- Reestructuracion de pagina tecnologia con evidencia hospitalaria real
+
+### Resumen ejecutivo
+- `/tecnologia` dejó de apoyarse en:
+  - imágenes remotas
+  - galería tipo carousel
+  - narrativa de equipamiento como catálogo
+- La página se rehízo como recorrido clínico visual con imágenes reales desde:
+  - `public/marketing/tech`
+
+### Estructura implementada
+- Hero clínico con imagen hospitalaria real de fondo
+- Diagnóstico hospitalario
+- Cirugía y mínima invasión
+- Hospitalización y monitoreo
+- Infraestructura hospitalaria
+- CTA clínico final
+
+### Decisiones de implementación
+- Se priorizó `next/image` con assets locales para:
+  - performance
+  - lazy loading
+  - mejor control responsive
+- Se retiró la dependencia de carousel para evitar lectura de galería simple.
+- Se mantuvo tono sobrio, clínico y hospitalario.
+
+### Supuestos prohibidos
+- No convertir `/tecnologia` en catálogo de equipos.
+- No usar imágenes solo como decoración sin narrativa clínica.
+- No tocar runtime clínico ni otras rutas en esta fase.
