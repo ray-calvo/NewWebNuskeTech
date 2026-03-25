@@ -3,7 +3,8 @@ import { HeartPulse, MapPin, PhoneCall } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import type { PageClinicalUiModel, VisibleCta } from "@/lib/clinical-runtime/ui-adapter";
+import type { PageClinicalUiModel } from "@/lib/clinical-runtime/ui-adapter";
+import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
 
 import { heroHighlights, mapsHref, urgentPhoneHref, urgentWhatsAppHref } from "./data";
 
@@ -11,54 +12,27 @@ type UrgenciasHeroProps = {
   clinicalUiModel?: PageClinicalUiModel;
 };
 
-function resolveHeroAction(cta: VisibleCta): {
-  href: string;
-  label: string;
-  icon: typeof PhoneCall;
-} {
-  switch (cta.actionKind) {
-    case "open-whatsapp":
-      return {
-        href: urgentWhatsAppHref,
-        label: "WhatsApp inmediato",
-        icon: HeartPulse,
-      };
-    case "emergency-route":
-    case "call-now":
-    default:
-      return {
-        href: urgentPhoneHref,
-        label: "Llamar ahora",
-        icon: PhoneCall,
-      };
-  }
-}
-
 export function UrgenciasHero({ clinicalUiModel }: UrgenciasHeroProps) {
-  const dominantRuntimeCta =
-    clinicalUiModel?.secondaryCtas.find((cta) => cta.actionKind === "call-now") ??
-    clinicalUiModel?.dominantCta;
-  const secondaryRuntimeCta =
-    clinicalUiModel?.secondaryCtas.find(
-      (cta) => cta.actionKind === "open-whatsapp",
-    ) ?? clinicalUiModel?.fallbackCta;
-
-  const primaryAction = dominantRuntimeCta
-    ? resolveHeroAction(dominantRuntimeCta)
-    : {
-        href: urgentPhoneHref,
-        label: "Llamar ahora",
-        icon: PhoneCall,
-      };
-  const secondaryAction = secondaryRuntimeCta
-    ? resolveHeroAction(secondaryRuntimeCta)
-    : {
-        href: urgentWhatsAppHref,
-        label: "WhatsApp inmediato",
-        icon: HeartPulse,
-      };
-  const PrimaryIcon = primaryAction.icon;
-  const SecondaryIcon = secondaryAction.icon;
+  const runtimeConsumption = clinicalUiModel
+    ? selectClinicalUiConsumption(clinicalUiModel, {
+        primaryPreference: ["call-now", "emergency-route"],
+        secondaryPreference: ["open-whatsapp"],
+      })
+    : null;
+  const primaryAction = runtimeConsumption?.primaryCta ?? {
+    href: urgentPhoneHref,
+    label: "Llamar ahora",
+    kind: "call-now",
+  };
+  const secondaryAction = runtimeConsumption?.secondaryCta ?? {
+    href: urgentWhatsAppHref,
+    label: "WhatsApp inmediato",
+    kind: "open-whatsapp",
+  };
+  const PrimaryIcon =
+    primaryAction.kind === "open-whatsapp" ? HeartPulse : PhoneCall;
+  const SecondaryIcon =
+    secondaryAction.kind === "open-whatsapp" ? HeartPulse : PhoneCall;
 
   return (
     <section className="px-4 pb-10 pt-12 sm:px-6 lg:px-8 lg:pb-14 lg:pt-16">

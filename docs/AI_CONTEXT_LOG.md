@@ -4541,3 +4541,74 @@
 - No usar este wiring mínimo como excusa para saltar a integración masiva.
 - No reinyectar lógica clínica en componentes fuera del servicio.
 - No introducir provider global hasta que haya suficiente superficie real consumiendo el sistema.
+
+## Entrada 2026-03-25 08:35:00 -06:00
+
+### Tipo
+- Estabilizacion patron reusable UI runtime
+
+### Resumen ejecutivo
+- Se creó una capa reusable de consumo UI para el runtime clínico en:
+  - `src/lib/clinical-runtime/ui-consumption/`
+- El objetivo fue estabilizar cómo los componentes visuales consumen `PageClinicalUiModel` antes de expandir el wiring a más rutas.
+- Se refactorizó de forma ligera:
+  - `TriageResultCard.tsx`
+  - `UrgenciasHero.tsx`
+- No se abrieron nuevas páginas ni se introdujo provider global.
+
+### Patrón reusable creado
+- La capa `ui-consumption` expone un modelo ya consumible para UI:
+  - CTA primario visible
+  - CTA secundario visible
+  - fallback visible
+  - señales visibles
+  - transiciones sugeridas
+  - prioridad visual
+- Esta capa evita que cada componente visual tenga que reinterpretar manualmente:
+  - kinds de CTA
+  - rutas destino
+  - labels presentacionales
+  - preferencias locales de selección
+
+### Piezas implementadas
+- `clinical-ui-consumption-types.ts`
+  - tipos presentacionales de consumo
+- `clinical-ui-consumption.ts`
+  - mapping reusable desde `PageClinicalUiModel` a props/UI model consumible
+  - selección primaria/secundaria con preferencias opcionales
+- `index.ts`
+  - barrel del consumo UI
+
+### Refactor aplicado
+- `TriageResultCard.tsx`
+  - dejó de mapear manualmente cada `VisibleCta`
+  - ahora consume `selectClinicalUiConsumption(...)`
+- `UrgenciasHero.tsx`
+  - dejó de interpretar por su cuenta `secondaryCtas` y `fallback`
+  - ahora usa el mismo patrón reusable con preferencias específicas de urgencias
+
+### Siguiente fase recomendada
+- Antes de expandir el wiring a más rutas, conviene validar uno o dos consumos adicionales usando este mismo patrón.
+- Las siguientes superficies más lógicas serían:
+  - barra de urgencias
+  - `/servicios`
+  - una segunda página madre clínica
+- Mantener todavía fuera de alcance:
+  - provider global
+  - persistencia
+  - adaptación visual completa del sitio
+
+### Archivos tocados o auditados
+- `src/lib/clinical-runtime/ui-consumption/clinical-ui-consumption-types.ts`
+- `src/lib/clinical-runtime/ui-consumption/clinical-ui-consumption.ts`
+- `src/lib/clinical-runtime/ui-consumption/index.ts`
+- `src/features/marketing/components/triage/TriageResultCard.tsx`
+- `src/features/marketing/components/urgencias/UrgenciasHero.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+- `src/lib/clinical-runtime/ui-adapter/clinical-ui-adapter-types.ts` (auditado)
+- `src/lib/clinical-runtime/application/clinical-runtime-service.ts` (auditado)
+
+### Supuestos prohibidos
+- No volver a introducir mappers locales de CTA visible en cada componente nuevo.
+- No usar esta capa como sustituto de adaptación visual completa.
+- No expandir el wiring masivo antes de estabilizar este patrón en más de una superficie adicional.
