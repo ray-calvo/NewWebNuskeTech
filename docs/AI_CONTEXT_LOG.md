@@ -4724,3 +4724,37 @@
 - No convertir este ajuste en un rediseño completo de header.
 - No abrir todavía una lógica avanzada de viewport-aware layout.
 - No rehacer componentes solo por homogeneidad cosmética.
+
+## Entrada 2026-03-24 18:52:00 -06:00
+
+### Tipo
+- Correccion de scroll inicial en layout marketing
+
+### Resumen ejecutivo
+- Tras compactar spacing y stack superior, persistía la percepción de entrar a varias páginas ligeramente por debajo del borde superior.
+- Se trató como problema de navegación/scroll restoration y no solo de composición vertical.
+- Se agregó un reset explícito de scroll en el layout marketing para que cada cambio de ruta abra desde `top: 0`.
+
+### Diagnóstico breve
+- El síntoma ya no correspondía solo a altura visible del primer fold.
+- La repetición en múltiples rutas apuntaba a conservación parcial de scroll durante navegación dentro del App Router.
+- La presencia de `scroll-smooth` global podía volver más notorio ese desplazamiento residual.
+
+### Ajuste aplicado
+- Se creó `RouteScrollReset` como componente cliente pequeño y aislado.
+- Vive en el layout de marketing y observa:
+  - `pathname`
+  - `searchParams`
+- En cada cambio:
+  - fuerza temporalmente `scrollBehavior = auto`
+  - ejecuta `window.scrollTo(0, 0)`
+  - restaura el comportamiento previo al siguiente frame
+
+### Archivos tocados
+- `src/components/shared/route-scroll-reset.tsx`
+- `src/app/(marketing)/layout.tsx`
+- `docs/AI_CONTEXT_LOG.md`
+
+### Supuestos prohibidos
+- No acoplar este fix a componentes de página individuales.
+- No convertir el problema en un refactor de router o navegación mientras el reset global de layout sea suficiente.

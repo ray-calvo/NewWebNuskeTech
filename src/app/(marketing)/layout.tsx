@@ -1,5 +1,6 @@
 import { Footer } from "@/components/shared/footer";
 import { Navbar } from "@/components/shared/navbar";
+import { RouteScrollReset } from "@/components/shared/route-scroll-reset";
 import { UrgencyBanner } from "@/components/shared/urgency-banner";
 import { WhatsAppFloat } from "@/components/shared/WhatsAppFloat";
 
@@ -10,6 +11,7 @@ export default function MarketingLayout({
 }>) {
   return (
     <div className="flex min-h-screen flex-col">
+      <RouteScrollReset />
       <UrgencyBanner />
       <Navbar />
       <main className="flex-1">{children}</main>
