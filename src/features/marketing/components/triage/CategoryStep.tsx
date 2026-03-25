@@ -38,7 +38,7 @@ export function CategoryStep({
       <CardHeader className="space-y-3">
         <Badge variant="secondary">Paso 2 de 4</Badge>
         <CardTitle className="text-2xl font-semibold text-slate-950">
-          ¿Qué tipo de problema se parece más a lo que estás viendo?
+          ¿Qué tipo de problema se parece más a lo que le está pasando a tu mascota?
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -79,7 +79,7 @@ export function CategoryStep({
               Regresar
             </Button>
             <Button type="button" variant="ghost" onClick={onReset}>
-              Reiniciar
+              Volver a empezar
             </Button>
           </div>
           <Button

@@ -22,27 +22,27 @@ export const triageCategories: readonly {
   {
     value: "general",
     label: "General",
-    description: "Cambios generales de ánimo, energía o bienestar.",
+    description: "Cambios en su ánimo, energía o estado general.",
   },
   {
     value: "digestive",
     label: "Digestivo",
-    description: "Vómito, diarrea, abdomen inflamado o malestar digestivo.",
+    description: "Vómito, diarrea, abdomen inflamado o malestar estomacal.",
   },
   {
     value: "respiratory",
     label: "Respiratorio",
-    description: "Tos, dificultad para respirar o respiración anormal.",
+    description: "Tos, respiración agitada o dificultad para respirar.",
   },
   {
     value: "neurological",
     label: "Neurológico",
-    description: "Convulsiones, desorientación o problemas para moverse.",
+    description: "Convulsiones, desorientación o dificultad para moverse.",
   },
   {
     value: "urinary",
     label: "Urinario",
-    description: "Dificultad para orinar, dolor o cambios urinarios visibles.",
+    description: "Dificultad para orinar, dolor o cambios visibles en la orina.",
   },
   {
     value: "trauma",
@@ -52,12 +52,12 @@ export const triageCategories: readonly {
   {
     value: "eyes-skin",
     label: "Ojos / piel",
-    description: "Lesiones o molestias visibles en ojos, piel o cara.",
+    description: "Molestias, lesiones o cambios visibles en ojos, piel o cara.",
   },
   {
     value: "reproductive",
     label: "Reproductivo",
-    description: "Problemas durante gestación, parto o secreciones anormales.",
+    description: "Problemas durante el embarazo, el parto o secreciones anormales.",
   },
 ] as const;
 
@@ -65,7 +65,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "difficulty-breathing",
     label: "Dificultad para respirar",
-    description: "Respira con esfuerzo, muy rápido o parece faltarle el aire.",
+    description:
+      "Respira con esfuerzo, muy rápido o se nota que le cuesta trabajo respirar.",
     species: ["dog", "cat", "exotic"],
     categories: ["respiratory", "general"],
     score: 10,
@@ -74,7 +75,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "open-mouth-breathing",
     label: "Respiración con boca abierta",
-    description: "Respira con la boca abierta sin estar haciendo ejercicio.",
+    description:
+      "Respira con la boca abierta sin haber hecho ejercicio o sin una causa clara.",
     species: ["dog", "cat", "exotic"],
     categories: ["respiratory"],
     score: 10,
@@ -83,7 +85,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "purple-gums",
     label: "Encías moradas o muy azuladas",
-    description: "Las encías se ven moradas, azuladas o muy oscuras.",
+    description:
+      "Las encías se ven moradas, azuladas o mucho más oscuras de lo normal.",
     species: ["dog", "cat", "exotic"],
     categories: ["respiratory", "general"],
     score: 10,
@@ -92,7 +95,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "seizures",
     label: "Convulsiones",
-    description: "Tiene sacudidas involuntarias o episodios repentinos.",
+    description:
+      "Tiene movimientos involuntarios, sacudidas o episodios repentinos.",
     species: ["dog", "cat", "exotic"],
     categories: ["neurological"],
     score: 10,
@@ -101,7 +105,7 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "unconscious",
     label: "Está inconsciente o no responde",
-    description: "No reacciona o parece desvanecido.",
+    description: "No responde, no reacciona o parece desmayado.",
     species: ["dog", "cat", "exotic"],
     categories: ["general", "neurological", "trauma"],
     score: 10,
@@ -110,7 +114,7 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "heavy-bleeding",
     label: "Sangrado abundante",
-    description: "La sangre sale en cantidad o no se detiene.",
+    description: "La sangre sale en gran cantidad o no se detiene.",
     species: ["dog", "cat", "exotic"],
     categories: ["trauma", "reproductive"],
     score: 10,
@@ -119,7 +123,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "cannot-urinate",
     label: "No puede orinar",
-    description: "Hace esfuerzo, llora o intenta orinar sin lograrlo.",
+    description:
+      "Hace esfuerzo, se queja o intenta orinar varias veces sin lograrlo.",
     species: ["dog", "cat", "exotic"],
     categories: ["urinary"],
     score: 10,
@@ -128,7 +133,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "hit-by-car",
     label: "Fue atropellado o sufrió un golpe fuerte",
-    description: "Tuvo un accidente importante o un golpe severo.",
+    description:
+      "Tuvo un accidente importante, una caída fuerte o un golpe severo.",
     species: ["dog", "cat", "exotic"],
     categories: ["trauma", "general"],
     score: 10,
@@ -137,7 +143,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "painful-bloated-abdomen",
     label: "Abdomen muy distendido con dolor",
-    description: "El abdomen se ve muy inflamado y le molesta al tocarlo.",
+    description:
+      "Su abdomen se ve muy inflamado y muestra dolor al tocarlo.",
     species: ["dog", "cat", "exotic"],
     categories: ["digestive", "general"],
     score: 10,
@@ -146,7 +153,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "protruding-eye",
     label: "Ojo salido o muy desplazado",
-    description: "El ojo parece fuera de su lugar o muy expuesto.",
+    description:
+      "El ojo parece fuera de su lugar, muy expuesto o muy inflamado.",
     species: ["dog", "cat", "exotic"],
     categories: ["eyes-skin"],
     score: 10,
@@ -163,7 +171,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "continuous-diarrhea",
     label: "Diarrea continua",
-    description: "Tiene evacuaciones muy frecuentes o muy líquidas.",
+    description:
+      "Tiene evacuaciones muy frecuentes, muy líquidas o no mejora.",
     species: ["dog", "cat", "exotic"],
     categories: ["digestive"],
     score: 3,
@@ -171,7 +180,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "won't-eat",
     label: "No quiere comer",
-    description: "Rechaza su alimento o perdió el apetito.",
+    description:
+      "Rechaza su alimento o ha perdido el apetito de forma evidente.",
     species: ["dog", "cat", "exotic"],
     categories: ["general", "digestive"],
     score: 2,
@@ -179,7 +189,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "very-tired",
     label: "Se ve muy decaído",
-    description: "Tiene menos energía de lo normal o se ve muy apagado.",
+    description:
+      "Tiene mucha menos energía de lo normal o se ve muy apagado.",
     species: ["dog", "cat", "exotic"],
     categories: ["general"],
     score: 2,
@@ -187,7 +198,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "coughing",
     label: "Tose con frecuencia",
-    description: "Tiene tos repetida o le cuesta recuperarse después de toser.",
+    description:
+      "Tiene tos repetida o tarda en recuperarse después de toser.",
     species: ["dog", "cat", "exotic"],
     categories: ["respiratory"],
     score: 3,
@@ -195,7 +207,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "nasal-discharge",
     label: "Tiene moco o secreción nasal",
-    description: "Sale secreción por la nariz o respira raro.",
+    description:
+      "Tiene secreción por la nariz o su respiración se ve o se escucha diferente a lo normal.",
     species: ["dog", "cat", "exotic"],
     categories: ["respiratory"],
     score: 2,
@@ -203,7 +216,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "disoriented",
     label: "Está desorientado o camina raro",
-    description: "Se tambalea, parece confundido o pierde equilibrio.",
+    description:
+      "Se tambalea, parece confundido o pierde el equilibrio.",
     species: ["dog", "cat", "exotic"],
     categories: ["neurological", "general"],
     score: 4,
@@ -211,7 +225,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "pain-when-urinating",
     label: "Le duele al orinar",
-    description: "Hace esfuerzo, se queja o tarda mucho para orinar.",
+    description:
+      "Hace esfuerzo, se queja o tarda mucho tiempo para orinar.",
     species: ["dog", "cat", "exotic"],
     categories: ["urinary"],
     score: 4,
@@ -219,7 +234,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "limping-or-pain",
     label: "Cojea o muestra dolor evidente",
-    description: "Le cuesta caminar o evita apoyarse.",
+    description:
+      "Le cuesta caminar, evita apoyarse o se queja al moverse.",
     species: ["dog", "cat", "exotic"],
     categories: ["trauma", "general"],
     score: 3,
@@ -227,7 +243,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "wound-or-swelling",
     label: "Tiene herida o inflamación visible",
-    description: "Hay una lesión abierta o una zona muy inflamada.",
+    description:
+      "Hay una lesión abierta o una zona muy inflamada.",
     species: ["dog", "cat", "exotic"],
     categories: ["trauma", "eyes-skin"],
     score: 3,
@@ -235,7 +252,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "red-painful-eye",
     label: "Ojo rojo o muy doloroso",
-    description: "No quiere abrir el ojo o le molesta la luz.",
+    description:
+      "No quiere abrir el ojo, se lo talla o le molesta la luz.",
     species: ["dog", "cat", "exotic"],
     categories: ["eyes-skin"],
     score: 4,
@@ -243,7 +261,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "intense-itching",
     label: "Comezón intensa o piel muy irritada",
-    description: "Se rasca mucho o la piel se ve muy enrojecida.",
+    description:
+      "Se rasca mucho o la piel se ve muy roja e irritada.",
     species: ["dog", "cat", "exotic"],
     categories: ["eyes-skin"],
     score: 2,
@@ -251,7 +270,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "pregnancy-labor-problem",
     label: "Problema durante embarazo o parto",
-    description: "Tiene contracciones sin avance, dolor o sangrado preocupante.",
+    description:
+      "Tiene contracciones sin que avance el parto, dolor o sangrado que preocupa.",
     species: ["dog", "cat", "exotic"],
     categories: ["reproductive"],
     score: 5,
@@ -259,7 +279,8 @@ export const triageSymptoms: readonly TriageSymptom[] = [
   {
     id: "abnormal-discharge",
     label: "Secreción anormal",
-    description: "Tiene flujo con mal olor, sangre o aspecto preocupante.",
+    description:
+      "Tiene una secreción con mal olor, sangre o un aspecto inusual.",
     species: ["dog", "cat", "exotic"],
     categories: ["reproductive", "urinary"],
     score: 3,
@@ -276,25 +297,29 @@ export const triageModifiers: readonly TriageModifier[] = [
   {
     id: "getting-worse-fast",
     label: "Está empeorando rápido",
-    description: "Los signos se están intensificando en poco tiempo.",
+    description:
+      "Lo que tiene se está agravando en poco tiempo.",
     score: 2,
   },
   {
     id: "intense-pain",
-    label: "Parece tener dolor intenso",
-    description: "Llora, jadea, se queja o no se deja tocar.",
+    label: "Parece tener mucho dolor",
+    description:
+      "Llora, jadea, se queja o no se deja tocar.",
     score: 2,
   },
   {
     id: "cannot-eat-drink",
-    label: "No puede comer o tomar agua",
-    description: "No logra comer, beber o lo rechaza por completo.",
+    label: "No puede comer ni tomar agua",
+    description:
+      "No logra comer, beber o rechaza todo por completo.",
     score: 2,
   },
   {
     id: "very-young-or-old",
-    label: "Es muy pequeño o de edad avanzada",
-    description: "Cachorro, gatito, ejemplar muy joven o geriátrico.",
+    label: "Es muy pequeño o ya es mayor",
+    description:
+      "Es cachorro, gatito o una mascota de edad avanzada.",
     score: 1,
   },
 ] as const;

@@ -5147,3 +5147,37 @@
 - No se alteró navegación.
 - No se crearon componentes nuevos.
 - No se modificó la arquitectura del HOME.
+
+## Entrada 2026-03-25 02:46:00 -06:00
+
+### Tipo
+- Afinación editorial del triage clínico
+
+### Resumen ejecutivo
+- Se suavizó y aclaró el lenguaje del flujo de triage para que suene más comprensible para dueños de mascotas en estrés.
+- Se ajustaron encabezados, ayudas, CTAs y etiquetas sin modificar la lógica clínica de fondo ni el scoring de severidad.
+- La página de triage ahora se presenta más como orientación inicial útil y menos como formulario técnico.
+
+### Decisiones clave
+- Se mantuvo intacta la estructura del wizard:
+  - species
+  - category
+  - symptoms
+  - modifiers
+  - result
+- `score-triage.ts` solo recibió microcopy en razones y labels de CTA; no cambió la lógica de cálculo.
+- `triage-data.ts` fue reescrito para hacer síntomas, categorías y modifiers más claros y reconocibles para usuario final.
+- `TriageIntro` y `TriageResultCard` se ajustaron para bajar tono institucional y reforzar orientación clínica prudente.
+
+### Resultado narrativo
+- El triage ahora comunica mejor:
+  - qué observar
+  - cuándo actuar de inmediato
+  - cuándo buscar atención hoy mismo
+  - cuándo agendar una revisión con más calma
+
+### Supuestos protegidos
+- No se cambió runtime clínico.
+- No se cambió navegación.
+- No se alteró la secuencia del flujo.
+- No se modificó el modelo de severidad más allá del wording visible.

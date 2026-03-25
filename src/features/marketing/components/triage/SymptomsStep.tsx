@@ -28,14 +28,14 @@ export function SymptomsStep({
       <CardHeader className="space-y-3">
         <Badge variant="secondary">Paso 3 de 4</Badge>
         <CardTitle className="text-2xl font-semibold text-slate-950">
-          Selecciona los síntomas que mejor describen a tu mascota.
+          Selecciona los síntomas que mejor describen lo que le está pasando a tu mascota.
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         <p className="text-sm leading-7 text-slate-600">
-          Puedes elegir más de uno. El resultado final se basa en la combinación
-          de síntomas y factores agravantes. Si no encuentras una opción exacta,
-          elige la más parecida.
+          Puedes elegir más de uno. El resultado se basa en la combinación de los
+          síntomas que marques y en qué tan preocupante parece la situación. Si no
+          encuentras una opción exacta, elige la más parecida.
         </p>
 
         {symptoms.length > 0 ? (
@@ -83,9 +83,8 @@ export function SymptomsStep({
           </div>
         ) : (
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm leading-7 text-slate-600">
-            No encontramos síntomas cargados para esta combinación dentro del
-            MVP actual. Puedes regresar y elegir una categoría más cercana o
-            buscar orientación directa por contacto.
+            No encontramos síntomas para esta combinación. Puedes regresar y elegir
+            la opción más cercana, o pedir ayuda directa para orientarte.
           </div>
         )}
 
@@ -95,7 +94,7 @@ export function SymptomsStep({
               Regresar
             </Button>
             <Button type="button" variant="ghost" onClick={onReset}>
-              Reiniciar
+              Volver a empezar
             </Button>
           </div>
           <Button

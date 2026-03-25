@@ -19,23 +19,23 @@ type TriageResultCardProps = {
 const levelCopy = {
   emergency: {
     badge: "Emergencia",
-    title: "Lo más prudente es buscar atención inmediata.",
+    title: "Tu mascota necesita atención inmediata.",
     description:
-      "Según este flujo, hay señales que justifican priorizar urgencias y contacto inmediato.",
+      "Lo que marcaste puede indicar una situación grave. Lo más recomendable es acudir a urgencias lo antes posible.",
     variant: "destructive" as const,
   },
   urgent: {
     badge: "Urgencia",
-    title: "Conviene buscar atención el mismo día.",
+    title: "Lo mejor es que tu mascota sea revisada hoy mismo.",
     description:
-      "Según este flujo, no parece conveniente posponer la valoración sin orientación clínica.",
+      "Hay señales que no conviene dejar pasar. Lo recomendable es buscar atención veterinaria el mismo día.",
     variant: "secondary" as const,
   },
   consult: {
     badge: "Consulta",
-    title: "Conviene programar una valoración.",
+    title: "Conviene agendar una revisión veterinaria.",
     description:
-      "En este flujo no se marcaron señales críticas, pero sí conviene una valoración veterinaria para orientar el siguiente paso.",
+      "No se marcaron señales de alarma inmediatas, pero sí es recomendable que un médico veterinario revise a tu mascota para orientarte con seguridad.",
     variant: "default" as const,
   },
 };
@@ -116,7 +116,7 @@ export function TriageResultCard({
       <CardContent className="space-y-6">
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-            Señales y factores considerados
+            Lo que observamos en tus respuestas
           </p>
           <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
             {result.reasons.map((reason) => (
@@ -127,13 +127,12 @@ export function TriageResultCard({
 
         <div className="rounded-2xl border border-primary/10 bg-primary/5 p-5">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-            Aviso legal breve
+            Importante
           </p>
           <p className="mt-3 text-sm leading-7 text-slate-600">
-            Este triage es una herramienta de orientación inicial y no sustituye
-            la valoración médica veterinaria. No confirma diagnósticos. Si tu
-            mascota empeora o presenta signos graves, acude de inmediato a
-            urgencias.
+            Este triage solo brinda una orientación inicial. No reemplaza la revisión
+            de un médico veterinario ni confirma diagnósticos. Si tu mascota empeora
+            o presenta signos graves, acude de inmediato a urgencias.
           </p>
         </div>
 
@@ -157,11 +156,11 @@ export function TriageResultCard({
               Regresar
             </Button>
             <Button type="button" variant="ghost" onClick={onReset}>
-              Reiniciar
+              Volver a empezar
             </Button>
           </div>
           <p className="text-sm leading-7 text-slate-500">
-            Referencia interna del flujo: {result.totalScore}
+            Folio de referencia: {result.totalScore}
           </p>
         </div>
       </CardContent>

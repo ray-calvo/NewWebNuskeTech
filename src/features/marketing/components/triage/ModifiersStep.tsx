@@ -26,13 +26,13 @@ export function ModifiersStep({
       <CardHeader className="space-y-3">
         <Badge variant="secondary">Paso 4 de 4</Badge>
         <CardTitle className="text-2xl font-semibold text-slate-950">
-          ¿Hay factores que hagan este caso más urgente?
+          ¿Hay algo que haga este caso más delicado o más urgente?
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         <p className="text-sm leading-7 text-slate-600">
-          Este paso es opcional, pero ayuda a ajustar la prioridad si el cuadro
-          está empeorando o si tu mascota está en una condición más sensible.
+          Este paso es opcional, pero nos ayuda a entender mejor qué tan pronto
+          conviene que tu mascota sea revisada.
         </p>
 
         <div className="grid gap-4 md:grid-cols-2">
@@ -84,7 +84,7 @@ export function ModifiersStep({
               Regresar
             </Button>
             <Button type="button" variant="ghost" onClick={onReset}>
-              Reiniciar
+              Volver a empezar
             </Button>
           </div>
           <Button
@@ -93,7 +93,7 @@ export function ModifiersStep({
             className="h-11 rounded-2xl bg-primary px-6 text-primary-foreground hover:bg-secondary"
             onClick={onComplete}
           >
-            Revisar resultado
+            Ver resultado
           </Button>
         </div>
       </CardContent>

@@ -16,17 +16,17 @@ type ScoreTriageInput = {
 };
 
 const emergencyPrimaryCta: TriageCta = {
-  label: "Buscar urgencias ahora",
+  label: "Ir a urgencias ahora",
   href: "/contacto",
 };
 
 const emergencySecondaryCta: TriageCta = {
-  label: "WhatsApp",
+  label: "Pedir ayuda por WhatsApp",
   href: "https://wa.me/524433369624",
 };
 
 const urgentPrimaryCta: TriageCta = {
-  label: "Solicitar atención hoy",
+  label: "Buscar atención hoy mismo",
   href: "/contacto",
 };
 
@@ -36,7 +36,7 @@ const urgentSecondaryCta: TriageCta = {
 };
 
 const consultPrimaryCta: TriageCta = {
-  label: "Agendar valoración",
+  label: "Agendar revisión",
   href: "/contacto",
 };
 
@@ -78,12 +78,12 @@ function buildReasons(
   const reasons = symptoms.map((symptom) => symptom.label);
 
   if (emergencyOverrideTriggered) {
-    return ["Se detectó un signo crítico que requiere atención inmediata.", ...reasons];
+    return ["Se detectó un signo de alarma que requiere atención inmediata.", ...reasons];
   }
 
   return [
     ...reasons,
-    ...modifiers.map((modifier) => `Factor agravante: ${modifier.label}`),
+    ...modifiers.map((modifier) => `También marcaste: ${modifier.label}`),
   ];
 }
 

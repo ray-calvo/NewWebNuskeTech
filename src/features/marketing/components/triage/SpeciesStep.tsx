@@ -31,7 +31,7 @@ export function SpeciesStep({
       <CardHeader className="space-y-3">
         <Badge variant="secondary">Paso 1 de 4</Badge>
         <CardTitle className="text-2xl font-semibold text-slate-950">
-          ¿Qué tipo de mascota necesitas evaluar?
+          ¿Qué tipo de mascota quieres evaluar?
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -59,7 +59,7 @@ export function SpeciesStep({
                   {species.label}
                 </p>
                 <p className="mt-2 text-sm leading-7 text-slate-600">
-                  Esto ayuda a mostrar opciones más cercanas a tu caso.
+                  Esto nos ayuda a mostrar síntomas más cercanos a lo que puede estar pasando.
                 </p>
               </button>
             );
@@ -68,7 +68,7 @@ export function SpeciesStep({
 
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
           <Button type="button" variant="ghost" onClick={onReset}>
-            Reiniciar
+            Volver a empezar
           </Button>
           <Button
             type="button"
