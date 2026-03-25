@@ -25,7 +25,7 @@ export function OncologiaHero({ clinicalUiModel }: OncologiaHeroProps) {
     : null;
   const primaryAction = runtimeConsumption?.primaryCta ?? {
     href: oncologyWhatsAppHref,
-    label: "Solicitar valoración",
+    label: "Pedir orientación oncológica",
     kind: "specialized-valuation-request",
     isExternal: true,
   };
@@ -45,19 +45,19 @@ export function OncologiaHero({ clinicalUiModel }: OncologiaHeroProps) {
               <Badge variant="secondary">Oncología y casos complejos</Badge>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                Evaluar, decidir y acompañar mejor
+                Estudiar mejor, decidir mejor y acompañar mejor
               </div>
             </div>
 
             <div className="max-w-4xl space-y-4">
               <h1 className="text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-6xl lg:leading-[0.98]">
-                Oncología Clínica y Seguimiento de Casos Complejos
+                Oncología veterinaria para pacientes que necesitan una valoración más clara y seguimiento cercano
               </h1>
               <p className="text-lg leading-8 text-slate-600">
-                La oncología no empieza ni termina en un tratamiento. Empieza
-                por valorar bien qué está pasando, qué estudios hacen falta y
-                cómo acompañar al paciente con una ruta clínica más clara y
-                menos improvisada.
+                Cuando aparece una masa, un cambio que sigue avanzando o un hallazgo
+                que preocupa, lo importante es entender mejor qué está pasando y
+                decidir qué sigue para tu mascota con más claridad y menos
+                improvisación.
               </p>
             </div>
 
@@ -121,22 +121,21 @@ export function OncologiaHero({ clinicalUiModel }: OncologiaHeroProps) {
 
             <section className="rounded-[1.6rem] border border-primary/10 bg-primary p-5 text-white shadow-[0_20px_60px_-36px_rgba(15,23,42,0.5)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Cuándo priorizar urgencias
+                Cuándo ir por urgencias primero
               </p>
               <p className="mt-3 text-lg font-semibold text-white">
-                Si el paciente está descompensado, con dificultad para respirar,
-                sangrado importante o deterioro agudo, primero hay que
-                estabilizar.
+                Si tu mascota está descompensada, le cuesta respirar, tiene un
+                sangrado importante o empeora rápido, primero necesita atención de urgencias.
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Esta página orienta la valoración oncológica. Cuando el cuadro
-                ya compromete al paciente, la entrada correcta sigue siendo
-                urgencias y después se decide la ruta diagnóstica, quirúrgica o
-                de seguimiento.
+                Esta página orienta la valoración oncológica. Cuando el estado del
+                paciente ya es delicado, lo correcto es estabilizar primero y
+                después decidir si necesita estudios, cirugía, hospitalización o
+                seguimiento más cercano.
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
                 <HeartPulse aria-hidden={true} className="h-4 w-4" />
-                Soporte oportuno si el paciente ya está inestable
+                Atención oportuna si el paciente ya está inestable
               </div>
             </section>
           </div>

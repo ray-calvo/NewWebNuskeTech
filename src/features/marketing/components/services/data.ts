@@ -13,21 +13,21 @@ import type { ServiceCategoryBlock } from "@/features/marketing/components/servi
 
 export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
   {
-    badge: "Núcleo hospitalario",
-    title: "Rutas clínicas principales del hospital",
+    badge: "Servicios principales",
+    title: "Las áreas que más ayudan cuando tu mascota necesita atención médica",
     description:
-      "Si tu mascota necesita atención hoy, estas son las rutas clínicas que ya están publicadas y mejor explican cada tipo de decisión.",
+      "Si hoy estás buscando ayuda para tu mascota, aquí están los servicios principales del hospital y el tipo de casos en los que pueden orientarte mejor.",
     services: [
       {
         title: "Urgencias",
-        category: "Núcleo hospitalario",
+        category: "Servicios principales",
         description:
-          "Es la entrada correcta cuando hay dolor intenso, trauma, dificultad para respirar, descompensación o cualquier cambio que no puede esperar.",
+          "Es la mejor opción cuando hay dolor intenso, trauma, dificultad para respirar, descompensación o cualquier cambio que no puede esperar.",
         icon: HeartPulse,
         bullets: [
           "Actuar sin perder tiempo",
-          "Estabilizar y priorizar lo más urgente",
-          "Definir rápido si hace falta diagnóstico o cirugía",
+          "Atender primero lo más grave",
+          "Definir rápido si hacen falta estudios o cirugía",
         ],
         href: "/urgencias",
         ctaLabel: "Ir a urgencias",
@@ -35,14 +35,14 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
       },
       {
         title: "Cirugía",
-        category: "Núcleo hospitalario",
+        category: "Servicios principales",
         description:
-          "Conviene cuando el caso puede necesitar intervención, hay que decidir si operar y se requiere una ruta segura antes, durante y después del procedimiento.",
+          "Ayuda cuando tu mascota podría necesitar un procedimiento y hace falta decidir si conviene operar, cómo prepararla y cómo acompañar su recuperación.",
         icon: Syringe,
         bullets: [
-          "Valorar si operar cambia el pronóstico",
-          "Planear la intervención con menos riesgo",
-          "Dar continuidad al postoperatorio",
+          "Valorar si la cirugía es la mejor opción",
+          "Planear el procedimiento con más seguridad",
+          "Dar seguimiento después de operar",
         ],
         href: "/cirugia",
         ctaLabel: "Ver cirugía",
@@ -50,14 +50,14 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
       },
       {
         title: "Diagnóstico",
-        category: "Núcleo hospitalario",
+        category: "Servicios principales",
         description:
-          "Ayuda cuando todavía no está claro qué está causando el problema y hace falta decidir con más certeza qué sigue para el paciente.",
+          "Ayuda cuando todavía no está claro qué está causando el problema y hacen falta más estudios para decidir mejor qué sigue.",
         icon: ScanSearch,
         bullets: [
-          "Aclarar el cuadro antes de intervenir",
-          "Reducir incertidumbre clínica",
-          "Acelerar la siguiente decisión útil",
+          "Entender mejor lo que está pasando",
+          "Reducir dudas antes de decidir",
+          "Elegir con más claridad el siguiente paso",
         ],
         href: "/diagnostico",
         ctaLabel: "Ver diagnóstico",
@@ -65,14 +65,14 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
       },
       {
         title: "Endoscopía",
-        category: "Núcleo hospitalario",
+        category: "Servicios principales",
         description:
-          "Sirve cuando una vía mínimamente invasiva puede ayudar a observar, confirmar o incluso resolver sin pasar de entrada a una cirugía abierta.",
+          "Puede ayudar cuando una opción menos invasiva permite observar mejor, confirmar el problema o incluso resolverlo sin empezar por una cirugía abierta.",
         icon: Waves,
         bullets: [
-          "Valorar si la mínima invasión aplica",
+          "Valorar si una opción menos invasiva puede ayudar",
           "Evitar abrir cuando no hace falta",
-          "Tomar una mejor decisión terapéutica",
+          "Decidir mejor qué conviene hacer después",
         ],
         href: "/endoscopia",
         ctaLabel: "Ver endoscopía",
@@ -81,21 +81,21 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
     ],
   },
   {
-    badge: "Continuidad clínica",
-    title: "Prevención y seguimiento con criterio clínico",
+    badge: "Prevención y seguimiento",
+    title: "Atención para cuidar, revisar y detectar a tiempo",
     description:
-      "No todo empieza en una urgencia. Cuando todavía hay margen para anticiparse, esta ruta ayuda a vigilar, ajustar y reducir complicaciones evitables.",
+      "No todo empieza en una urgencia. Cuando todavía hay margen para anticiparse, esta parte ayuda a dar seguimiento y reducir problemas que podrían complicarse después.",
     services: [
       {
         title: "Prevención",
-        category: "Continuidad clínica",
+        category: "Prevención y seguimiento",
         description:
-          "Reúne revisiones, vacunas, desparasitación y seguimiento oportuno dentro de una misma decisión de cuidado anticipado.",
+          "Incluye revisiones, vacunas, desparasitación y seguimiento oportuno para cuidar mejor a tu mascota antes de que aparezcan problemas mayores.",
         icon: ClipboardCheck,
         bullets: [
-          "Detectar antes de que el problema escale",
-          "Acompañar pacientes sanos o con riesgo",
-          "Reducir urgencias evitables",
+          "Detectar cambios antes de que avancen",
+          "Dar seguimiento a pacientes sanos o con riesgo",
+          "Reducir urgencias que pueden prevenirse",
         ],
         href: "/prevencion",
         ctaLabel: "Ver prevención",
@@ -104,21 +104,21 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
     ],
   },
   {
-    badge: "Rutas clínicas complementarias",
-    title: "Capacidades ya publicadas que amplían la lectura clínica del hospital",
+    badge: "Servicios complementarios",
+    title: "Áreas que amplían la atención del hospital",
     description:
-      "Estas rutas ya están abiertas y aportan valor clínico propio, sin desplazar el papel central de urgencias, cirugía, diagnóstico y endoscopía.",
+      "Estos servicios ya están disponibles y ayudan en casos que necesitan una valoración más específica, sin perder de vista las áreas centrales del hospital.",
     services: [
       {
         title: "Exóticos",
-        category: "Ruta clínica complementaria",
+        category: "Servicio complementario",
         description:
-          "Ruta para aves, reptiles y pequeños mamíferos que necesitan valoración médica adaptada por especie y decisiones clínicas con otra lectura.",
+          "Atención para aves, reptiles y pequeños mamíferos que necesitan una revisión adaptada a su especie y a la forma en que presentan la enfermedad.",
         icon: Bird,
         bullets: [
           "Valorar señales que cambian según la especie",
-          "Decidir diagnóstico, soporte o seguimiento con menos demora",
-          "Sostener una capacidad reputacional ya publicada",
+          "Decidir estudios, soporte o seguimiento con menos demora",
+          "Atender pacientes que necesitan otra lectura médica",
         ],
         href: "/exoticos",
         ctaLabel: "Ver exóticos",
@@ -126,14 +126,14 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
       },
       {
         title: "Oncología",
-        category: "Ruta clínica complementaria",
+        category: "Servicio complementario",
         description:
-          "Ruta para pacientes con sospecha o diagnóstico oncológico que necesitan estudiar mejor el caso, ordenar decisiones y dar continuidad clínica.",
+          "Ayuda cuando hay sospecha o diagnóstico de cáncer y hace falta estudiar mejor el caso, ordenar prioridades y dar seguimiento con más claridad.",
         icon: Stethoscope,
         bullets: [
-          "Valorar masas, cambios progresivos o hallazgos persistentes",
-          "Coordinar diagnóstico, cirugía, hospitalización o seguimiento",
-          "Acompañar casos complejos sin perder la claridad de la ruta",
+          "Valorar masas o cambios que avanzan con el tiempo",
+          "Coordinar estudios, cirugía u hospitalización si hace falta",
+          "Dar continuidad a casos complejos",
         ],
         href: "/oncologia",
         ctaLabel: "Ver oncología",
@@ -141,14 +141,14 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
       },
       {
         title: "Medicina interna",
-        category: "Ruta clínica complementaria",
+        category: "Servicio complementario",
         description:
-          "Ruta para pacientes con signos persistentes, evolución incierta o cuadros complejos que necesitan integrar mejor estudios, contexto y seguimiento.",
+          "Ayuda en pacientes con signos persistentes, evolución incierta o cuadros complejos que necesitan integrar mejor síntomas, estudios y seguimiento.",
         icon: ScanSearch,
         bullets: [
-          "Ordenar mejor casos que no encajan en una sola etiqueta",
+          "Entender mejor casos que no son tan claros",
           "Integrar estudios, evolución y contexto clínico",
-          "Decidir si conviene seguir, escalar o cambiar de ruta",
+          "Decidir si conviene continuar, cambiar o escalar la atención",
         ],
         href: "/medicina-interna",
         ctaLabel: "Ver medicina interna",
@@ -157,21 +157,21 @@ export const capabilityBlocks: readonly ServiceCategoryBlock[] = [
     ],
   },
   {
-    badge: "Publicación posterior",
-    title: "Líneas clínicas y servicios que se abrirán más adelante",
+    badge: "Otros servicios",
+    title: "Líneas que no son el eje clínico principal de esta página",
     description:
-      "Estas áreas forman parte del desarrollo del sitio, pero hoy no deben distraer de las rutas clínicas ya publicadas.",
+      "Estas áreas también forman parte del hospital, pero aquí no ocupan el primer plano porque la prioridad es ayudarte a ubicar atención médica.",
     services: [
       {
-        title: "Comercial subordinado",
-        category: "Subordinado",
+        title: "Servicios complementarios no médicos",
+        category: "Otros servicios",
         description:
-          "Grooming, pensión y otras líneas comerciales existen, pero no deben marcar la lectura principal del recorrido clínico del sitio.",
+          "Grooming, pensión y otras líneas existen, pero esta página está enfocada primero en orientar la atención clínica de tu mascota.",
         icon: Activity,
         bullets: [
-          "No forman parte del núcleo clínico",
-          "No deben ocupar el primer plano del hub",
-          "Su exposición seguirá siendo controlada",
+          "No son el enfoque principal de esta sección",
+          "La prioridad aquí es la atención médica",
+          "Pueden consultarse después según lo que necesites",
         ],
         status: "subordinate",
       },

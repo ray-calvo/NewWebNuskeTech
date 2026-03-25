@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: "Exóticos",
   description:
-    "Valoración clínica, diagnóstico y manejo de aves, reptiles y pequeños mamíferos con criterio adaptado por especie en Nuskë Vet Center.",
+    "Atención veterinaria para aves, reptiles y pequeños mamíferos en Morelia con valoración clínica, diagnóstico y manejo adaptado por especie.",
 };
 
 export default function ExoticosPage() {
@@ -29,9 +29,9 @@ export default function ExoticosPage() {
       <ExoticosHero />
 
       <ClinicalSection
-        badge="Por qué estos pacientes requieren otra lectura"
-        title="En exóticos, esperar demasiado o valorar como si todas las especies fueran iguales puede cambiar el resultado"
-        description="Aves, reptiles y pequeños mamíferos suelen mostrar enfermedad de forma distinta y a veces más tarde. Por eso conviene valorar con criterios adaptados por especie antes de que el deterioro sea más difícil de revertir."
+        badge="Por qué estos pacientes necesitan otra valoración"
+        title="En pacientes exóticos, esperar demasiado o valorarlos como si fueran perros o gatos puede empeorar el caso"
+        description="Aves, reptiles y pequeños mamíferos suelen ocultar la enfermedad por más tiempo o mostrarla de forma distinta. Por eso conviene revisarlos con criterios adaptados a su especie antes de que el deterioro sea más difícil de revertir."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {exoticDecisionContexts.map((signal) => (
@@ -57,8 +57,8 @@ export default function ExoticosPage() {
 
       <ClinicalSection
         badge="Valoración, diagnóstico y manejo"
-        title="La atención médica para exóticos combina lectura clínica, entorno controlado y decisiones ajustadas al paciente"
-        description="No todos los casos necesitan lo mismo. Algunos requieren una valoración cuidadosa, otros estudios, observación más cercana, hospitalización o procedimientos para avanzar con seguridad."
+        title="La atención médica en exóticos requiere lectura clínica, manejo cuidadoso y decisiones adaptadas a cada paciente"
+        description="No todos los casos necesitan lo mismo. Algunos requieren una revisión cuidadosa; otros, estudios, observación más cercana, hospitalización o procedimientos para avanzar con mayor seguridad."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {exoticCapabilities.map((capability) => {
@@ -92,20 +92,20 @@ export default function ExoticosPage() {
                 Menor estrés y manejo más seguro
               </div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Diagnóstico, hospitalización y procedimientos se deciden según la especie y el estado real del paciente
+                Los estudios, la hospitalización y los procedimientos deben decidirse según la especie y el estado real del paciente
               </h2>
               <p className="text-base leading-8 text-slate-100">
                 En estos pacientes no conviene improvisar ni asumir que el
-                cuadro seguirá la misma lógica que en perros o gatos. El valor
-                está en explorar, estabilizar y decidir sin sumar estrés
-                innecesario.
+                problema seguirá la misma lógica que en perros o gatos. La
+                diferencia está en revisar, estabilizar y decidir sin sumar
+                estrés innecesario.
               </p>
               <ClinicalBulletGrid
                 items={[
-                  "Valorar primero qué tan estable llega el paciente",
-                  "Elegir estudios o soporte según la especie y el cuadro",
-                  "Hospitalizar si no es seguro continuar manejo en casa",
-                  "Escalar a urgencias cuando hay descompensación aguda",
+                  "Primero revisar qué tan estable llega el paciente",
+                  "Elegir estudios o soporte según la especie y el problema",
+                  "Hospitalizar cuando no es seguro seguir el manejo en casa",
+                  "Pasar a urgencias cuando hay una descompensación repentina",
                 ]}
                 tone="dark"
               />
@@ -147,9 +147,9 @@ export default function ExoticosPage() {
       </section>
 
       <ClinicalSection
-        badge="Diferenciadores hospitalarios"
-        title="Lo que cambia cuando estos pacientes se valoran con criterio propio"
-        description="En exóticos, una buena valoración no consiste en hacer más por hacer más. Consiste en interpretar mejor, reducir estrés evitable y decidir antes de que el paciente se agote."
+        badge="Lo que cambia cuando se valoran bien"
+        title="En exóticos, una buena valoración ayuda a interpretar mejor, reducir estrés y actuar a tiempo"
+        description="No se trata de hacer más por hacer más. Se trata de entender mejor el caso, evitar maniobras innecesarias y decidir antes de que el paciente se desgaste más."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {exoticDifferentiators.map((item) => {
@@ -182,9 +182,9 @@ export default function ExoticosPage() {
                 Cuando el paciente no es convencional, la valoración tampoco puede serlo
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                Esta página orienta hacia valoración clínica de pacientes
-                exóticos. Si el paciente ya está débil, con dificultad para
-                respirar o claramente inestable, la prioridad sigue siendo
+                Esta página orienta sobre la atención clínica para pacientes
+                exóticos. Si tu mascota ya está muy débil, tiene dificultad para
+                respirar o se ve claramente inestable, lo correcto es priorizar
                 urgencias.
               </p>
             </div>
@@ -195,8 +195,8 @@ export default function ExoticosPage() {
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
                 Si necesitas valorar a un ave, reptil o pequeño mamífero,
-                contacta al hospital. Si el paciente llega comprometido o con
-                descompensación aguda, prioriza urgencias.
+                comunícate con el hospital. Si el paciente llega comprometido o
+                se descompensa, la prioridad es urgencias.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">
@@ -206,7 +206,7 @@ export default function ExoticosPage() {
                   className="h-12 rounded-2xl bg-white px-6 text-primary hover:bg-white/92"
                 >
                   <a href={exoticWhatsAppHref} target="_blank" rel="noreferrer">
-                    Solicitar valoración
+                    Pedir orientación para exóticos
                   </a>
                 </Button>
                 <Button

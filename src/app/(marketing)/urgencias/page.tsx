@@ -23,7 +23,7 @@ import { resolveClinicalUiConsumptionForPage } from "@/lib/clinical-runtime/appl
 export const metadata: Metadata = {
   title: "Urgencias",
   description:
-    "Atención veterinaria inmediata para pacientes críticos, estabilización, hospitalización y respuesta hospitalaria 24/7 en Nuskë Vet Center.",
+    "Atención veterinaria de urgencias 24/7 en Morelia para pacientes graves, estabilización, hospitalización y respuesta inmediata en Nuskë Vet Center.",
 };
 
 export default function UrgenciasPage() {
@@ -36,9 +36,9 @@ export default function UrgenciasPage() {
       <UrgenciasHero clinicalUiModel={clinicalUiModel} />
 
       <ClinicalSection
-        badge="Cuándo acudir de inmediato"
-        title="Situaciones que requieren acción inmediata"
-        description="Si observas cualquiera de estas señales, no conviene esperar a una consulta programada. La prioridad es mover al paciente hacia valoración médica inmediata."
+        badge="Cuándo venir de inmediato"
+        title="Hay señales que no conviene vigilar en casa ni dejar para después"
+        description="Si notas cualquiera de estas situaciones, lo correcto es buscar atención inmediata. En una urgencia real, cada minuto puede hacer diferencia."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {immediateSignals.map((signal) => (
@@ -63,9 +63,9 @@ export default function UrgenciasPage() {
       </ClinicalSection>
 
       <ClinicalSection
-        badge="Paciente crítico"
-        title="Atención hospitalaria para estabilizar y sostener al paciente crítico"
-        description="La atención de urgencias no termina en la recepción. Algunos pacientes necesitan estabilización, monitoreo y una decisión clínica sostenida antes de definir el siguiente paso."
+        badge="Paciente grave o inestable"
+        title="Algunas mascotas necesitan más que una revisión rápida"
+        description="En urgencias, algunos pacientes necesitan estabilización, monitoreo y tratamiento antes de decidir si pueden ir a casa, quedarse hospitalizados o pasar a otro procedimiento."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {criticalCareCapabilities.map((capability) => {
@@ -99,19 +99,18 @@ export default function UrgenciasPage() {
                 Hospitalización y monitoreo continuo
               </div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Submódulo hospitalario para pacientes que necesitan quedarse bajo vigilancia
+                Cuando el paciente no se puede ir a casa, necesita quedarse bajo vigilancia
               </h2>
               <p className="text-base leading-8 text-slate-100">
-                No todos los pacientes críticos se resuelven en la primera
-                intervención. Algunos requieren observación, reevaluación,
-                control de dolor, terapia de soporte y seguimiento estrecho
-                antes de decidir alta, cirugía o siguiente intervención.
+                No todos los pacientes graves se resuelven al llegar. Algunos
+                necesitan observación cercana, control de dolor, terapia de
+                soporte y reevaluación antes de decidir el siguiente paso.
               </p>
               <ClinicalBulletGrid
                 items={[
                   "Observación clínica continua",
-                  "Reevaluación según evolución",
-                  "Menor fricción entre urgencias y tratamiento",
+                  "Reevaluación según cómo va respondiendo",
+                  "Menos cambios bruscos entre urgencias y tratamiento",
                   "Continuidad dentro del mismo entorno hospitalario",
                 ]}
                 tone="dark"
@@ -154,9 +153,9 @@ export default function UrgenciasPage() {
       </section>
 
       <ClinicalSection
-        badge="Diferenciadores hospitalarios"
-        title="Lo que cambia cuando el paciente recibe atención inmediata"
-        description="En una urgencia real, importa actuar a tiempo, priorizar bien y reducir el riesgo antes de que el cuadro se complique más."
+        badge="Lo que cambia en una urgencia real"
+        title="Actuar a tiempo puede cambiar por completo la evolución del caso"
+        description="En una urgencia, importa reconocer qué tan grave está el paciente, priorizar bien y empezar a actuar antes de que el problema avance más."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {differentiators.map((item) => {
@@ -186,12 +185,12 @@ export default function UrgenciasPage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-primary sm:text-4xl">
-                Si el cuadro parece urgente, reduce pasos y contacta al hospital de inmediato
+                Si crees que puede ser una urgencia, reduce pasos y contacta al hospital de inmediato
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                El objetivo de esta página es orientar a la acción correcta:
-                llamar, escribir, llegar o usar triage como apoyo secundario
-                cuando todavía no hay claridad.
+                Esta página está pensada para ayudarte a actuar rápido: llamar,
+                escribir, llegar al hospital o usar el triage solo como apoyo si
+                todavía no tienes claridad.
               </p>
               <div className="grid gap-4 md:grid-cols-3">
                 {finalActions.map((action) => {
@@ -221,9 +220,9 @@ export default function UrgenciasPage() {
                 Acción inmediata
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Si tu mascota tiene deterioro rápido, dificultad respiratoria,
-                trauma importante o dolor agudo intenso, prioriza contacto y
-                traslado.
+                Si tu mascota empeora rápido, tiene dificultad para respirar,
+                sufrió un golpe fuerte o muestra dolor intenso, prioriza contacto
+                y traslado lo antes posible.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">
@@ -245,7 +244,7 @@ export default function UrgenciasPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    WhatsApp inmediato
+                    Escribir por WhatsApp
                   </a>
                 </Button>
                 <Button

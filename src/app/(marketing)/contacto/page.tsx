@@ -7,12 +7,12 @@ import { ContactPreview } from "@/features/marketing/components/ContactPreview";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Contáctanos para agendar una cita, solicitar atención médica o ubicar Nuskë Vet Center en Camelinas, Morelia.",
+    "Contacta a Nuskë Vet Center para urgencias, citas, orientación y ubicación del hospital en Morelia.",
 };
 
 const fixedPhoneHref = "tel:+524433246136";
 const whatsappHref =
-  "https://wa.me/524433369624?text=Hola%20Nusk%C3%AB,%20quiero%20agendar%20una%20cita%20o%20recibir%20orientaci%C3%B3n.";
+  "https://wa.me/524433369624?text=Hola%20Nusk%C3%AB,%20necesito%20ayuda%20con%20mi%20mascota.";
 
 export default function ContactoPage() {
   return (
@@ -22,12 +22,12 @@ export default function ContactoPage() {
           <div className="max-w-4xl space-y-4">
             <Badge variant="secondary">Contacto Nuskë</Badge>
             <h1 className="text-4xl font-semibold tracking-[-0.04em] text-primary sm:text-5xl lg:text-6xl lg:leading-[1.02]">
-              Agenda una cita o recibe orientación inmediata para tu mascota.
+              Estamos aquí para ayudarte cuando tu mascota necesita atención.
             </h1>
             <p className="text-lg leading-8 text-slate-600">
-              Si necesitas atención médica, seguimiento o ayuda para llegar a
-              Nuskë Vet Center, aquí tienes los canales principales de contacto
-              y ubicación en Camelinas, Morelia.
+              Si necesitas agendar una cita, pedir orientación o acudir por una
+              urgencia, aquí puedes comunicarte con el hospital y ver cómo llegar
+              a Nuskë Vet Center en Morelia.
             </p>
           </div>
 
@@ -47,7 +47,7 @@ export default function ContactoPage() {
               variant="outline"
               className="h-11 rounded-2xl border-accent bg-accent/10 px-6 text-secondary hover:bg-accent/20 hover:text-primary"
             >
-              <a href={fixedPhoneHref}>Llamar ahora</a>
+              <a href={fixedPhoneHref}>Llamar al hospital</a>
             </Button>
           </div>
         </div>

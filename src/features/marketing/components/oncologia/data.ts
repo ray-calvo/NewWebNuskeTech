@@ -38,19 +38,19 @@ export const oncologyPhoneHref = "tel:+524433246136";
 
 export const oncologyHeroHighlights: readonly OncologyHighlight[] = [
   {
-    title: "No toda masa o hallazgo significa lo mismo",
+    title: "No toda masa o cambio significa lo mismo",
     description:
-      "Cuando aparece un bulto, una lesión o un cambio progresivo, lo importante es valorar qué puede significar y qué tan pronto conviene estudiarlo.",
+      "Cuando aparece un bulto, una lesión o un cambio que sigue avanzando, lo importante es valorar qué puede significar y qué tan pronto conviene estudiarlo.",
   },
   {
-    title: "Oncología no es solo tratar: también es decidir mejor",
+    title: "Oncología también ayuda a decidir mejor",
     description:
-      "La valoración ayuda a ordenar estudios, definir si hace falta cirugía, seguimiento más cercano o manejo hospitalario según el caso.",
+      "La valoración ayuda a ordenar estudios, decidir si hace falta cirugía, seguimiento más cercano o apoyo hospitalario según el caso.",
   },
   {
-    title: "Acompañar con criterio también cambia el recorrido",
+    title: "Una ruta clara ayuda a no perder tiempo",
     description:
-      "En pacientes complejos, tener una ruta clara reduce retrasos, evita decisiones apresuradas y ayuda a sostener mejor la continuidad clínica.",
+      "En pacientes complejos, tener una mejor orientación ayuda a evitar retrasos, decisiones apresuradas y cambios de rumbo sin suficiente claridad.",
   },
 ] as const;
 
@@ -58,44 +58,44 @@ export const oncologyDecisionContexts: readonly OncologySignal[] = [
   {
     title: "Masas, nódulos o cambios que siguen creciendo",
     description:
-      "Cuando un bulto aumenta de tamaño, cambia de consistencia o no mejora con el tiempo, conviene valorar qué estudios hacen falta.",
+      "Cuando un bulto aumenta de tamaño, cambia de consistencia o no mejora con el tiempo, conviene revisar qué estudios hacen falta.",
   },
   {
-    title: "Heridas, lesiones o áreas inflamadas que no resuelven",
+    title: "Heridas, lesiones o zonas inflamadas que no mejoran",
     description:
-      "Si una lesión persiste, sangra, se ulcera o reaparece, puede requerir una valoración más completa antes de seguir esperando.",
+      "Si una lesión persiste, sangra, se ulcera o reaparece, puede necesitar una valoración más completa antes de seguir esperando.",
   },
   {
     title: "Pérdida de peso, apetito o energía sin causa clara",
     description:
-      "Los cambios progresivos en peso, ánimo o apetito justifican una lectura más amplia cuando no encajan con un problema sencillo.",
+      "Los cambios progresivos en peso, ánimo o apetito convienen revisarse mejor cuando no encajan con un problema sencillo.",
   },
   {
     title: "Hallazgos en estudios o revisiones previas",
     description:
-      "A veces la sospecha surge después de una imagen, un estudio o una cirugía previa y hace falta ordenar mejor qué sigue.",
+      "A veces la sospecha aparece después de una imagen, un estudio o una cirugía previa y hace falta ordenar mejor qué sigue.",
   },
   {
     title: "Pacientes que ya tienen diagnóstico y necesitan seguimiento",
     description:
-      "El acompañamiento no termina en el hallazgo inicial. También importa valorar evolución, respuesta y cambios del paciente con el tiempo.",
+      "El acompañamiento no termina con el primer hallazgo. También importa revisar evolución, respuesta y cambios del paciente con el tiempo.",
   },
   {
-    title: "Casos que necesitan decidir si escalar o no",
+    title: "Casos en los que hay que decidir qué sigue",
     description:
-      "No todos los pacientes requieren la misma ruta. La valoración ayuda a distinguir cuándo estudiar más, intervenir, controlar o acompañar de otra manera.",
+      "No todos los pacientes necesitan la misma ruta. La valoración ayuda a distinguir cuándo estudiar más, intervenir, vigilar o acompañar de otra manera.",
   },
 ] as const;
 
 export const oncologyCapabilities: readonly OncologyCapability[] = [
   {
-    title: "Valoración oncológica con criterio clínico",
+    title: "Valoración oncológica con criterio médico",
     description:
-      "La prioridad es entender el contexto del paciente, el comportamiento del hallazgo y qué decisiones conviene tomar primero.",
+      "La prioridad es entender el contexto del paciente, cómo se comporta el hallazgo y qué decisiones conviene tomar primero.",
     icon: Stethoscope,
   },
   {
-    title: "Diagnóstico y definición de la siguiente ruta",
+    title: "Diagnóstico y definición del siguiente paso",
     description:
       "La oncología se apoya en estudios, interpretación clínica y reevaluación para decidir si hace falta cirugía, hospitalización o seguimiento.",
     icon: ScanSearch,
@@ -103,7 +103,7 @@ export const oncologyCapabilities: readonly OncologyCapability[] = [
   {
     title: "Seguimiento y acompañamiento del caso",
     description:
-      "En estos pacientes no basta con un evento aislado. Hace falta revisar evolución, tolerancia, cambios clínicos y calidad de vida según el momento.",
+      "En estos pacientes no basta con una sola visita. Hace falta revisar evolución, tolerancia, cambios clínicos y calidad de vida según el momento.",
     icon: ShieldPlus,
   },
 ] as const;
@@ -112,7 +112,7 @@ export const oncologySupportCards: readonly OncologySupportCard[] = [
   {
     title: "Relación con diagnóstico",
     description:
-      "Cuando hay sospecha oncológica, aclarar el cuadro y ordenar estudios suele ser el primer paso para decidir con más fundamento.",
+      "Cuando hay sospecha oncológica, aclarar el cuadro y ordenar estudios suele ser el primer paso para decidir con más claridad.",
     icon: Microscope,
     items: [
       "Estudios según lo que el caso necesita",
@@ -123,7 +123,7 @@ export const oncologySupportCards: readonly OncologySupportCard[] = [
   {
     title: "Relación con cirugía y hospitalización",
     description:
-      "Algunos pacientes requieren intervención, otros soporte hospitalario y otros una ruta más conservadora. La valoración ayuda a distinguirlos.",
+      "Algunos pacientes necesitan intervención, otros apoyo hospitalario y otros una ruta más conservadora. La valoración ayuda a distinguirlo.",
     icon: Syringe,
     items: [
       "Decidir si operar tiene sentido clínico",
@@ -134,7 +134,7 @@ export const oncologySupportCards: readonly OncologySupportCard[] = [
   {
     title: "Continuidad clínica y control del dolor",
     description:
-      "El manejo oncológico también implica vigilar confort, tolerancia y cambios del paciente para acompañarlo con más criterio en cada etapa.",
+      "La atención oncológica también implica vigilar confort, tolerancia y cambios del paciente para acompañarlo con más criterio en cada etapa.",
     icon: HeartPulse,
     items: [
       "Revisar evolución y signos de deterioro",
@@ -154,13 +154,13 @@ export const oncologyDifferentiators: readonly OncologyCapability[] = [
   {
     title: "Evita tratar todos los hallazgos como si fueran iguales",
     description:
-      "No toda sospecha exige la misma respuesta. La diferencia está en ordenar mejor qué estudiar, qué vigilar y qué intervenir.",
+      "No toda sospecha necesita la misma respuesta. La diferencia está en ordenar mejor qué estudiar, qué vigilar y qué intervenir.",
     icon: ScanSearch,
   },
   {
     title: "Coordina mejor cirugía, estudios y soporte",
     description:
-      "Cuando el caso es complejo, tener una ruta clínica más clara reduce decisiones fragmentadas y pasos innecesarios.",
+      "Cuando el caso es complejo, tener una ruta más clara reduce decisiones fragmentadas y pasos innecesarios.",
     icon: Syringe,
   },
   {

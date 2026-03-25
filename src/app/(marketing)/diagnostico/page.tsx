@@ -19,13 +19,13 @@ import { resolveClinicalUiConsumptionForPage } from "@/lib/clinical-runtime/appl
 export const metadata: Metadata = {
   title: "Diagnóstico",
   description:
-    "Diagnóstico hospitalario para casos complejos, soporte clínico, imagenología y laboratorio veterinario en Nuskë Vet Center.",
+    "Diagnóstico veterinario hospitalario en Morelia con imagenología, laboratorio y apoyo clínico para casos complejos en Nuskë Vet Center.",
 };
 
 export default function DiagnosticoPage() {
   const { uiModel: clinicalUiModel, consumption: runtimeConsumption } =
     resolveClinicalUiConsumptionForPage({
-    pathname: "/diagnostico",
+      pathname: "/diagnostico",
     });
   const finalPrimaryAction = runtimeConsumption.primaryCta;
   const finalSecondaryAction = runtimeConsumption.secondaryCta;
@@ -35,9 +35,9 @@ export default function DiagnosticoPage() {
       <DiagnosticoHero clinicalUiModel={clinicalUiModel} />
 
       <ClinicalSection
-        badge="Por qué cambia decisiones clínicas"
-        title="El diagnóstico hospitalario cambia el rumbo del caso cuando la clínica sola no alcanza"
-        description="Cuando la exploración no basta para entender el problema, contar con mejor información ayuda a decidir con más seguridad qué hacer primero y qué puede esperar."
+        badge="Cuándo hace falta estudiar más"
+        title="Hay casos en los que entender bien lo que pasa cambia por completo la decisión"
+        description="Cuando la revisión inicial no es suficiente, contar con mejores estudios ayuda a saber qué está ocurriendo, qué tan urgente es y cuál puede ser el siguiente paso para tu mascota."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {diagnosticsDecisionContexts.map((signal) => (
@@ -63,8 +63,8 @@ export default function DiagnosticoPage() {
 
       <ClinicalSection
         badge="Capacidad diagnóstica"
-        title="Imagenología, laboratorio y evaluación complementaria como sistema integrado"
-        description="Imagenología, laboratorio y evaluación complementaria ayudan a confirmar sospechas, ajustar prioridades y reducir la incertidumbre cuando el caso es más complejo."
+        title="Estudios que ayudan a entender mejor el caso y tomar mejores decisiones"
+        description="La imagenología, el laboratorio y otras herramientas diagnósticas ayudan a confirmar sospechas, reducir dudas y actuar con más claridad cuando el caso es más delicado o más complejo."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {diagnosticCapabilities.map((capability) => {
@@ -95,22 +95,22 @@ export default function DiagnosticoPage() {
             <div className="space-y-5">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-white">
                 <Microscope aria-hidden={true} className="h-4 w-4 text-accent" />
-                Capacidad transversal del hospital
+                Apoyo diagnóstico dentro del hospital
               </div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                El diagnóstico sostiene urgencias, cirugía, hospitalización y seguimiento
+                El diagnóstico ayuda a urgencias, cirugía, hospitalización y seguimiento
               </h2>
               <p className="text-base leading-8 text-slate-100">
-                La página diagnóstica debe comunicar que su valor no está en
-                separar al paciente en estudios, sino en articular la lectura
-                clínica del caso a lo largo de su evolución dentro del hospital.
+                Su valor no está solo en hacer estudios, sino en ayudar a entender
+                mejor lo que está pasando para tomar decisiones más seguras a lo
+                largo de la atención de tu mascota.
               </p>
               <ClinicalBulletGrid
                 items={[
-                  "Apoya decisiones en cuadros agudos y pacientes inestables",
-                  "Permite planificar mejor procedimientos e intervenciones",
-                  "Ayuda a reevaluar evolución y respuesta clínica",
-                  "Sostiene continuidad entre hospitalización y seguimiento",
+                  "Ayuda a decidir mejor en casos agudos o pacientes delicados",
+                  "Permite planear con más seguridad procedimientos e intervenciones",
+                  "Sirve para revisar si el tratamiento realmente está funcionando",
+                  "Da continuidad entre urgencias, hospitalización y seguimiento",
                 ]}
                 tone="dark"
               />
@@ -152,9 +152,9 @@ export default function DiagnosticoPage() {
       </section>
 
       <ClinicalSection
-        badge="Diferenciadores hospitalarios"
-        title="Lo que cambia cuando el caso se entiende mejor"
-        description="Una mejor correlación diagnóstica ayuda a evitar intervenciones innecesarias, acelerar el tratamiento correcto y decidir con menos duda."
+        badge="Lo que cambia"
+        title="Cuando el caso se entiende mejor, también cambia lo que conviene hacer"
+        description="Tener más claridad ayuda a evitar pasos innecesarios, actuar más rápido cuando hace falta y elegir mejor el tratamiento o procedimiento para tu mascota."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {diagnosticDifferentiators.map((item) => {
@@ -184,14 +184,14 @@ export default function DiagnosticoPage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-primary sm:text-4xl">
-                La pregunta correcta no es solo qué estudio hacer, sino qué decisión clínica necesita el paciente
+                No se trata solo de pedir estudios, sino de entender qué necesita tu mascota
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                Esta página orienta hacia una valoración diagnóstica
-                hospitalaria y la lectura clínica del caso. Si el paciente
-                está inestable, prioriza urgencias. Si la necesidad es
-                procedimental, esta ruta acompaña pero no reemplaza cirugía o
-                endoscopía.
+                Esta página te orienta cuando puede hacer falta una valoración
+                diagnóstica más completa. Si tu mascota está inestable o se ve
+                grave, lo primero es entrar por urgencias. Si el caso necesita un
+                procedimiento específico, el diagnóstico ayuda, pero no sustituye
+                otras áreas como cirugía o endoscopia.
               </p>
             </div>
 
@@ -200,9 +200,9 @@ export default function DiagnosticoPage() {
                 Acción recomendada
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Si necesitas una valoración diagnóstica o orientación clínica
-                para un caso complejo, contacta al hospital. Si el paciente
-                está descompensado, la ruta correcta sigue siendo urgencias.
+                Si necesitas estudios, una valoración diagnóstica o ayuda para un
+                caso complejo, contacta al hospital. Si tu mascota está
+                descompensada, la ruta correcta sigue siendo urgencias.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">

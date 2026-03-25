@@ -32,16 +32,16 @@ export default function ServiciosPage() {
           <section className="rounded-[2rem] border border-primary/10 bg-white/85 p-6 shadow-[0_24px_80px_-56px_rgba(29,63,104,0.16)] sm:p-8">
             <div className="max-w-3xl space-y-4">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-                Elegir la ruta correcta
+                Cómo empezar
               </p>
               <h2 className="text-3xl font-semibold tracking-tight text-primary">
-                Si no sabes por dónde empezar, prioriza la situación clínica
+                Si no sabes qué servicio necesita tu mascota, empieza por lo más importante
               </h2>
               <p className="text-base leading-8 text-slate-600">
-                Si el paciente está decaído, con dolor intenso, dificultad para
-                respirar o una descompensación aguda, la entrada correcta sigue
-                siendo urgencias. Si el cuadro permite valorar con más calma,
-                usa la ruta clínica que mejor corresponda o contáctanos para
+                Si tu mascota está decaída, tiene dolor intenso, dificultad para
+                respirar o empeora rápido, la prioridad sigue siendo urgencias.
+                Si el caso permite revisar con más calma, puedes entrar al servicio
+                que mejor se parezca a lo que está pasando o contactarnos para
                 orientarte.
               </p>
             </div>

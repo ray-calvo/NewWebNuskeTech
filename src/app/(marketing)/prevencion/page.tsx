@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: "Prevención",
   description:
-    "Prevención clínica, seguimiento oportuno, vacunas y control preventivo veterinario para reducir urgencias y complicaciones evitables en Nuskë Vet Center.",
+    "Prevención veterinaria en Morelia con vacunas, desparasitación, revisión médica y seguimiento para detectar problemas a tiempo en Nuskë Vet Center.",
 };
 
 export default function PrevencionPage() {
@@ -29,9 +29,9 @@ export default function PrevencionPage() {
       <PrevencionHero />
 
       <ClinicalSection
-        badge="Por qué prevenir cambia el curso del caso"
-        title="Actuar antes puede evitar deterioro, urgencias y decisiones tardías"
-        description="La prevención importa porque ayuda a detectar cambios antes de que el paciente se descompense, necesite una intervención mayor o llegue tarde a la valoración."
+        badge="Por qué prevenir sí cambia lo que puede pasar después"
+        title="Actuar a tiempo puede evitar que un problema avance y se vuelva más difícil de resolver"
+        description="La prevención ayuda a detectar cambios antes de que tu mascota se deteriore, necesite una atención más compleja o llegue tarde a revisión."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {preventionDecisionContexts.map((signal) => (
@@ -56,9 +56,9 @@ export default function PrevencionPage() {
       </ClinicalSection>
 
       <ClinicalSection
-        badge="Cuidado anticipado"
-        title="Prevención como detección oportuna, seguimiento y control responsable"
-        description="La prevención clínica combina valoración médica, vacunas, desparasitación y monitoreo para decidir a tiempo qué conviene ajustar y qué vale la pena vigilar más de cerca."
+        badge="Cuidado preventivo"
+        title="Prevenir también es revisar, dar seguimiento y decidir a tiempo"
+        description="La prevención clínica incluye revisión médica, vacunas, desparasitación y seguimiento para detectar cambios antes de que se conviertan en algo más serio."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {preventionCapabilities.map((capability) => {
@@ -92,20 +92,19 @@ export default function PrevencionPage() {
                 Vacunas, control y seguimiento
               </div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Vacunas, desparasitación, revisiones y monitoreo siguen una misma lógica: adelantarse al problema
+                Vacunas, desparasitación, revisiones y seguimiento tienen el mismo objetivo: adelantarse al problema
               </h2>
               <p className="text-base leading-8 text-slate-100">
-                La prevención bien llevada no se limita a aplicar algo o
-                “venir al control”. Ayuda a revisar riesgos, ordenar prioridades
-                y dar seguimiento a pacientes que conviene vigilar con más
-                cuidado.
+                Prevenir bien no es solo aplicar algo o “venir al control”. También
+                implica revisar riesgos, detectar cambios a tiempo y dar seguimiento
+                a mascotas que conviene vigilar más de cerca.
               </p>
               <ClinicalBulletGrid
                 items={[
                   "Vacunar y desparasitar según etapa y riesgo",
-                  "Revisar cambios antes de que se vuelvan urgencia",
+                  "Revisar cambios antes de que se vuelvan una urgencia",
                   "Detectar pacientes que necesitan seguimiento más cercano",
-                  "Actuar antes de que el problema exija escalar",
+                  "Actuar antes de que el problema se complique más",
                 ]}
                 tone="dark"
               />
@@ -147,9 +146,9 @@ export default function PrevencionPage() {
       </section>
 
       <ClinicalSection
-        badge="Diferenciadores hospitalarios"
-        title="Lo que cambia cuando la prevención se toma en serio"
-        description="Prevenir bien ayuda a actuar antes, reducir deterioro evitable y decidir con más criterio qué paciente necesita seguir de cerca y cuál no."
+        badge="Lo que cambia cuando sí se previene"
+        title="Una buena prevención ayuda a actuar antes y evitar complicaciones que muchas veces sí se pueden reducir"
+        description="Prevenir bien ayuda a detectar a tiempo, dar seguimiento cuando hace falta y decidir con más criterio qué mascota necesita vigilancia más cercana."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {preventionDifferentiators.map((item) => {
@@ -179,13 +178,12 @@ export default function PrevencionPage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-primary sm:text-4xl">
-                Prevenir no es “hacer menos”, sino decidir antes de que el caso se complique
+                Prevenir no es exagerar: es cuidar a tiempo
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                Esta página orienta hacia valoración preventiva y seguimiento.
-                Si el paciente ya está descompensado, la ruta correcta sigue
-                siendo urgencias. Si todavía hay margen para anticiparse, aquí
-                conviene actuar antes.
+                Esta página orienta sobre revisión preventiva y seguimiento.
+                Si tu mascota ya está descompensada, la ruta correcta sigue siendo
+                urgencias. Si todavía hay margen para anticiparse, conviene actuar ahora.
               </p>
             </div>
 
@@ -194,9 +192,9 @@ export default function PrevencionPage() {
                 Acción recomendada
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Si necesitas una valoración preventiva, revisión clínica o
-                seguimiento oportuno para tu mascota, contacta al hospital. Si
-                el paciente presenta deterioro agudo, prioriza urgencias.
+                Si necesitas una revisión preventiva, vacunas, desparasitación o
+                seguimiento para tu mascota, contacta al hospital. Si el paciente
+                presenta un deterioro agudo, prioriza urgencias.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">
@@ -206,7 +204,7 @@ export default function PrevencionPage() {
                   className="h-12 rounded-2xl bg-white px-6 text-primary hover:bg-white/92"
                 >
                   <a href={preventionWhatsAppHref} target="_blank" rel="noreferrer">
-                    Solicitar valoración
+                    Pedir orientación preventiva
                   </a>
                 </Button>
                 <Button

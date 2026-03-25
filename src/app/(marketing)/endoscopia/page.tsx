@@ -19,7 +19,7 @@ import { resolveClinicalUiConsumptionForPage } from "@/lib/clinical-runtime/appl
 export const metadata: Metadata = {
   title: "Endoscopía",
   description:
-    "Endoscopía y mínima invasión veterinaria para diagnóstico y procedimientos con menor trauma y recuperación más ágil en Nuskë Vet Center.",
+    "Endoscopía veterinaria en Morelia para valorar y, en algunos casos, resolver problemas con menor invasión en Nuskë Vet Center.",
 };
 
 export default function EndoscopiaPage() {
@@ -35,9 +35,9 @@ export default function EndoscopiaPage() {
       <EndoscopiaHero clinicalUiModel={clinicalUiModel} />
 
       <ClinicalSection
-        badge="Qué es y por qué importa"
-        title="La endoscopía permite evaluar y, en algunos casos, resolver con menor agresión"
-        description="Cuando el caso lo permite, la endoscopía ayuda a ver mejor lo que ocurre y, en algunos pacientes, a resolver sin pasar de inmediato por una cirugía abierta."
+        badge="Qué es y cuándo puede ayudar"
+        title="La endoscopía puede ayudar a ver mejor el problema y, en algunos casos, resolverlo sin una cirugía abierta"
+        description="Cuando el caso lo permite, la endoscopía ayuda a revisar lo que está pasando dentro del cuerpo de tu mascota y, en ciertos pacientes, actuar de una forma menos invasiva."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {endoscopyUseCases.map((signal) => (
@@ -63,8 +63,8 @@ export default function EndoscopiaPage() {
 
       <ClinicalSection
         badge="Capacidad especializada"
-        title="Endoscopía como evaluación y resolución mínimamente invasiva"
-        description="Puede confirmar mejor el problema, orientar el tratamiento y en ciertos casos resolver por una vía menos invasiva y con menor recuperación."
+        title="Una opción menos invasiva cuando el caso está bien indicado"
+        description="La endoscopía puede ayudar a confirmar mejor el problema, orientar el tratamiento y, en algunos casos, resolverlo con menor agresión para tu mascota."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {endoscopyCapabilities.map((capability) => {
@@ -95,23 +95,23 @@ export default function EndoscopiaPage() {
             <div className="space-y-5">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-white">
                 <Waves aria-hidden={true} className="h-4 w-4 text-accent" />
-                Mínima invasión como valor clínico
+                Menor invasión cuando está bien indicada
               </div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                El valor de la mínima invasión está en resolver con menos trauma cuando el caso lo permite
+                El valor de la endoscopía está en ayudar con menos trauma cuando realmente aporta una mejor opción
               </h2>
               <p className="text-base leading-8 text-slate-100">
-                La mínima invasión ya no vive como página separada porque aquí
-                encuentra su sentido clínico real: apoyar evaluación y
-                tratamiento con un abordaje potencialmente más ágil y menos
-                agresivo para pacientes bien seleccionados.
+                No se trata de usar una técnica diferente por sí sola, sino de
+                elegir una vía que pueda ayudar a tu mascota con menos agresión,
+                menos manipulación y una recuperación más llevadera cuando el caso
+                lo permite.
               </p>
               <ClinicalBulletGrid
                 items={[
-                  "Menor agresión de tejidos cuando el caso lo permite",
-                  "Recuperación potencialmente más ágil",
-                  "Mejor puente entre evaluación y resolución",
-                  "Criterio procedimental dentro del entorno hospitalario",
+                  "Menor agresión de tejidos en casos bien seleccionados",
+                  "Recuperación potencialmente más cómoda y ágil",
+                  "Ayuda a evaluar y actuar en un mismo procedimiento",
+                  "Se integra al criterio hospitalario para decidir mejor",
                 ]}
                 tone="dark"
               />
@@ -153,9 +153,9 @@ export default function EndoscopiaPage() {
       </section>
 
       <ClinicalSection
-        badge="Diferenciadores hospitalarios"
-        title="Lo que cambia cuando la mínima invasión está bien indicada"
-        description="Puede evitar abrir cuando no hace falta, actuar antes de que el cuadro escale y ayudar a decidir con más precisión la mejor ruta terapéutica."
+        badge="Lo que puede cambiar"
+        title="Cuando la endoscopía está bien indicada, puede cambiar la forma de atender el caso"
+        description="En algunos pacientes ayuda a evitar una cirugía abierta, actuar antes de que el problema avance y decidir con más precisión qué conviene hacer."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {endoscopyDifferentiators.map((item) => {
@@ -185,14 +185,14 @@ export default function EndoscopiaPage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-primary sm:text-4xl">
-                La decisión correcta no es “hacer endoscopía siempre”, sino saber cuándo aporta una ruta menos invasiva y más precisa
+                No se trata de hacer endoscopía en todos los casos, sino de saber cuándo puede ayudar más a tu mascota
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                Esta página orienta hacia una valoración endoscópica
-                especializada. Si el paciente está inestable, la ruta correcta
-                puede empezar en urgencias. Si el caso requiere soporte
-                diagnóstico más amplio o cirugía, esta capacidad se integra sin
-                sustituirlas.
+                Esta página te orienta cuando puede hacer falta una valoración
+                endoscópica. Si tu mascota está inestable, con dolor intenso o se
+                ve grave, el primer paso puede ser urgencias. Si el caso necesita
+                otros estudios o cirugía, la endoscopía se integra como parte de
+                la atención, no como reemplazo de todo lo demás.
               </p>
             </div>
 
@@ -201,9 +201,9 @@ export default function EndoscopiaPage() {
                 Acción recomendada
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Si necesitas una valoración endoscópica o explorar una opción
-                mínimamente invasiva para un caso complejo, contacta al
-                hospital. Si el paciente está comprometido, prioriza urgencias.
+                Si crees que tu mascota podría beneficiarse de una valoración
+                endoscópica o de una opción menos invasiva, ponte en contacto con
+                el hospital. Si el paciente está comprometido, prioriza urgencias.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">

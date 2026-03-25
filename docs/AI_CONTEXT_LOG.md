@@ -5212,3 +5212,43 @@
 - No se alteró navegación.
 - No se modificó la arquitectura de la página.
 - No se abrió ninguna ruta nueva.
+
+## Entrada 2026-03-25 03:21:00 -06:00
+
+### Tipo
+- Consolidación editorial transversal de páginas clínicas y navegación orientadora
+
+### Resumen ejecutivo
+- Se refinó el copy de varias superficies ya publicadas para bajar tono institucional, mejorar comprensión para dueño final y alinear el sitio con una voz hospitalaria más clara.
+- La fase abarcó páginas núcleo, complementarias y de orientación:
+  - `/urgencias`
+  - `/diagnostico`
+  - `/endoscopia`
+  - `/prevencion`
+  - `/exoticos`
+  - `/oncologia`
+  - `/medicina-interna`
+  - `/servicios`
+  - `/contacto`
+- No hubo cambios estructurales de arquitectura, runtime ni navegación.
+
+### Decisiones clave
+- Se reescribieron héroes, bloques finales y data content para:
+  - reducir abstracción clínica innecesaria
+  - sonar menos institucionales
+  - hablar con más claridad sobre decisiones, estudios, urgencia, seguimiento y complejidad
+- `Servicios` se mantuvo como hub orientador y no volvió a leerse como catálogo.
+- `Contacto` se alineó a una salida más clínica y menos genérica.
+
+### Resultado narrativo
+- El sitio completo ahora sostiene mejor una voz común:
+  - hospital real
+  - autoridad médica clara
+  - lenguaje comprensible para dueño preocupado
+  - humanidad controlada sin perder seriedad
+
+### Supuestos protegidos
+- No se cambió runtime clínico.
+- No se alteró la jerarquía del mapa clínico.
+- No se introdujeron rutas nuevas.
+- No se hizo refactor técnico amplio.

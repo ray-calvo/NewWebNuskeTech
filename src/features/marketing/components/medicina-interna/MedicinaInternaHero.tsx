@@ -27,7 +27,7 @@ export function MedicinaInternaHero({
     : null;
   const primaryAction = runtimeConsumption?.primaryCta ?? {
     href: internalMedicineWhatsAppHref,
-    label: "Solicitar valoración",
+    label: "Pedir orientación médica",
     kind: "specialized-valuation-request",
     isExternal: true,
   };
@@ -47,19 +47,19 @@ export function MedicinaInternaHero({
               <Badge variant="secondary">Medicina interna y casos complejos</Badge>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                Integrar mejor el caso
+                Entender mejor el caso completo
               </div>
             </div>
 
             <div className="max-w-4xl space-y-4">
               <h1 className="text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-6xl lg:leading-[0.98]">
-                Medicina Interna y Valoración Médica Integral
+                Medicina interna para mascotas con signos persistentes o casos que no están claros
               </h1>
               <p className="text-lg leading-8 text-slate-600">
-                Hay pacientes que no encajan en una sola respuesta rápida.
-                Esta ruta ayuda a valorar cuadros persistentes, cambios
-                progresivos o evoluciones poco claras para decidir mejor qué
-                estudiar, qué seguir y cuándo conviene escalar.
+                Hay mascotas que no mejoran con una explicación simple. Esta área
+                ayuda a revisar cuadros persistentes, cambios que avanzan poco a
+                poco o casos que todavía no se entienden bien, para decidir con
+                más claridad qué sigue.
               </p>
             </div>
 
@@ -127,21 +127,20 @@ export function MedicinaInternaHero({
 
             <section className="rounded-[1.6rem] border border-primary/10 bg-primary p-5 text-white shadow-[0_20px_60px_-36px_rgba(15,23,42,0.5)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Cuándo priorizar urgencias
+                Cuándo ir por urgencias primero
               </p>
               <p className="mt-3 text-lg font-semibold text-white">
-                Si el paciente está descompensado, con dificultad para respirar,
-                dolor intenso o deterioro agudo, primero hay que estabilizar.
+                Si tu mascota está descompensada, le cuesta respirar, tiene dolor
+                intenso o empeora rápido, primero necesita estabilizarse.
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Esta página orienta casos complejos pero estables o de
-                evolución incierta. Cuando el cuadro ya compromete al paciente,
-                la entrada correcta sigue siendo urgencias y luego se ordena la
-                siguiente ruta clínica.
+                Esta página orienta casos complejos pero estables o de evolución
+                incierta. Si el problema ya compromete a tu mascota, la entrada
+                correcta sigue siendo urgencias.
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
                 <HeartPulse aria-hidden={true} className="h-4 w-4" />
-                Soporte oportuno si el caso ya se agudizó
+                Atención oportuna si el caso ya se volvió urgente
               </div>
             </section>
           </div>

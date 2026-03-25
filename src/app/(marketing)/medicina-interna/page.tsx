@@ -19,13 +19,13 @@ import { resolveClinicalUiConsumptionForPage } from "@/lib/clinical-runtime/appl
 export const metadata: Metadata = {
   title: "Medicina Interna",
   description:
-    "Valoración médica integral, integración de estudios y seguimiento de pacientes complejos o de evolución incierta en Nuskë Vet Center.",
+    "Valoración médica integral y seguimiento para pacientes con signos persistentes, evolución incierta o casos complejos en Nuskë Vet Center.",
 };
 
 export default function MedicinaInternaPage() {
   const { uiModel: clinicalUiModel, consumption: runtimeConsumption } =
     resolveClinicalUiConsumptionForPage({
-    pathname: "/medicina-interna",
+      pathname: "/medicina-interna",
     });
   const finalPrimaryAction = runtimeConsumption.primaryCta;
   const finalSecondaryAction = runtimeConsumption.secondaryCta;
@@ -35,9 +35,9 @@ export default function MedicinaInternaPage() {
       <MedicinaInternaHero clinicalUiModel={clinicalUiModel} />
 
       <ClinicalSection
-        badge="Cuándo conviene una valoración médica integral"
-        title="Signos persistentes, cambios progresivos o cuadros poco claros merecen una lectura más completa"
-        description="Hay pacientes que no están en urgencias, pero tampoco encajan en una respuesta simple. En estos casos conviene ordenar mejor los signos, la evolución y los estudios antes de seguir tomando decisiones parciales."
+        badge="Cuándo conviene una valoración más completa"
+        title="Cuando los signos persisten o el caso no está claro, hace falta entender mejor lo que está pasando"
+        description="Hay mascotas que no están en una urgencia evidente, pero tampoco mejoran con una respuesta simple. En estos casos conviene revisar el cuadro completo antes de seguir tomando decisiones por partes."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {internalMedicineDecisionContexts.map((signal) => (
@@ -63,8 +63,8 @@ export default function MedicinaInternaPage() {
 
       <ClinicalSection
         badge="Evaluación, integración y seguimiento"
-        title="Medicina interna ayuda a leer el caso completo, no solo un estudio o un síntoma aislado"
-        description="El valor de esta ruta está en integrar antecedentes, signos, estudios y evolución para decidir mejor qué pesa más, qué falta aclarar y cuál debería ser el siguiente paso clínico."
+        title="Medicina interna ayuda a entender el caso completo, no solo un síntoma o un estudio aislado"
+        description="Su valor está en reunir antecedentes, signos, estudios y evolución para entender mejor qué está pasando, qué falta aclarar y cuál puede ser el siguiente paso para tu mascota."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {internalMedicineCapabilities.map((capability) => {
@@ -95,23 +95,22 @@ export default function MedicinaInternaPage() {
             <div className="space-y-5">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-white">
                 <ShieldPlus aria-hidden={true} className="h-4 w-4 text-accent" />
-                Continuidad para casos complejos
+                Seguimiento para casos complejos
               </div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Diagnóstico, oncología, hospitalización o prevención pueden cruzarse, pero la prioridad es no perder la lectura integral del caso
+                Diagnóstico, oncología, hospitalización o prevención pueden cruzarse, pero sin perder de vista el caso completo
               </h2>
               <p className="text-base leading-8 text-slate-100">
-                Algunos pacientes complejos necesitan algo más que un estudio o
-                una consulta aislada. Medicina interna ayuda a coordinar qué
-                parte del caso requiere más atención y cuándo hace falta
-                escalar o seguir acompañando con vigilancia estrecha.
+                Algunos pacientes necesitan algo más que un estudio o una consulta aislada.
+                Medicina interna ayuda a ordenar la información, decidir qué pesa más
+                y saber cuándo conviene seguir observando, cambiar el plan o pasar a otra área.
               </p>
               <ClinicalBulletGrid
                 items={[
-                  "Integrar estudios antes de abrir nuevas hipótesis sin orden",
-                  "Decidir si el caso debe pasar a oncología, hospitalización u otra ruta",
-                  "Dar seguimiento cuando la evolución todavía no es clara",
-                  "Escalar a urgencias si el paciente pierde estabilidad",
+                  "Reunir estudios antes de seguir abriendo nuevas dudas",
+                  "Decidir si conviene pasar a oncología, hospitalización u otra ruta",
+                  "Dar seguimiento cuando la evolución todavía no está clara",
+                  "Priorizar urgencias si el paciente pierde estabilidad",
                 ]}
                 tone="dark"
               />
@@ -153,9 +152,9 @@ export default function MedicinaInternaPage() {
       </section>
 
       <ClinicalSection
-        badge="Diferenciadores hospitalarios"
-        title="Lo que cambia cuando un caso complejo se valora como un todo y no como piezas separadas"
-        description="Medicina interna aporta una lectura más completa del paciente. La diferencia suele estar en conectar mejor la información, ordenar prioridades y sostener seguimiento cuando el cuadro todavía no es simple."
+        badge="Lo que hace la diferencia"
+        title="Cuando un caso complejo se entiende como un todo, también cambia la decisión"
+        description="Medicina interna ayuda a conectar mejor la información, ordenar prioridades y dar seguimiento cuando el cuadro todavía no es simple."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {internalMedicineDifferentiators.map((item) => {
@@ -185,13 +184,12 @@ export default function MedicinaInternaPage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-primary sm:text-4xl">
-                Cuando el cuadro no es simple, una mejor integración clínica puede cambiar la ruta
+                Cuando el cuadro no es claro, una mejor lectura clínica puede cambiar el rumbo
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                Esta página orienta hacia valoración médica integral y
-                seguimiento de pacientes complejos. Si el paciente presenta
-                deterioro agudo o pérdida de estabilidad, la prioridad sigue
-                siendo urgencias.
+                Esta página orienta sobre valoración médica integral y seguimiento
+                de pacientes complejos. Si tu mascota empeora rápido o pierde estabilidad,
+                la prioridad sigue siendo urgencias.
               </p>
             </div>
 
@@ -200,10 +198,9 @@ export default function MedicinaInternaPage() {
                 Acción recomendada
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Si tu mascota tiene signos persistentes, evolución incierta o
-                un caso complejo que todavía no encaja en una sola ruta,
-                contacta al hospital. Si el paciente ya está inestable,
-                prioriza urgencias.
+                Si tu mascota tiene signos persistentes, una evolución incierta o
+                un caso que todavía no se entiende bien, contacta al hospital.
+                Si ya está inestable, la prioridad es urgencias.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">

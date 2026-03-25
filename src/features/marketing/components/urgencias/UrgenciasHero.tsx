@@ -43,20 +43,19 @@ export function UrgenciasHero({ clinicalUiModel }: UrgenciasHeroProps) {
               <Badge variant="secondary">Urgencias y paciente crítico</Badge>
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700">
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                Guardia hospitalaria activa 24/7
+                Hospital con atención activa 24/7
               </div>
             </div>
 
             <div className="max-w-4xl space-y-4">
               <h1 className="text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-6xl lg:leading-[0.98]">
-                Urgencias Veterinarias y Paciente Crítico 24/7
+                Urgencias veterinarias 24/7 para mascotas que no pueden esperar
               </h1>
               <p className="text-lg leading-8 text-slate-600">
-                Atención inmediata para pacientes que llegan con trauma, dolor
-                agudo, compromiso respiratorio, descompensación sistémica o
-                deterioro rápido. Aquí importa valorar, estabilizar,
-                monitorear y decidir rápido qué necesita el paciente para no
-                perder tiempo crítico.
+                Si tu mascota llega con dolor intenso, dificultad para respirar,
+                sangrado, trauma o empeora rápido, lo importante es revisarla y
+                empezar a actuar sin perder tiempo. En estos casos, cada minuto
+                cuenta.
               </p>
             </div>
 
@@ -113,15 +112,14 @@ export function UrgenciasHero({ clinicalUiModel }: UrgenciasHeroProps) {
 
             <section className="rounded-[1.6rem] border border-primary/10 bg-primary p-5 text-white shadow-[0_20px_60px_-36px_rgba(15,23,42,0.5)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Orientación inicial
+                Si todavía tienes duda
               </p>
               <p className="mt-3 text-lg font-semibold text-white">
-                Si aún no sabes si debes salir de inmediato, usa el triage como
-                apoyo secundario.
+                Si no tienes claro qué tan urgente es lo que está pasando, el triage puede orientarte.
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                El triage no sustituye valoración médica, pero puede ayudarte a
-                priorizar la acción cuando el cuadro todavía no es claro.
+                El triage no reemplaza una revisión médica, pero puede ayudarte a decidir
+                más rápido cuando todavía no sabes si debes salir de inmediato.
               </p>
               <Link
                 href="/triage?entrypoint=urgencias-page-hero"

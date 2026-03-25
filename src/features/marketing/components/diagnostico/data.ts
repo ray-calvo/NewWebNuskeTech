@@ -41,52 +41,52 @@ export const diagnosticsPhoneHref = "tel:+524433246136";
 
 export const diagnosticsHeroHighlights: readonly DiagnosticHighlight[] = [
   {
-    title: "Ayuda a decidir con más claridad",
+    title: "Ayuda a entender mejor lo que está pasando",
     description:
-      "Cuando el cuadro no es claro, ayuda a priorizar mejor, confirmar sospechas y definir qué sigue.",
+      "Cuando el cuadro no es claro, los estudios ayudan a orientar mejor el caso y a decidir qué sigue para tu mascota.",
   },
   {
-    title: "Importa antes y después de intervenir",
+    title: "Importa antes, durante y después de tomar decisiones",
     description:
-      "Puede ayudar tanto en cuadros agudos como antes o después de un procedimiento, cuando hace falta decidir con más certeza.",
+      "Puede hacer falta en una urgencia, antes de un procedimiento o durante el seguimiento, cuando se necesita más claridad para actuar.",
   },
   {
-    title: "Mejor información para casos complejos",
+    title: "Más claridad en casos delicados o complejos",
     description:
-      "Cuando la exploración física no alcanza, una mejor lectura del caso ayuda a evitar errores y retrasos en el tratamiento.",
+      "Cuando la revisión inicial no alcanza, contar con mejores estudios ayuda a evitar retrasos y decisiones a ciegas.",
   },
 ] as const;
 
 export const diagnosticsDecisionContexts: readonly DiagnosticSignal[] = [
   {
-    title: "Paciente inestable o de evolución rápida",
+    title: "Paciente inestable o que empeora rápido",
     description:
-      "Cuando la condición cambia en poco tiempo, el apoyo diagnóstico orienta prioridades y riesgo clínico.",
+      "Cuando su estado cambia en poco tiempo, los estudios ayudan a entender mejor qué tan delicado está y qué debe atenderse primero.",
   },
   {
-    title: "Cuadros que no se explican solo por exploración física",
+    title: "El problema no se entiende con la revisión inicial",
     description:
-      "Hay escenarios donde se necesita más información para entender mejor el problema y decidir con seguridad.",
+      "Hay casos en los que hace falta más información para saber qué está pasando y tomar una mejor decisión.",
   },
   {
-    title: "Planificación de intervención o seguimiento",
+    title: "Antes o después de un procedimiento",
     description:
-      "Antes o después de un procedimiento, el diagnóstico ayuda a dimensionar condición, respuesta y evolución.",
+      "Los estudios pueden ayudar a decidir mejor el momento, el alcance del problema y cómo va evolucionando tu mascota.",
   },
   {
-    title: "Sospecha de compromiso sistémico",
+    title: "Decaimiento, dolor o cambios generales sin causa clara",
     description:
-      "Pacientes con deterioro general, dolor, cambios respiratorios o signos no específicos pueden requerir correlación diagnóstica.",
+      "Cuando hay señales importantes pero no una explicación evidente, el apoyo diagnóstico ayuda a orientar el caso con más seguridad.",
   },
   {
-    title: "Necesidad de confirmar extensión o gravedad",
+    title: "Dudas sobre qué tan grave es realmente",
     description:
-      "El criterio diagnóstico ayuda a no subestimar ni sobretratar una condición clínica.",
+      "Sirve para no quedarse corto, pero también para no hacer de más cuando todavía no hace falta.",
   },
   {
-    title: "Seguimiento hospitalario",
+    title: "Seguimiento durante hospitalización o recuperación",
     description:
-      "La reevaluación diagnóstica permite medir respuesta y ajustar el rumbo del caso.",
+      "Ayuda a revisar cómo responde tu mascota y si el plan necesita ajustarse a tiempo.",
   },
 ] as const;
 
@@ -94,55 +94,55 @@ export const diagnosticCapabilities: readonly DiagnosticCapability[] = [
   {
     title: "Imagenología hospitalaria",
     description:
-      "Ayuda a revisar estructuras y confirmar sospechas cuando el problema no se entiende solo con la exploración.",
+      "Ayuda a revisar órganos, estructuras y cambios internos cuando el problema no se entiende solo con la exploración física.",
     icon: ScanSearch,
   },
   {
-    title: "Laboratorio clínico como soporte",
+    title: "Laboratorio clínico como apoyo",
     description:
-      "Permite valorar mejor el estado general del paciente y detectar cambios que modifican la decisión clínica.",
+      "Permite conocer mejor el estado general de tu mascota y detectar cambios que pueden modificar la decisión médica.",
     icon: Microscope,
   },
   {
-    title: "Evaluación complementaria y correlación",
+    title: "Lectura completa del caso",
     description:
-      "Los hallazgos sirven cuando se leen junto con los signos y la evolución del paciente, no como datos aislados.",
+      "Los estudios sirven más cuando se interpretan junto con los síntomas, la revisión médica y la evolución del paciente.",
     icon: SearchCheck,
   },
 ] as const;
 
 export const transversalSupport: readonly DiagnosticSupportCard[] = [
   {
-    title: "Diagnóstico como soporte en urgencias",
+    title: "Diagnóstico como apoyo en urgencias",
     description:
-      "En cuadros agudos, ayuda a decidir qué debe atenderse primero y qué necesita confirmarse rápido para no perder tiempo.",
+      "En casos agudos, ayuda a decidir qué necesita atención inmediata y qué conviene confirmar rápido para no perder tiempo.",
     icon: HeartPulse,
     items: [
-      "Mejor lectura del estado real del paciente",
-      "Ayuda a decidir estabilización y siguientes pasos",
-      "Menos duda en escenarios críticos",
+      "Ayuda a entender mejor qué tan delicado está el paciente",
+      "Orienta qué atender primero y qué sigue después",
+      "Reduce dudas en momentos críticos",
     ],
   },
   {
-    title: "Planificación quirúrgica y seguimiento",
+    title: "Planeación y seguimiento alrededor de una cirugía",
     description:
-      "Antes o después de un procedimiento, ayuda a decidir mejor el momento, la preparación y los cambios necesarios en el seguimiento.",
+      "Antes o después de un procedimiento, ayuda a tomar mejores decisiones sobre preparación, vigilancia y evolución.",
     icon: ClipboardCheck,
     items: [
-      "Mejor contexto antes de intervenir",
-      "Seguimiento de evolución después del procedimiento",
-      "Ajustes de decisión según la respuesta clínica",
+      "Más claridad antes de intervenir",
+      "Seguimiento después del procedimiento",
+      "Ajustes según cómo va respondiendo tu mascota",
     ],
   },
   {
-    title: "Relación con endoscopía y mínima invasión",
+    title: "Relación con endoscopia y mínima invasión",
     description:
-      "A veces ayuda a decidir si una vía mínimamente invasiva está indicada o si el caso necesita otra ruta.",
+      "En algunos casos ayuda a decidir si conviene un procedimiento menos invasivo o si hace falta otra forma de intervención.",
     icon: Eye,
     items: [
       "Ayuda a decidir si un procedimiento está indicado",
-      "Complementa la evaluación clínica y de imagen",
-      "Aclara cuándo conviene escalar a otra intervención",
+      "Complementa la valoración clínica y de imagen",
+      "Aclara cuándo conviene pasar a otra intervención",
     ],
   },
 ] as const;
@@ -151,25 +151,25 @@ export const diagnosticDifferentiators: readonly DiagnosticCapability[] = [
   {
     title: "Aclara el siguiente paso",
     description:
-      "Cuando el cuadro no es claro, ayuda a decidir qué necesita atención inmediata y qué puede esperar sin aumentar el riesgo.",
+      "Cuando el caso no está claro, ayuda a decidir qué requiere atención inmediata y qué puede esperar sin poner en riesgo a tu mascota.",
     icon: Stethoscope,
   },
   {
-    title: "Evita intervenir sin estar seguro",
+    title: "Evita actuar sin información suficiente",
     description:
-      "En algunos casos, una mejor correlación diagnóstica evita procedimientos o tratamientos que todavía no están bien indicados.",
+      "En algunos casos, entender mejor el problema evita tratamientos o procedimientos que todavía no están bien indicados.",
     icon: Activity,
   },
   {
-    title: "Acelera el tratamiento correcto",
+    title: "Ayuda a llegar antes al tratamiento correcto",
     description:
-      "Cuando la información clínica encaja mejor, el siguiente paso puede definirse antes y con menos ensayo y error.",
+      "Cuando el caso se entiende mejor, es más fácil decidir qué hacer sin perder tiempo en pruebas o pasos innecesarios.",
     icon: Gauge,
   },
   {
-    title: "Reduce incertidumbre en casos complejos",
+    title: "Reduce la incertidumbre en casos complejos",
     description:
-      "Ayuda a confirmar si el paciente necesita cirugía, hospitalización, seguimiento estrecho o una reevaluación diferente.",
+      "Ayuda a definir si tu mascota necesita cirugía, hospitalización, vigilancia más cercana o una nueva valoración.",
     icon: Monitor,
   },
 ] as const;

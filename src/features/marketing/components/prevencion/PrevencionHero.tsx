@@ -19,19 +19,18 @@ export function PrevencionHero() {
               <Badge variant="secondary">Prevención y seguimiento</Badge>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                Cuidado anticipado con criterio clínico
+                Cuidar a tiempo también es medicina
               </div>
             </div>
 
             <div className="max-w-4xl space-y-4">
               <h1 className="text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-6xl lg:leading-[0.98]">
-                Prevención Clínica y Seguimiento Oportuno
+                Prevención y seguimiento para cuidar mejor a tu mascota
               </h1>
               <p className="text-lg leading-8 text-slate-600">
-                La prevención no es un trámite ligero: ayuda a detectar antes,
-                decidir mejor y reducir urgencias o complicaciones evitables.
-                Aquí importa valorar, anticiparse y dar seguimiento cuando el
-                paciente todavía puede mantenerse estable.
+                La prevención ayuda a detectar cambios antes de que se vuelvan un
+                problema mayor. Aquí importa revisar, dar seguimiento y actuar a
+                tiempo cuando todavía hay margen para cuidar mejor a tu mascota.
               </p>
             </div>
 
@@ -43,7 +42,7 @@ export function PrevencionHero() {
               >
                 <a href={preventionWhatsAppHref} target="_blank" rel="noreferrer">
                   <ClipboardCheck aria-hidden={true} className="h-4 w-4" />
-                  Solicitar valoración
+                  Pedir orientación preventiva
                 </a>
               </Button>
               <Button
@@ -77,20 +76,21 @@ export function PrevencionHero() {
 
             <section className="rounded-[1.6rem] border border-primary/10 bg-primary p-5 text-white shadow-[0_20px_60px_-36px_rgba(15,23,42,0.5)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Antes de que haga falta escalar
+                Cuándo conviene actuar antes
               </p>
               <p className="mt-3 text-lg font-semibold text-white">
-                La prevención ayuda a actuar cuando todavía hay margen para
-                corregir, vigilar o ajustar sin llegar a una urgencia.
+                La prevención ayuda a revisar, corregir y dar seguimiento cuando
+                todavía no hace falta llegar a una urgencia.
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                No compite con urgencias ni con el hospital: ayuda a que menos
-                pacientes lleguen tarde y a que los que tienen más riesgo se
-                sigan de forma más inteligente.
+                No reemplaza la atención hospitalaria cuando ya hay una
+                descompensación. Su valor está en detectar cambios antes, cuidar a
+                pacientes con más riesgo y evitar que los problemas avancen sin que
+                te des cuenta.
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
                 <ShieldPlus aria-hidden={true} className="h-4 w-4" />
-                Seguimiento para pacientes sanos o con riesgo
+                Seguimiento para mascotas sanas o con más riesgo
               </div>
             </section>
           </div>

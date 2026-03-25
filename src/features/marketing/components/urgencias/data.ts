@@ -38,25 +38,25 @@ export type Capability = {
 
 export const urgentPhoneHref = "tel:+524433246136";
 export const urgentWhatsAppHref =
-  "https://wa.me/524433369624?text=Hola%20Nusk%C3%AB,%20tengo%20una%20urgencia%20veterinaria%20y%20necesito%20atenci%C3%B3n%20inmediata.";
+  "https://wa.me/524433369624?text=Hola%20Nusk%C3%AB,%20tengo%20una%20urgencia%20con%20mi%20mascota%20y%20necesito%20atenci%C3%B3n%20inmediata.";
 export const mapsHref =
   "https://www.google.com/maps/search/?api=1&query=Nusk%C3%AB%20Vet%20Center%20Camelinas%20Morelia";
 
 export const heroHighlights: readonly Highlight[] = [
   {
-    title: "Respuesta clínica inmediata",
+    title: "Atención inmediata cuando el caso no puede esperar",
     description:
-      "Si el paciente llega comprometido, la prioridad es valorarlo y empezar a actuar sin perder tiempo.",
+      "Si tu mascota llega grave o se está deteriorando, la prioridad es revisarla y empezar a actuar sin perder tiempo.",
   },
   {
-    title: "Paciente crítico y monitoreo",
+    title: "Vigilancia cercana en pacientes delicados",
     description:
-      "Algunos pacientes necesitan quedarse vigilados para ver si responden o si el cuadro sigue empeorando.",
+      "Algunos pacientes necesitan quedarse bajo observación para ver cómo responden y actuar rápido si algo cambia.",
   },
   {
-    title: "Apoyo diagnóstico y quirúrgico",
+    title: "Apoyo diagnóstico y quirúrgico sin retrasar la atención",
     description:
-      "Si la urgencia necesita estudios o procedimiento, puede definirse la siguiente ruta sin retrasar la atención.",
+      "Si la urgencia necesita estudios o un procedimiento, el siguiente paso puede definirse sin frenar la atención del paciente.",
   },
 ] as const;
 
@@ -64,7 +64,7 @@ export const immediateSignals: readonly Signal[] = [
   {
     title: "Dificultad para respirar",
     description:
-      "Respiración agitada, esfuerzo marcado o respiración con boca abierta.",
+      "Respira con mucho esfuerzo, muy rápido o con la boca abierta.",
   },
   {
     title: "Trauma o atropellamiento",
@@ -74,7 +74,7 @@ export const immediateSignals: readonly Signal[] = [
   {
     title: "Convulsiones o desorientación severa",
     description:
-      "Pérdida de coordinación, movimientos involuntarios o respuesta alterada.",
+      "Movimientos involuntarios, pérdida de coordinación o respuesta alterada.",
   },
   {
     title: "Sangrado abundante o palidez",
@@ -84,12 +84,12 @@ export const immediateSignals: readonly Signal[] = [
   {
     title: "No puede orinar o abdomen muy distendido",
     description:
-      "Esfuerzo sin resultado, dolor abdominal y deterioro rápido del estado general.",
+      "Hace esfuerzo sin lograr orinar, tiene dolor abdominal o empeora rápido.",
   },
   {
     title: "Dolor agudo o colapso",
     description:
-      "Paciente inmóvil, quejido constante, desmayo o incapacidad para incorporarse.",
+      "No puede levantarse, se queja de forma constante, se desvanece o colapsa.",
   },
 ] as const;
 
@@ -97,19 +97,19 @@ export const criticalCareCapabilities: readonly Capability[] = [
   {
     title: "Triage y estabilización inicial",
     description:
-      "Priorización clínica rápida para identificar riesgo vital y actuar sin demora.",
+      "Ayuda a identificar rápido qué tan grave está el paciente y qué necesita primero para empezar a actuar sin demora.",
     icon: Siren,
   },
   {
     title: "Monitoreo continuo",
     description:
-      "Seguimiento estrecho de signos vitales y evolución del paciente durante las primeras horas críticas.",
+      "Permite vigilar de cerca signos vitales y evolución durante las primeras horas, cuando el paciente puede cambiar rápido.",
     icon: Monitor,
   },
   {
-    title: "Manejo del dolor y soporte",
+    title: "Control de dolor y soporte",
     description:
-      "Control del dolor, fluidoterapia y medidas de soporte según la condición clínica.",
+      "Incluye medidas para controlar dolor, sostener funciones importantes y dar apoyo según el estado de tu mascota.",
     icon: HeartPulse,
   },
 ] as const;
@@ -118,61 +118,61 @@ export const supportCards: readonly SupportCard[] = [
   {
     title: "Hospitalización y monitoreo continuo",
     description:
-      "Cuando el paciente no está listo para irse a casa, puede quedarse en observación, tratamiento y reevaluación cercana.",
+      "Cuando tu mascota todavía no está lista para irse a casa, puede quedarse en observación, tratamiento y reevaluación cercana.",
     icon: ShieldPlus,
     items: [
       "Observación clínica continua",
-      "Seguimiento de respuesta al tratamiento",
-      "Reevaluación según cómo evoluciona",
+      "Seguimiento de cómo responde al tratamiento",
+      "Reevaluación según cómo va evolucionando",
     ],
   },
   {
     title: "Apoyo diagnóstico",
     description:
-      "Cuando el cuadro no es claro, los estudios ayudan a entender mejor el problema y a decidir qué sigue.",
+      "Cuando el cuadro no está claro, los estudios ayudan a entender mejor qué está pasando y a decidir qué sigue.",
     icon: ScanSearch,
     items: [
       "Imagenología y laboratorio según criterio médico",
-      "Mejor lectura de lo que está ocurriendo",
+      "Más claridad sobre lo que está ocurriendo",
       "Decisiones más rápidas en cuadros agudos",
     ],
   },
   {
     title: "Apoyo quirúrgico",
     description:
-      "Si el paciente necesita procedimiento, puede definirse si conviene operar y en qué condiciones hacerlo con más seguridad.",
+      "Si tu mascota necesita un procedimiento, ayuda a decidir si conviene operar y en qué condiciones hacerlo con más seguridad.",
     icon: Syringe,
     items: [
-      "Valoración prequirúrgica",
+      "Valoración antes de cirugía",
       "Planeación anestésica según el estado del paciente",
-      "Continuidad postoperatoria",
+      "Continuidad durante la recuperación",
     ],
   },
 ] as const;
 
 export const differentiators: readonly Capability[] = [
   {
-    title: "Permite actuar antes del colapso",
+    title: "Ayuda a actuar antes de que el paciente colapse",
     description:
-      "Cuando el paciente empieza a deteriorarse, recibirlo de inmediato puede evitar que llegue a un punto más crítico.",
+      "Cuando tu mascota empieza a deteriorarse, recibir atención a tiempo puede evitar que llegue a un punto mucho más crítico.",
     icon: Gauge,
   },
   {
-    title: "Primero estabiliza, luego decide",
+    title: "Primero estabilizar, después decidir",
     description:
-      "Si llega inestable, la prioridad es sostener respiración, circulación y dolor antes de pensar en estudios o procedimientos.",
+      "Si llega inestable, lo primero es ayudarle a respirar mejor, controlar dolor y sostener su estado antes de pensar en otros pasos.",
     icon: Stethoscope,
   },
   {
     title: "Prioriza lo que no puede esperar",
     description:
-      "Ayuda a diferenciar qué debe atenderse en los primeros minutos y qué puede ordenarse después sin aumentar el riesgo.",
+      "Ayuda a distinguir qué debe atenderse en los primeros minutos y qué puede ordenarse después sin aumentar el riesgo.",
     icon: Activity,
   },
   {
-    title: "Reduce tiempo perdido en la urgencia",
+    title: "Reduce tiempo perdido en una urgencia real",
     description:
-      "Cuando hay un cuadro agudo, llegar rápido y activar la atención desde el primer contacto cambia el margen de respuesta.",
+      "Cuando el cuadro es agudo, llamar, salir y llegar rápido al hospital puede cambiar por completo el margen de respuesta.",
     icon: MapPin,
   },
 ] as const;
@@ -181,19 +181,19 @@ export const finalActions: readonly Capability[] = [
   {
     title: "Llamar al hospital",
     description:
-      "Primera opción si el cuadro parece crítico o necesitas avisar que vas en camino.",
+      "La mejor opción si tu mascota se ve grave o quieres avisar que ya vas en camino.",
     icon: TriangleAlert,
   },
   {
     title: "Escribir por WhatsApp",
     description:
-      "Canal rápido para orientación inicial y coordinación inmediata con el equipo.",
+      "Canal rápido para pedir orientación inicial y coordinar tu llegada con el equipo.",
     icon: HeartPulse,
   },
   {
     title: "Usar triage orientativo",
     description:
-      "Herramienta secundaria si aún no tienes claro el nivel de urgencia observado.",
+      "Herramienta de apoyo si todavía no te queda claro qué tan urgente parece lo que estás viendo.",
     icon: ScanSearch,
   },
 ] as const;

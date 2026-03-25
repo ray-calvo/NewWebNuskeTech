@@ -25,7 +25,7 @@ export function DiagnosticoHero({ clinicalUiModel }: DiagnosticoHeroProps) {
     : null;
   const primaryAction = runtimeConsumption?.primaryCta ?? {
     href: diagnosticsWhatsAppHref,
-    label: "Solicitar valoración",
+    label: "Pedir orientación diagnóstica",
     kind: "valuation-request",
     isExternal: true,
   };
@@ -45,19 +45,19 @@ export function DiagnosticoHero({ clinicalUiModel }: DiagnosticoHeroProps) {
               <Badge variant="secondary">Diagnóstico hospitalario</Badge>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                Aclarar el cuadro y decidir mejor
+                Más claridad para decidir mejor
               </div>
             </div>
 
             <div className="max-w-4xl space-y-4">
               <h1 className="text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-6xl lg:leading-[0.98]">
-                Diagnóstico Hospitalario para Casos Complejos
+                Diagnóstico hospitalario para mascotas que necesitan respuestas más claras
               </h1>
               <p className="text-lg leading-8 text-slate-600">
-                Cuando la exploración no basta, el diagnóstico ayuda a entender
-                mejor el cuadro, priorizar riesgos y decidir qué tratamiento o
-                procedimiento conviene seguir. No se trata de pedir estudios
-                por pedirlos, sino de tomar mejores decisiones.
+                Cuando la revisión inicial no es suficiente, los estudios ayudan a
+                entender mejor qué está pasando y a decidir qué sigue para tu mascota.
+                No se trata de pedir estudios por pedirlos, sino de actuar con más
+                claridad y menos duda.
               </p>
             </div>
 
@@ -125,19 +125,19 @@ export function DiagnosticoHero({ clinicalUiModel }: DiagnosticoHeroProps) {
 
             <section className="rounded-[1.6rem] border border-primary/10 bg-primary p-5 text-white shadow-[0_20px_60px_-36px_rgba(15,23,42,0.5)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Cuando hace falta más claridad
+                Cuando hace falta entender mejor el caso
               </p>
               <p className="mt-3 text-lg font-semibold text-white">
-                El diagnóstico ayuda a decidir mejor, pero no reemplaza una
-                cirugía o un procedimiento cuando el caso necesita resolverse.
+                El diagnóstico ayuda a tomar mejores decisiones, pero no reemplaza
+                el tratamiento o el procedimiento que tu mascota pueda necesitar.
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Su papel es reducir incertidumbre: aclarar el cuadro, confirmar
-                riesgos y orientar el siguiente paso con menos duda.
+                Su función es dar más claridad: confirmar hallazgos, reducir dudas
+                y orientar el siguiente paso con mejor criterio médico.
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
                 <ScanSearch aria-hidden={true} className="h-4 w-4" />
-                Apoyo a decisiones clínicas
+                Apoyo para decidir con más seguridad
               </div>
             </section>
           </div>

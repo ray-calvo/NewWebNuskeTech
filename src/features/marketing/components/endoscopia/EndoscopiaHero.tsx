@@ -25,7 +25,7 @@ export function EndoscopiaHero({ clinicalUiModel }: EndoscopiaHeroProps) {
     : null;
   const primaryAction = runtimeConsumption?.primaryCta ?? {
     href: endoscopyWhatsAppHref,
-    label: "Solicitar valoración",
+    label: "Pedir orientación sobre endoscopía",
     kind: "specialized-valuation-request",
     isExternal: true,
   };
@@ -45,20 +45,19 @@ export function EndoscopiaHero({ clinicalUiModel }: EndoscopiaHeroProps) {
               <Badge variant="secondary">Endoscopía y mínima invasión</Badge>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                Evaluar o resolver con mínima invasión
+                Ver mejor y actuar con menos invasión cuando el caso lo permite
               </div>
             </div>
 
             <div className="max-w-4xl space-y-4">
               <h1 className="text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-6xl lg:leading-[0.98]">
-                Endoscopía y Mínima Invasión Veterinaria
+                Endoscopía veterinaria para casos en los que conviene ver mejor y hacer menos invasión
               </h1>
               <p className="text-lg leading-8 text-slate-600">
-                Cuando el caso lo permite, la endoscopía ayuda a ver mejor lo
-                que está ocurriendo y, en algunos pacientes, a resolver sin
-                pasar de inmediato por una cirugía abierta. Su valor está en
-                decidir mejor y actuar con menos trauma cuando está bien
-                indicada.
+                Cuando está bien indicada, la endoscopía puede ayudar a entender mejor
+                qué está pasando y, en algunos pacientes, resolver el problema sin pasar
+                primero por una cirugía abierta. No se trata solo de usar otra técnica,
+                sino de elegir lo que más puede ayudar a tu mascota.
               </p>
             </div>
 
@@ -126,19 +125,19 @@ export function EndoscopiaHero({ clinicalUiModel }: EndoscopiaHeroProps) {
 
             <section className="rounded-[1.6rem] border border-primary/10 bg-primary p-5 text-white shadow-[0_20px_60px_-36px_rgba(15,23,42,0.5)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Cuando esta vía puede ayudar más
+                Cuando esta opción puede ayudar más
               </p>
               <p className="mt-3 text-lg font-semibold text-white">
-                Puede evitar abrir cuando no hace falta, pero también ayuda a
-                reconocer cuándo el caso necesita cirugía u otro soporte.
+                Puede evitar una cirugía abierta en algunos casos, pero también ayuda
+                a saber cuándo tu mascota sí necesita otro tipo de procedimiento o más apoyo.
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                La clave está en usarla en el momento correcto: cuando aporta
-                más claridad, menos trauma y una mejor decisión terapéutica.
+                La clave está en usarla cuando realmente aporta más claridad, menos
+                invasión y una mejor decisión para el caso.
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
                 <Waves aria-hidden={true} className="h-4 w-4" />
-                Mínima invasión cuando está indicada
+                Menor invasión cuando está bien indicada
               </div>
             </section>
           </div>

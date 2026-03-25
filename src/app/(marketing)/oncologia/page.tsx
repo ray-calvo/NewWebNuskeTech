@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function OncologiaPage() {
   const { uiModel: clinicalUiModel, consumption: runtimeConsumption } =
     resolveClinicalUiConsumptionForPage({
-    pathname: "/oncologia",
+      pathname: "/oncologia",
     });
   const finalPrimaryAction = runtimeConsumption.primaryCta;
   const finalSecondaryAction = runtimeConsumption.secondaryCta;
@@ -35,9 +35,9 @@ export default function OncologiaPage() {
       <OncologiaHero clinicalUiModel={clinicalUiModel} />
 
       <ClinicalSection
-        badge="Cuándo conviene valoración oncológica"
-        title="Masas, cambios progresivos o hallazgos persistentes merecen una lectura más cuidadosa"
-        description="No toda sospecha oncológica implica el mismo pronóstico ni la misma ruta. Lo importante es valorar a tiempo cuándo conviene estudiar más, vigilar con más atención o definir otro paso clínico."
+        badge="Cuándo conviene una valoración oncológica"
+        title="Masas, cambios progresivos o hallazgos persistentes necesitan una revisión más cuidadosa"
+        description="No toda masa o hallazgo significa lo mismo. Lo importante es valorar a tiempo qué hace falta estudiar, qué conviene vigilar de cerca y cuál puede ser el siguiente paso para tu mascota."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {oncologyDecisionContexts.map((signal) => (
@@ -63,8 +63,8 @@ export default function OncologiaPage() {
 
       <ClinicalSection
         badge="Valoración, decisión y seguimiento"
-        title="La oncología clínica ayuda a entender el caso y ordenar mejor lo que sigue"
-        description="El valor no está en prometer una sola salida, sino en decidir con más criterio qué hace falta estudiar, intervenir, acompañar o controlar según el estado real del paciente."
+        title="La oncología ayuda a entender mejor el caso y ordenar lo que sigue"
+        description="No se trata de prometer una sola salida, sino de tomar decisiones con más claridad sobre estudios, tratamiento, seguimiento y apoyo según el estado real del paciente."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {oncologyCapabilities.map((capability) => {
@@ -95,23 +95,23 @@ export default function OncologiaPage() {
             <div className="space-y-5">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-white">
                 <ShieldPlus aria-hidden={true} className="h-4 w-4 text-accent" />
-                Coordinación clínica y continuidad
+                Coordinación clínica y seguimiento
               </div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Diagnóstico, cirugía, hospitalización y acompañamiento se coordinan según la evolución del caso
+                Estudios, cirugía, hospitalización y seguimiento se coordinan según cómo va evolucionando tu mascota
               </h2>
               <p className="text-base leading-8 text-slate-100">
-                En oncología, una buena decisión suele depender de varios
-                pasos: aclarar el hallazgo, definir si hace falta intervenir,
-                sostener al paciente cuando está más frágil y vigilar de cerca
-                cómo evoluciona.
+                En estos casos, una buena decisión suele depender de varios pasos:
+                entender mejor el hallazgo, valorar si hace falta intervenir,
+                acompañar al paciente cuando está más frágil y vigilar de cerca
+                cómo responde con el tiempo.
               </p>
               <ClinicalBulletGrid
                 items={[
-                  "Estudiar mejor antes de decidir demasiado rápido",
-                  "Valorar si cirugía u hospitalización tienen sentido en ese momento",
-                  "Acompañar evolución, confort y respuesta del paciente",
-                  "Escalar a urgencias si aparece descompensación aguda",
+                  "Estudiar mejor antes de tomar decisiones apresuradas",
+                  "Valorar si cirugía u hospitalización son lo más indicado en ese momento",
+                  "Dar seguimiento al confort, evolución y respuesta del paciente",
+                  "Priorizar urgencias si aparece una descompensación repentina",
                 ]}
                 tone="dark"
               />
@@ -153,9 +153,9 @@ export default function OncologiaPage() {
       </section>
 
       <ClinicalSection
-        badge="Diferenciadores hospitalarios"
-        title="Lo que cambia cuando estos casos se valoran con más criterio y menos improvisación"
-        description="En oncología, acompañar bien también es parte del manejo. La diferencia suele estar en estudiar mejor, ordenar prioridades y no perder de vista al paciente mientras el caso evoluciona."
+        badge="Lo que hace la diferencia"
+        title="Cuando estos casos se valoran mejor, también cambia la forma de acompañarlos"
+        description="En oncología, acompañar bien también forma parte de la atención. La diferencia suele estar en estudiar mejor, ordenar prioridades y no perder de vista al paciente mientras el caso evoluciona."
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {oncologyDifferentiators.map((item) => {
@@ -185,12 +185,12 @@ export default function OncologiaPage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-primary sm:text-4xl">
-                Una valoración oncológica útil no promete de más: ayuda a decidir mejor
+                Una valoración oncológica útil ayuda a decidir mejor, sin prometer de más
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                Esta página orienta hacia estudio, seguimiento y coordinación
+                Esta página orienta sobre estudio, seguimiento y coordinación
                 clínica en pacientes con sospecha o diagnóstico oncológico. Si
-                el paciente ya está descompensado o inestable, la prioridad
+                tu mascota ya está inestable o se deteriora rápido, la prioridad
                 sigue siendo urgencias.
               </p>
             </div>
@@ -200,9 +200,9 @@ export default function OncologiaPage() {
                 Acción recomendada
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-100">
-                Si necesitas valorar una masa, un hallazgo persistente o el
-                seguimiento de un paciente oncológico, contacta al hospital. Si
-                el paciente presenta deterioro agudo, prioriza urgencias.
+                Si necesitas valorar una masa, un hallazgo persistente o dar
+                seguimiento a un paciente oncológico, contacta al hospital. Si
+                tu mascota presenta un deterioro agudo, prioriza urgencias.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">
