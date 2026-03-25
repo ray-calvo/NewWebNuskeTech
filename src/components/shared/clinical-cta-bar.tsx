@@ -3,10 +3,11 @@
 import { useMemo, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Activity, AlertTriangle, ArrowRight, Stethoscope } from "lucide-react";
+import { Activity, AlertTriangle, Stethoscope } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
+  resolveGlobalClinicalBarModel,
   resolveGlobalClinicalCtaForRoute,
 } from "@/lib/clinical-runtime/application";
 import {
@@ -24,44 +25,6 @@ function isClinicalRoute(pathname: string | null): pathname is ClinicalPageRoute
   }
 
   return CLINICAL_PAGE_ROUTES.includes(pathname as ClinicalPageRoute);
-}
-
-function getClinicalBarMessage({
-  hasSession,
-  pathname,
-  resolvedState,
-}: {
-  hasSession: boolean;
-  pathname: ClinicalPageRoute;
-  resolvedState: ReturnType<typeof resolveGlobalClinicalCtaForRoute>["uiModel"]["resolvedState"];
-}) {
-  if (hasSession) {
-    switch (resolvedState) {
-      case "urgency-perceived":
-        return "Hay un contexto clínico activo que sugiere priorizar atención inmediata.";
-      case "recognized-complexity":
-        return "Tu navegación conserva un contexto clínico que orienta a una ruta de mayor complejidad.";
-      case "stability-followup":
-        return "Hay continuidad clínica activa para sostener el siguiente paso sin perder seguimiento.";
-      case "clinical-uncertainty":
-      default:
-        return "Hay un contexto clínico reciente que puede ayudarte a seguir la ruta correcta sin volver a empezar.";
-    }
-  }
-
-  switch (pathname) {
-    case "/servicios":
-      return "Si todavía no tienes clara la ruta clínica, usa esta orientación breve para elegir mejor.";
-    case "/diagnostico":
-      return "Si el caso no está claro, aquí puedes mantener una salida prudente sin salir de la ruta actual.";
-    case "/medicina-interna":
-    case "/oncologia":
-    case "/cirugia":
-    case "/endoscopia":
-      return "Esta barra mantiene una acción clínica segura y discreta mientras navegas el hospital digital.";
-    default:
-      return "Mantén una acción clínica segura disponible mientras navegas el hospital digital.";
-  }
 }
 
 function ResultAction({
@@ -131,24 +94,21 @@ export function ClinicalCtaBar() {
     });
   }, [clinicalPathname, sessionSnapshot]);
 
-  if (shouldHide || !orchestration) {
+  const barModel = useMemo(() => {
+    if (!clinicalPathname || !orchestration) {
+      return null;
+    }
+
+    return resolveGlobalClinicalBarModel({
+      pathname: clinicalPathname,
+      orchestration,
+      clinicalSession: sessionSnapshot,
+    });
+  }, [clinicalPathname, orchestration, sessionSnapshot]);
+
+  if (shouldHide || !orchestration || !barModel || !barModel.shouldRender) {
     return null;
   }
-
-  const hasSession = orchestration.orchestrationSource === "clinical-session";
-  const primaryCta = orchestration.consumption.primaryCta;
-  const secondaryCta = hasSession ? orchestration.consumption.secondaryCta : null;
-  const fallbackCta = orchestration.consumption.shouldShowSafeFallback
-    ? orchestration.consumption.fallbackCta
-    : null;
-  const message = getClinicalBarMessage({
-    hasSession,
-    pathname: clinicalPathname,
-    resolvedState: orchestration.uiModel.resolvedState,
-  });
-  const showHighPriority =
-    orchestration.consumption.visualPriority === "maximum" ||
-    orchestration.consumption.visualPriority === "high";
 
   return (
     <section className="border-b border-slate-200/80 bg-white/88 backdrop-blur-md">
@@ -156,14 +116,14 @@ export function ClinicalCtaBar() {
         <div className="flex min-w-0 items-start gap-3">
           <div
             className={
-              showHighPriority
+              barModel.visualPriority === "high"
                 ? "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#a60f14]/10 text-[#a60f14]"
                 : "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-primary/8 text-primary"
             }
           >
-            {showHighPriority ? (
+            {barModel.iconKind === "critical" ? (
               <AlertTriangle aria-hidden={true} className="h-5 w-5" />
-            ) : hasSession ? (
+            ) : barModel.iconKind === "guidance" ? (
               <Activity aria-hidden={true} className="h-5 w-5" />
             ) : (
               <Stethoscope aria-hidden={true} className="h-5 w-5" />
@@ -172,46 +132,25 @@ export function ClinicalCtaBar() {
 
           <div className="min-w-0 space-y-1">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              {hasSession ? "Continuidad clínica activa" : "Orientación clínica disponible"}
+              {barModel.eyebrow}
             </p>
-            <p className="text-sm leading-6 text-slate-700">{message}</p>
+            <p className="text-sm leading-6 text-slate-700">{barModel.message}</p>
           </div>
         </div>
 
         <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-end">
           <ResultAction
-            href={primaryCta.href}
-            label={primaryCta.label}
-            isExternal={primaryCta.isExternal}
+            href={barModel.primaryAction?.href ?? "/contacto"}
+            label={barModel.primaryAction?.label ?? "Solicitar valoración"}
+            isExternal={barModel.primaryAction?.isExternal ?? false}
           />
-          {secondaryCta ? (
+          {barModel.secondaryAction ? (
             <ResultAction
-              href={secondaryCta.href}
-              label={secondaryCta.label}
-              isExternal={secondaryCta.isExternal}
+              href={barModel.secondaryAction.href}
+              label={barModel.secondaryAction.label}
+              isExternal={barModel.secondaryAction.isExternal}
               variant="outline"
             />
-          ) : null}
-          {fallbackCta ? (
-            fallbackCta.isExternal ? (
-              <a
-                href={fallbackCta.href}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1 text-sm font-medium text-slate-600 transition-colors hover:text-primary"
-              >
-                {fallbackCta.label}
-                <ArrowRight aria-hidden={true} className="h-4 w-4" />
-              </a>
-            ) : (
-              <Link
-                href={fallbackCta.href}
-                className="inline-flex items-center gap-1 text-sm font-medium text-slate-600 transition-colors hover:text-primary"
-              >
-                {fallbackCta.label}
-                <ArrowRight aria-hidden={true} className="h-4 w-4" />
-              </Link>
-            )
           ) : null}
         </div>
       </div>

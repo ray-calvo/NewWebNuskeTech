@@ -5078,3 +5078,44 @@
 - No se cambió el sistema visual base.
 - No se rediseñó el Hero desde cero.
 - No se introdujeron rutas nuevas ni patrones globales nuevos.
+
+## Entrada 2026-03-25 01:22:00 -06:00
+
+### Tipo
+- Endurecimiento del mapping de Global Clinical CTA Bar
+
+### Resumen ejecutivo
+- La barra global clínica dejó de resolver su estado visible con heurísticas mezcladas dentro del componente.
+- Ahora existe un mapping explícito y testeable con cinco estados:
+  - urgent
+  - uncertainty
+  - consultative
+  - neutral
+  - hidden
+
+### Decisiones clave
+- Se mantuvo la sesión clínica in-memory actual.
+- No se introdujo provider.
+- No se tocó domain ni engine clínico.
+- La precedencia quedó formalizada así:
+  - urgent
+  - uncertainty
+  - consultative
+  - neutral
+
+### Resultado operativo
+- La barra responde con mayor precisión a:
+  - urgencia real
+  - incertidumbre clínica
+  - navegación consultiva/especializada
+  - fallback neutro prudente
+- El estado `hidden` sigue gobernando `/urgencias` y `/triage`.
+
+### Validación
+- Se agregaron pruebas puras del mapper de barra global para:
+  - urgent
+  - uncertainty
+  - consultative
+  - neutral
+  - hidden
+  - precedencia
