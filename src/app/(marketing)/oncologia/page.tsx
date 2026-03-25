@@ -12,10 +12,10 @@ import {
   oncologyCapabilities,
   oncologyDecisionContexts,
   oncologyDifferentiators,
-  oncologyPhoneHref,
   oncologySupportCards,
-  oncologyWhatsAppHref,
 } from "@/features/marketing/components/oncologia/data";
+import { resolveClinicalUiModelForPage } from "@/lib/clinical-runtime/application";
+import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
 
 export const metadata: Metadata = {
   title: "Oncología",
@@ -24,9 +24,22 @@ export const metadata: Metadata = {
 };
 
 export default function OncologiaPage() {
+  const clinicalUiModel = resolveClinicalUiModelForPage({
+    pathname: "/oncologia",
+  }).uiModel;
+  const runtimeConsumption = selectClinicalUiConsumption(clinicalUiModel, {
+    primaryPreference: [
+      "specialized-valuation-request",
+      "followup-request",
+    ],
+    secondaryPreference: ["call-now", "followup-request"],
+  });
+  const finalPrimaryAction = runtimeConsumption.primaryCta;
+  const finalSecondaryAction = runtimeConsumption.secondaryCta;
+
   return (
     <main className="bg-background">
-      <OncologiaHero />
+      <OncologiaHero clinicalUiModel={clinicalUiModel} />
 
       <ClinicalSection
         badge="Cuándo conviene valoración oncológica"
@@ -205,18 +218,42 @@ export default function OncologiaPage() {
                   size="lg"
                   className="h-12 rounded-2xl bg-white px-6 text-primary hover:bg-white/92"
                 >
-                  <a href={oncologyWhatsAppHref} target="_blank" rel="noreferrer">
-                    Solicitar valoración
-                  </a>
+                  {finalPrimaryAction.isExternal ? (
+                    <a
+                      href={finalPrimaryAction.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {finalPrimaryAction.label}
+                    </a>
+                  ) : (
+                    <Link href={finalPrimaryAction.href}>
+                      {finalPrimaryAction.label}
+                    </Link>
+                  )}
                 </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="h-12 rounded-2xl border-white/15 bg-white/10 text-white hover:bg-white/16 hover:text-white"
-                >
-                  <a href={oncologyPhoneHref}>Llamar al hospital</a>
-                </Button>
+                {finalSecondaryAction ? (
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="h-12 rounded-2xl border-white/15 bg-white/10 text-white hover:bg-white/16 hover:text-white"
+                  >
+                    {finalSecondaryAction.isExternal ? (
+                      <a
+                        href={finalSecondaryAction.href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {finalSecondaryAction.label}
+                      </a>
+                    ) : (
+                      <Link href={finalSecondaryAction.href}>
+                        {finalSecondaryAction.label}
+                      </Link>
+                    )}
+                  </Button>
+                ) : null}
                 <Button
                   asChild
                   size="lg"

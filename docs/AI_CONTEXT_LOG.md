@@ -4793,3 +4793,40 @@
 - No cablear todavía todas las páginas clínicas.
 - No introducir provider global antes de validar más superficies complementarias.
 - No usar el runtime para volver el hub `/servicios` una pantalla de decisiones agresiva.
+
+## Entrada 2026-03-24 19:42:00 -06:00
+
+### Tipo
+- Expansion controlada del runtime clinico a diagnostico y oncologia
+
+### Resumen ejecutivo
+- Se expandió el wiring del runtime clínico a:
+  - `/diagnostico` como núcleo no urgente
+  - `/oncologia` como complementaria de complejidad dirigida
+- Se reutilizó el patrón ya validado:
+  - application service
+  - ui-consumption
+- El cambio se limitó a hero y bloque final de acción en ambas páginas.
+
+### Decisiones de integración
+- `/diagnostico`
+  - Hero conectado a `PageClinicalUiModel`.
+  - Cierre final conectado al mismo modelo runtime.
+  - Se evitó dejar CTA clínicos hardcodeados en hero y bloque de acción.
+- `/oncologia`
+  - Hero conectado al runtime con preferencia por valoración especializada y seguimiento.
+  - Cierre final conectado al mismo modelo runtime.
+  - Se conservó el tono clínico sobrio sin reescribir la narrativa central de la página.
+
+### Lectura operativa
+- Con `/urgencias`, `/triage`, `/servicios`, `/medicina-interna`, `/diagnostico` y `/oncologia`, el runtime ya quedó validado en:
+  - entrada dinámica
+  - ruta núcleo urgente
+  - hub de navegación
+  - complementaria integradora
+  - núcleo no urgente
+  - complementaria dirigida
+
+### Supuestos prohibidos
+- No abrir todavía wiring masivo al resto del núcleo ni de complementarias.
+- No introducir provider ligero solo por comodidad hasta decidir si la siguiente fase será expansión amplia o consolidación del patrón.

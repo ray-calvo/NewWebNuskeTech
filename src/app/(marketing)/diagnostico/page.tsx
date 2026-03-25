@@ -12,10 +12,10 @@ import {
   diagnosticCapabilities,
   diagnosticDifferentiators,
   diagnosticsDecisionContexts,
-  diagnosticsPhoneHref,
-  diagnosticsWhatsAppHref,
   transversalSupport,
 } from "@/features/marketing/components/diagnostico/data";
+import { resolveClinicalUiModelForPage } from "@/lib/clinical-runtime/application";
+import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
 
 export const metadata: Metadata = {
   title: "Diagnóstico",
@@ -24,9 +24,19 @@ export const metadata: Metadata = {
 };
 
 export default function DiagnosticoPage() {
+  const clinicalUiModel = resolveClinicalUiModelForPage({
+    pathname: "/diagnostico",
+  }).uiModel;
+  const runtimeConsumption = selectClinicalUiConsumption(clinicalUiModel, {
+    primaryPreference: ["valuation-request", "orientation-request"],
+    secondaryPreference: ["call-now", "route-transition"],
+  });
+  const finalPrimaryAction = runtimeConsumption.primaryCta;
+  const finalSecondaryAction = runtimeConsumption.secondaryCta;
+
   return (
     <main className="bg-background">
-      <DiagnosticoHero />
+      <DiagnosticoHero clinicalUiModel={clinicalUiModel} />
 
       <ClinicalSection
         badge="Por qué cambia decisiones clínicas"
@@ -205,22 +215,42 @@ export default function DiagnosticoPage() {
                   size="lg"
                   className="h-12 rounded-2xl bg-white px-6 text-primary hover:bg-white/92"
                 >
-                  <a
-                    href={diagnosticsWhatsAppHref}
-                    target="_blank"
-                    rel="noreferrer"
+                  {finalPrimaryAction.isExternal ? (
+                    <a
+                      href={finalPrimaryAction.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {finalPrimaryAction.label}
+                    </a>
+                  ) : (
+                    <Link href={finalPrimaryAction.href}>
+                      {finalPrimaryAction.label}
+                    </Link>
+                  )}
+                </Button>
+                {finalSecondaryAction ? (
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="h-12 rounded-2xl border-white/15 bg-white/10 text-white hover:bg-white/16 hover:text-white"
                   >
-                    Solicitar valoración
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="h-12 rounded-2xl border-white/15 bg-white/10 text-white hover:bg-white/16 hover:text-white"
-                >
-                  <a href={diagnosticsPhoneHref}>Llamar al hospital</a>
-                </Button>
+                    {finalSecondaryAction.isExternal ? (
+                      <a
+                        href={finalSecondaryAction.href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {finalSecondaryAction.label}
+                      </a>
+                    ) : (
+                      <Link href={finalSecondaryAction.href}>
+                        {finalSecondaryAction.label}
+                      </Link>
+                    )}
+                  </Button>
+                ) : null}
                 <Button
                   asChild
                   size="lg"
