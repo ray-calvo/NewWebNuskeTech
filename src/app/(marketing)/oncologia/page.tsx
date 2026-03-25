@@ -14,8 +14,7 @@ import {
   oncologyDifferentiators,
   oncologySupportCards,
 } from "@/features/marketing/components/oncologia/data";
-import { resolveClinicalUiModelForPage } from "@/lib/clinical-runtime/application";
-import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
+import { resolveClinicalUiConsumptionForPage } from "@/lib/clinical-runtime/application";
 
 export const metadata: Metadata = {
   title: "Oncología",
@@ -24,16 +23,10 @@ export const metadata: Metadata = {
 };
 
 export default function OncologiaPage() {
-  const clinicalUiModel = resolveClinicalUiModelForPage({
+  const { uiModel: clinicalUiModel, consumption: runtimeConsumption } =
+    resolveClinicalUiConsumptionForPage({
     pathname: "/oncologia",
-  }).uiModel;
-  const runtimeConsumption = selectClinicalUiConsumption(clinicalUiModel, {
-    primaryPreference: [
-      "specialized-valuation-request",
-      "followup-request",
-    ],
-    secondaryPreference: ["call-now", "followup-request"],
-  });
+    });
   const finalPrimaryAction = runtimeConsumption.primaryCta;
   const finalSecondaryAction = runtimeConsumption.secondaryCta;
 

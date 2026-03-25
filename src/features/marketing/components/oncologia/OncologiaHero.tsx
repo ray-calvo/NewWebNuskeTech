@@ -4,7 +4,7 @@ import { HeartPulse, PhoneCall, ScanSearch } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { PageClinicalUiModel } from "@/lib/clinical-runtime/ui-adapter";
-import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
+import { resolveClinicalUiConsumptionForModel } from "@/lib/clinical-runtime/ui-consumption";
 
 import {
   oncologyHeroHighlights,
@@ -18,12 +18,9 @@ type OncologiaHeroProps = {
 
 export function OncologiaHero({ clinicalUiModel }: OncologiaHeroProps) {
   const runtimeConsumption = clinicalUiModel
-    ? selectClinicalUiConsumption(clinicalUiModel, {
-        primaryPreference: [
-          "specialized-valuation-request",
-          "followup-request",
-        ],
-        secondaryPreference: ["call-now", "followup-request"],
+    ? resolveClinicalUiConsumptionForModel({
+        pathname: "/oncologia",
+        uiModel: clinicalUiModel,
       })
     : null;
   const primaryAction = runtimeConsumption?.primaryCta ?? {

@@ -4,7 +4,7 @@ import { Microscope, PhoneCall, ScanSearch } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { PageClinicalUiModel } from "@/lib/clinical-runtime/ui-adapter";
-import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
+import { resolveClinicalUiConsumptionForModel } from "@/lib/clinical-runtime/ui-consumption";
 
 import {
   diagnosticsHeroHighlights,
@@ -18,9 +18,9 @@ type DiagnosticoHeroProps = {
 
 export function DiagnosticoHero({ clinicalUiModel }: DiagnosticoHeroProps) {
   const runtimeConsumption = clinicalUiModel
-    ? selectClinicalUiConsumption(clinicalUiModel, {
-        primaryPreference: ["valuation-request", "orientation-request"],
-        secondaryPreference: ["call-now", "route-transition"],
+    ? resolveClinicalUiConsumptionForModel({
+        pathname: "/diagnostico",
+        uiModel: clinicalUiModel,
       })
     : null;
   const primaryAction = runtimeConsumption?.primaryCta ?? {

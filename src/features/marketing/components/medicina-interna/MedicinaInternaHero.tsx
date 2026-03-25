@@ -4,7 +4,7 @@ import { HeartPulse, PhoneCall, Stethoscope } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { PageClinicalUiModel } from "@/lib/clinical-runtime/ui-adapter";
-import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
+import { resolveClinicalUiConsumptionForModel } from "@/lib/clinical-runtime/ui-consumption";
 
 import {
   internalMedicineHeroHighlights,
@@ -20,12 +20,9 @@ export function MedicinaInternaHero({
   clinicalUiModel,
 }: MedicinaInternaHeroProps) {
   const runtimeConsumption = clinicalUiModel
-    ? selectClinicalUiConsumption(clinicalUiModel, {
-        primaryPreference: [
-          "specialized-valuation-request",
-          "valuation-request",
-        ],
-        secondaryPreference: ["call-now", "followup-request"],
+    ? resolveClinicalUiConsumptionForModel({
+        pathname: "/medicina-interna",
+        uiModel: clinicalUiModel,
       })
     : null;
   const primaryAction = runtimeConsumption?.primaryCta ?? {

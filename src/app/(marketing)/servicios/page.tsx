@@ -4,16 +4,11 @@ import { Button } from "@/components/ui/button";
 import { ServicesPageHero } from "@/features/marketing/components/services/ServicesPageHero";
 import { ServiceCategorySection } from "@/features/marketing/components/services/ServiceCategorySection";
 import { capabilityBlocks } from "@/features/marketing/components/services/data";
-import { resolveClinicalUiModelForPage } from "@/lib/clinical-runtime/application";
-import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
+import { resolveClinicalUiConsumptionForPage } from "@/lib/clinical-runtime/application";
 
 export default function ServiciosPage() {
-  const clinicalUiModel = resolveClinicalUiModelForPage({
+  const { consumption: runtimeConsumption } = resolveClinicalUiConsumptionForPage({
     pathname: "/servicios",
-  }).uiModel;
-  const runtimeConsumption = selectClinicalUiConsumption(clinicalUiModel, {
-    primaryPreference: ["emergency-route"],
-    secondaryPreference: ["orientation-request", "valuation-request"],
   });
   const finalPrimaryAction = runtimeConsumption.primaryCta;
   const finalSecondaryAction = runtimeConsumption.secondaryCta;

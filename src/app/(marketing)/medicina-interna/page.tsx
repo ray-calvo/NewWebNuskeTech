@@ -14,8 +14,7 @@ import {
   internalMedicineDifferentiators,
   internalMedicineSupportCards,
 } from "@/features/marketing/components/medicina-interna/data";
-import { resolveClinicalUiModelForPage } from "@/lib/clinical-runtime/application";
-import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
+import { resolveClinicalUiConsumptionForPage } from "@/lib/clinical-runtime/application";
 
 export const metadata: Metadata = {
   title: "Medicina Interna",
@@ -24,13 +23,10 @@ export const metadata: Metadata = {
 };
 
 export default function MedicinaInternaPage() {
-  const clinicalUiModel = resolveClinicalUiModelForPage({
+  const { uiModel: clinicalUiModel, consumption: runtimeConsumption } =
+    resolveClinicalUiConsumptionForPage({
     pathname: "/medicina-interna",
-  }).uiModel;
-  const runtimeConsumption = selectClinicalUiConsumption(clinicalUiModel, {
-    primaryPreference: ["specialized-valuation-request", "valuation-request"],
-    secondaryPreference: ["call-now", "followup-request"],
-  });
+    });
   const finalPrimaryAction = runtimeConsumption.primaryCta;
   const finalSecondaryAction = runtimeConsumption.secondaryCta;
 

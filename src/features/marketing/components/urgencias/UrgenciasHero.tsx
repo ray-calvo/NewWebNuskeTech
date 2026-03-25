@@ -4,7 +4,7 @@ import { HeartPulse, MapPin, PhoneCall } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { PageClinicalUiModel } from "@/lib/clinical-runtime/ui-adapter";
-import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
+import { resolveClinicalUiConsumptionForModel } from "@/lib/clinical-runtime/ui-consumption";
 
 import { heroHighlights, mapsHref, urgentPhoneHref, urgentWhatsAppHref } from "./data";
 
@@ -14,9 +14,9 @@ type UrgenciasHeroProps = {
 
 export function UrgenciasHero({ clinicalUiModel }: UrgenciasHeroProps) {
   const runtimeConsumption = clinicalUiModel
-    ? selectClinicalUiConsumption(clinicalUiModel, {
-        primaryPreference: ["call-now", "emergency-route"],
-        secondaryPreference: ["open-whatsapp"],
+    ? resolveClinicalUiConsumptionForModel({
+        pathname: "/urgencias",
+        uiModel: clinicalUiModel,
       })
     : null;
   const primaryAction = runtimeConsumption?.primaryCta ?? {

@@ -4864,3 +4864,58 @@
 - No convertir `/tecnologia` en catálogo de equipos.
 - No usar imágenes solo como decoración sin narrativa clínica.
 - No tocar runtime clínico ni otras rutas en esta fase.
+
+## Entrada 2026-03-24 20:28:00 -06:00
+
+### Tipo
+- Capa ligera compartida para consumo del runtime clinico
+
+### Resumen ejecutivo
+- Se auditó el estado actual del wiring runtime en:
+  - `/triage`
+  - `/urgencias`
+  - `/servicios`
+  - `/medicina-interna`
+  - `/diagnostico`
+  - `/oncologia`
+- La repetición real estaba en:
+  - preferencias de consumo por ruta
+  - secuencia `resolveClinicalUiModelForPage -> selectClinicalUiConsumption`
+- Se decidió no introducir provider ligero todavía.
+- Se implementó una capa shared sin provider para centralizar esa resolución.
+
+### Decisión arquitectónica
+- Todavía no conviene provider ligero porque:
+  - no hay estado cross-page vivo que compartir
+  - no existe persistencia
+  - no hay necesidad de reactividad global entre superficies
+- Sí convino una API shared más centralizada para:
+  - resolver consumo por ruta
+  - registrar preferencias por página en un solo lugar
+
+### Piezas implementadas
+- `page-clinical-ui-consumption.ts`
+  - mapa central de preferencias por ruta
+  - helper para resolver consumo desde `PageClinicalUiModel`
+- `clinical-runtime-consumption.ts`
+  - helper para resolver:
+    - runtime result
+    - `PageClinicalUiModel`
+    - `ClinicalUiConsumptionModel`
+  - en una sola llamada por página
+
+### Refactor aplicado
+- Se actualizó el wiring ya existente para consumir la nueva capa shared en:
+  - `/triage`
+  - `/urgencias`
+  - `/servicios`
+  - `/medicina-interna`
+  - `/diagnostico`
+  - `/oncologia`
+- Se mantuvo el radio de cambio bajo.
+- No se abrió wiring nuevo en más páginas.
+
+### Supuestos prohibidos
+- No usar esta capa como excusa para introducir provider global prematuro.
+- No duplicar otra vez preferencias por ruta dentro de heroes o páginas nuevas.
+- No mezclar aquí persistencia, sesión o reactividad cross-page.

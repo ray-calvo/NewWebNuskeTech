@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { TriageResult } from "@/features/marketing/components/triage/types";
 import type { PageClinicalUiModel } from "@/lib/clinical-runtime/ui-adapter";
-import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
+import { resolveClinicalUiConsumptionForModel } from "@/lib/clinical-runtime/ui-consumption";
 
 type TriageResultCardProps = {
   result: TriageResult;
@@ -92,7 +92,10 @@ export function TriageResultCard({
 }: TriageResultCardProps) {
   const copy = levelCopy[result.level];
   const runtimeConsumption = runtimeUiModel
-    ? selectClinicalUiConsumption(runtimeUiModel)
+    ? resolveClinicalUiConsumptionForModel({
+        pathname: "/triage",
+        uiModel: runtimeUiModel,
+      })
     : null;
   const runtimePrimary = runtimeConsumption?.primaryCta ?? result.primaryCta;
   const runtimeSecondary = runtimeConsumption?.secondaryCta ?? result.secondaryCta;

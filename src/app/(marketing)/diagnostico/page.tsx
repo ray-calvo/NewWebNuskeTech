@@ -14,8 +14,7 @@ import {
   diagnosticsDecisionContexts,
   transversalSupport,
 } from "@/features/marketing/components/diagnostico/data";
-import { resolveClinicalUiModelForPage } from "@/lib/clinical-runtime/application";
-import { selectClinicalUiConsumption } from "@/lib/clinical-runtime/ui-consumption";
+import { resolveClinicalUiConsumptionForPage } from "@/lib/clinical-runtime/application";
 
 export const metadata: Metadata = {
   title: "Diagnóstico",
@@ -24,13 +23,10 @@ export const metadata: Metadata = {
 };
 
 export default function DiagnosticoPage() {
-  const clinicalUiModel = resolveClinicalUiModelForPage({
+  const { uiModel: clinicalUiModel, consumption: runtimeConsumption } =
+    resolveClinicalUiConsumptionForPage({
     pathname: "/diagnostico",
-  }).uiModel;
-  const runtimeConsumption = selectClinicalUiConsumption(clinicalUiModel, {
-    primaryPreference: ["valuation-request", "orientation-request"],
-    secondaryPreference: ["call-now", "route-transition"],
-  });
+    });
   const finalPrimaryAction = runtimeConsumption.primaryCta;
   const finalSecondaryAction = runtimeConsumption.secondaryCta;
 
