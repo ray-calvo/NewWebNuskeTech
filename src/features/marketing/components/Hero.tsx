@@ -61,16 +61,16 @@ export function Hero() {
 
             <div className="space-y-4">
               <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-[4.2rem] lg:leading-[0.96]">
-                Urgencias veterinarias reales y atención hospitalaria
-                especializada 24/7
+                Urgencias veterinarias reales y atención hospitalaria cuando el
+                caso no puede esperar
               </h1>
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#a60f14]">
                 Cuando tu mascota está en riesgo, cada minuto importa.
               </p>
               <p className="max-w-2xl text-lg leading-8 text-slate-600">
-                Hospital veterinario con diagnóstico avanzado, cirugía,
-                hospitalización y respuesta clínica rápida para pacientes
-                críticos, complejos o de evolución incierta.
+                Diagnóstico, cirugía y hospitalización para mascotas que
+                necesitan algo más que una consulta y requieren atención dentro
+                de un hospital real.
               </p>
             </div>
           </div>
@@ -83,7 +83,7 @@ export function Hero() {
             >
               <a href="tel:+524433246136">
                 <PhoneCall aria-hidden={true} className="h-4 w-4" />
-                Llamar por urgencia
+                Llamar por urgencia ahora
               </a>
             </Button>
             <Button
@@ -93,7 +93,7 @@ export function Hero() {
               className="h-12 rounded-2xl border-primary/15 bg-white text-primary hover:bg-primary/5"
             >
               <Link href="/contacto">
-                Agendar valoración médica
+                Solicitar valoración médica
                 <ArrowRight aria-hidden={true} className="h-4 w-4" />
               </Link>
             </Button>
@@ -106,10 +106,10 @@ export function Hero() {
               </div>
               <div className="space-y-1">
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                  Módulo de decisión clínica
+                  Orientación inicial
                 </p>
                 <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-                  ¿Qué le está pasando a tu mascota?
+                  ¿Qué está ocurriendo con tu mascota ahora?
                 </h2>
               </div>
             </div>
@@ -165,10 +165,10 @@ export function Hero() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/90">
-                    Respuesta clínica real
+                    Respuesta inmediata
                   </p>
                   <p className="text-sm text-white/75">
-                    Urgencias, estabilización y decisión hospitalaria inmediata
+                    Urgencias, estabilización y atención médica continua
                   </p>
                 </div>
               </div>
@@ -188,14 +188,14 @@ export function Hero() {
                       Capacidad hospitalaria
                     </p>
                     <p className="text-base font-semibold text-white">
-                      Pacientes críticos, complejos o de rápida descompensación
+                      Pacientes que empeoran rápido o necesitan vigilancia
+                      hospitalaria
                     </p>
                   </div>
                 </div>
                 <p className="text-sm leading-7 text-slate-200">
-                  Respuesta médica para urgencias reales con diagnóstico,
-                  cirugía, hospitalización y vigilancia clínica continua en un
-                  mismo entorno hospitalario.
+                  Aquí podemos recibir urgencias, estabilizar al paciente y
+                  continuar su manejo dentro del mismo hospital.
                 </p>
               </div>
 
@@ -206,21 +206,30 @@ export function Hero() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-                      Resolución hospitalaria
+                      Tratamiento dentro del hospital
                     </p>
                     <p className="text-base font-semibold text-slate-950">
-                      Cirugía, diagnóstico y monitoreo sin perder tiempo clínico
+                      Diagnóstico, cirugía y monitoreo cuando el caso necesita
+                      algo más
                     </p>
                   </div>
                 </div>
                 <div className="space-y-3 text-sm leading-6 text-slate-600">
                   <div className="flex items-start gap-2">
-                    <ScanSearch className="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
-                    Diagnóstico avanzado para decidir con rapidez qué hacer primero.
+                    <ScanSearch
+                      className="mt-0.5 h-4 w-4 text-primary"
+                      aria-hidden="true"
+                    />
+                    Estudios para entender mejor qué tiene tu mascota y decidir
+                    a tiempo.
                   </div>
                   <div className="flex items-start gap-2">
-                    <Activity className="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
-                    Cirugía y hospitalización para casos que no pueden esperar una clínica básica.
+                    <Activity
+                      className="mt-0.5 h-4 w-4 text-primary"
+                      aria-hidden="true"
+                    />
+                    Cirugía y hospitalización para pacientes que necesitan algo
+                    más que una consulta básica.
                   </div>
                 </div>
               </div>

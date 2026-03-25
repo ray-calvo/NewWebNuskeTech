@@ -17,7 +17,13 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   ClinicalBulletGrid,
   ClinicalSection,
@@ -29,101 +35,101 @@ import { TestimonialCarousel } from "@/features/marketing/components/Testimonial
 const resolutionCards = [
   {
     badge: "Urgencias y estabilización",
-    title: "Recibir al paciente crítico y actuar antes de que el cuadro empeore",
+    title: "Atención inmediata cuando el estado del paciente no puede esperar",
     description:
-      "Cuando hay trauma, dificultad respiratoria, convulsiones o deterioro rápido, la prioridad es estabilizar, decidir y sostener al paciente dentro del hospital.",
+      "Si tu mascota llega grave, con dolor intenso o empeora rápido, necesita un hospital que pueda recibirla, estabilizarla y comenzar el tratamiento sin demora.",
     icon: Siren,
     href: "/urgencias",
     ctaLabel: "Ir a urgencias",
     tone: "critical" as const,
     items: [
-      "Atención inmediata 24/7",
-      "Estabilización hospitalaria",
-      "Vigilancia y reevaluación temprana",
+      "Atención hospitalaria 24/7",
+      "Estabilización desde el primer momento",
+      "Vigilancia cercana mientras el paciente sigue delicado",
     ],
   },
   {
     badge: "Diagnóstico hospitalario",
-    title: "Aclarar el caso cuando una consulta básica no basta",
+    title: "Estudios clínicos cuando el problema no se entiende a simple vista",
     description:
-      "No todos los pacientes se resuelven con exploración inicial. A veces la diferencia está en estudiar mejor para decidir a tiempo.",
+      "No todo se resuelve en una consulta básica. A veces hace falta estudiar mejor para saber qué tiene tu mascota y decidir el tratamiento correcto.",
     icon: ScanSearch,
     href: "/diagnostico",
     ctaLabel: "Ver diagnóstico",
     tone: "default" as const,
     items: [
-      "Imagenología y laboratorio",
-      "Correlación clínica más precisa",
-      "Menos decisiones a ciegas",
+      "Imagenología y laboratorio con enfoque médico",
+      "Más claridad antes de decidir",
+      "Menos tiempo perdido en suposiciones",
     ],
   },
   {
     badge: "Cirugía y hospitalización",
-    title: "Resolver casos que requieren intervención y soporte continuo",
+    title: "Tratamiento quirúrgico y vigilancia médica cuando el caso lo requiere",
     description:
-      "Si el paciente necesita cirugía, monitoreo o recuperación hospitalaria, aquí existe un entorno real para hacerlo con más control.",
+      "Hay pacientes que necesitan cirugía, monitoreo o recuperación dentro del hospital para poder recibir un manejo más seguro y completo.",
     icon: Syringe,
     href: "/cirugia",
     ctaLabel: "Ver cirugía",
     tone: "default" as const,
     items: [
-      "Decisión quirúrgica con criterio",
-      "Seguridad anestésica y monitoreo",
-      "Continuidad postoperatoria",
+      "Cirugía con respaldo médico",
+      "Monitoreo durante el procedimiento",
+      "Recuperación dentro del hospital",
     ],
   },
 ] as const;
 
 const diagnosticSignals = [
-  "Vómito persistente, decaimiento o dolor sin causa clara",
-  "Hallazgos que requieren confirmar si el caso puede esperar",
-  "Pacientes que cambian rápido y necesitan decidir mejor el siguiente paso",
-  "Cuadros complejos que ya no se explican con consulta básica",
+  "Vómitos repetidos, decaimiento o dolor sin causa clara",
+  "Cambios que no se explican con una revisión rápida",
+  "Pacientes que empeoran y requieren decidir pronto qué hacer",
+  "Problemas que siguen sin una respuesta clara después de una primera consulta",
 ] as const;
 
 const surgeryHighlights = [
-  "Operar a tiempo cambia pronóstico en muchos casos",
-  "La seguridad no depende solo del procedimiento, sino del entorno hospitalario completo",
-  "La recuperación necesita control, reevaluación y capacidad de sostén si el paciente no puede irse a casa",
+  "En algunos casos, esperar más puede empeorar el problema",
+  "La seguridad de la cirugía también depende del monitoreo y del equipo que acompaña al paciente",
+  "Después de operar, algunos pacientes necesitan quedarse en observación y tratamiento dentro del hospital",
 ] as const;
 
 const hospitalizationPoints = [
-  "Pacientes que necesitan observación estrecha después de urgencia o cirugía",
-  "Control del dolor, fluidoterapia y monitoreo cuando el cuadro no está resuelto",
-  "Continuidad del manejo sin cortar el seguimiento al salir del consultorio",
+  "Pacientes que siguen delicados después de una urgencia o una cirugía",
+  "Casos que necesitan control del dolor, fluidos, medicación o vigilancia continua",
+  "Mascotas que todavía no están listas para regresar a casa con seguridad",
 ] as const;
 
 const complexCaseRoutes = [
   {
     badge: "Medicina interna",
-    title: "Casos que no encajan en una sola etiqueta rápida",
+    title: "Cuando el problema persiste y no se entiende con una sola revisión",
     description:
-      "Cuando el problema es persistente, cambiante o difícil de integrar, medicina interna ayuda a ordenar signos, estudios y evolución clínica.",
+      "Ayuda a valorar casos que cambian con el tiempo, no mejoran como se esperaba o necesitan integrar síntomas, estudios y evolución clínica.",
     href: "/medicina-interna",
     icon: BrainCircuit,
   },
   {
     badge: "Oncología",
-    title: "Masas, hallazgos persistentes y decisiones que requieren más criterio",
+    title: "Cuando aparece una masa o un hallazgo que necesita estudiarse mejor",
     description:
-      "La oncología clínica no empieza prometiendo tratamiento; empieza estudiando mejor, ordenando prioridades y acompañando la evolución del paciente.",
+      "Permite valorar el caso con más profundidad, ordenar prioridades y decidir el siguiente paso con mayor claridad para el paciente.",
     href: "/oncologia",
     icon: Activity,
   },
   {
     badge: "Endoscopía",
-    title: "Evaluar o resolver con mínima invasión cuando el caso lo permite",
+    title: "Cuando es posible evaluar o tratar con una opción menos invasiva",
     description:
-      "Hay pacientes en los que una ruta mínimamente invasiva puede confirmar, actuar antes o evitar un abordaje mayor.",
+      "En algunos pacientes, la endoscopía ayuda a confirmar el problema o actuar con menos agresión y una recuperación más controlada.",
     href: "/endoscopia",
     icon: Waves,
   },
 ] as const;
 
 const technologyBullets = [
-  "RX, ultrasonido y laboratorio ayudan a decidir con menos demora",
-  "Quirófano y áreas de procedimiento sostienen resolución clínica real",
-  "Hospitalización y monitoreo continuo aumentan control del caso",
+  "Imagenología y laboratorio ayudan a entender mejor qué está pasando",
+  "Quirófano y áreas de procedimiento permiten actuar con mayor precisión",
+  "Hospitalización y monitoreo continuo ayudan a responder mejor cuando el paciente cambia",
 ] as const;
 
 function SectionAction({
@@ -156,9 +162,9 @@ export default function HomePage() {
       <Hero />
 
       <ClinicalSection
-        badge="Capacidad de resolución"
-        title="Aquí no solo se recibe al paciente: aquí se decide, se interviene y se sostiene el caso"
-        description="La homepage debe dejar claro que este hospital puede recibir urgencias, aclarar cuadros complejos, intervenir cuando hace falta y acompañar la evolución clínica sin perder continuidad."
+        badge="Atención hospitalaria"
+        title="Cuando la salud de tu mascota se complica, necesita un hospital que pueda actuar de inmediato."
+        description="Atendemos urgencias, aclaramos diagnósticos difíciles y realizamos intervenciones cuando el tratamiento lo requiere. Además, acompañamos la evolución del paciente dentro del hospital hasta lograr mayor estabilidad."
       >
         <div className="grid gap-5 xl:grid-cols-[1.15fr_0.925fr_0.925fr]">
           {resolutionCards.map((card) => {
@@ -197,18 +203,27 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="space-y-3">
-                    <CardTitle className={isCritical ? "text-white" : "text-slate-950"}>
+                    <CardTitle
+                      className={isCritical ? "text-white" : "text-slate-950"}
+                    >
                       {card.title}
                     </CardTitle>
                     <CardDescription
-                      className={isCritical ? "text-slate-100" : "text-base text-slate-600"}
+                      className={
+                        isCritical
+                          ? "text-slate-100"
+                          : "text-base text-slate-600"
+                      }
                     >
                       {card.description}
                     </CardDescription>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <ClinicalBulletGrid items={card.items} tone={isCritical ? "dark" : "default"} />
+                  <ClinicalBulletGrid
+                    items={card.items}
+                    tone={isCritical ? "dark" : "default"}
+                  />
                   <Button
                     asChild
                     size="lg"
@@ -236,13 +251,15 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
             <div className="space-y-5">
               <Badge className="border-white/15 bg-white text-primary">
-                Triage clínico orientativo
+                Chequeo clínico inicial
               </Badge>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                No saber exactamente qué tiene tu mascota es normal. Esperar de más, no siempre.
+                No siempre es fácil saber si tu mascota necesita atención urgente
               </h2>
               <p className="text-lg leading-8 text-slate-100">
-                El triage ayuda a ordenar la urgencia, orientar el siguiente paso y decidir si conviene actuar ahora, valorar hoy mismo o seguir una ruta clínica más precisa.
+                El chequeo inicial te ayuda a decidir mejor cuando no tienes claro
+                si debes actuar de inmediato, solicitar una valoración médica o
+                seguir una ruta más específica.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button
@@ -251,7 +268,7 @@ export default function HomePage() {
                   className="h-11 rounded-2xl bg-white px-6 text-primary hover:bg-white/92"
                 >
                   <Link href="/triage?entrypoint=home-triage-central">
-                    Abrir triage
+                    Iniciar chequeo clínico
                     <ArrowRight aria-hidden={true} className="h-4 w-4" />
                   </Link>
                 </Button>
@@ -275,10 +292,12 @@ export default function HomePage() {
                   <HeartPulse aria-hidden={true} className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-white">
-                  Si hay duda, el hospital puede orientar
+                  La duda también necesita orientación
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-100">
-                  No hace falta llegar con un diagnóstico para actuar bien. El primer objetivo es no perder tiempo clínico útil.
+                  No hace falta saber exactamente qué tiene tu mascota para dar el
+                  siguiente paso. Lo importante es no perder tiempo cuando necesita
+                  atención.
                 </p>
               </div>
               <div className="rounded-[1.7rem] border border-white/10 bg-white/10 p-5 backdrop-blur">
@@ -286,10 +305,11 @@ export default function HomePage() {
                   <Siren aria-hidden={true} className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-white">
-                  Si el caso se ve mal, la ruta cambia
+                  Si el caso se ve grave, es mejor actuar ahora
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-100">
-                  El triage no reemplaza valoración médica, pero sí puede ayudar a priorizar urgencias cuando no conviene esperar.
+                  Este chequeo no sustituye a un médico, pero sí puede ayudarte a
+                  identificar cuándo ya no conviene esperar.
                 </p>
               </div>
             </div>
@@ -299,8 +319,8 @@ export default function HomePage() {
 
       <ClinicalSection
         badge="Diagnóstico hospitalario"
-        title="No todo se resuelve con una consulta básica: estudiar bien cambia decisiones"
-        description="La autoridad diagnóstica no viene de listar estudios, sino de mostrar que el hospital puede aclarar mejor el caso cuando lo que se ve no basta para decidir."
+        title="Entender qué tiene tu mascota permite decidir el tratamiento correcto"
+        description="Cuando el problema no se entiende a simple vista, los estudios ayudan a saber qué está pasando y a elegir el tratamiento con mayor seguridad."
       >
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div className="space-y-6">
@@ -312,15 +332,20 @@ export default function HomePage() {
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold text-slate-950">
-                    Estudiar a tiempo evita errores de dirección
+                    Un estudio a tiempo puede cambiar el rumbo del tratamiento
                   </h3>
                   <p className="text-sm leading-7 text-slate-600">
-                    La diferencia muchas veces está en saber si el paciente necesita intervenirse, vigilarse, hospitalizarse o escalar a otra ruta clínica sin improvisar.
+                    A veces el siguiente paso consiste en operar, hospitalizar o
+                    vigilar de cerca al paciente. Lo importante es saber cuándo
+                    hacerlo y contar con un hospital preparado para ello.
                   </p>
                 </div>
               </div>
             </div>
-            <SectionAction href="/diagnostico" label="Explorar diagnóstico hospitalario" />
+            <SectionAction
+              href="/diagnostico"
+              label="Explorar diagnóstico hospitalario"
+            />
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -363,24 +388,31 @@ export default function HomePage() {
 
       <ClinicalSection
         badge="Cirugía hospitalaria"
-        title="La cirugía aquí se presenta como resolución clínica, no como catálogo de procedimientos"
-        description="La percepción correcta no es “hacen cirugía”, sino “saben cuándo intervenir, cómo reducir riesgo y cómo sostener al paciente antes y después”."
+        title="Hay situaciones en las que operar es necesario para salvar o mejorar la vida del paciente"
+        description="Cada caso se evalúa de forma individual para decidir si la cirugía es la mejor opción, considerando los riesgos, el estado general del paciente y el seguimiento posterior dentro del hospital."
       >
         <div className="grid gap-5 lg:grid-cols-[1fr_0.92fr]">
           <div className="rounded-[2rem] border border-primary/10 bg-[linear-gradient(135deg,#1d3f68_0%,#16314f_70%,#11263d_100%)] p-6 text-white shadow-[0_34px_110px_-58px_rgba(15,23,42,0.58)] md:p-8">
             <div className="space-y-5">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-white">
                 <Syringe aria-hidden={true} className="h-4 w-4 text-accent" />
-                Resolución quirúrgica con soporte hospitalario
+                Cirugía con respaldo hospitalario
               </div>
               <h3 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Decidir bien cuándo operar importa tanto como operar bien
+                Cuando hay que intervenir, importa hacerlo con seguridad y en el
+                momento correcto
               </h3>
               <p className="text-base leading-8 text-slate-100">
-                Una cirugía hospitalaria bien indicada reduce decisiones apresuradas, mejora control anestésico y deja al paciente dentro de un entorno donde la recuperación puede sostenerse.
+                Hay pacientes en los que operar no puede retrasarse, y otros en
+                los que la preparación y el monitoreo hacen toda la diferencia
+                para su recuperación.
               </p>
               <ClinicalBulletGrid items={surgeryHighlights} tone="dark" />
-              <SectionAction href="/cirugia" label="Ver cirugía hospitalaria" variant="outline" />
+              <SectionAction
+                href="/cirugia"
+                label="Ver cirugía hospitalaria"
+                variant="outline"
+              />
             </div>
           </div>
 
@@ -402,12 +434,13 @@ export default function HomePage() {
                   <ShieldPlus aria-hidden={true} className="h-5 w-5" />
                 </div>
                 <CardTitle className="text-slate-950">
-                  Seguridad perioperatoria y soporte posterior
+                  Seguridad antes, durante y después del procedimiento
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base text-slate-600">
-                  El valor hospitalario aparece cuando anestesia, monitoreo, control del dolor y observación postoperatoria se mantienen dentro de la misma ruta clínica.
+                  La cirugía no termina en el quirófano. El monitoreo, el control
+                  del dolor y la recuperación también forman parte del tratamiento.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -421,15 +454,25 @@ export default function HomePage() {
             <div className="space-y-5">
               <Badge variant="secondary">Hospitalización y monitoreo</Badge>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-primary sm:text-4xl">
-                Algunos pacientes no deberían irse a casa todavía
+                Algunos pacientes necesitan permanecer bajo vigilancia médica
+                antes de regresar a casa
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                La hospitalización aumenta el valor percibido del hospital porque deja claro que aquí también se puede observar, reevaluar y sostener tratamiento cuando una visita breve no alcanza.
+                La hospitalización permite observar la evolución del paciente,
+                ajustar tratamientos y actuar rápidamente si el estado cambia
+                durante la recuperación.
               </p>
               <ClinicalBulletGrid items={hospitalizationPoints} />
               <div className="flex flex-col gap-3 sm:flex-row">
-                <SectionAction href="/urgencias" label="Ver atención hospitalaria" />
-                <SectionAction href="/contacto" label="Solicitar valoración médica" variant="outline" />
+                <SectionAction
+                  href="/urgencias"
+                  label="Ver atención hospitalaria"
+                />
+                <SectionAction
+                  href="/contacto"
+                  label="Solicitar valoración médica"
+                  variant="outline"
+                />
               </div>
             </div>
 
@@ -451,12 +494,13 @@ export default function HomePage() {
                     <HeartPulse aria-hidden={true} className="h-5 w-5" />
                   </div>
                   <CardTitle className="text-slate-950">
-                    Vigilar también es tratar
+                    Vigilar también forma parte del tratamiento
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base text-slate-600">
-                    El monitoreo continuo permite detectar cambios, ajustar manejo y decidir alta con más seguridad clínica.
+                    Observar de cerca al paciente ayuda a detectar cambios,
+                    responder a tiempo y decidir cuándo es seguro darle de alta.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -466,12 +510,13 @@ export default function HomePage() {
                     <Building2 aria-hidden={true} className="h-5 w-5" />
                   </div>
                   <CardTitle className="text-slate-950">
-                    Continuidad dentro del mismo entorno
+                    El paciente sigue atendido dentro del mismo hospital
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base text-slate-600">
-                    Urgencias, cirugía y recuperación ganan coherencia cuando el paciente no se fragmenta entre lugares distintos.
+                    Eso permite dar continuidad al tratamiento sin perder tiempo
+                    ni fragmentar el manejo entre lugares distintos.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -482,8 +527,8 @@ export default function HomePage() {
 
       <ClinicalSection
         badge="Casos complejos"
-        title="Si tu mascota no se resolvió en otro lugar, aquí existen rutas clínicas para pensar mejor el caso"
-        description="Los casos complejos no necesitan una sola etiqueta comercial. Necesitan un hospital que sepa cuándo integrar medicina interna, oncología o mínima invasión para avanzar con más criterio."
+        title="Cuando el problema no mejora o es difícil de entender, es necesario evaluar el caso con mayor profundidad"
+        description="Algunos pacientes requieren integrar distintas áreas médicas para definir el tratamiento más adecuado y avanzar con mayor claridad en su recuperación."
       >
         <div className="grid gap-5 xl:grid-cols-3">
           {complexCaseRoutes.map((route) => {
@@ -499,14 +544,20 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="space-y-3">
-                    <CardTitle className="text-slate-950">{route.title}</CardTitle>
+                    <CardTitle className="text-slate-950">
+                      {route.title}
+                    </CardTitle>
                     <CardDescription className="text-base text-slate-600">
                       {route.description}
                     </CardDescription>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <SectionAction href={route.href} label="Explorar ruta clínica" variant="outline" />
+                  <SectionAction
+                    href={route.href}
+                    label="Explorar valoración"
+                    variant="outline"
+                  />
                 </CardContent>
               </Card>
             );
@@ -517,15 +568,24 @@ export default function HomePage() {
       <section className="bg-muted/10 px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div className="space-y-5">
-            <Badge variant="secondary">Tecnología al servicio de la decisión clínica</Badge>
+            <Badge variant="secondary">
+              Tecnología al servicio de la atención médica
+            </Badge>
             <h2 className="text-3xl font-semibold tracking-[-0.04em] text-primary sm:text-4xl">
-              La tecnología importa aquí porque ayuda a decidir mejor, no porque sea protagonista
+              La tecnología es útil cuando permite diagnosticar mejor y tratar
+              con mayor precisión
             </h2>
             <p className="text-lg leading-8 text-slate-600">
-              En la homepage la tecnología debe quedar subordinada a urgencias, diagnóstico, cirugía y hospitalización. Su valor aparece cuando mejora tiempo, precisión y control del caso.
+              En este hospital, la tecnología no reemplaza el criterio médico.
+              Su valor está en ayudar a entender mejor el caso y dar al paciente
+              una atención más precisa.
             </p>
             <ClinicalBulletGrid items={technologyBullets} />
-            <SectionAction href="/tecnologia" label="Ver infraestructura clínica" variant="outline" />
+            <SectionAction
+              href="/tecnologia"
+              label="Ver infraestructura clínica"
+              variant="outline"
+            />
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -575,13 +635,16 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div className="space-y-4">
               <Badge className="border-white/15 bg-white text-primary">
-                Acción recomendada
+                Atención médica hospitalaria
               </Badge>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Si es serio, actúa. Si no está claro, el hospital puede orientarte.
+                Si tu mascota necesita atención médica, estamos preparados para
+                ayudarte
               </h2>
               <p className="text-lg leading-8 text-slate-100">
-                Esta homepage no termina en exploración pasiva. Debe cerrar con una salida clara para urgencias, valoración médica o triage cuando todavía falta certeza.
+                Si el caso es urgente, actúa ahora. Si no tienes claro qué está
+                pasando, podemos orientarte para decidir el siguiente paso con
+                mayor seguridad.
               </p>
             </div>
 
@@ -614,7 +677,7 @@ export default function HomePage() {
                 className="h-12 rounded-2xl border-white/15 bg-white/10 text-white hover:bg-white/16 hover:text-white"
               >
                 <Link href="/triage?entrypoint=home-final-cta">
-                  Abrir triage
+                  Iniciar chequeo clínico
                   <ArrowRight aria-hidden={true} className="h-4 w-4" />
                 </Link>
               </Button>

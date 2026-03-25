@@ -27,37 +27,70 @@ const blurDataURL =
 
 const testimonials = [
   {
-    owner: "Familia de Luna",
-    pet: "Luna, Bulldog Francés",
+    owner: "Alexis G Moranchel S",
+    pet: "Molly, Salchicha",
     quote:
-      "Llegamos por urgencia y la cirugía salvó su vida. Eternamente agradecidos.",
-    category: "Urgencias 24/7",
-    imageSrc: "/marketing/testimonials/luna-bulldog.svg",
-    imageAlt: "Retrato ilustrado de Luna, bulldog francés",
+      "Tuvimos una emergencia en domingo de madrugada y respondieron muy rápido. Operaron a Molly por piometra, la internaron, le hicieron los estudios necesarios y nos mantuvieron informados en todo momento hasta que se recuperó por completo.",
+    category: "Urgencia y cirugía",
+    imageSrc: "/marketing/testimonials/hombre.png",
+    imageAlt: "Retrato ilustrado de Molly, perrita salchicha",
     itemClassName: "md:basis-[58%] xl:basis-[46%]",
     cardClassName:
       "border-primary/12 bg-white shadow-[0_28px_90px_-52px_rgba(29,63,104,0.28)]",
   },
   {
-    owner: 'Familia de Toby',
-    pet: "Toby, Golden Retriever",
+    owner: "Tatiana Zapién",
+    pet: "Gatita rescatada",
     quote:
-      "La endoscopía fue rápida y sin dolor. Gran tecnología.",
-    category: "Alta Especialidad",
-    imageSrc: "/marketing/testimonials/toby-golden.svg",
-    imageAlt: "Retrato ilustrado de Toby, golden retriever",
+      "La operaron en fin de semana cuando en otros lugares me pedían esperar varios días. Le hicieron los estudios a tiempo, me explicaron con claridad el proceso y los costos, y desde entonces he vuelto para más servicios con toda confianza.",
+    category: "Atención en fin de semana",
+    imageSrc: "/marketing/testimonials/mujer.png",
+    imageAlt: "Retrato ilustrado de una gatita rescatada",
     itemClassName: "md:basis-[42%] xl:basis-[27%]",
     cardClassName: "border-slate-100 bg-white",
   },
   {
-    owner: "Familia de Coco",
-    pet: "Coco, Loro",
+    owner: "Alma García",
+    pet: "Perrito",
     quote:
-      "Excelente trato y conocimiento de especies exóticas.",
-    category: "Exóticos",
-    imageSrc: "/marketing/testimonials/coco-loro.svg",
-    imageAlt: "Retrato ilustrado de Coco, loro",
+      "Mi perrito estaba muy grave y aquí encontraron la causa de sus problemas. Fueron profesionales, acertados y nos dieron la tranquilidad de entender por fin qué estaba pasando.",
+    category: "Diagnóstico preciso",
+    imageSrc: "/marketing/testimonials/mujer.png",
+    imageAlt: "Retrato ilustrado de un perrito",
     itemClassName: "md:basis-[42%] xl:basis-[27%]",
+    cardClassName: "border-slate-100 bg-white",
+  },
+  {
+    owner: "Lety Esteva",
+    pet: "Gatita y Husky",
+    quote:
+      "Hemos llegado con varias urgencias y siempre nos explicaron claramente el problema y el tratamiento a seguir. Nos ayudaron en una obstrucción intestinal, en tumores complicados y en otras cirugías, siempre con resultados muy buenos y mucha confianza.",
+    category: "Casos complejos",
+    imageSrc: "/marketing/testimonials/mujer.png",
+    imageAlt: "Retrato ilustrado de mascotas atendidas en urgencias y cirugía",
+    itemClassName: "md:basis-[48%] xl:basis-[30%]",
+    cardClassName: "border-slate-100 bg-white",
+  },
+  {
+    owner: "Hannah Najera",
+    pet: "Perrita",
+    quote:
+      "Mi perrita llegó grave por la mordida de un perro callejero. La atendieron muy bien y me fueron explicando paso a paso qué harían y por qué, lo que me dio mucha tranquilidad durante todo el tratamiento.",
+    category: "Hospitalización y seguimiento",
+    imageSrc: "/marketing/testimonials/mujer.png",
+    imageAlt: "Retrato ilustrado de una perrita atendida tras una mordida",
+    itemClassName: "md:basis-[48%] xl:basis-[30%]",
+    cardClassName: "border-slate-100 bg-white",
+  },
+  {
+    owner: "Fernanda R",
+    pet: "Pug",
+    quote:
+      "Desde que llegué, la atención fue inmediata, amable y profesional. Me explicaron el diagnóstico con claridad y me mantuvieron actualizada sobre el estado de mi perrito durante todo el tiempo que estuvo bajo cuidado.",
+    category: "Atención y comunicación",
+    imageSrc: "/marketing/testimonials/mujer.png",
+    imageAlt: "Retrato ilustrado de un pug",
+    itemClassName: "md:basis-[48%] xl:basis-[30%]",
     cardClassName: "border-slate-100 bg-white",
   },
 ] as const;
@@ -69,23 +102,21 @@ export function TestimonialCarousel() {
         <div className="max-w-3xl space-y-3">
           <Badge variant="secondary">Historias reales</Badge>
           <h2 className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
-            Casos que refuerzan la confianza clínica de Nuskë.
+            Familias que encontraron atención, claridad y seguimiento cuando sus
+            mascotas más lo necesitaban
           </h2>
           <p className="text-lg leading-8 text-slate-600">
-            Desde urgencias que exigen respuesta inmediata hasta procedimientos de
-            especialidad y atención a especies exóticas, estas historias reflejan
-            el tipo de experiencia que las familias buscan en Morelia.
+            Estas experiencias reflejan lo que más valoran nuestros clientes:
+            atención oportuna, explicaciones claras, estudios a tiempo y un
+            equipo que acompaña todo el proceso.
           </p>
         </div>
 
-        <Carousel
-          opts={{ align: "start", loop: true }}
-          className="w-full"
-        >
+        <Carousel opts={{ align: "start", loop: true }} className="w-full">
           <CarouselContent className="-ml-4">
             {testimonials.map((testimonial) => (
               <CarouselItem
-                key={testimonial.pet}
+                key={`${testimonial.owner}-${testimonial.pet}`}
                 className={`pl-4 basis-[88%] sm:basis-[72%] ${testimonial.itemClassName}`}
               >
                 <Card
@@ -99,7 +130,7 @@ export function TestimonialCarousel() {
                       <div className="flex items-center gap-1 text-[#FFC107]">
                         {Array.from({ length: 5 }).map((_, index) => (
                           <Star
-                            key={`${testimonial.pet}-${index}`}
+                            key={`${testimonial.owner}-${index}`}
                             className="h-4 w-4 fill-current"
                             aria-hidden="true"
                           />
@@ -142,7 +173,7 @@ export function TestimonialCarousel() {
                       className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-primary"
                     >
                       <MapPinned className="h-4 w-4" aria-hidden="true" />
-                      Ver referencia en Google Maps
+                      Ver reseñas en Google Maps
                     </Link>
                   </CardContent>
                 </Card>

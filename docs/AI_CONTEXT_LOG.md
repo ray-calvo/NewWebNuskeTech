@@ -5119,3 +5119,31 @@
   - neutral
   - hidden
   - precedencia
+
+## Entrada 2026-03-25 02:12:00 -06:00
+
+### Tipo
+- Afinación editorial del HOME y actualización visual de testimoniales
+
+### Resumen ejecutivo
+- Se refinó el copy del HOME para que suene menos institucional y más claro para dueños de mascotas en contexto de estrés.
+- Se ajustaron los componentes `Hero`, `MedicalTeam` y `TestimonialCarousel` sin cambiar arquitectura, layout ni design system.
+- Se incorporaron nuevas imágenes de testimoniales dentro de `public/marketing/testimonials`.
+
+### Decisiones clave
+- Se mantuvo la estructura narrativa ya aprobada del HOME.
+- `Hero` conservó layout y módulo de decisión clínica, pero con microcopy más humano y directo.
+- `MedicalTeam` dejó de leerse como organigrama o brochure hospitalario y pasó a enfatizar confianza médica real.
+- `TestimonialCarousel` pasó de testimonios genéricos a relatos más concretos sobre urgencias, cirugía, diagnóstico, hospitalización y seguimiento.
+
+### Resultado narrativo
+- El HOME ahora comunica con más claridad:
+  - aquí pueden atender un caso serio
+  - aquí pueden explicar qué tiene la mascota
+  - aquí existe hospital real para operar, vigilar y seguir el tratamiento
+
+### Supuestos protegidos
+- No se cambió runtime clínico.
+- No se alteró navegación.
+- No se crearon componentes nuevos.
+- No se modificó la arquitectura del HOME.

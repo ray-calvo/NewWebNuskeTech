@@ -21,7 +21,7 @@ const medicalDirector = {
   name: "MVZ Dipl. Alexis Ramírez",
   role: "Director Médico · Cirugía Avanzada · Anestesiología Clínica",
   description:
-    "Responsable del liderazgo médico hospitalario y de la toma de decisiones en pacientes quirúrgicos, críticos y de alta complejidad.",
+    "Participa en decisiones quirúrgicas y anestésicas en pacientes que necesitan atención hospitalaria especializada y un manejo cuidadoso.",
   badges: ["Cirugía avanzada", "Anestesiología", "Paciente crítico"],
   ctaLabel: "Solicitar valoración especializada",
   ctaHref: "/contacto",
@@ -34,9 +34,9 @@ const hospitalGuard = {
   name: "MVZ Dipl. Janine Lara",
   role: "Urgencias y Cuidados Intensivos",
   description:
-    "Atención inicial, estabilización y seguimiento de pacientes con trauma, dolor agudo, descompensación o compromiso sistémico.",
+    "Recibe y estabiliza pacientes con trauma, dolor intenso o cambios que requieren atención inmediata y vigilancia continua dentro del hospital.",
   badges: ["Emergencias 24/7", "Hospitalización", "Paciente crítico"],
-  ctaLabel: "Atención inmediata",
+  ctaLabel: "Solicitar atención inmediata",
   ctaHref: "/contacto",
   imageSrc: "/marketing/team/Janine.webp",
   imageAlt: "Retrato editorial de la médica de guardia hospitalaria de Nuskë Vet Center",
@@ -48,9 +48,9 @@ const advancedSpecialties = [
     name: "MVZ Dipl. Diana Zúñiga",
     role: "Endoscopía y Mínima Invasión",
     description:
-      "Procedimientos diagnósticos y terapéuticos de mínima invasión orientados a una recuperación más rápida y menor trauma quirúrgico.",
+      "Valora y trata casos en los que es posible resolver el problema con técnicas menos invasivas y una recuperación más controlada.",
     badges: ["Endoscopía", "Mínima invasión", "Diagnóstico avanzado"],
-    ctaLabel: "Ver atención especializada",
+    ctaLabel: "Ver valoración especializada",
     ctaHref: "/servicios",
     imageSrc: "/marketing/team/Diana.webp",
     imageAlt: "Retrato editorial de la especialista en endoscopía y mínima invasión",
@@ -60,7 +60,7 @@ const advancedSpecialties = [
     name: "MVZ Dipl. Alondra Galán",
     role: "Cirugía de Tejidos Blandos",
     description:
-      "Valoración y manejo quirúrgico de pacientes que requieren intervención precisa, seguimiento hospitalario y control postoperatorio.",
+      "Atiende pacientes que requieren procedimientos quirúrgicos precisos y seguimiento cercano dentro de un entorno hospitalario.",
     badges: ["Cirugía", "Tejidos blandos", "Manejo quirúrgico"],
     ctaLabel: "Solicitar valoración quirúrgica",
     ctaHref: "/contacto",
@@ -144,11 +144,12 @@ export function MedicalTeam() {
         <div className="max-w-4xl space-y-4">
           <Badge variant="secondary">Cuerpo médico hospitalario</Badge>
           <h2 className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
-            Cuerpo Médico de Alta Especialidad
+            Médicos que pueden actuar cuando la salud de tu mascota se complica
           </h2>
           <p className="text-lg leading-8 text-slate-600">
-            Atención veterinaria hospitalaria con especialistas en cirugía,
-            urgencias, mínima invasión y manejo del paciente crítico.
+            Tu mascota será atendida por profesionales que reciben urgencias,
+            realizan procedimientos complejos y acompañan la recuperación dentro
+            del hospital cuando el caso lo necesita.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             {authorityHighlights.map((item) => (
@@ -195,8 +196,9 @@ export function MedicalTeam() {
 
               <div className="flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <p className="max-w-xl text-sm leading-7 text-slate-500">
-                  Liderazgo clínico orientado a pacientes de alta complejidad,
-                  decisiones intraoperatorias y continuidad hospitalaria.
+                  Su experiencia ayuda a tomar decisiones seguras cuando el
+                  paciente está delicado y necesita algo más que una atención
+                  básica.
                 </p>
                 <SectionCta
                   href={medicalDirector.ctaHref}
@@ -213,7 +215,8 @@ export function MedicalTeam() {
               Guardia Hospitalaria
             </p>
             <h3 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
-              Guardia Hospitalaria y Cuidados Críticos
+              Médicos que reciben, estabilizan y acompañan los casos más
+              delicados
             </h3>
           </div>
 
@@ -227,7 +230,10 @@ export function MedicalTeam() {
 
               <CardContent className="space-y-6 p-6 sm:p-8">
                 <div className="space-y-3">
-                  <Badge variant="outline" className="border-primary/15 bg-primary/5 text-primary">
+                  <Badge
+                    variant="outline"
+                    className="border-primary/15 bg-primary/5 text-primary"
+                  >
                     {hospitalGuard.label}
                   </Badge>
                   <h4 className="text-2xl font-semibold tracking-tight text-slate-950">
@@ -259,7 +265,8 @@ export function MedicalTeam() {
               Alta complejidad
             </p>
             <h3 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
-              Especialidades Quirúrgicas y Diagnóstico Avanzado
+              Especialidades médicas que ayudan cuando el caso necesita una
+              evaluación más profunda
             </h3>
           </div>
 
@@ -301,7 +308,11 @@ export function MedicalTeam() {
                       <CapabilityBadges items={member.badges} />
                     </div>
 
-                    <SectionCta href={member.ctaHref} label={member.ctaLabel} variant="outline" />
+                    <SectionCta
+                      href={member.ctaHref}
+                      label={member.ctaLabel}
+                      variant="outline"
+                    />
                   </CardContent>
                 </div>
               </Card>
@@ -311,10 +322,10 @@ export function MedicalTeam() {
 
         <div className="flex flex-col gap-4 border-t border-primary/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-2xl text-lg leading-8 text-slate-600">
-            Conoce al equipo que respalda cada decisión médica en Nuskë Vet
-            Center.
+            Aquí encontrarás médicos que pueden ayudarte cuando la condición de
+            tu mascota exige experiencia, criterio y atención hospitalaria real.
           </p>
-          <SectionCta href="/contacto" label="Agendar cita" />
+          <SectionCta href="/contacto" label="Solicitar valoración médica" />
         </div>
       </div>
     </section>
