@@ -14,6 +14,7 @@ export function resolveClinicalUiModelForPage({
   pathname,
   currentState,
   activeUrgencySignals,
+  clinicalSession = null,
   triageInput = null,
 }: ResolveClinicalUiModelForPageInput): ClinicalRuntimeServiceResult {
   const pageContext = getClinicalPageContextOrThrow(pathname);
@@ -24,9 +25,14 @@ export function resolveClinicalUiModelForPage({
 
   const ctaDecision = resolveClinicalCtaDecision({
     pageContext,
-    currentState: triageEngineInput?.currentState ?? currentState,
+    currentState:
+      triageEngineInput?.currentState ??
+      currentState ??
+      clinicalSession?.currentState,
     activeUrgencySignals:
-      triageEngineInput?.activeUrgencySignals ?? activeUrgencySignals,
+      triageEngineInput?.activeUrgencySignals ??
+      activeUrgencySignals ??
+      clinicalSession?.activeUrgencySignals,
   });
 
   const uiOutput = adaptClinicalRuntimeToUiModel({
@@ -35,7 +41,9 @@ export function resolveClinicalUiModelForPage({
     triageBridge,
     urgencyOverride: ctaDecision.urgencyOverride,
     activeUrgencySignals:
-      triageBridge?.activeUrgencySignals ?? activeUrgencySignals,
+      triageBridge?.activeUrgencySignals ??
+      activeUrgencySignals ??
+      clinicalSession?.activeUrgencySignals,
   });
 
   return {

@@ -17,6 +17,12 @@ import type {
   TriageResult,
 } from "@/features/marketing/components/triage/types";
 import { resolveClinicalUiConsumptionForPage } from "@/lib/clinical-runtime/application";
+import {
+  clearClinicalSessionSnapshot,
+  createClinicalSessionSnapshotFromTriageBridge,
+  setClinicalSessionSnapshot,
+} from "@/lib/clinical-runtime/session";
+import { resolveTriageBridge } from "@/lib/clinical-runtime/triage-bridge";
 
 type WizardStep =
   | "intro"
@@ -155,6 +161,8 @@ export function TriageWizard() {
   ]);
 
   function resetWizard() {
+    clearClinicalSessionSnapshot();
+
     if (step !== "intro" && step !== "result") {
       trackTriageEvent("triage_step_abandoned", {
         entrypoint_source: entrypointSource,
@@ -246,6 +254,18 @@ export function TriageWizard() {
       selectedSymptomIds,
       selectedModifierIds,
     });
+    const triageBridge = resolveTriageBridge({
+      triageResult: nextResult,
+      species: selectedSpecies,
+      category: selectedCategory,
+    });
+
+    setClinicalSessionSnapshot(
+      createClinicalSessionSnapshotFromTriageBridge({
+        triageBridge,
+        originRoute: "/triage",
+      }),
+    );
 
     trackTriageEvent("triage_result_shown", {
       entrypoint_source: entrypointSource,
@@ -266,6 +286,7 @@ export function TriageWizard() {
     return (
       <TriageIntro
         onStart={() => {
+          clearClinicalSessionSnapshot();
           trackTriageEvent("triage_started", {
             entrypoint_source: entrypointSource,
             step_name: "intro",

@@ -4955,3 +4955,47 @@
 ### Supuestos prohibidos
 - No abrir aún wiring amplio al resto de superficies solo por haber cerrado el núcleo.
 - No interpretar la suma de preferencias por ruta como señal automática de provider.
+
+## Entrada 2026-03-24 22:18:00 -06:00
+
+### Tipo
+- Consolidacion formal del runtime shared + Clinical Session Layer ligera + preparacion de CTA global
+
+### Resumen ejecutivo
+- Se formalizo el contrato institucional del runtime shared.
+- Se implemento una session layer ligera:
+  - in-memory
+  - sin persistencia
+  - sin provider
+  - sin store global complejo
+- Se preparo una puerta de orquestacion para CTA global sin activar aun una superficie visual transversal.
+
+### Hallazgos arquitectonicos
+- La shared layer sigue siendo suficiente como capa de composicion.
+- No aparecio evidencia real que justifique provider en esta fase.
+- La necesidad real observada era continuidad clinica breve entre rutas, sobre todo despues de triage.
+- Domain y engine no requirieron cambios estructurales.
+
+### Implementacion aplicada
+- Session layer cliente nueva en:
+  - `src/lib/clinical-runtime/session/`
+- Integracion minima real:
+  - triage ahora siembra snapshot clinico en memoria al mostrar resultado
+  - reset de triage limpia la sesion
+- Servicio de aplicacion extendido para aceptar `clinicalSession` opcional sin romper wiring existente.
+- Nueva puerta conceptual de orquestacion:
+  - `resolveGlobalClinicalCtaForRoute(...)`
+
+### Documentos institucionales creados
+- `docs/CLINICAL_SHARED_RUNTIME_CONTRACT.md`
+- `docs/CLINICAL_SESSION_LAYER.md`
+- `docs/CLINICAL_GLOBAL_CTA_ORCHESTRATION.md`
+
+### Decision sobre provider
+- No implementarlo todavia.
+- Motivo:
+  - no existe aun una superficie global persistente que necesite reactividad compartida
+  - la continuidad clinica actual se resuelve con session layer ligera y API explicita
+
+### Siguiente paso recomendado
+- Si se quiere iniciar CTA hospitalario global real, hacerlo primero en una sola superficie persistente controlada del layout de marketing y conectarla a la nueva session layer por medio de la puerta de orquestacion ya creada.
