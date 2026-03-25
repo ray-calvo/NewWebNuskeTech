@@ -5037,3 +5037,44 @@
 ### Riesgo observado
 - No aparecio bloqueo estructural.
 - El siguiente umbral real para evaluar provider seria solo cuando una segunda superficie global persistente necesite reaccionar a la misma sesion al mismo tiempo.
+
+## Entrada 2026-03-25 00:18:00 -06:00
+
+### Tipo
+- Rediseño estratégico de Hero y homepage clínica
+
+### Resumen ejecutivo
+- `Hero` dejó de comportarse como presentación institucional y pasó a funcionar como gateway de decisión clínica.
+- La homepage se reordenó debajo del hero con una lógica de conversión hospitalaria:
+  - capacidad de resolución
+  - triage central
+  - diagnóstico hospitalario
+  - cirugía
+  - hospitalización
+  - casos complejos
+  - tecnología subordinada
+  - prueba social
+  - equipo médico
+  - cierre con CTA
+
+### Decisiones clave
+- Prioridad principal:
+  - urgencias
+  - cirugía
+- Prioridad secundaria:
+  - diagnóstico
+  - hospitalización
+  - complejidad
+- Se eliminó la lectura de catálogo de servicios como eje de homepage.
+- Tecnología dejó de ser protagonista y quedó subordinada a decisión clínica.
+
+### Resultado narrativo
+- El sitio principal ahora busca que el usuario salga pensando:
+  - aquí pueden tratar un caso serio
+  - aquí pueden diagnosticar si no está claro
+  - aquí existe entorno hospitalario real si hace falta cirugía
+
+### Supuestos protegidos
+- No se cambió el sistema visual base.
+- No se rediseñó el Hero desde cero.
+- No se introdujeron rutas nuevas ni patrones globales nuevos.

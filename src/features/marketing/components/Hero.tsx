@@ -3,11 +3,11 @@ import Link from "next/link";
 import {
   Activity,
   ArrowRight,
-  BadgeCheck,
   HeartPulse,
   PhoneCall,
-  ShieldPlus,
+  ScanSearch,
   Siren,
+  Stethoscope,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -15,11 +15,33 @@ import { Button } from "@/components/ui/button";
 const heroImage =
   "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1800&q=80";
 
-const authorityPoints = [
-  "Cuidados intensivos y vigilancia hospitalaria continua",
-  "Cirugía avanzada para pacientes complejos y críticos",
-  "Diagnóstico hospitalario para respuesta clínica oportuna",
-];
+const clinicalDecisionPaths = [
+  {
+    title: "Convulsiona o no respira",
+    href: "/urgencias",
+    icon: Siren,
+  },
+  {
+    title: "Vomita o está muy decaído",
+    href: "/diagnostico",
+    icon: ScanSearch,
+  },
+  {
+    title: "Tiene una masa o tumor",
+    href: "/oncologia",
+    icon: Activity,
+  },
+  {
+    title: "No camina o presenta dolor",
+    href: "/cirugia",
+    icon: Stethoscope,
+  },
+  {
+    title: "No estoy seguro",
+    href: "/triage?entrypoint=home-hero-clinical-decision",
+    icon: ArrowRight,
+  },
+] as const;
 
 export function Hero() {
   return (
@@ -38,14 +60,17 @@ export function Hero() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-[4.35rem] lg:leading-[0.94]">
-                Alta especialidad veterinaria para casos críticos
+              <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.05em] text-primary sm:text-5xl lg:text-[4.2rem] lg:leading-[0.96]">
+                Urgencias veterinarias reales y atención hospitalaria
+                especializada 24/7
               </h1>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#a60f14]">
+                Cuando tu mascota está en riesgo, cada minuto importa.
+              </p>
               <p className="max-w-2xl text-lg leading-8 text-slate-600">
-                Hospital veterinario 24/7 con cirugía avanzada, cuidados
-                intensivos y diagnóstico hospitalario. Diseñado para responder
-                con velocidad clínica, criterio médico y continuidad de atención
-                en pacientes complejos.
+                Hospital veterinario con diagnóstico avanzado, cirugía,
+                hospitalización y respuesta clínica rápida para pacientes
+                críticos, complejos o de evolución incierta.
               </p>
             </div>
           </div>
@@ -58,7 +83,7 @@ export function Hero() {
             >
               <a href="tel:+524433246136">
                 <PhoneCall aria-hidden={true} className="h-4 w-4" />
-                Emergencia ahora
+                Llamar por urgencia
               </a>
             </Button>
             <Button
@@ -68,22 +93,51 @@ export function Hero() {
               className="h-12 rounded-2xl border-primary/15 bg-white text-primary hover:bg-primary/5"
             >
               <Link href="/contacto">
-                Agendar valoración
+                Agendar valoración médica
                 <ArrowRight aria-hidden={true} className="h-4 w-4" />
               </Link>
             </Button>
           </div>
 
-          <div className="grid gap-3">
-            {authorityPoints.map((point) => (
-              <div
-                key={point}
-                className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-3 shadow-[0_18px_40px_-30px_rgba(15,23,42,0.18)]"
-              >
-                <BadgeCheck className="h-5 w-5 text-primary" aria-hidden="true" />
-                <p className="text-sm font-medium text-slate-700">{point}</p>
+          <div className="rounded-[1.9rem] border border-slate-200/80 bg-white/88 p-5 shadow-[0_18px_40px_-30px_rgba(15,23,42,0.18)]">
+            <div className="flex items-start gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/8 text-primary">
+                <HeartPulse aria-hidden={true} className="h-5 w-5" />
               </div>
-            ))}
+              <div className="space-y-1">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Módulo de decisión clínica
+                </p>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+                  ¿Qué le está pasando a tu mascota?
+                </h2>
+              </div>
+            </div>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {clinicalDecisionPaths.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    className="group flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm font-medium text-slate-700 transition-colors hover:border-primary/20 hover:bg-white hover:text-primary"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white text-primary ring-1 ring-slate-200 transition-colors group-hover:bg-primary/5 group-hover:ring-primary/10">
+                        <Icon aria-hidden={true} className="h-4 w-4" />
+                      </div>
+                      <span>{item.title}</span>
+                    </div>
+                    <ArrowRight
+                      aria-hidden={true}
+                      className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:text-primary"
+                    />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -101,7 +155,7 @@ export function Hero() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,17,28,0.18),rgba(9,17,28,0.74))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,17,28,0.16),rgba(9,17,28,0.72))]" />
             </div>
 
             <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 border-b border-white/10 bg-slate-950/42 px-6 py-4 text-white backdrop-blur">
@@ -111,10 +165,10 @@ export function Hero() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/90">
-                    Respuesta crítica
+                    Respuesta clínica real
                   </p>
                   <p className="text-sm text-white/75">
-                    Guardia hospitalaria y estabilización inmediata
+                    Urgencias, estabilización y decisión hospitalaria inmediata
                   </p>
                 </div>
               </div>
@@ -123,7 +177,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="absolute inset-x-6 bottom-6 grid gap-4 xl:grid-cols-[1.08fr_0.92fr]">
+            <div className="absolute inset-x-6 bottom-6 grid gap-4 xl:grid-cols-[1.04fr_0.96fr]">
               <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/78 p-5 text-white backdrop-blur">
                 <div className="mb-4 flex items-center gap-3">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-white">
@@ -134,39 +188,39 @@ export function Hero() {
                       Capacidad hospitalaria
                     </p>
                     <p className="text-base font-semibold text-white">
-                      Atención inmediata para pacientes críticos
+                      Pacientes críticos, complejos o de rápida descompensación
                     </p>
                   </div>
                 </div>
                 <p className="text-sm leading-7 text-slate-200">
-                  Equipo médico preparado para urgencias, hospitalización,
-                  vigilancia intensiva y continuidad quirúrgica en casos de alta
-                  complejidad.
+                  Respuesta médica para urgencias reales con diagnóstico,
+                  cirugía, hospitalización y vigilancia clínica continua en un
+                  mismo entorno hospitalario.
                 </p>
               </div>
 
               <div className="rounded-[1.75rem] border border-white/12 bg-white/92 p-5 text-slate-900 backdrop-blur">
                 <div className="mb-4 flex items-center gap-3">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Activity className="h-5 w-5" aria-hidden="true" />
+                    <Stethoscope className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-                      Operación clínica
+                      Resolución hospitalaria
                     </p>
                     <p className="text-base font-semibold text-slate-950">
-                      Cirugía avanzada y diagnóstico hospitalario
+                      Cirugía, diagnóstico y monitoreo sin perder tiempo clínico
                     </p>
                   </div>
                 </div>
                 <div className="space-y-3 text-sm leading-6 text-slate-600">
                   <div className="flex items-start gap-2">
-                    <ShieldPlus className="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
-                    Protocolos médicos para estabilización, monitoreo y decisión rápida.
+                    <ScanSearch className="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
+                    Diagnóstico avanzado para decidir con rapidez qué hacer primero.
                   </div>
                   <div className="flex items-start gap-2">
-                    <BadgeCheck className="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
-                    Resolución hospitalaria desde urgencias hasta procedimientos complejos.
+                    <Activity className="mt-0.5 h-4 w-4 text-primary" aria-hidden="true" />
+                    Cirugía y hospitalización para casos que no pueden esperar una clínica básica.
                   </div>
                 </div>
               </div>
