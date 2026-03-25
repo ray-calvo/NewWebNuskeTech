@@ -4919,3 +4919,39 @@
 - No usar esta capa como excusa para introducir provider global prematuro.
 - No duplicar otra vez preferencias por ruta dentro de heroes o páginas nuevas.
 - No mezclar aquí persistencia, sesión o reactividad cross-page.
+
+## Entrada 2026-03-24 20:52:00 -06:00
+
+### Tipo
+- Expansion controlada del runtime shared a cirugia y endoscopia
+
+### Resumen ejecutivo
+- Se expandió la capa shared de consumo a:
+  - `/cirugia`
+  - `/endoscopia`
+- El objetivo fue validar el núcleo hospitalario restante sin:
+  - provider
+  - estado global
+  - cambios en domain o engine
+
+### Resultado de auditoria
+- No apareció excepción arquitectónica real por superficie.
+- No hizo falta workaround nuevo.
+- Solo fue necesario registrar preferencias de consumo para ambas rutas dentro del mapa shared ya existente.
+
+### Integracion aplicada
+- `/cirugia`
+  - hero conectado a runtime shared
+  - bloque final conectado a runtime shared
+- `/endoscopia`
+  - hero conectado a runtime shared
+  - bloque final conectado a runtime shared
+
+### Lectura arquitectonica
+- La shared layer sigue siendo suficiente.
+- No apareció señal real de provider.
+- El runtime sigue gobernando CTA y coherencia clínica sin introducir lógica especial por página.
+
+### Supuestos prohibidos
+- No abrir aún wiring amplio al resto de superficies solo por haber cerrado el núcleo.
+- No interpretar la suma de preferencias por ruta como señal automática de provider.

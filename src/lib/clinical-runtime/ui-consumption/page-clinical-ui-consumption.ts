@@ -17,6 +17,20 @@ const pageConsumptionOptionsMap: Partial<
     primaryPreference: ["call-now", "emergency-route"],
     secondaryPreference: ["open-whatsapp"],
   },
+  "/cirugia": {
+    primaryPreference: [
+      "specialized-valuation-request",
+      "valuation-request",
+    ],
+    secondaryPreference: ["call-now", "route-transition"],
+  },
+  "/endoscopia": {
+    primaryPreference: [
+      "specialized-valuation-request",
+      "valuation-request",
+    ],
+    secondaryPreference: ["call-now", "route-transition"],
+  },
   "/servicios": {
     primaryPreference: ["emergency-route"],
     secondaryPreference: ["orientation-request", "valuation-request"],

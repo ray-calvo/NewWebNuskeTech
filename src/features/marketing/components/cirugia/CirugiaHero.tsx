@@ -1,7 +1,10 @@
+import Link from "next/link";
 import { ClipboardCheck, HeartPulse, PhoneCall } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import type { PageClinicalUiModel } from "@/lib/clinical-runtime/ui-adapter";
+import { resolveClinicalUiConsumptionForModel } from "@/lib/clinical-runtime/ui-consumption";
 
 import {
   surgeryHeroHighlights,
@@ -9,7 +12,30 @@ import {
   surgeryWhatsAppHref,
 } from "./data";
 
-export function CirugiaHero() {
+type CirugiaHeroProps = {
+  clinicalUiModel?: PageClinicalUiModel;
+};
+
+export function CirugiaHero({ clinicalUiModel }: CirugiaHeroProps) {
+  const runtimeConsumption = clinicalUiModel
+    ? resolveClinicalUiConsumptionForModel({
+        pathname: "/cirugia",
+        uiModel: clinicalUiModel,
+      })
+    : null;
+  const primaryAction = runtimeConsumption?.primaryCta ?? {
+    href: surgeryWhatsAppHref,
+    label: "Solicitar valoración",
+    kind: "specialized-valuation-request",
+    isExternal: true,
+  };
+  const secondaryAction = runtimeConsumption?.secondaryCta ?? {
+    href: surgeryPhoneHref,
+    label: "Llamar al hospital",
+    kind: "call-now",
+    isExternal: false,
+  };
+
   return (
     <section className="px-4 pb-8 pt-6 sm:px-6 lg:px-8 lg:pb-10 lg:pt-8">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-slate-200 bg-[linear-gradient(135deg,#ffffff_0%,#eef4fa_100%)] p-5 shadow-[0_34px_110px_-62px_rgba(15,23,42,0.32)] md:p-7 lg:p-8">
@@ -41,10 +67,17 @@ export function CirugiaHero() {
                 size="lg"
                 className="h-12 rounded-2xl bg-primary px-6 text-primary-foreground hover:bg-secondary"
               >
-                <a href={surgeryWhatsAppHref} target="_blank" rel="noreferrer">
-                  <ClipboardCheck aria-hidden={true} className="h-4 w-4" />
-                  Solicitar valoración
-                </a>
+                {primaryAction.isExternal ? (
+                  <a href={primaryAction.href} target="_blank" rel="noreferrer">
+                    <ClipboardCheck aria-hidden={true} className="h-4 w-4" />
+                    {primaryAction.label}
+                  </a>
+                ) : (
+                  <Link href={primaryAction.href}>
+                    <ClipboardCheck aria-hidden={true} className="h-4 w-4" />
+                    {primaryAction.label}
+                  </Link>
+                )}
               </Button>
               <Button
                 asChild
@@ -52,10 +85,21 @@ export function CirugiaHero() {
                 variant="outline"
                 className="h-12 rounded-2xl border-primary/15 bg-white text-primary hover:bg-primary/5"
               >
-                <a href={surgeryPhoneHref}>
-                  <PhoneCall aria-hidden={true} className="h-4 w-4" />
-                  Llamar al hospital
-                </a>
+                {secondaryAction.isExternal ? (
+                  <a
+                    href={secondaryAction.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <PhoneCall aria-hidden={true} className="h-4 w-4" />
+                    {secondaryAction.label}
+                  </a>
+                ) : (
+                  <Link href={secondaryAction.href}>
+                    <PhoneCall aria-hidden={true} className="h-4 w-4" />
+                    {secondaryAction.label}
+                  </Link>
+                )}
               </Button>
             </div>
           </div>
